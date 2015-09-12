@@ -1,8 +1,9 @@
 
-<html><head><title>Lagesonum</title></head><body>
+<html><head><title>Numbers @ LaGeSo</title></head><body>
 
 
-<h1>Lagesonum - Nummern suchen</h1>
+<h1>Numbers @ LaGeSo</h1>
+<h3>Search a number</h3>
 
 <form action="/query" method="post">
    <input name="number" type="text"></input>
