@@ -17,18 +17,17 @@ ENCODING: Default ist UTF-8, ändern mit:
 @route('/')
 @view('start_page')
 def index():
-    return {}
-
-
-@route('/enter')
-@view('enter_page')
-def enter_numbers():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
+    return {'entered': []}
+
+@route('/arab')
+@view('start_page_arab')
+def index_arab():
     return {'entered': []}
 
 
 @route('/enter', method='POST')
-@view('enter_page')
+@view('start_page')
 def do_enter():
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
@@ -36,6 +35,7 @@ def do_enter():
     for num in numbers:
         print ('NUMBER TO STORE: ', num, timestamp)
     return {'entered': numbers, 'timestamp': timestamp}
+
 
 @route('/query')
 @view('query_page')
