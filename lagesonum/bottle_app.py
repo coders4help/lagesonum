@@ -7,7 +7,7 @@ from bottle import default_app, route, view
 from bottle import response, request
 import sqlite3
 import os, time
-import lagesonum.input_number as ip
+import input_number as ip
 
 """
 ENCODING: Default ist UTF-8, ändern mit:
@@ -37,16 +37,18 @@ def do_enter():
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
+    result_num = []
     with lagesonrdb as con:
         cur = con.cursor()
         for num in numbers:
             if ip.is_valid_number(num) and ip.is_ok_with_db(num) and ip.is_valid_user():
                 insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
                 cur.execute(insert)
+                result_num.append(num)
             else:
-                return {"INVALID INPUT: ": "num"}
+                result_num.append("INVALID INPUT: %s" % num)
 
-    return {'entered': numbers, 'timestamp': timestamp}
+    return {'entered': result_num, 'timestamp': timestamp}
 
 
 @route('/query')
