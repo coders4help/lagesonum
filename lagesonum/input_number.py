@@ -34,7 +34,7 @@ def is_ok_with_db(number):
     else:
         return True
 
-def is_valid_user(username, location, db_con):
+def is_valid_user(username="Helper", location="Lageso", db_con="SQLite"):
     """
     Checks whether a user is entitled for writing to the database
     :param username: username to be validated
@@ -45,4 +45,3 @@ def is_valid_user(username, location, db_con):
 
     #TODO: Implement user management to validate this. For now, always return true.
     return True
-

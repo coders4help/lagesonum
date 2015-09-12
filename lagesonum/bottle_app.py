@@ -6,6 +6,7 @@ import bottle
 from bottle import default_app, route, view
 from bottle import response, request
 import os, time
+import lagesonum.input_number as ip
 
 """
 ENCODING: Default ist UTF-8, ändern mit:
@@ -34,6 +35,10 @@ def do_enter():
     numbers = [num.strip() for num in numbers.split('\n')]
     for num in numbers:
         print ('NUMBER TO STORE: ', num, timestamp)
+
+        if ip.is_valid_number(num) and ip.is_ok_with_db(num) and ip.is_valid_user():
+            print ("Input validated")
+
     return {'entered': numbers, 'timestamp': timestamp}
 
 
