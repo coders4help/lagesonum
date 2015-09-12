@@ -44,7 +44,7 @@ def do_enter():
                 insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
                 cur.execute(insert)
             else:
-                return "INVALID INPUT: " + "num"
+                return {"INVALID INPUT: ": "num"}
 
     return {'entered': numbers, 'timestamp': timestamp}
 
@@ -65,16 +65,21 @@ def query_number():
 @view('query_page')
 def do_query():
     number = request.forms.get('number')
-    with lagesonrdb as con:
-        cur = con.cursor()
-        query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
-        result = list(cur.execute(query))
-        n = len(result)
-        if n > 0:
-            timestamp_first, timestamp_last = result[0][0], result[-1][0]
-            return {'result': number, 'timestamp_first': timestamp_first, 'timestamp_last': timestamp_last, 'n':n}
-    return {'result': 'number', 'timestamp_first': 'NOT FOUND', 'timestamp_last': '-', 'n':'0'}
 
+    if ip.is_valid_number(number) and ip.is_ok_with_db(number) and ip.is_valid_user():
+
+        with lagesonrdb as con:
+            cur = con.cursor()
+            query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
+            result = list(cur.execute(query))
+            n = len(result)
+            if n > 0:
+                timestamp_first, timestamp_last = result[0][0], result[-1][0]
+                return {'result': number, 'timestamp_first': timestamp_first, 'timestamp_last': timestamp_last, 'n':n}
+        return {'result': 'number', 'timestamp_first': 'NOT FOUND', 'timestamp_last': '-', 'n':'0'}
+
+    else:
+        return {"INVALID INPUT": number}
 
 bottle.TEMPLATE_PATH.append(MOD_PATH) # findet templates im gleichen Verzeichnis
 application = default_app()
