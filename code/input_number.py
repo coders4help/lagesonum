@@ -25,9 +25,9 @@ def is_ok_with_db(number):
 
     # TODO: Very basic security check, please enhance, maybe with library
     if sum([1 for e in MALICIOUS_EXPRESSIONS if e in number])>0:
-        return True
-    else:
         return False
+    else:
+        return True
 
 def is_valid_user(username, location, db_con):
     """
