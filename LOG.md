@@ -30,7 +30,7 @@ funktionieren sollte:
 
     python lagesonum    
 
-Und im Browser [http://localhost:8080/hello](http://localhost:8080/hello)
+Und im Browser [http://localhost:8080/](http://localhost:8080/)
 
 
 (Rückfragen an Kristian: krother@academis.eu)

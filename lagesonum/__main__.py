@@ -1,10 +1,7 @@
 
-from bottle import Bottle, run
+# Datei zum lokalen testen, PythonAnywhere verwendet bottle_app.py direkt
 
-app = Bottle()
+from bottle_app import application
+from bottle import run
 
-@app.route('/hello')
-def hello():
-    return "Hello World!"
-
-run(app, host='localhost', port=8080)
+run(application, host='localhost', port=8080)
