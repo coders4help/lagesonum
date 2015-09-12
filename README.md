@@ -21,6 +21,12 @@ Nötige Seiten:
 
 # Anforderungen
 
+
+Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">Anforderungen sind in einem Google-Dokument detailliert</a>.
+
+Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bottlepy.org/docs/dev/index.html">Bottle</a> und SQLite.
+
+
 responsives Design (mobile first)
 
 Die Programmiersprache kann frei gewählt werden.
