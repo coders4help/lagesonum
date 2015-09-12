@@ -1,6 +1,6 @@
 __author__ = 'f.zesch'
 
-MALICIOUS_EXPRESSIONS = ["DROP", "TABLE"]
+MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
 
 # logic for adding numbers to database
 
@@ -18,7 +18,7 @@ def is_valid_number(number, pattern, min_len=0, max_len=99):
 
 def is_ok_with_db(number):
     """
-    Checks, that a number to be inserted is no attack on database
+    Checks, that a number to be inserted is generally no attack on database
     :param number:
     :return: boolean
     """
@@ -37,4 +37,6 @@ def is_valid_user(username, location, db_con):
     :param db_con: database connection for passing SQL command
     :return:
     """
-    return False
+
+    #TODO: Implement user management to validate this. For now, always return true.
+    return True
