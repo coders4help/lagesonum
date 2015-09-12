@@ -43,6 +43,8 @@ def do_enter():
             if ip.is_valid_number(num) and ip.is_ok_with_db(num) and ip.is_valid_user():
                 insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
                 cur.execute(insert)
+            else:
+                return "INVALID INPUT: " + "num"
 
     return {'entered': numbers, 'timestamp': timestamp}
 
