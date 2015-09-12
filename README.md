@@ -3,7 +3,7 @@ Number website for Lageso
 
 # Problem
 
-Um in Deutschland registriert zu werden, müssen Flüchtlinge zunächst eine Nummer bekommen. Wann diese aufgerufen wird, ist schwer abzuschätzen und bisher nur vor Ort erkennbar. Die Lösung ist eine Internetseite, auf der Nummern eingetragen und abgerufen werden können. (Hintergrundartikel)
+Um in Deutschland registriert zu werden, müssen Flüchtlinge zunächst eine Nummer bekommen. Wann diese aufgerufen wird, ist schwer abzuschätzen und bisher nur vor Ort erkennbar. Die Lösung ist eine Internetseite, auf der Nummern eingetragen und abgerufen werden können. (Hintergrundartikel: http://www.taz.de/Wartezeiten-am-Berliner-Lageso/!5228958/)
 Nötige Seiten:
 
 ##Minimalfunktionalität
