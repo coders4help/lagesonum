@@ -5,6 +5,7 @@
 import bottle
 from bottle import default_app, route, view
 from bottle import response, request
+import sqlite3
 import os, time
 
 """
@@ -13,6 +14,9 @@ ENCODING: Default ist UTF-8, ändern mit:
     response.charset = 'ISO-8859-15'
     response.content_type = 'text/html; charset=latin9'
 """
+
+MOD_PATH = os.path.split(__file__)[0]
+lagesonrdb = sqlite3.connect(MOD_PATH + os.sep + "lagesonr.db")
 
 @route('/')
 @view('start_page')
@@ -32,8 +36,12 @@ def do_enter():
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
-    for num in numbers:
-        print ('NUMBER TO STORE: ', num, timestamp)
+    with lagesonrdb as con:
+        cur = con.cursor()
+        for num in numbers:
+            insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
+            cur.execute(insert)
+
     return {'entered': numbers, 'timestamp': timestamp}
 
 
@@ -46,22 +54,24 @@ def query_number():
     DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
     application = default_app()
     """
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-'}
+    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-', 'n':'0'}
 
-FAKE_DATA = {
-    '123': ('Jan 1st', 'Dec 31st'),
-    '456': ('Apr 11th', 'Apr 12th'),
-}
 
 @route('/query', method='POST')
 @view('query_page')
 def do_query():
     number = request.forms.get('number')
-    print ('NUMBER TO QUERY: ', number)
-    timestamp_first, timestamp_last = FAKE_DATA.get(number, ('NOT FOUND', '-'))
-    return {'result': number, 'timestamp_first': timestamp_first, 'timestamp_last': timestamp_last}
+    with lagesonrdb as con:
+        cur = con.cursor()
+        query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
+        result = list(cur.execute(query))
+        n = len(result)
+        if n > 0:
+            timestamp_first, timestamp_last = result[0][0], result[-1][0]
+            return {'result': number, 'timestamp_first': timestamp_first, 'timestamp_last': timestamp_last, 'n':n}
+    return {'result': 'number', 'timestamp_first': 'NOT FOUND', 'timestamp_last': '-', 'n':'0'}
 
 
-bottle.TEMPLATE_PATH.append(os.path.split(__file__)[0]) # findet templates im gleichen Verzeichnis
+bottle.TEMPLATE_PATH.append(MOD_PATH) # findet templates im gleichen Verzeichnis
 application = default_app()
 

@@ -10,7 +10,10 @@
    <input type="submit" value="Abschicken">
 </form>
 
-<p>gefunden: <b>{{result}}</b> [{{timestamp_first}} - {{timestamp_last}}]</p>
+<p>gefunden: <b>{{result}}</b><br>
+number of times: {{n}}<br>
+from: {{timestamp_first}}<br>
+to: {{timestamp_last}}</p>
 
 <a href="/">zur Startseite</a>
 
