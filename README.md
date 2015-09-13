@@ -3,7 +3,12 @@
 # Problem
 
 Um in Deutschland registriert zu werden, müssen Flüchtlinge zunächst eine Nummer bekommen. Wann diese aufgerufen wird, ist schwer abzuschätzen und bisher nur vor Ort erkennbar. Die Lösung ist eine Internetseite, auf der Nummern eingetragen und abgerufen werden können. (Hintergrundartikel: http://www.taz.de/Wartezeiten-am-Berliner-Lageso/!5228958/)
-Nötige Seiten:
+
+## Nutzerkreis
+
+Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen, genutzt werden, um herauszufinden, ob ihre Nummer schon aufgerufen wurde. Bisher stehen dort täglich mehrere hundert Menschen in der Warteschlange, um dies vor Ort zu erfahren. Freiwillige tragen dabei die Nummern ein.
+
+# Funktionen
 
 ## Bestehende Funktionen
 
