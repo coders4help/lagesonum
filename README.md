@@ -32,3 +32,12 @@ Testsystem ist zurzeit auf http://krother.pythonanywhere.com
 Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">Anforderungen sind in einem Google-Dokument detailliert</a>.
 
 Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bottlepy.org/docs/dev/index.html">Bottle</a> und SQLite.
+
+## i18n - Übersetzung und Internationalisierung
+Umsetzung mit gettext und bottle_i18n
+
+- Die Übersetzungen werden in einer Tabelle erstellt (Google-Docs)
+    - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto
+- Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
+- Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
+
