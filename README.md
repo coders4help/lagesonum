@@ -37,7 +37,7 @@ Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bot
 Umsetzung mit gettext und bottle_i18n
 
 - Die Übersetzungen werden in einer Tabelle erstellt (Google-Docs)
-    - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto
+    - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto Urdu	Dari	Portugiesisch	Albanisch	Bosnisch	Serbisch
 - Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
 - Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
 
