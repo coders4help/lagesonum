@@ -2,9 +2,9 @@
 
 <h1>Numbers @ LaGeSo</h1>
 
-<p><a href="/arab">[ in Arabian ]</a></p>
+<p><a href="/ar_AR">[ Arabian ]</a><a href="/en_US">[ English ]</a><a href="/de_DE">[ Deutsch ]</a></p>
 
-<p>Everyone in the queue at LaGeSo: Please enter the currently displayed numbers. This way, people not in front of LaGeSo can check if their number has been called. It will work, if everyone works together! Today you help entering numbers, tomorrow you can profit from others entering numbers. <em>TOGETHER WE CAN DO IT!</em></p>
+<p>{{_('pitch')}} <em>{{_('wecandoit')}}</em></p>
 
 <form action="/enter" method="post">
    <textarea name="numbers" rows="10" cols="30"></textarea>
@@ -13,11 +13,11 @@
 
 <ul>
 % for number in entered:
-    <li>eingegeben: <b>{{number}}</b> [{{timestamp}}]</li>
+    <li>{{_('entered')}}: <b>{{number}}</b> [{{timestamp}}]</li>
   % end
 </ul>
 
-<h3><a href="/query">search a number</a></h3>
+<h3><a href="/query">{{_('searchanumber')}}</a></h3>
 
 <p>Impressum</p>
 

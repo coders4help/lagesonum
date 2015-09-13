@@ -5,6 +5,8 @@
 import bottle
 from bottle import default_app, route, view
 from bottle import response, request
+from bottle_utils.i18n import I18NPlugin
+from bottle_utils.i18n import lazy_ngettext as ngettext, lazy_gettext as _
 import sqlite3
 import os, time
 import input_number as ip
@@ -18,6 +20,19 @@ ENCODING: Default ist UTF-8, ändern mit:
 
 MOD_PATH = os.path.split(__file__)[0]
 lagesonrdb = sqlite3.connect(MOD_PATH + os.sep + "lagesonr.db")
+
+LANGS = [
+    ('de_DE', 'Deutsch'),
+    ('en_US', 'English'),
+    ('ar_AR', 'Arab'),
+]
+DEFAULT_LOCALE = 'en_US'
+
+
+@route('/bla')
+def handler():
+    """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
+    return _('TESTWORD')
 
 @route('/')
 @view('start_page')
@@ -83,6 +98,8 @@ def do_query():
     else:
         return {"INVALID INPUT": number}
 
-bottle.TEMPLATE_PATH.append(MOD_PATH) # findet templates im gleichen Verzeichnis
-application = default_app()
 
+bottle.TEMPLATE_PATH.append(MOD_PATH) # findet templates im gleichen Verzeichnis
+app = default_app()
+application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
+                      domain='messages', locale_dir=MOD_PATH + os.sep + 'locales')
