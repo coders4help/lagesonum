@@ -12,20 +12,20 @@ Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen
 
 ## Bestehende Funktionen
 
-Testsystem ist zurzeit auf http://krother.pythonanywhere.com/enter
+Testsystem ist zurzeit auf http://krother.pythonanywhere.com
 
 0. Seite: Übersicht und Auswahlseite
 1. Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] <diese werden mit timestamp in eine Tabelle geschrieben>
 2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
 
-## Mögliche Erweiterungen --> Bitte helfen
+## Mögliche Erweiterungen --> Hilfe sehr willkommen
 
- - 3. Seite nice to have: Leaderboard: X verifizierte Nummern eingetragen (verifiziert = von 3 oder mehr unabhängigen Leuten eingetragen)
+ - 4. Seite nice to have: Leaderboard: X verifizierte Nummern eingetragen (verifiziert = von 3 oder mehr unabhängigen Leuten eingetragen)
  - Feature nice to have: SMS, Email, Push, Whatsapp Benachrichtigung wenn Nummer aufgerufen wird
  - Nutzerkonten mit Passwortverwaltung (oder Login über facebook)
  - Skalierung über mehrere Orte (die man aus Liste auswählen kann)
  - Vorschlagen von neuen Orten (händische Bestätigung von Administrator in Admin-View)
- - Internationalisierung
+ - Internationalisierung (Übersetzungen organisieren wir gerade, aber technische Umsetzung noch unklar)
 
 # Umsetzung
 
