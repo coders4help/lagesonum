@@ -12,7 +12,10 @@ Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen
 
 ## Bestehende Funktionen
 
-1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] <diese werden mit timestamp in eine Tabelle geschrieben>
+Testsystem ist zurzeit auf http://krother.pythonanywhere.com/enter
+
+0. Seite: Übersicht und Auswahlseite
+1. Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] <diese werden mit timestamp in eine Tabelle geschrieben>
 2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
 
 ## Mögliche Erweiterungen --> Bitte helfen
