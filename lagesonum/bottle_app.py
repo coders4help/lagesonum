@@ -5,6 +5,9 @@
 import bottle
 from bottle import default_app, route, view
 from bottle import response, request
+import bottle_i18n
+
+
 import sqlite3
 import os, time
 import input_number as ip
