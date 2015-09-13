@@ -40,7 +40,7 @@ def do_enter():
     result_num = []
     with lagesonrdb as con:
         cur = con.cursor()
-        for num in numbers:
+        for num in set(numbers):
             if ip.is_valid_number(num) and ip.is_ok_with_db(num) and ip.is_valid_user():
                 insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
                 cur.execute(insert)
