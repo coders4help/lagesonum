@@ -31,23 +31,6 @@ LANGS = [
 # ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
 
-
-@route('/user-agent')
-def user_agent():
-    """
-    returns an identification hash based on information from the user's browser
-    :return: string
-    """
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
-    usr_ip = str(request.remote_addr)
-
-    usr_fingerprint = usr_agent + usr_lang + usr_ip
-    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8"))
-
-    # no return
-    return ()
-
 @route('/')
 @view('start_page')
 def index():
@@ -57,21 +40,32 @@ def index():
 @route('/', method='POST')
 @view('start_page')
 def do_enter():
-    import pdb
-    #pdb.set_trace()
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
     result_num = []
+    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
+    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
+    usr_ip = str(request.remote_addr)
+
+    usr_fingerprint = usr_agent + usr_lang + usr_ip
+    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
+
     with lagesonrdb as con:
         cur = con.cursor()
         for num in set(numbers):
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
-                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (
-                    num, timestamp)
-                cur.execute(insert)
-                result_num.append(num)
+
+                query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s"' % (num, usr_hash)
+                if len(list(cur.execute(query))) == 0:
+
+                    insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER, FINGERPRINT) VALUES ("%s", "%s", "-", ' \
+                             '"-", "%s")' % (num, timestamp, usr_hash)
+                    cur.execute(insert)
+                    result_num.append(num)
+                else:
+                    result_num.append("ALREADY ENTERED BY - %s - %s - %s: %s" % (usr_ip, usr_agent, usr_lang, num))
             else:
                 result_num.append("INVALID INPUT: %s" % num)
 
