@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # Der WSGI-Server auf PythonAnywhere verwendet diese Datei
-import hashlib
+
 import sqlite3
 import os
 import time
@@ -14,13 +14,7 @@ from bottle_utils.i18n import lazy_gettext as _
 
 import input_number as ip
 from dbhelper import initialize_database
-
-"""
-ENCODING: Default ist UTF-8, ändern mit:
-
-    response.charset = 'ISO-8859-15'
-    response.content_type = 'text/html; charset=latin9'
-"""
+import hashlib
 
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '..', '..', "lagesonr.db"))
@@ -38,47 +32,52 @@ LANGS = [
 DEFAULT_LOCALE = 'en_US'
 
 
+<<<<<<< Temporary merge branch 1
+=======
 @route('/bla')
 def handler():
     """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
-    return _('TESTWORD')
+    return _('TESTWORD',ip.get_user_id())
 
+@route('/user-agent')
+def user_agent():
+    """
+    returns an identification hash based on information from the user's browser
+    :return: string
+    """
+    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
+    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
+    usr_ip = str(request.remote_addr)
 
+    usr_fingerprint = usr_agent + usr_lang + usr_ip
+    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8"))
+
+    # no return
+    return ()
+
+>>>>>>> Temporary merge branch 2
 @route('/')
 @view('start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
-
-@route('/arab')
-@view('start_page_arab')
-def index_arab():
-    return {'entered': []}
-
-
-@route('/enter', method='POST')
+@route('/', method='POST')
 @view('start_page')
 def do_enter():
+    import pdb
+    #pdb.set_trace()
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
     result_num = []
-
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
-    usr_ip = str(request.remote_addr)
-
-    usr_fingerprint = usr_agent + usr_lang + usr_ip
-    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
-
     with lagesonrdb as con:
         cur = con.cursor()
         for num in set(numbers):
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
-                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER, FINGERPRINT) VALUES ("%s", "%s", "-", "-", %s)' % (
-                    num, timestamp, usr_hash)
+                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (
+                    num, timestamp)
                 cur.execute(insert)
                 result_num.append(num)
             else:
