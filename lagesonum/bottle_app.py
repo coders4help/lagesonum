@@ -95,6 +95,9 @@ def query_number():
 @view('query_page')
 def do_query():
     number = request.forms.get('number')
+    timestamp_first = '-'
+    timestamp_last = '-'
+    n = '0'
 
     if ip.is_valid_number(number) and ip.is_ok_with_db(
             number) and ip.is_valid_user():
@@ -106,13 +109,13 @@ def do_query():
             n = len(result)
             if n > 0:
                 timestamp_first, timestamp_last = result[0][0], result[-1][0]
-                return {'result': number, 'timestamp_first': timestamp_first,
-                        'timestamp_last': timestamp_last, 'n': n}
-        return {'result': 'number', 'timestamp_first': 'NOT FOUND',
-                'timestamp_last': '-', 'n': '0'}
-
+            else:
+                timestamp_first = 'NOT FOUND'
     else:
-        return {"INVALID INPUT": number}
+        timestamp_first = 'INVALID INPUT'
+
+    return {'result': number, 'timestamp_first': timestamp_first,
+                'timestamp_last': timestamp_last, 'n': n}
 
 
 # findet templates im gleichen Verzeichnis
