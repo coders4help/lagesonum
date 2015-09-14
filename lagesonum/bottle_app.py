@@ -15,13 +15,6 @@ from bottle_utils.i18n import lazy_gettext as _
 import input_number as ip
 from dbhelper import initialize_database
 
-"""
-ENCODING: Default ist UTF-8, ändern mit:
-
-    response.charset = 'ISO-8859-15'
-    response.content_type = 'text/html; charset=latin9'
-"""
-
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '..', '..', "lagesonr.db"))
 
@@ -38,28 +31,17 @@ LANGS = [
 DEFAULT_LOCALE = 'en_US'
 
 
-@route('/bla')
-def handler():
-    """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
-    return _('TESTWORD')
-
-
 @route('/')
 @view('start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
-
-@route('/arab')
-@view('start_page_arab')
-def index_arab():
-    return {'entered': []}
-
-
-@route('/enter', method='POST')
+@route('/', method='POST')
 @view('start_page')
 def do_enter():
+    import pdb
+    #pdb.set_trace()
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]

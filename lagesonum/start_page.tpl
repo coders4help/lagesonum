@@ -6,7 +6,7 @@
 
 <p>{{_('pitch')}} <em>{{_('wecandoit')}}</em></p>
 
-<form action="/enter" method="post">
+<form action="{{i18n_path('/')}}" method="post">
    <textarea name="numbers" rows="10" cols="30"></textarea>
    <input type="submit" value="Abschicken">
 </form>
@@ -17,7 +17,7 @@
   % end
 </ul>
 
-<h3><a href="/query">{{_('searchanumber')}}</a></h3>
+<h3><a href="{{i18n_path('/query')}}">{{_('searchanumber')}}</a></h3>
 
 <p>Impressum</p>
 
