@@ -55,14 +55,14 @@ def create_tables(con):
         # write initial record for location and user
         LOC_STRING = 'INSERT INTO PLACES(PLACE, USER, VALREGEXP, MIN_LENGTH, MAX_LENGTH) VALUES ("LAGESO", "Helper", "^[a-zA-Z]{1,1}[0-9]+$", 1, 99)'
         USR_STRING = 'INSERT INTO USERS(USER, PW, ISADMIN) VALUES ("Helper", "1234", "-")'
-        NUM_STRING = 'INSERT INTO NUMBERS(NUMBER, TIME; PLACE, USER, FINGERPRINT) VALUES ("00000", "-", "DB", "-", "-")'
+        NUM_STRING = 'INSERT INTO NUMBERS(NUMBER, TIME; PLACE, USER, FINGERPRINT) VALUES ("A00000", "Nov 14 2011 03:12:12:947PM", "-", "-", "-")'
 
-        for s in [LOC_STRING, NUM_STRING, USR_STRING]:
+        for s in [NUM_STRING, LOC_STRING, USR_STRING]:
             try:
                 cur.execute(s)
                 print("Success: ", s)
             except sqlite3.OperationalError as e:
-                print(e)
+                print("ERROR", e)
 
 
 def initialize_database(path):
@@ -77,7 +77,7 @@ def initialize_database(path):
     rows = cur.fetchall()
 
     for row in rows:
-        print (row[0])
+        print(row[0])
 
     lagesonrdb.close()
     print('Database initialized.')
