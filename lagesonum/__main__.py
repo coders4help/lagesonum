@@ -2,7 +2,7 @@
 
 # Datei zum lokalen testen, PythonAnywhere verwendet bottle_app.py direkt
 
-from bottle import run
+from bottle import run, debug
 
 from bottle_app import application
 

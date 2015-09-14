@@ -1,6 +1,8 @@
 __author__ = 'f.zesch'
 
+from bottle import request, route
 import re
+import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
 LAGESO_pattern = re.compile("^[a-zA-Z]{1,1}[0-9]+$")
@@ -45,3 +47,16 @@ def is_valid_user(username="Helper", location="Lageso", db_con="SQLite"):
 
     #TODO: Implement user management to validate this. For now, always return true.
     return True
+
+def get_user_id():
+    """
+    Returns an identification hash of the user
+    :return:
+    """
+
+    user_agent = request.environ.get("HTTP_USER_AGENT")
+    user_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
+
+    #todo: get user os or other means for refining browser fingerprint
+
+    return hashlib.md5(user_agent+user_ip)
