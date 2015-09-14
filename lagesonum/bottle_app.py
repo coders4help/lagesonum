@@ -57,11 +57,11 @@ def do_enter():
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
 
-                query = 'SELECT * FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s" ORDER BY TIME' % (num, usr_hash)
-                if len(list(cur.execute(query)))==0:
+                query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s"' % (num, usr_hash)
+                if len(list(cur.execute(query))) == 0:
 
-                    insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-", %s)' % (
-                        num, timestamp, usr_hash)
+                    insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER, FINGERPRINT) VALUES ("%s", "%s", "-", ' \
+                             '"-", "%s")' % (num, timestamp, usr_hash)
                     cur.execute(insert)
                     result_num.append(num)
                 else:

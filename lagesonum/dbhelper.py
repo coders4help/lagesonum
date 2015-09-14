@@ -48,16 +48,19 @@ def create_tables(con):
             print(sql_string)
             try:
                 cur.execute(sql_string)
+                print("Success: ", sql_string)
             except sqlite3.OperationalError as e:
                 print(e)
 
         # write initial record for location and user
         LOC_STRING = 'INSERT INTO PLACES(PLACE, USER, VALREGEXP, MIN_LENGTH, MAX_LENGTH) VALUES ("LAGESO", "Helper", "^[a-zA-Z]{1,1}[0-9]+$", 1, 99)'
-        USR_STRING = 'INSERT INTO USERS(USER, PW, ISADMIN) VALUES ("Helper", "1234", "0")'
+        USR_STRING = 'INSERT INTO USERS(USER, PW, ISADMIN) VALUES ("Helper", "1234", "-")'
+        NUM_STRING = 'INSERT INTO NUMBERS(NUMBER, TIME; PLACE, USER, FINGERPRINT) VALUES ("00000", "-", "DB", "-", "-")'
 
-        for s in [LOC_STRING, USR_STRING]:
+        for s in [LOC_STRING, NUM_STRING, USR_STRING]:
             try:
                 cur.execute(s)
+                print("Success: ", s)
             except sqlite3.OperationalError as e:
                 print(e)
 
@@ -66,6 +69,16 @@ def initialize_database(path):
     print('Initializing sqlite3 database at {}'.format(path))
     lagesonrdb = sqlite3.connect(path)
     create_tables(lagesonrdb)
+
+    cur = lagesonrdb.cursor()
+
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        print (row[0])
+
     lagesonrdb.close()
     print('Database initialized.')
 
