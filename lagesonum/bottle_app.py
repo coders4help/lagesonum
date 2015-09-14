@@ -31,31 +31,6 @@ LANGS = [
 # ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
 
-
-<<<<<<< Temporary merge branch 1
-=======
-@route('/bla')
-def handler():
-    """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
-    return _('TESTWORD',ip.get_user_id())
-
-@route('/user-agent')
-def user_agent():
-    """
-    returns an identification hash based on information from the user's browser
-    :return: string
-    """
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
-    usr_ip = str(request.remote_addr)
-
-    usr_fingerprint = usr_agent + usr_lang + usr_ip
-    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8"))
-
-    # no return
-    return ()
-
->>>>>>> Temporary merge branch 2
 @route('/')
 @view('start_page')
 def index():
@@ -65,21 +40,32 @@ def index():
 @route('/', method='POST')
 @view('start_page')
 def do_enter():
-    import pdb
-    #pdb.set_trace()
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
     result_num = []
+    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
+    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
+    usr_ip = str(request.remote_addr)
+
+    usr_fingerprint = usr_agent + usr_lang + usr_ip
+    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
+
     with lagesonrdb as con:
         cur = con.cursor()
         for num in set(numbers):
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
-                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (
-                    num, timestamp)
-                cur.execute(insert)
-                result_num.append(num)
+
+                query = 'SELECT * FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s" ORDER BY TIME' % (num, usr_hash)
+                if len(list(cur.execute(query)))==0:
+
+                    insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-", %s)' % (
+                        num, timestamp, usr_hash)
+                    cur.execute(insert)
+                    result_num.append(num)
+                else:
+                    result_num.append("ALREADY ENTERED BY - %s - %s - %s: %s" % (usr_ip, usr_agent, usr_lang, num))
             else:
                 result_num.append("INVALID INPUT: %s" % num)
 
@@ -116,11 +102,14 @@ def do_query():
                 timestamp_first, timestamp_last = result[0][0], result[-1][0]
                 return {'result': number, 'timestamp_first': timestamp_first,
                         'timestamp_last': timestamp_last, 'n': n}
+
         return {'result': 'number', 'timestamp_first': 'NOT FOUND',
                 'timestamp_last': '-', 'n': '0'}
 
     else:
-        return {"INVALID INPUT": number}
+        #todo: may be give indication that input was invalid
+        return {'result': 'NOTHING', 'timestamp_first': 'NOT FOUND',
+                'timestamp_last': '-', 'n': '0'}
 
 
 # findet templates im gleichen Verzeichnis
