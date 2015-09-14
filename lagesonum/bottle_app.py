@@ -23,7 +23,8 @@ ENCODING: Default ist UTF-8, ändern mit:
 
 MOD_PATH = os.path.abspath(os.path.dirname(__file__))
 DB_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "lagesonr.db"))
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lagesonr.db")))
+print(DB_PATH)
 
 lagesonrdb = sqlite3.connect(DB_PATH)
 
