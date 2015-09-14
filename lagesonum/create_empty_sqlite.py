@@ -45,14 +45,21 @@ def create_tables(con):
                          ")"
             # run
             print(sql_string)
-            cur.execute(sql_string)
+            try:
+                cur.execute(sql_string)
+            except sqlite3.OperationalError as e:
+                print(e)
 
         # write initial record for location and user
         LOC_STRING = 'INSERT INTO PLACES(PLACE, USER, VALREGEXP, MIN_LENGTH, MAX_LENGTH) VALUES ("LAGESO", "Helper", "^[a-zA-Z]{1,1}[0-9]+$", 1, 99)'
         USR_STRING = 'INSERT INTO USERS(USER, PW, ISADMIN) VALUES ("Helper", "1234", "0")'
 
         for s in [LOC_STRING, USR_STRING]:
-            cur.execute(s)
+            try:
+                cur.execute(s)
+            except sqlite3.OperationalError as e:
+                print(e)
+
 
 lagesonrdb = sqlite3.connect("lagesonr.db")
 
