@@ -13,6 +13,7 @@ from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
 
 import input_number as ip
+from dbhelper import initialize_database
 
 """
 ENCODING: Default ist UTF-8, ändern mit:
@@ -21,10 +22,11 @@ ENCODING: Default ist UTF-8, ändern mit:
     response.content_type = 'text/html; charset=latin9'
 """
 
-MOD_PATH = os.path.abspath(os.path.dirname(__file__))
-DB_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lagesonr.db")))
-print(DB_PATH)
+MOD_PATH = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '..', '..', "lagesonr.db"))
+
+if not os.path.exists(DB_PATH):
+    initialize_database(DB_PATH)
 
 lagesonrdb = sqlite3.connect(DB_PATH)
 
