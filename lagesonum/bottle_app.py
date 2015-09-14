@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # Der WSGI-Server auf PythonAnywhere verwendet diese Datei
-
+import hashlib
 import sqlite3
 import os
 import time
@@ -64,13 +64,21 @@ def do_enter():
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
     result_num = []
+
+    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
+    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
+    usr_ip = str(request.remote_addr)
+
+    usr_fingerprint = usr_agent + usr_lang + usr_ip
+    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
+
     with lagesonrdb as con:
         cur = con.cursor()
         for num in set(numbers):
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
-                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (
-                    num, timestamp)
+                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER, FINGERPRINT) VALUES ("%s", "%s", "-", "-", %s)' % (
+                    num, timestamp, usr_hash)
                 cur.execute(insert)
                 result_num.append(num)
             else:

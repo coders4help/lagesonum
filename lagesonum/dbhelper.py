@@ -26,7 +26,8 @@ def create_tables(con):
         "NUMBERS": {"NUMBER": "VARCHAR(30)",
                     "TIME": "TIMESTAMP",
                     "PLACE": "VARCHAR(20)",
-                    "USER": "VARCHAR(10)"}
+                    "USER": "VARCHAR(10)",
+                    "FINGERPRINT": "VARCHAR(32)"}
 
     }
 
