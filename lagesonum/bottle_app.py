@@ -14,7 +14,6 @@ from bottle_utils.i18n import lazy_gettext as _
 
 import input_number as ip
 from dbhelper import initialize_database
-import hashlib
 
 """
 ENCODING: Default ist UTF-8, ändern mit:
@@ -42,23 +41,8 @@ DEFAULT_LOCALE = 'en_US'
 @route('/bla')
 def handler():
     """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
-    return _('TESTWORD',ip.get_user_id())
+    return _('TESTWORD')
 
-@route('/user-agent')
-def user_agent():
-    """
-    returns an identification hash based on information from the user's browser
-    :return: string
-    """
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
-    usr_ip = str(request.remote_addr)
-
-    usr_fingerprint = usr_agent + usr_lang + usr_ip
-    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8"))
-
-    # no return
-    return ()
 
 @route('/')
 @view('start_page')
