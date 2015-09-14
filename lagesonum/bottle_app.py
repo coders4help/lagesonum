@@ -32,13 +32,6 @@ LANGS = [
 DEFAULT_LOCALE = 'en_US'
 
 
-<<<<<<< Temporary merge branch 1
-=======
-@route('/bla')
-def handler():
-    """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
-    return _('TESTWORD',ip.get_user_id())
-
 @route('/user-agent')
 def user_agent():
     """
@@ -55,7 +48,6 @@ def user_agent():
     # no return
     return ()
 
->>>>>>> Temporary merge branch 2
 @route('/')
 @view('start_page')
 def index():
