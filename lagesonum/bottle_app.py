@@ -1,14 +1,17 @@
+# coding: utf-8
 
 # Der WSGI-Server auf PythonAnywhere verwendet diese Datei
 
-# A very simple Bottle Hello World app for you to get started with...
+import sqlite3
+import os
+import time
+
 import bottle
 from bottle import default_app, route, view
-from bottle import response, request
+from bottle import request
 from bottle_utils.i18n import I18NPlugin
-from bottle_utils.i18n import lazy_ngettext as ngettext, lazy_gettext as _
-import sqlite3
-import os, time
+from bottle_utils.i18n import lazy_gettext as _
+
 import input_number as ip
 
 """
@@ -18,8 +21,11 @@ ENCODING: Default ist UTF-8, ändern mit:
     response.content_type = 'text/html; charset=latin9'
 """
 
-MOD_PATH = os.path.split(__file__)[0]
-lagesonrdb = sqlite3.connect(MOD_PATH + os.sep + "lagesonr.db")
+MOD_PATH = os.path.abspath(os.path.dirname(__file__))
+DB_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "lagesonr.db"))
+
+lagesonrdb = sqlite3.connect(DB_PATH)
 
 LANGS = [
     ('de_DE', 'Deutsch'),
@@ -34,11 +40,13 @@ def handler():
     """BEISPIEL: probiere im Browser: /en_US/bla und /de_DE/bla"""
     return _('TESTWORD')
 
+
 @route('/')
 @view('start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
+
 
 @route('/arab')
 @view('start_page_arab')
@@ -56,8 +64,10 @@ def do_enter():
     with lagesonrdb as con:
         cur = con.cursor()
         for num in set(numbers):
-            if ip.is_valid_number(num) and ip.is_ok_with_db(num) and ip.is_valid_user():
-                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (num, timestamp)
+            if ip.is_valid_number(num) and ip.is_ok_with_db(
+                    num) and ip.is_valid_user():
+                insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER) VALUES ("%s", "%s", "-", "-")' % (
+                    num, timestamp)
                 cur.execute(insert)
                 result_num.append(num)
             else:
@@ -70,12 +80,13 @@ def do_enter():
 @view('query_page')
 def query_number():
     """
-    2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] 
-    => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) 
+    2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____]
+    => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung)
     DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
     application = default_app()
     """
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-', 'n':'0'}
+    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
+            'n': '0'}
 
 
 @route('/query', method='POST')
@@ -83,7 +94,8 @@ def query_number():
 def do_query():
     number = request.forms.get('number')
 
-    if ip.is_valid_number(number) and ip.is_ok_with_db(number) and ip.is_valid_user():
+    if ip.is_valid_number(number) and ip.is_ok_with_db(
+            number) and ip.is_valid_user():
 
         with lagesonrdb as con:
             cur = con.cursor()
@@ -92,14 +104,18 @@ def do_query():
             n = len(result)
             if n > 0:
                 timestamp_first, timestamp_last = result[0][0], result[-1][0]
-                return {'result': number, 'timestamp_first': timestamp_first, 'timestamp_last': timestamp_last, 'n':n}
-        return {'result': 'number', 'timestamp_first': 'NOT FOUND', 'timestamp_last': '-', 'n':'0'}
+                return {'result': number, 'timestamp_first': timestamp_first,
+                        'timestamp_last': timestamp_last, 'n': n}
+        return {'result': 'number', 'timestamp_first': 'NOT FOUND',
+                'timestamp_last': '-', 'n': '0'}
 
     else:
         return {"INVALID INPUT": number}
 
 
-bottle.TEMPLATE_PATH.append(MOD_PATH) # findet templates im gleichen Verzeichnis
+# findet templates im gleichen Verzeichnis
+bottle.TEMPLATE_PATH.append(MOD_PATH)
 app = default_app()
 application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
-                      domain='messages', locale_dir=MOD_PATH + os.sep + 'locales')
+                         domain='messages',
+                         locale_dir=os.path.join(MOD_PATH, 'locales'))
