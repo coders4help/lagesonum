@@ -67,6 +67,7 @@ def do_enter():
                     result_num.append(num)
                 else:
                     result_num.append("ALREADY ENTERED BY - %s - %s - %s: %s" % (usr_ip, usr_agent, usr_lang, num))
+                    return {'entered': "already before - by you!", 'timestamp': timestamp}
             else:
                 result_num.append("INVALID INPUT: %s" % num)
 
