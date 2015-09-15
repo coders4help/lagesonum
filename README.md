@@ -39,6 +39,12 @@ Umsetzung mit gettext und bottle_i18n
 - Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
 Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesch/lagesonum/issues/7)
 
+## Unit Tests
+
+Funktionieren bisher mindestens unter Python2:
+
+    python2 tests/
+
 # Kontakt
 
 f.zesch@mailbox.org
