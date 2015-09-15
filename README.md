@@ -17,7 +17,7 @@ Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen
 2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
 
 ## Mögliche Erweiterungen 
-Wir freuen uns über Beiträge, die unsere Issues behandeln oder lösen. Diese sind am dringendsten. 
+Wir freuen uns über Beiträge, die unsere [Issues](https://github.com/fzesch/lagesonum/issues) behandeln oder lösen. Diese sind am dringendsten. 
 
 Darüber hinaus gibt es größere Erweiterungen, die sinnvoll sind:
  
@@ -37,7 +37,7 @@ Umsetzung mit gettext und bottle_i18n
     - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto Urdu	Dari	Portugiesisch	Albanisch	Bosnisch	Serbisch
 - Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
 - Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
-Deployment muss besser skalieren können, s. Issue #7
+Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesch/lagesonum/issues/7)
 
 # Kontakt
 
