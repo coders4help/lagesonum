@@ -40,7 +40,6 @@ def index():
 @route('/', method='POST')
 @view('start_page')
 def do_enter():
-    print(request.forms.items())
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
@@ -58,6 +57,7 @@ def do_enter():
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
 
+                num = str(num).capitalize()
                 query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s"' % (num, usr_hash)
                 if len(list(cur.execute(query))) == 0:
 
@@ -67,6 +67,7 @@ def do_enter():
                     result_num.append(num)
                 else:
                     result_num.append("ALREADY ENTERED BY - %s - %s - %s: %s" % (usr_ip, usr_agent, usr_lang, num))
+                    #return {'entered': ["already before - by you!"], 'timestamp': timestamp}
             else:
                 result_num.append("INVALID INPUT: %s" % num)
 
@@ -75,15 +76,8 @@ def do_enter():
 
 @route('/query')
 @view('query_page')
-def query_number():
-    """
-    2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____]
-    => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung)
-    DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
-    application = default_app()
-    """
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
-            'n': '0'}
+def query():
+    return {'result': '-', 'timestamp_first': '-','timestamp_last': '-', 'n': '-'}
 
 
 @route('/query', method='POST')
@@ -99,6 +93,8 @@ def do_query():
 
         with lagesonrdb as con:
             cur = con.cursor()
+
+            number = str(number).capitalize()
             query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
             result = list(cur.execute(query))
             n = len(result)
@@ -112,6 +108,11 @@ def do_query():
     return {'result': number, 'timestamp_first': timestamp_first,
                 'timestamp_last': timestamp_last, 'n': n}
 
+
+@route('/impressum')
+@view('impressum')
+def impressum():
+    pass
 
 # findet templates im gleichen Verzeichnis
 bottle.TEMPLATE_PATH.append(MOD_PATH)
