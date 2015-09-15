@@ -40,6 +40,7 @@ def index():
 @route('/', method='POST')
 @view('start_page')
 def do_enter():
+    print(request.forms.items())
     numbers = request.forms.get('numbers')
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]

@@ -16,7 +16,7 @@ def is_valid_number(number, pattern=LAGESO_pattern, min_len=0, max_len=99):
     :param pattern: regular expression
     :return: boolean
     """
-    return True
+    # return True
     if re.findall(pattern, number):
         return True
     else:
