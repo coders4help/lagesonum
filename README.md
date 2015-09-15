@@ -16,16 +16,13 @@ Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen
 1. Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] <diese werden mit timestamp in eine Tabelle geschrieben>
 2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
 
-## Mögliche Erweiterungen --> Hilfe sehr willkommen
+## Mögliche Erweiterungen 
+Wir freuen uns über Beiträge, die unsere Issues behandeln oder lösen. Diese sind am dringendsten. 
 
- - Responsive design (s. Issue #2)
- - User fingerprint and verification (s. Issue #1)
- - Neue Seite: Leaderboard: X verifizierte Nummern eingetragen (verifiziert = von 3 oder mehr unabhängigen Leuten eingetragen)
- - Feature nice to have: SMS, Email, Push, Whatsapp Benachrichtigung wenn Nummer aufgerufen wird
+Darüber hinaus gibt es größere Erweiterungen, die sinnvoll sind:
+ 
+ - Email-Benachrichtigung wenn Nummer aufgerufen wird
  - Nutzerkonten mit Passwortverwaltung (oder Login über facebook)
- - Skalierung über mehrere Orte (die man aus Liste auswählen kann)
- - Vorschlagen von neuen Orten (händische Bestätigung von Administrator in Admin-View)
- - Internationalisierung (Übersetzungen organisieren wir gerade, aber technische Umsetzung noch unklar)
 
 # Umsetzung
 
@@ -40,4 +37,8 @@ Umsetzung mit gettext und bottle_i18n
     - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto Urdu	Dari	Portugiesisch	Albanisch	Bosnisch	Serbisch
 - Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
 - Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
+Deployment muss besser skalieren können, s. Issue #7
 
+# Kontakt
+
+f.zesch@mailbox.org
