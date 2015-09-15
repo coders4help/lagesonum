@@ -16,7 +16,7 @@ def is_valid_number(number, pattern=LAGESO_pattern, min_len=0, max_len=99):
     :param pattern: regular expression
     :return: boolean
     """
-    return True
+
     if re.findall(pattern, number):
         return True
     else:
@@ -38,14 +38,14 @@ def is_ok_with_db(number):
 
 def is_valid_user(username="Helper", location="Lageso", db_con="SQLite"):
     """
-    Checks whether a user is entitled for writing to the database
+    Checks whether a user is entitled for writing to the database. Currently, only double entries are impossible
+    through user_id-check
     :param username: username to be validated
     :param location: location where user wants to write to
     :param db_con: database connection for passing SQL command
     :return:
     """
 
-    #TODO: Implement user management to validate this. For now, always return true.
     return True
 
 def get_user_id():
