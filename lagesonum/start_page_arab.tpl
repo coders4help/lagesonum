@@ -19,6 +19,6 @@
 
 <h3><a href="/query">search a number</a></h3>
 
-<p>Impressum</p>
+<p><a href="impressum.html">Kontakt</a></p>
 
 </body></html>

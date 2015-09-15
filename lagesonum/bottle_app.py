@@ -103,6 +103,11 @@ def do_query():
                 'timestamp_last': timestamp_last, 'n': n}
 
 
+@route('/query')
+@view('impressum')
+def impressum():
+    pass
+
 # findet templates im gleichen Verzeichnis
 bottle.TEMPLATE_PATH.append(MOD_PATH)
 app = default_app()

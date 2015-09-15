@@ -16,6 +16,7 @@ from: {{timestamp_first}}<br>
 to: {{timestamp_last}}</p>
 
 <a href="{{i18n_path('/')}}">zur Startseite</a>
+<a href="impressum.html">Kontakt</a>
 
 </body></html>
 

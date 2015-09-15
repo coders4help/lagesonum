@@ -46,6 +46,6 @@
 
 <h3><a href="{{i18n_path('/query')}}">{{_('searchanumber')}}</a></h3>
 
-<p>Impressum</p>
+<p><a href="impressum.html">Kontakt</a></p>
 
 </body></html>
