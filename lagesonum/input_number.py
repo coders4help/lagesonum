@@ -5,10 +5,14 @@ import re
 import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
+
+# default parameters for checking validity of number
 LAGESO_pattern = re.compile("^[a-zA-Z]{1,1}[0-9]+$")
+LAGESO_min = 0
+LAGESO_max = 99
 
 
-def is_valid_number(number, pattern=LAGESO_pattern, min_len=0, max_len=99):
+def is_valid_number(number, pattern=LAGESO_pattern, min_len=LAGESO_min, max_len=LAGESO_max):
     """
     Checks, whether a number is in a valid format for a pattern given for a location
     To be run before insertion into db
