@@ -57,6 +57,7 @@ def do_enter():
             if ip.is_valid_number(num) and ip.is_ok_with_db(
                     num) and ip.is_valid_user():
 
+                num = str(num).capitalize()
                 query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s"' % (num, usr_hash)
                 if len(list(cur.execute(query))) == 0:
 
@@ -72,19 +73,6 @@ def do_enter():
     return {'entered': result_num, 'timestamp': timestamp}
 
 
-@route('/query')
-@view('query_page')
-def query_number():
-    """
-    2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____]
-    => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung)
-    DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
-    application = default_app()
-    """
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
-            'n': '0'}
-
-
 @route('/query', method='POST')
 @view('query_page')
 def do_query():
@@ -98,6 +86,8 @@ def do_query():
 
         with lagesonrdb as con:
             cur = con.cursor()
+
+            number = str(number).capitalize()
             query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
             result = list(cur.execute(query))
             n = len(result)
