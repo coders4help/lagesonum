@@ -16,7 +16,7 @@
             <li><a href="{{i18n_path('/')}}">{{_('helpus_link')}}</a></li>
             <li class="active"><a href="{{i18n_path('/query')}}">{{_('searchanumber_link')}}</a></li>
             <li><a href="{{i18n_path('/about')}}">{{_('about_link')}}</a></li>
-            <li><a href="{{i18n_path('/impressum')}}">{{_('contact_link')}}</a></li>        
+            <li><a href="{{i18n_path('/impressum')}}">{{_('contact_link')}}</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -32,7 +32,7 @@
 
 
 <form action="{{i18n_path('/query')}}" method="post">
-   <input name="number" type="text"></input>
+   <input name="number" type="text">
    <input type="submit" value="{{_('submit_label')}}">
 </form>
 
