@@ -5,7 +5,7 @@ import os
 import time
 
 import bottle
-from bottle import default_app, route, view
+from bottle import default_app, route, view, static_file
 from bottle import request
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
@@ -120,6 +120,10 @@ def about():
 @view('impressum')
 def impressum():
     pass
+
+@route('/static/<filename:path>', no_i18n=True)
+def send_static(filename):
+    return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
 # findet templates im gleichen Verzeichnis
 bottle.TEMPLATE_PATH.append(MOD_PATH)

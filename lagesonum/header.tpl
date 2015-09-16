@@ -29,6 +29,10 @@
           padding: 40px 15px;
           /* text-align: center; */
         }
+
+        .navbar-brand {
+          padding: 10px 15px;
+        }
     </style>
     <title>LaGeSoNum - showing numbers at LaGeSO in Berlin</title>
 </head>
@@ -42,7 +46,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="navbar-brand">Refugees Welcome!</div>
+          <div class="navbar-brand">
+            <img alt="LaGeSoNum" src="/static/logo.png" height="30">
+          </div>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
