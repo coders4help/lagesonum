@@ -30,6 +30,8 @@ Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0g
 
 Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bottlepy.org/docs/dev/index.html">Bottle</a> und SQLite.
 
+Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](https://github.com/fzesch/lagesonum/blob/master/LOG.md).
+
 ## i18n - Übersetzung und Internationalisierung
 Umsetzung mit gettext und bottle_i18n
 
@@ -44,6 +46,8 @@ Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesc
 Funktionieren bisher mindestens unter Python2:
 
     python2 tests/
+
+Siehe auch [Issue #13](https://github.com/fzesch/lagesonum/issues/13)
 
 # Kontakt
 
