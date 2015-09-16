@@ -15,21 +15,32 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-msgid "TESTWORD"
-msgstr "Hallo Leute, dies sind Testwörter"
+msgid "searchanumber_link"
+msgstr "Such Deine Nummer"
 
-msgid "hello %(variable)s"
-msgstr "Hello %(variable)s"
+msgid "helpus_link"
+msgstr "Hilf uns!"
 
-msgid "world"
-msgstr "World"
+msgid "about_link"
+msgstr "Über uns"
 
+msgid "contact_link"
+msgstr "Kontakt/Impressum"
 
-msgid "pitch"
-msgstr "An alle in der Schlange am LaGeSo: Bitte gib die angezeigten Nummern ein. So können Leute die nicht in vor dem LaGeSo stehen, prüfen ob ihre Nummern aufgerufen wurden. Es funktioniert wenn alle zusammenarbeiten! Heute hilfst Du Nummern einzugeben, morgen kannst Du davon profitieren, daß jemand Deine Nummer eingibt."
+msgid "search_pitch"
+msgstr "Du möchtest wissen, ob Deine Nummer schon am LaGeSo aufgerufen wurde? Gib sie hier ein, um das herauszufinden!"
 
-msgid "wecandoit"
-msgstr "GEMEINSAM KÖNNEN WIR ES SCHAFFEN"
+msgid "pleasenote_title"
+msgstr "Bitte beachten:"
+
+msgid "pleasenote"
+msgstr "Dieser Service wurde am 14.September 2015 eingerichtet. Nummrn vor diesem Datum sind nicht in der Datenbank."
+
+msgid "submit_label"
+msgstr "Abschicken"
+
+msgid "help_pitch"
+msgstr "Du stehst AM LaGeSo und möchtest anderen dabei helfen herauszufinden, ob ihre Nummern schon aufgerufen wurden? GROSSARTIG! Bitte hilf mit, indem Du alle Nummern, die Du auf der Anzeigetafel siehst eingibst (NICHT Deine eigene Wartenummer):"
 
 msgid "entered"
 msgstr "eingegeben"
@@ -37,3 +48,11 @@ msgstr "eingegeben"
 msgid "searchanumber"
 msgstr "suche eine Nummer"
 
+msgid "about_title"
+msgstr "Über uns"
+
+msgid "about_par1"
+msgstr "This website was created by volunteers so that people currently not at LaGeSo can check if their number was called upon. There are mobile registration teams coming to the shelters but the process is very slow and unorganized. Sometimes people have to wait 3 days, sometimes 15 days. We hope this service gives a better overview to those waiting.This website was created by volunteers. Its purpose is that people applying for asylum that are currently not at LaGeSo can check if their waiting number was called upon. There are mobile registration teams coming to the shelters but the process is very slow and not transparent enough for the people holding the waiting numbers. People have to wait up to 15 days until the teams arrive. This leads to people distrusting the system and also gives everyone the feeling that they are missing something. Unfortunately it has also happened that people from the official shelters were sent back to LaGeSo the next morning, whether they had a waiting number or not."
+
+msgid "about_par2"
+msgstr "We hope this website will aid in making the whole waiting number process more transparent. People with waiting numbers, please send us feedback, what information you are missing and we will do our best to make it available to you!"
