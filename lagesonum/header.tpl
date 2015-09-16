@@ -22,6 +22,13 @@
                 font-size: 42px;
             }
 
+            body {
+              padding-top: 50px;
+            }
+            .starter-template {
+              padding: 40px 15px;
+              /* text-align: center; */
+            }
         </style>
         <title>LaGeSoNum - showing numbers at LaGeSO in Berlin</title>
     </head>

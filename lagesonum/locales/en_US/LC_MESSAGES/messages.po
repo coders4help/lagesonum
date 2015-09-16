@@ -24,6 +24,9 @@ msgstr "Help Us!"
 msgid "about_link"
 msgstr "About"
 
+msgid "contact_link"
+msgstr "Contact"
+
 msgid "search_pitch"
 msgstr "You want to know, if your number has been called at LaGeSo? Enter it here to find out!"
 
