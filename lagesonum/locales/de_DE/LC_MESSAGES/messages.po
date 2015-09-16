@@ -19,7 +19,7 @@ msgid "searchanumber_link"
 msgstr "Such Deine Nummer"
 
 msgid "helpus_link"
-msgstr "Hilf uns!"
+msgstr "Submit number"
 
 msgid "about_link"
 msgstr "Über uns"
