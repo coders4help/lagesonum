@@ -109,6 +109,11 @@ def do_query():
                 'timestamp_last': timestamp_last, 'n': n}
 
 
+@route('/about')
+@view('about')
+def about():
+    pass
+
 @route('/impressum')
 @view('impressum')
 def impressum():

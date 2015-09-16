@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 
 from unittest import TestCase
 from lagesonum.bottle_app import application, DB_PATH
@@ -17,6 +18,20 @@ class LagesonumTests(TestCase):
         self.app = TestApp(application)
 
 
+    def test_about(self):
+        response = self.app.get('/about')
+        self.assertEqual(response.status, '302 Found')
+        response = self.app.get('/en_US/about')
+        self.assertEqual(response.status, '200 OK')
+        self.assertTrue("This website was created by volunteers" in response.body)
+
+    def test_impressum(self):
+        response = self.app.get('/impressum')
+        self.assertEqual(response.status, '302 Found')
+        response = self.app.get('/en_US/impressum')
+        self.assertEqual(response.status, '200 OK')
+        self.assertTrue("Datenschutzerklärung gem. §13 Telemediengesetz" in response.body)
+
     def test_redirect(self):
         response = self.app.get('/')
         self.assertEqual(response.status, '302 Found')
@@ -26,12 +41,12 @@ class LagesonumTests(TestCase):
     def test_startpage(self):
         response = self.app.get('/en_US/')
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("TOGETHER WE CAN DO IT" in response.body)
+        self.assertTrue("Please help by typing in all numbers" in response.body)
 
     def test_querypage(self):
         response = self.app.get('/en_US/query')
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("Search a number" in response.body)
+        self.assertTrue("Search Your Number" in response.body)
         
     def test_insert(self):
         response = self.app.post('/en_US/', {'numbers': 'A123'})
