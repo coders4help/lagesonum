@@ -1,7 +1,5 @@
 # coding: utf-8
 
-# Der WSGI-Server auf PythonAnywhere verwendet diese Datei
-
 import sqlite3
 import os
 import time
@@ -10,8 +8,9 @@ import bottle
 from bottle import default_app, route, view
 from bottle import request
 from bottle_utils.i18n import I18NPlugin
-from bottle_utils.i18n import lazy_gettext as _
+#from bottle_utils.i18n import lazy_gettext as _
 
+#todo: refactor so that there is no error in Py3 local deployment and testing
 import input_number as ip
 from dbhelper import initialize_database
 import hashlib
@@ -24,6 +23,7 @@ if not os.path.exists(DB_PATH):
 
 lagesonrdb = sqlite3.connect(DB_PATH)
 
+#todo: populate list dynamically based on available/selected translations
 LANGS = [
     ('de_DE', 'Deutsch'),
     ('en_US', 'English'),
@@ -44,6 +44,8 @@ def do_enter():
     timestamp = time.asctime()
     numbers = [num.strip() for num in numbers.split('\n')]
     result_num = []
+
+    #todo: refactor fingerprint in extra function for better testing
     usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
     usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
     usr_ip = str(request.remote_addr)

@@ -1,6 +1,5 @@
-__author__ = 'f.zesch'
-
-from bottle import request, route
+#todo: refactor: create one function "validate" for general validation, easier for external calling
+from bottle import request
 import re
 import hashlib
 
@@ -12,6 +11,7 @@ LAGESO_min = 0
 LAGESO_max = 99
 
 
+#todo: fetch validation pattern, min and max from database, based on location argument (for multi-location scalability)
 def is_valid_number(number, pattern=LAGESO_pattern, min_len=LAGESO_min, max_len=LAGESO_max):
     """
     Checks, whether a number is in a valid format for a pattern given for a location
