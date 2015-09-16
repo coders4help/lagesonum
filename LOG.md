@@ -1,5 +1,14 @@
+# Lokal zum Laufen bringen
 
-# Vorgehensweise
+- git clone git@github.com:fzesch/lagesonum.git
+- cd lagesonum
+- sudo pip install bottle              # recommended
+- sudo easy_install bottle             # alternative without pip
+- sudo apt-get install python-bottle   # works for debian, ubuntu, ...
+- pip install -r requirements.txt
+- python lagesonum
+
+# Vorgehensweise zum Erstellen des Projekts
 
 ## 1. Grundstruktur mit pyscaffold angelegt
 
