@@ -10,6 +10,8 @@
    <input type="submit" value="Abschicken">
 </form>
 
+<img src="pics/anzeigetafel.jpg"/>
+
 <ul>
 % for number in entered:
     <li>eingegeben: <b>{{number}}</b> [{{timestamp}}]</li>
