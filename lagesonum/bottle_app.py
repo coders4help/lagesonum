@@ -11,7 +11,7 @@ from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
 
-from lagesonum.input_number import is_valid_number
+from lagesonum.input_number import is_valid_number, parse_numbers
 from lagesonum.dbhelper import initialize_database
 import hashlib
 
@@ -47,19 +47,6 @@ def get_fingerprint(request):
     usr_fingerprint = u'{}{}{}'.format(usr_agent, usr_lang, usr_ip)
 
     return hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
-
-
-def parse_numbers(input_string, first_only=False):
-    r = re.compile(r'[a-z]\s*[0-9]+', re.IGNORECASE)
-    input_string = input_string.upper()
-
-    numbers = []
-    if first_only:
-        numbers += r.search(input_string).groups()
-    else:
-        numbers += r.findall(input_string)
-
-    return [''.join(num.split()) for num in numbers]
 
 
 @route('/', method='POST')

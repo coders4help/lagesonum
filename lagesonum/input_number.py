@@ -13,6 +13,19 @@ LAGESO_min = 0
 LAGESO_max = 99
 
 
+def parse_numbers(input_string, first_only=False):
+    r = re.compile(r'[a-z]\s*[0-9]+', re.IGNORECASE)
+    input_string = input_string.upper()
+
+    numbers = []
+    if first_only:
+        numbers += r.search(input_string).groups()
+    else:
+        numbers += r.findall(input_string)
+
+    return [''.join(num.split()) for num in numbers]
+
+
 # TODO: fetch validation pattern, min and max from database, based on location argument (for multi-location scalability)
 def is_valid_number(number, pattern=LAGESO_pattern):
     """
