@@ -2,12 +2,13 @@
 
 # TODO: refactor: create one function "validate" for general validation, easier for external calling
 import re
+import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
 SEPARATORS = (",", ";", ".", " ", "\n")
 
 
-# default parameters for checking validity of number
+# default parameters for checking validity of number. In the future, other patterns might be possible (get from db)
 LAGESO_pattern = re.compile("^[a-zA-Z][0-9]+$")
 LAGESO_min = 0
 LAGESO_max = 99
@@ -39,3 +40,13 @@ def is_valid_number(number, pattern=LAGESO_pattern):
         return not any(map(lambda expr: expr in number, MALICIOUS_EXPRESSIONS))
     else:
         return False
+
+
+def get_fingerprint(request):
+    usr_agent = str(request.environ.get('HTTP_USER_AGENT', ''))
+    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE', ''))
+    usr_ip = str(request.remote_addr)
+
+    usr_fingerprint = u'{}{}{}'.format(usr_agent, usr_lang, usr_ip)
+
+    return hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()

@@ -3,16 +3,14 @@
 import sqlite3
 import os
 import time
-import hashlib
-import re
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request
 
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
 
-from lagesonum.input_number import is_valid_number, parse_numbers
-from lagesonum.dbhelper import initialize_database
+from input_number import is_valid_number, parse_numbers, get_fingerprint
+from dbhelper import initialize_database
 import hashlib
 
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -37,16 +35,6 @@ DEFAULT_LOCALE = 'en_US'
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
-
-
-def get_fingerprint(request):
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT', ''))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE', ''))
-    usr_ip = str(request.remote_addr)
-
-    usr_fingerprint = u'{}{}{}'.format(usr_agent, usr_lang, usr_ip)
-
-    return hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
 
 
 @route('/', method='POST')
