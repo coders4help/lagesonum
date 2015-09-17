@@ -11,11 +11,11 @@ debug(True)
 
 class LagesonumTests(TestCase):
 
-    def setUp(self):
-        if os.path.exists(DB_PATH):
-            os.remove(DB_PATH)
-        initialize_database(DB_PATH)
-        self.app = TestApp(application)
+    # def setUp(self):
+    #     if os.path.exists(DB_PATH):
+    #         os.remove(DB_PATH)
+    #     initialize_database(DB_PATH)
+    #     self.app = TestApp(application)
 
 
     def test_about(self):

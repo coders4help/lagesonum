@@ -4,6 +4,8 @@ import re
 import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
+SEPARATORS = (",", ";", ".", " ", "\n")
+
 
 # default parameters for checking validity of number
 LAGESO_pattern = re.compile("^[a-zA-Z]{1,1}[0-9]+$")
@@ -63,3 +65,27 @@ def get_user_id():
     #todo: get user os or other means for refining browser fingerprint
 
     return hashlib.md5(user_agent+user_ip)
+
+def get_numbers(numstr_list, sep=" "):
+    """
+    generator returning all input numbers, not regarding the way they are input over multiple lines
+    """
+    number_set = []
+
+    for numstr in numstr_list:
+        for i, s in enumerate(SEPARATORS):
+
+            if len(list(numstr.split(s))) > len(numstr_list):
+                number_set.append(numstr.split(s)) and number_set.append(get_numbers(numstr), SEPARATORS[i])
+            else:
+                if is_valid_number(numstr):
+                    number_set.append(numstr)
+
+    final_set = [[n for n in n2] for n2 in number_set]
+    return final_set
+
+print(get_numbers(["A123\nB123\nC1223"]))
+print(get_numbers(["A123 B123, C1223"]))
+print(get_numbers(["A123,\n; B123, C1223"]))
+print(get_numbers(["A123 B123"]))
+
