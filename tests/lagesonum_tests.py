@@ -14,7 +14,7 @@ from dbhelper import initialize_database
 
 debug(True)
 
-
+class LagesonumTests(TestCase):
     def setUp(self):
         if os.path.exists(DB_PATH):
             os.remove(DB_PATH)
