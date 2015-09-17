@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# coding: utf-8
 
 from unittest import TestCase
 from lagesonum.bottle_app import application, DB_PATH
@@ -7,23 +7,27 @@ from webtest import TestApp
 import os
 from bottle import debug
 
+from webtest import TestApp
+
+from bottle_app import application, DB_PATH
+from dbhelper import initialize_database
+
 debug(True)
 
-class LagesonumTests(TestCase):
 
-    # def setUp(self):
-    #     if os.path.exists(DB_PATH):
-    #         os.remove(DB_PATH)
-    #     initialize_database(DB_PATH)
-    #     self.app = TestApp(application)
-
+    def setUp(self):
+        if os.path.exists(DB_PATH):
+            os.remove(DB_PATH)
+        initialize_database(DB_PATH)
+        self.app = TestApp(application)
 
     def test_about(self):
         response = self.app.get('/about')
         self.assertEqual(response.status, '302 Found')
         response = self.app.get('/en_US/about')
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("This website was created by volunteers" in str(response.body))
+        self.assertTrue(
+            "This website was created by volunteers" in response.body)
 
     def test_impressum(self):
         response = self.app.get('/impressum')
