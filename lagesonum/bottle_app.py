@@ -105,6 +105,7 @@ def do_query():
     number = ''
     rowcount = 0
     timestamp_first = 'NOT FOUND'
+    timestamp_last = ''
 
     if numbers:
         number = numbers[0]
