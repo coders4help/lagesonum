@@ -21,7 +21,3 @@ class InputTests(TestCase):
 
         self.assertEqual(["A123", "B123", "C123"], result)
 
-
-InputTests.input_three_on_three_lines()
-InputTests.input_two_different_on_one_line()
-
