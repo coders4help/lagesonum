@@ -10,9 +10,8 @@ from bottle import request
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
 
-#todo: refactor so that there is no error in Py3 local deployment and testing
-import input_number as ip
-from dbhelper import initialize_database
+from . import input_number as ip
+from .dbhelper import initialize_database
 import hashlib
 
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
