@@ -1,21 +1,23 @@
 # coding: utf-8
 
-# TODO: refactor: create one function "validate" for general validation, easier for external calling
 import re
 import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
-SEPARATORS = (",", ";", ".", " ", "\n")
-
 
 # default parameters for checking validity of number. In the future, other patterns might be possible (get from db)
-LAGESO_pattern = re.compile("^[a-zA-Z][0-9]+$")
-LAGESO_min = 0
-LAGESO_max = 99
+LAGESO_pattern = re.compile(r'[a-z]+[0-9]+', re.IGNORECASE)
 
 
-def parse_numbers(input_string, first_only=False):
-    r = re.compile(r'[a-z]\s*[0-9]+', re.IGNORECASE)
+# TODO: fetch validation pattern based on location argument (for multi-location scalability)
+def parse_numbers(input_string, first_only=False, r=LAGESO_pattern,):
+    """
+    returns a list of numbers matching the given pattern
+    :param input_string: numbers from form
+    :param r: regular expression for parsing numbers in input
+    :param first_only:
+    :return:
+    """
     input_string = input_string.upper()
 
     numbers = []
@@ -27,7 +29,7 @@ def parse_numbers(input_string, first_only=False):
     return [''.join(num.split()) for num in numbers]
 
 
-# TODO: fetch validation pattern, min and max from database, based on location argument (for multi-location scalability)
+# TODO: fetch validation pattern from database, based on location argument (for multi-location scalability)
 def is_valid_number(number, pattern=LAGESO_pattern):
     """
     Checks, whether a number is in a valid format for a pattern given for a location
