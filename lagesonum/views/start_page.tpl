@@ -7,8 +7,10 @@
 <p>{{_('help_pitch')}}</p>
 
 <form action="{{i18n_path('/')}}" method="post">
-   <textarea name="numbers" rows="10" cols="30"></textarea>
-   <input type="submit" value="{{_('submit_label')}}">
+  <div class="form-group">
+    <textarea name="numbers" rows="10" class="form-control" placeholder="e.g. A123 B123 C123"></textarea>
+  </div>
+  <button class="btn btn-primary">{{_('submit_label')}}</button>
 </form>
 
 <ul>

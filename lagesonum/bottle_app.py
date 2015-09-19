@@ -74,42 +74,37 @@ def do_enter():
 @route('/query')
 @view('views/query_page')
 def query():
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
-            'n': '-'}
+    return {'result': None}
 
 
 @route('/query', method='POST')
 @view('views/query_page')
 def do_query():
-    numbers = parse_numbers(request.forms.get('number', ''))
+    user_input = request.forms.get('number', '')
+    numbers = parse_numbers(user_input)
 
-    number = ''
+    number = None
     rowcount = 0
-    timestamp_first = 'NOT FOUND'
-    timestamp_last = ''
+    timestamps = []
+    invalid_input = None
 
     if numbers:
         number = numbers[0]
         with lagesonrdb as connection:
             cursor = connection.cursor()
 
-            select_query = 'SELECT * FROM numbers WHERE number LIKE ? ORDER BY time'
+            select_query = 'SELECT time FROM numbers WHERE number LIKE ? ORDER BY time'
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            if len(result) > 0:
-                rowcount = len(result)
-                timestamp_first = result[0][0]
-                timestamp_last = result[-1][0]
-            else:
-                timestamp_first = 'NOT FOUND'
-                timestamp_last = '-'
+            timestamps = map(lambda row: row[0], result)
+    else:
+        invalid_input = user_input
 
     context = {
-        'result': number,
-        'timestamp_first': timestamp_first,
-        'timestamp_last': timestamp_last,
-        'n': rowcount
+        'result': number or invalid_input,
+        'invalid_input': invalid_input,
+        'timestamps': timestamps
     }
 
     return context
