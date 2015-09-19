@@ -65,6 +65,9 @@ def do_enter():
             else:
                 result_num.append("INVALID INPUT: {}".format(num))
 
+        if not len(numbers):
+            result_num.append("NO VALID NUMBERS ENTERED")
+
     return {'entered': result_num, 'timestamp': timestamp}
 
 
