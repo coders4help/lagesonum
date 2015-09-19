@@ -1,10 +1,8 @@
-% include('header.tpl', active='helpus')
+% include('views/header.tpl', active='helpus')
 
 
 <div class="container">
       <div class="starter-template">
-
-<p><!--<a href="/ar_AR">[ Arabian ]</a>!--><a href="/en_US">[ English ]</a><a href="/de_DE">[ Deutsch ]</a></p>
 
 <p>{{_('help_pitch')}}</p>
 
@@ -18,5 +16,7 @@
     <li>{{_('entered')}}: <b>{{number}}</b> [{{timestamp}}]</li>
   % end
 </ul>
+</div>
+</div>
 
-% include('footer.tpl')
+% include('views/footer.tpl')

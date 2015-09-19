@@ -60,3 +60,5 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    <p><!--<a href="/ar_AR">[ Arabian ]</a>!--><a href="/en_US">[ English ]</a><a href="/de_DE">[ Deutsch ]</a></p>

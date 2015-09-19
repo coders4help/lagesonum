@@ -1,9 +1,7 @@
-% include('header.tpl', active='query')
+% include('views/header.tpl', active='query')
 
 <div class="container">
       <div class="starter-template">
-
-<p><!--<a href="/ar_AR">[ Arabian ]</a>!--><a href="/en_US">[ English ]</a><a href="/de_DE">[ Deutsch ]</a></p>
 
 <p>{{_('search_pitch')}}</p>
 
@@ -22,6 +20,8 @@ to: {{timestamp_last}}</p>
 <h3>{{_('pleasenote_title')}}</h3>
 <p>{{_('pleasenote')}}</p>
 
-% include('footer.tpl')
+</div></div>
+
+% include('views/footer.tpl')
 
 

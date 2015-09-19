@@ -1,4 +1,4 @@
-% include('header.tpl', active='impressum')
+% include('views/header.tpl', active='impressum')
 
 <div class="container">
       <div class="starter-template">
@@ -14,6 +14,7 @@ Legiendamm 18<br/>
 <h2>Datenschutzerklärung gem. §13 Telemediengesetz</h2>
 Um das Angebot dieser Seite zur Verfügung zu stellen, werden nutzerbezogene Daten gespeichert und verarbeitet, darunter IP, Browserinformationen und Sprachpräferenzen.
 
-% include('footer.tpl')
 </div>
 </div>
+
+% include('views/footer.tpl')

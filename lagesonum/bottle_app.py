@@ -31,14 +31,14 @@ DEFAULT_LOCALE = 'en_US'
 
 
 @route('/')
-@view('start_page')
+@view('views/start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
 
 @route('/', method='POST')
-@view('start_page')
+@view('views/start_page')
 def do_enter():
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = time.asctime()
@@ -66,14 +66,14 @@ def do_enter():
 
 
 @route('/query')
-@view('query_page')
+@view('views/query_page')
 def query():
     return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
             'n': '-'}
 
 
 @route('/query', method='POST')
-@view('query_page')
+@view('views/query_page')
 def do_query():
     numbers = parse_numbers(request.forms.get('number', ''))
 
@@ -110,13 +110,13 @@ def do_query():
 
 
 @route('/about')
-@view('about')
+@view('views/about')
 def about():
     pass
 
 
 @route('/impressum')
-@view('impressum')
+@view('views/impressum')
 def impressum():
     pass
 
