@@ -4,7 +4,7 @@ import sqlite3
 import os
 import time
 
-from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate
 
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
@@ -28,6 +28,9 @@ LANGS = [
 ]
 # ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
+
+# set as global variable available in all templates (to be able to call e.g. request.locale)
+BaseTemplate.defaults['request'] = request
 
 
 @route('/')
