@@ -2,7 +2,7 @@
 
 # test cases for validation function: success, failure, sanity
 
-from input_number import parse_numbers
+from input_number import parse_numbers, is_valid_number
 from unittest import TestCase
 
 class TestInput(TestCase):
@@ -43,4 +43,17 @@ class TestInput(TestCase):
         result = parse_numbers(input_num)
         self.assertEqual(set(), set(result))
 
+    def test_drop_table_parse(self):
+        input_num = "DROP TABLE NUMBERS"
+        result = parse_numbers(input_num)
+        self.assertEqual(set(), set(result))
 
+    def test_drop_table_valid(self):
+        input_num = "DROP TABLE NUMBERS"
+        result = is_valid_number(input_num)
+        self.assertEqual(False, set(result))
+
+    def test_valid_pos(self):
+        input_num = "A1234\nB234"
+        result = is_valid_number(input_num)
+        self.assertEqual({"A1234", "B234"}, set(result))
