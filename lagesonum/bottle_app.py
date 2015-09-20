@@ -4,7 +4,7 @@ import sqlite3
 import os
 import time
 
-from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate
 
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
@@ -29,16 +29,19 @@ LANGS = [
 # ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
 
+# set as global variable available in all templates (to be able to call e.g. request.locale)
+BaseTemplate.defaults['request'] = request
+
 
 @route('/')
-@view('start_page')
+@view('views/start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
 
 @route('/', method='POST')
-@view('start_page')
+@view('views/start_page')
 def do_enter():
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = time.asctime()
@@ -62,61 +65,59 @@ def do_enter():
             else:
                 result_num.append("INVALID INPUT: {}".format(num))
 
+        if not len(numbers):
+            result_num.append("NO VALID NUMBERS ENTERED")
+
     return {'entered': result_num, 'timestamp': timestamp}
 
 
 @route('/query')
-@view('query_page')
+@view('views/query_page')
 def query():
-    return {'result': '-', 'timestamp_first': '-', 'timestamp_last': '-',
-            'n': '-'}
+    return {'result': None}
 
 
 @route('/query', method='POST')
-@view('query_page')
+@view('views/query_page')
 def do_query():
-    numbers = parse_numbers(request.forms.get('number', ''))
+    user_input = request.forms.get('number', '')
+    numbers = parse_numbers(user_input)
 
-    number = ''
+    number = None
     rowcount = 0
-    timestamp_first = 'NOT FOUND'
-    timestamp_last = ''
+    timestamps = []
+    invalid_input = None
 
     if numbers:
         number = numbers[0]
         with lagesonrdb as connection:
             cursor = connection.cursor()
 
-            select_query = 'SELECT * FROM numbers WHERE number LIKE ? ORDER BY time'
+            select_query = 'SELECT time FROM numbers WHERE number LIKE ? ORDER BY time'
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            if len(result) > 0:
-                rowcount = len(result)
-                timestamp_first = result[0][0]
-                timestamp_last = result[-1][0]
-            else:
-                timestamp_first = 'NOT FOUND'
-                timestamp_last = '-'
+            timestamps = map(lambda row: row[0], result)
+    else:
+        invalid_input = user_input
 
     context = {
-        'result': number,
-        'timestamp_first': timestamp_first,
-        'timestamp_last': timestamp_last,
-        'n': rowcount
+        'result': number or invalid_input,
+        'invalid_input': invalid_input,
+        'timestamps': timestamps
     }
 
     return context
 
 
 @route('/about')
-@view('about')
+@view('views/about')
 def about():
     pass
 
 
 @route('/impressum')
-@view('impressum')
+@view('views/impressum')
 def impressum():
     pass
 
