@@ -16,7 +16,7 @@
 
 
 
-% if result is not None:
+% if result is not None and result!="NewNumber":
   %if invalid_input:
     <div class="alert alert-warning" role="alert"><code>{{invalid_input}}</code> is not a valid number!</div>
   %else:
@@ -34,7 +34,8 @@
       </div>
     % end
   %end
-% end
+
+
 
 
 <h3>{{_('pleasenote_title')}}</h3>
