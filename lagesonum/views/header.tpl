@@ -1,4 +1,4 @@
-% setdefault('current_lang', filter(lambda (code, _): code == request.locale, languages)[0])
+% setdefault('current_lang', [l for l in languages if l[0] == request.locale][0])
 
 <!DOCTYPE html>
 <html class="no-js" lang="">

@@ -97,7 +97,7 @@ def do_query():
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            timestamps = map(lambda row: row[0], result)
+            timestamps = [row[0] for row in result]
     else:
         invalid_input = user_input
 
