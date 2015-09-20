@@ -14,6 +14,8 @@
   <button class="btn btn-primary">{{_('submit_label')}}</button>
 </form>
 
+
+
 % if result is not None:
   %if invalid_input:
     <div class="alert alert-warning" role="alert"><code>{{invalid_input}}</code> is not a valid number!</div>

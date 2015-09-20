@@ -32,15 +32,29 @@ DEFAULT_LOCALE = 'en_US'
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
 
-
+# landing page is page for querying numbers
+# todo: avoid error on call without post
 @route('/')
+@view('views/query_page')
+def index():
+
+    context = {
+        'result': 'NewNumber',
+        'invalid_input': '',
+        'timestamps': ''
+    }
+
+    return context
+
+
+@route('/enter')
 @view('views/start_page')
 def index():
     """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
 
-@route('/', method='POST')
+@route('/enter', method='POST')
 @view('views/start_page')
 def do_enter():
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
