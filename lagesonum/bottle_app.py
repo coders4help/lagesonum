@@ -11,7 +11,6 @@ from bottle_utils.i18n import I18NPlugin
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from dbhelper import initialize_database
-import hashlib
 
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '.', '.', "lagesonr.db"))

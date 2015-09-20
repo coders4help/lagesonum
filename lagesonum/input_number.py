@@ -51,4 +51,5 @@ def get_fingerprint(request):
 
     usr_fingerprint = u'{}{}{}'.format(usr_agent, usr_lang, usr_ip)
 
+#todo: implement https://docs.python.org/3.4/library/hashlib.html#hashlib.pbkdf2_hmac
     return hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
