@@ -6,7 +6,7 @@
 
 <p>{{_('help_pitch')}}</p>
 
-<form action="{{i18n_path('/')}}" method="post">
+<form action="{{i18n_path('/enter')}}" method="post">
   <div class="form-group">
     <textarea name="numbers" rows="10" class="form-control" placeholder="e.g. A123 B123 C123"></textarea>
   </div>
