@@ -1,0 +1,203 @@
+#. extracted from Translations-de-eo.csv
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-21 12:26+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.10.0\n"
+
+#: Key
+msgid "de_DE"
+msgstr "eo_EO"
+
+#: errinvalinput
+msgid ""
+"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen ohne "
+"Leerzeichen eingeben."
+msgstr "Maltaŭga enigo. Bv. tajpi literon sekvitan de numeroj sen interspacoj."
+
+#: txtentered
+msgid "Eingegeben"
+msgstr "Entajpita"
+
+#: txttimestamp
+msgid "Zeitangabe"
+msgstr "Tempostampo"
+
+#: txtresult
+msgid "Ergebnis"
+msgstr "Rezulto"
+
+#: txttimefirst
+msgid "Deine Nummer war auf der Anzeigetafel von"
+msgstr "Via nombro estis sur la tabulo de LAGeSo la unuan fojon je"
+
+#: txttimelast
+msgid "bis"
+msgstr "ĝis"
+
+#: errnotfound
+msgid ""
+"Es tut uns leid, aber diese Nummer wurde seit dem 20.9.15 noch nicht "
+"aufgerufen."
+msgstr ""
+"Ni bedaŭras, tiu numeron ne estis sur la tabulo ekde la 14a de septembro "
+"2015"
+
+#: txtnumber
+msgid "Wartenummer"
+msgstr "Atendonombro"
+
+#: txtgreeting
+msgctxt "txtgreeting"
+msgid ""
+msgstr ""
+
+#: menulanguage
+msgid "Deutsch"
+msgstr "Esperanto"
+
+#: searchanumber_link
+msgid "DEINE WARTENUMMER"
+msgstr "ĈU VIA NOMBRO ESTIS AFIŜITA?"
+
+#: helpus_link
+msgid "MACH MIT!"
+msgstr "ALIĜU"
+
+#: about_title
+msgid "ÜBER UNS"
+msgstr "PRI NI"
+
+#: search_pitch
+msgid ""
+"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
+"ein, um es herauszufinden."
+msgstr "Ĉu via nombro estis afiŝita ĉe LAGeSo? Entajpu ĝin ĉi tie por eltrovi!"
+
+#: erruniquenumber
+msgid ""
+"Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere von der "
+"Anzeigetafel. Ganz lieben Dank für die Hilfe!"
+msgstr ""
+"Via jam entajpis tiun nombron. Bv. elekti alian de la tabulo. Dankegon pro "
+"via helpo!"
+
+#: pleasenote_title
+msgid ""
+"Diese Website ist am 22.9.15 an den Start gegangen. Nur Nummern, die seitdem "
+"aufgerufen wurden, werden angezeigt."
+msgstr ""
+"Tiu retejo estis lanĉita je la 22a de septembro 2015. Antaŭaj nombroj ne "
+"estas en la datumbazo."
+
+#: pleasenote
+msgid "Bitte beachten:"
+msgstr "Bv. noti:"
+
+#: txtheadsite
+msgid "REFUGEES WELCOME!"
+msgstr "AL RIFUĜINTOJ BONVENON!"
+
+#: txtabout
+msgid ""
+"Diese Internetseite wurde von Freiwilligen erstellt. Mit ihr sollen "
+"Menschen, die sich um Asyl bewerben und gerade nicht auf dem LAGeSO-Gelände "
+"sind, prüfen können, ob ihre Wartenummer aufgerufen wurde."
+msgstr ""
+"Tiu retejo estis kreita far volontuloj. Ĝia celo estas, ke azilpetantoj, "
+"kiuj ne troviĝas sur la tereno de LAGeSo povas kontrol, ĉu siaj "
+"atendonombroj jam estis afiŝitaj sur la tabulo. Ekzistas mobilaj "
+"registroteamoj, kiuj venas al la tranoktejoj, sed la procedo estas tre "
+"malrapida kaj ne travidebla por homoj kun atendonombroj. Homoj devas atendi "
+"ĝis dekkvin tagojn la alvenon de la teamoj. Tio igis ilin malfidi la "
+"sistemon kaj la senton, ke ili maltrafis ion. Bedaŭrinde, ankaŭ okazis, ke "
+"homoj de la oficialaj amastranoktejoj estis resenditaj al LAGeSo la sekvan "
+"matenon, ĉu ili havis atendonombron aŭ ne. Ni esperas, ke tiu ĉi retejo "
+"helpas al homoj pli bone kompreni la tutan procedon de la atendonombroj. "
+"Homoj kun atendonombroj, bv. sendi al ni vian opinion, kiuj informoj aŭ "
+"funkcioj mankas, kaj ni klopodos provizi ĝin."
+
+#: txtheadabout
+msgid "Über diese Website"
+msgstr "Pri tiu ĉi retejo"
+
+#: dataprivacy
+msgid "Datenschutzerklärung"
+msgstr ""
+
+#: dataprivacytext
+msgid ""
+"Um das Angebot dieser Seite zur Verfügung zu stellen, werden nutzerbezogene "
+"Daten gespeichert und verarbeitet, darunter IP, Browserinformationen und "
+"Sprachpräferenzen."
+msgstr ""
+"Por provizi tiun ĉi retejon, ni uzas personrilatajn datumojn, ia. ip-adreso, "
+"retumilo kaj lingvopreferojn."
+
+#: codedby
+msgid ""
+"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristian Rother</a> &amp; "
+"<a href=\"http://www.felix-zesch.de\" target=\"_blank\">Felix Zesch "
+"</a>unterstützt von coders4help und <a "
+"href=\"http://www.refugeehackathon.de\">#refugeehackathon</a>. Quelltext und "
+"Liste aller Autoren <a href=\"https://github.com/fzesch/lagesonum\">auf "
+"Github</a> verfügbar."
+msgstr ""
+"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristian Rother</a> &amp; "
+"<a href=\"http://www.felix-zesch.de\" target=\"_blank\">Felix Zesch</a> "
+"subtenitaj de coders4help kaj <a "
+"href=\"www.refugeehackathon.de\">#refugeehackathon</a>. Programkodo kaj "
+"kompleta listo de aŭtoroj je <a "
+"href=\"https://github.com/fzesch/lagesonum/\">github</a>."
+
+#: techimplementation
+msgid "Technische Umsetzung"
+msgstr "Teknika realigo"
+
+#: dataprivacyheading
+msgid "Datenschutzerklärung gem. §13 Telemediengesetz"
+msgstr "Deklaro pri datumprotekto"
+
+#: contact_link
+msgid "kontakt@lagesonum.de"
+msgstr ""
+
+#: submit_label
+msgid "Abschicken"
+msgstr ""
+
+#: help_pitch
+msgid ""
+"Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu erhalten, indem "
+"du alle Nummern, die du auf der Anzeigetafel siehst eingibst (NICHT deine "
+"eigene Wartenummer):"
+msgstr ""
+
+#: about_par1
+msgid ""
+"Diese Website wurde von Freiwilligen erstellt, damit geflüchtete Menschen "
+"den Status ihrer Wartenummer abrufen können, ohne dass sie in der Schlange "
+"am LaGeSo in Berlin stehen müssen. Es gibt mobile Registrierungsteams, aber "
+"der Prozess ist sehr langsam, unorganisiert und intransparent für die "
+"Menschen in den Notunterkünften. Manchmal müssen die Menschen dort bis zu 15 "
+"Tage warten, bis ein mobiles Team dort ankommt. Dadurch misstrauen Menschen "
+"dem System und übernachten in immer kälter werdenden Nächten teils mit "
+"Kindern vor dem LaGeSo um einen frühen Platz in der Schlange zu ergattern. "
+"Leider ist es auch vorgekommen, dass Notunterkünfte die Menschen zurück in "
+"die Schlangen am LaGeSo geschickt haben."
+msgstr ""
+
+#: about_par2
+msgid ""
+"Wir hoffen, dass diese Website dabei hilft, den Warteprozess transparenter "
+"zu gestalten. Liebe Menschen mit Wartenummern, bitte schickt uns Feedback, "
+"welche Informationen ihr hier vermisst und wir versuchen unser bestes, um "
+"diese Information zu integrieren."
+msgstr ""

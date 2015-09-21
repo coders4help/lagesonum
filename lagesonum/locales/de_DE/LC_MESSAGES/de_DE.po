@@ -1,0 +1,221 @@
+#. extracted from Translations-en_de.csv
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-21 12:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.10.0\n"
+
+#: Key
+msgctxt "Key"
+msgid "English"
+msgstr "Deutsch"
+
+#: errinvalinput
+msgid ""
+"Invalid input. Please enter a letter followed by numbers without spaces."
+msgstr ""
+"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen ohne "
+"Leerzeichen eingeben."
+
+#: txtentered
+msgid "Entered"
+msgstr "Eingegeben"
+
+#: txttimestamp
+msgid "Timestamp"
+msgstr "Zeitangabe"
+
+#: txtresult
+msgid "Result"
+msgstr "Ergebnis"
+
+#: txttimefirst
+msgid "Your number was on the board at LAGeSo from"
+msgstr "Deine Nummer war auf der Anzeigetafel von"
+
+#: txttimelast
+msgid "until"
+msgstr "bis"
+
+#: errnotfound
+msgid "Sorry, this number hasn't been on the board since September 20th 2015."
+msgstr ""
+"Es tut uns leid, aber diese Nummer wurde seit dem 20.9.15 noch nicht "
+"aufgerufen."
+
+#: txtnumber
+msgid "Waiting number"
+msgstr "Wartenummer"
+
+#: txtgreeting
+msgctxt "txtgreeting"
+msgid ""
+msgstr ""
+
+#: menulanguage
+msgctxt "menulanguage"
+msgid "English"
+msgstr "Deutsch"
+
+#: searchanumber_link
+msgid "YOUR WAITING NUMBER"
+msgstr "DEINE WARTENUMMER"
+
+#: helpus_link
+msgid "JOIN IN!"
+msgstr "MACH MIT!"
+
+#: about_title
+msgid "ABOUT US"
+msgstr "ÜBER UNS"
+
+#: search_pitch
+msgid ""
+"You want to know, if your number has been called at LAGeSo? Enter it here to "
+"find out!"
+msgstr ""
+"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
+"ein, um es herauszufinden."
+
+#: erruniquenumber
+msgid ""
+"You have already submitted this number. Please chose another one from the "
+"board. Thanks a lot for helping!"
+msgstr ""
+"Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere von der "
+"Anzeigetafel. Ganz lieben Dank für die Hilfe!"
+
+#: pleasenote_title
+msgid ""
+"This website started at September 22nd, 2015. Numbers before this date are "
+"not in the database."
+msgstr ""
+"Diese Website ist am 22.9.15 an den Start gegangen. Nur Nummern, die seitdem "
+"aufgerufen wurden, werden angezeigt."
+
+#: pleasenote
+msgid "Please note:"
+msgstr "Bitte beachten:"
+
+#: txtheadsite
+msgid "REFUGEES WELCOME!"
+msgstr "REFUGEES WELCOME!"
+
+#: txtabout
+msgid ""
+"This website was created by volunteers. Its purpose is that people applying "
+"for asylum that are currently not at LaGeSo can check if their waiting "
+"number was called upon. There are mobile registration teams coming to the "
+"shelters but the process is very slow and not transparent enough for the "
+"people holding the waiting numbers. People have to wait  up to 15 days until "
+"the teams arrive. This leads to people distrusting the system and also "
+"gives everyone the feeling that they are missing something. Unfortunately it "
+"has also happened that people from the official shelters were sent back to "
+"LaGeSo the next morning, whether they had a waiting number or not.\n"
+"We hope this website will aid in making the whole waiting number process "
+"more transparent.\n"
+"People with waiting numbers, please send us feedback, what information you "
+"are missing and we will do our best to make it available to you!"
+msgstr ""
+"Diese Internetseite wurde von Freiwilligen erstellt. Mit ihr sollen "
+"Menschen, die sich um Asyl bewerben und gerade nicht auf dem LAGeSO-Gelände "
+"sind, prüfen können, ob ihre Wartenummer aufgerufen wurde."
+
+#: txtheadabout
+msgid "About this website"
+msgstr "Über diese Website"
+
+#: dataprivacy
+msgctxt "dataprivacy"
+msgid ""
+msgstr "Datenschutzerklärung"
+
+#: dataprivacytext
+msgctxt "dataprivacytext"
+msgid ""
+msgstr ""
+"Um das Angebot dieser Seite zur Verfügung zu stellen, werden nutzerbezogene "
+"Daten gespeichert und verarbeitet, darunter IP, Browserinformationen und "
+"Sprachpräferenzen."
+
+#: codedby
+msgctxt "codedby"
+msgid ""
+msgstr ""
+"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristian Rother</a> &amp; "
+"<a href=\"http://www.felix-zesch.de\" target=\"_blank\">Felix Zesch "
+"</a>unterstützt von coders4help und <a "
+"href=\"http://www.refugeehackathon.de\">#refugeehackathon</a>. Quelltext und "
+"Liste aller Autoren <a href=\"https://github.com/fzesch/lagesonum\">auf "
+"Github</a> verfügbar."
+
+#: techimplementation
+msgctxt "techimplementation"
+msgid ""
+msgstr "Technische Umsetzung"
+
+#: dataprivacyheading
+msgctxt "dataprivacyheading"
+msgid ""
+msgstr "Datenschutzerklärung gem. §13 Telemediengesetz"
+
+#: contact_link
+msgctxt "contact_link"
+msgid ""
+msgstr ""
+
+#: submit_label
+msgid "Submit"
+msgstr "Abschicken"
+
+#: help_pitch
+msgid ""
+"You are at LaGeSo? Please help us keeping this site up to date by entering "
+"all numbers you can see displayed at the number display. (NOT your own "
+"waiting number)."
+msgstr ""
+"Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu erhalten, indem "
+"du alle Nummern, die du auf der Anzeigetafel siehst eingibst (NICHT deine "
+"eigene Wartenummer):"
+
+#: about_par1
+msgid ""
+"This website was created by volunteers. Its purpose is that people applying "
+"for asylum that are currently not at LaGeSo can check if their waiting "
+"number was called upon. There are mobile registration teams coming to the "
+"shelters but the process is very slow and not transparent enough for the "
+"people holding the waiting numbers. People have to wait up to 15 days until "
+"the teams arrive. This leads to people distrusting the system and also gives "
+"everyone the feeling that they are missing something. Unfortunately it has "
+"also happened that people from the official shelters were sent back to "
+"LaGeSo the next morning, whether they had a waiting number or not."
+msgstr ""
+"Diese Website wurde von Freiwilligen erstellt, damit geflüchtete Menschen "
+"den Status ihrer Wartenummer abrufen können, ohne dass sie in der Schlange "
+"am LaGeSo in Berlin stehen müssen. Es gibt mobile Registrierungsteams, aber "
+"der Prozess ist sehr langsam, unorganisiert und intransparent für die "
+"Menschen in den Notunterkünften. Manchmal müssen die Menschen dort bis zu 15 "
+"Tage warten, bis ein mobiles Team dort ankommt. Dadurch misstrauen Menschen "
+"dem System und übernachten in immer kälter werdenden Nächten teils mit "
+"Kindern vor dem LaGeSo um einen frühen Platz in der Schlange zu ergattern. "
+"Leider ist es auch vorgekommen, dass Notunterkünfte die Menschen zurück in "
+"die Schlangen am LaGeSo geschickt haben."
+
+#: about_par2
+msgid ""
+"We hope this website will aid in making the whole waiting number process "
+"more transparent. People with waiting numbers, please send us feedback, what "
+"information you are missing and we will do our best to make it available to "
+"you!"
+msgstr ""
+"Wir hoffen, dass diese Website dabei hilft, den Warteprozess transparenter "
+"zu gestalten. Liebe Menschen mit Wartenummern, bitte schickt uns Feedback, "
+"welche Informationen ihr hier vermisst und wir versuchen unser bestes, um "
+"diese Information zu integrieren."
