@@ -33,10 +33,6 @@
         .navbar-brand {
           padding: 10px 15px;
         }
-        .navbar-flag {
-          position: relative;
-          top:-2px;
-        }
     </style>
     <title>LaGeSoNum - showing numbers at LaGeSO in Berlin</title>
 </head>
@@ -64,14 +60,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <img src="static/flags/{{current_lang[0]}}.png" alt="flag for {{current_lang[1]}}" class="navbar-flag"/>
               {{current_lang[1]}}<span class="caret"/>
             </a>
             <ul class="dropdown-menu">
               % for (code, label) in languages:
                 <li>
                   <a href="{{i18n_path(request.path, code)}}">
-                    <img src="static/flags/{{code}}.png" alt="flag for {{label}}" class="navbar-flag"/>
                     {{label}}
                   </a>
                 </li>
