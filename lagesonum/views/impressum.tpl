@@ -6,15 +6,15 @@
 <h2>Impressum</h2>
 Gemäß § 28 BDSG widersprechen wir jeder kommerziellen Verwendung und Weitergabe unserer Daten.
 
-Anbieter § 6 TDG / § 10 Absatz 3 MDStV: 
+Anbieter § 6 TDG / § 10 Absatz 3 MDStV:
 <p>Daniela Grebe<br/>
 
 <a href="mailto:kontakt@lagesonum.de" target="_blank">kontakt@lagesonum.de</a>
-<h2>Technische Umsetzung</h2>
-<a href="http://www.academis.eu" target="_blank">Kristian Rother</a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix Zesch </a>unterstützt von coders4help und <a href="http://www.refugeehackathon.de">#refugeehackathon</a>. Quelltext und Liste aller Autoren <a href="https://github.com/fzesch/lagesonum">auf Github</a> verfügbar.
+<h2>{{_('Technische Umsetzung')}}</h2>
+{{!_(u'<a href="http://www.academis.eu" target="_blank">Kristian Rother</a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix Zesch </a>unterst\xfctzt von coders4help und <a href="http://www.refugeehackathon.de">#refugeehackathon</a>. Quelltext und Liste aller Autoren <a href="https://github.com/fzesch/lagesonum">auf Github</a> verf\xfcgbar.')}}
 
-<h2>Datenschutzerklärung gem. §13 Telemediengesetz</h2>
-<p><strong>Datenschutzerklärung</strong></p><p><strong>Geltungsbereich</strong></p><p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter auf dieser Website (im folgenden “Angebot”) auf.<br />
+<h2>{{_(u'Datenschutzerkl\xe4rung gem. \xa713 Telemediengesetz')}}</h2>
+<p><strong>{{_(u'Datenschutzerkl\xe4rung')}}</strong></p><p><strong>Geltungsbereich</strong></p><p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter auf dieser Website (im folgenden “Angebot”) auf.<br />
 <br />
 Die rechtlichen Grundlagen des Datenschutzes finden sich im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG).<br />
 <br />

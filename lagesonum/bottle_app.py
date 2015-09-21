@@ -8,7 +8,7 @@ from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request
 debug(True)
 
 from bottle_utils.i18n import I18NPlugin
-#from bottle_utils.i18n import lazy_gettext as _
+from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from dbhelper import initialize_database
@@ -25,8 +25,9 @@ lagesonrdb = sqlite3.connect(DB_PATH)
 LANGS = [
     ('de_DE', 'Deutsch'),
     ('en_US', 'English'),
+    ('ar_AR', 'العربية'),
+    ('eo_EO', 'Esperanto'),
 ]
-# ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
 
 # set as global variable available in all templates (to be able to call e.g. request.locale)
@@ -50,6 +51,7 @@ def index():
 @view('views/start_page')
 def enter():
     """: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
+    print "TEST", _('helpus_link')
     return {'entered': []}
 
 
@@ -74,7 +76,7 @@ def do_enter():
                     cursor.execute(insert_query, values)
                     result_num.append(num)
                 except sqlite3.IntegrityError:
-                    result_num.append("ALREADY KNOWN: {}".format(num))
+                    result_num.append(_(u'Diese Nummer hast du bereits eingetragen. Bitte w\xe4hle eine andere von der Anzeigetafel. Ganz lieben Dank f\xfcr die Hilfe!') + ": {}".format(num))
             else:
                 result_num.append("INVALID INPUT: {}".format(num))
 
