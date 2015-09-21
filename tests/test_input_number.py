@@ -51,9 +51,9 @@ class TestInput(TestCase):
     def test_drop_table_valid(self):
         input_num = "DROP TABLE NUMBERS"
         result = is_valid_number(input_num)
-        self.assertEqual(False, set(result))
+        self.assertEqual(False, result)
 
     def test_valid_pos(self):
         input_num = "A1234\nB234"
         result = is_valid_number(input_num)
-        self.assertEqual({"A1234", "B234"}, set(result))
+        self.assertEqual(True, result)

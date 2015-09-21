@@ -4,6 +4,7 @@ import re
 import hashlib
 
 MALICIOUS_EXPRESSIONS = ["DROP", "TABLE", "DELETE"]
+#TODO: Incorportate comment from pentester: Noticed the blacklist of SQL commands (MALICIOUS_EXPRESSIONS) which is both redundant (since the API is used properly with parameterised queries) and a bad practice (since it is a blacklist and blacklists have a very bad security record ;)) - I personally wouldn't recommend it but it doesn't seem to do any harm (except for giving a false sense of security).
 
 # default parameters for checking validity of number. In the future, other patterns might be possible (get from db)
 LAGESO_pattern = re.compile(r'[a-z]+[0-9]+', re.IGNORECASE)
