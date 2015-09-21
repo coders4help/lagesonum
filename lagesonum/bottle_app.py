@@ -4,7 +4,8 @@ import sqlite3
 import os
 import time
 
-from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug
+debug(True)
 
 from bottle_utils.i18n import I18NPlugin
 #from bottle_utils.i18n import lazy_gettext as _
@@ -32,7 +33,6 @@ DEFAULT_LOCALE = 'en_US'
 BaseTemplate.defaults['request'] = request
 
 # landing page is page for querying numbers
-# todo: avoid error on call without post
 @route('/')
 @view('views/query_page')
 def index():
@@ -48,8 +48,8 @@ def index():
 
 @route('/enter')
 @view('views/start_page')
-def index():
-    """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
+def enter():
+    """: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
     return {'entered': []}
 
 
