@@ -4,128 +4,146 @@ import sqlite3
 import os
 import time
 
-import bottle
-from bottle import default_app, route, view, static_file
-from bottle import request
-from bottle_utils.i18n import I18NPlugin
-#from bottle_utils.i18n import lazy_gettext as _
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug
+debug(True)
 
-import lagesonum.input_number as ip
-from lagesonum.dbhelper import initialize_database
-import hashlib
+from bottle_utils.i18n import I18NPlugin
+from bottle_utils.i18n import lazy_gettext as _
+
+from input_number import is_valid_number, parse_numbers, get_fingerprint
+from dbhelper import initialize_database
 
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '..', '..', "lagesonr.db"))
+DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '.', '.', "lagesonr.db"))
 
 if not os.path.exists(DB_PATH):
     initialize_database(DB_PATH)
 
 lagesonrdb = sqlite3.connect(DB_PATH)
 
-#todo: populate list dynamically based on available/selected translations
+# todo: populate list dynamically based on available/selected translations
 LANGS = [
     ('de_DE', 'Deutsch'),
     ('en_US', 'English'),
+    ('ar_AR', 'العربية'),
+    ('eo_EO', 'Esperanto'),
 ]
-# ('ar_AR', 'Arab'),
 DEFAULT_LOCALE = 'en_US'
 
+# set as global variable available in all templates (to be able to call e.g. request.locale)
+BaseTemplate.defaults['request'] = request
+
+# landing page is page for querying numbers
 @route('/')
-@view('start_page')
+@view('views/query_page')
 def index():
-    """1.Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
+
+    context = {
+        'result': 'NewNumber',
+        'invalid_input': '',
+        'timestamps': ''
+    }
+
+    return context
+
+
+@route('/enter')
+@view('views/start_page')
+def enter():
+    """: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
+    print("TEST", _('helpus_link'))
     return {'entered': []}
 
-@route('/', method='POST')
-@view('start_page')
+
+@route('/enter', method='POST')
+@view('views/start_page')
 def do_enter():
-    numbers = request.forms.get('numbers')
+    numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = time.asctime()
-    numbers = [num.strip() for num in numbers.split('\n')]
+
+    usr_hash = get_fingerprint(request)
+
     result_num = []
 
-    #todo: refactor fingerprint in extra function for better testing
-    usr_agent = str(request.environ.get('HTTP_USER_AGENT'))
-    usr_lang = str(request.environ.get('HTTP_ACCEPT_LANGUAGE'))
-    usr_ip = str(request.remote_addr)
+    with lagesonrdb as connection:
+        cursor = connection.cursor()
+        insert_query = 'INSERT INTO numbers (number, fingerprint, place, time) VALUES (?, ?, ?, ?)'
 
-    usr_fingerprint = usr_agent + usr_lang + usr_ip
-    usr_hash = hashlib.md5(usr_fingerprint.encode("utf-8")).hexdigest()
-
-    with lagesonrdb as con:
-        cur = con.cursor()
-        for num in set(numbers):
-            if ip.is_valid_number(num) and ip.is_ok_with_db(
-                    num) and ip.is_valid_user():
-
-                num = str(num).capitalize()
-                query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER="%s" AND FINGERPRINT="%s"' % (num, usr_hash)
-                if len(list(cur.execute(query))) == 0:
-
-                    insert = 'INSERT INTO NUMBERS(NUMBER, TIME, PLACE, USER, FINGERPRINT) VALUES ("%s", "%s", "-", ' \
-                             '"-", "%s")' % (num, timestamp, usr_hash)
-                    cur.execute(insert)
+        for num in numbers:
+            if is_valid_number(num):
+                values = (num.capitalize(), usr_hash, 'LAGESO', timestamp)
+                try:
+                    cursor.execute(insert_query, values)
                     result_num.append(num)
-                else:
-                    result_num.append("ALREADY ENTERED BY - %s - %s - %s: %s" % (usr_ip, usr_agent, usr_lang, num))
-                    #return {'entered': ["already before - by you!"], 'timestamp': timestamp}
+                except sqlite3.IntegrityError:
+                    result_num.append(_(u'Diese Nummer hast du bereits eingetragen. Bitte w\xe4hle eine andere von der Anzeigetafel. Ganz lieben Dank f\xfcr die Hilfe!') + ": {}".format(num))
             else:
-                result_num.append("INVALID INPUT: %s" % num)
+                result_num.append("INVALID INPUT: {}".format(num))
+
+        if not len(numbers):
+            result_num.append("NO VALID NUMBERS ENTERED")
 
     return {'entered': result_num, 'timestamp': timestamp}
 
 
 @route('/query')
-@view('query_page')
+@view('views/query_page')
 def query():
-    return {'result': '-', 'timestamp_first': '-','timestamp_last': '-', 'n': '-'}
+    return {'result': None}
 
 
 @route('/query', method='POST')
-@view('query_page')
+@view('views/query_page')
 def do_query():
-    number = request.forms.get('number')
-    timestamp_first = '-'
-    timestamp_last = '-'
-    n = '0'
+    user_input = request.forms.get('number', '')
+    numbers = parse_numbers(user_input)
 
-    if ip.is_valid_number(number) and ip.is_ok_with_db(
-            number) and ip.is_valid_user():
+    number = None
+    rowcount = 0
+    timestamps = []
+    invalid_input = None
 
-        with lagesonrdb as con:
-            cur = con.cursor()
+    if numbers:
+        number = numbers[0]
+        with lagesonrdb as connection:
+            cursor = connection.cursor()
 
-            number = str(number).capitalize()
-            query = 'SELECT TIME FROM NUMBERS WHERE NUMBER="%s" ORDER BY TIME' % number
-            result = list(cur.execute(query))
-            n = len(result)
-            if n > 0:
-                timestamp_first, timestamp_last = result[0][0], result[-1][0]
-            else:
-                timestamp_first = 'NOT FOUND'
+            select_query = 'SELECT time FROM numbers WHERE number LIKE ? ORDER BY time'
+            values = (number,)
+
+            result = cursor.execute(select_query, values).fetchall()
+            timestamps = [row[0] for row in result]
     else:
-        timestamp_first = 'INVALID INPUT'
+        invalid_input = user_input
 
-    return {'result': number, 'timestamp_first': timestamp_first,
-                'timestamp_last': timestamp_last, 'n': n}
+    context = {
+        'result': number or invalid_input,
+        'invalid_input': invalid_input,
+        'timestamps': timestamps
+    }
+
+    return context
 
 
 @route('/about')
-@view('about')
+@view('views/about')
 def about():
     pass
 
+
 @route('/impressum')
-@view('impressum')
+@view('views/impressum')
 def impressum():
     pass
+
 
 @route('/static/<filename:path>', no_i18n=True)
 def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
+
 # findet templates im gleichen Verzeichnis
-bottle.TEMPLATE_PATH.append(MOD_PATH)
+TEMPLATE_PATH.append(MOD_PATH)
 app = default_app()
 application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          domain='messages',
