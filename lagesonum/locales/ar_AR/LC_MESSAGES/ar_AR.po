@@ -161,7 +161,7 @@ msgid ""
 "Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu erhalten, indem "
 "du alle Nummern, die du auf der Anzeigetafel siehst eingibst (NICHT deine "
 "eigene Wartenummer):"
-msgstr ""
+msgstr "كنت واقفا في LAGeSo؟ الرجاء المساعدة على تحديث هذه الصفحة. تحمل الأرقام التي تراها على لوحة النتائج. ولكن ليس عدد الانتظار الخاصة بك."
 
 #: about_par1
 msgid ""
