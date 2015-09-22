@@ -6,9 +6,6 @@ from lagesonum.dbhelper import initialize_database
 from webtest import TestApp
 import os
 from bottle import debug
-
-from webtest import TestApp
-
 from bottle_app import application, DB_PATH
 from dbhelper import initialize_database
 
