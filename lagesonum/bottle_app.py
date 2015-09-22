@@ -3,6 +3,7 @@
 import sqlite3
 import os
 import time
+import datetime
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug
 debug(True)
@@ -59,7 +60,7 @@ def enter():
 @view('views/start_page')
 def do_enter():
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
-    timestamp = time.asctime()
+    timestamp = datetime.datetime.now()
 
     usr_hash = get_fingerprint(request)
 
@@ -112,7 +113,7 @@ def do_query():
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            timestamps = [row[0] for row in result]
+            timestamps = [row[0][:19] for row in result] # cut off microseconds
     else:
         invalid_input = user_input
 
