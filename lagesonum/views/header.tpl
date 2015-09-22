@@ -33,6 +33,11 @@
         .navbar-brand {
           padding: 10px 15px;
         }
+
+        .navbar-lang-icon {
+          display: inline-block;
+          margin-right: 5px;
+        }
     </style>
     <title>LaGeSoNum - showing numbers at LaGeSO in Berlin</title>
 </head>
@@ -60,7 +65,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              {{current_lang[1]}}<span class="caret"/>
+              <img src="/static/languages.png" alt="pick a language" width="20" height="20" class="navbar-lang-icon"> {{current_lang[1]}}<span class="caret"/>
             </a>
             <ul class="dropdown-menu">
               % for (code, label) in languages:
