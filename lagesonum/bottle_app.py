@@ -149,7 +149,7 @@ def send_static(filename):
 # Until the stats are actually being collected, we should use 15 minutes as an "inactive" time setting.
 # There should also be a link "history" where those numbers are then listed with a note "last seen".
 @route('/display')
-@view('display')
+@view('views/display')
 def display():
     with lagesonrdb as connection:
         cursor = connection.cursor()
