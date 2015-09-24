@@ -148,8 +148,8 @@ def send_static(filename):
 # For the "last time of entry age" it would be great to collect stats how long numbers are displayed in average.
 # Until the stats are actually being collected, we should use 15 minutes as an "inactive" time setting.
 # There should also be a link "history" where those numbers are then listed with a note "last seen".
-@route('display')
-@view('views/display')
+@route('/display')
+@view('display')
 def display():
     with lagesonrdb as connection:
         cursor = connection.cursor()
@@ -164,10 +164,12 @@ def display():
         result = cursor.execute(select_query).fetchall()
 
     # filter numbers entered recently enough
-    numbers_young_enough = [number for number, time in result if time >= oldest_to_be_shown]
+    #numbers_young_enough = [number for number, time in result if time >= oldest_to_be_shown]
 
     # filter numbers entered often enough
-    numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(number) >= MIN_COUNT]
+    # numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(number) >= MIN_COUNT]
+
+    numbers_frequent_enough = [number for number, time in result]
 
     # format numbers for later output
     display_output = "\n".join(sorted(numbers_frequent_enough))
