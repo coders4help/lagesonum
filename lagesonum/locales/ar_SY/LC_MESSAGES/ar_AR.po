@@ -14,7 +14,7 @@ msgstr ""
 
 #: Key
 msgid "de_DE"
-msgstr "ar_AR"
+msgstr "ar_SY"
 
 #: errinvalinput
 msgid ""

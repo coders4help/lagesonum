@@ -24,13 +24,15 @@
       <div class="alert alert-warning" role="alert">{{_('Es tut uns leid, aber diese Nummer wurde seit dem 20.9.15 noch nicht aufgerufen.')}}</div>
     % else:
       <div class="alert alert-success" role="alert">
-        Your number <b>{{result}}</b> was found!<br><br>
+        {{_(Deine Wartenummer %(number)s wurde auf dem Display am LaGeSo angezeigt.)}}<br><br>
 
         % if len(timestamps) == 1:
-          it was seen on <b>{{timestamps[0]}}</b>
+           {{_(Eine Person hat die Nummer <b>{{result}}</b> auf dem Display gesehen und am %(date)s auf dieser Website eingetragen.)}}<br><br>
         % else:
-          it was seen <b>{{len(timestamps)}}</b> times: {{", ".join(timestamps)}}
+          %{{_((amount)s Personen haben deine Wartenummer auf dem Display am LaGeSo gesehen und auf dieser Website eingetragen.)}}
         % end
+
+        {{_(Bitte beachte: Je mehr Personen sie sehen und eintragen, desto größer ist die Sicherheit, dass die Nummer wirklich angezeigt wurde und sich keiner vertippt hat.)}}
       </div>
     % end
   %end

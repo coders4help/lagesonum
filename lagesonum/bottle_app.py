@@ -14,8 +14,9 @@ from bottle_utils.i18n import lazy_gettext as _
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from dbhelper import initialize_database
 
+# store database outside of repository so it is not overwritten by git pull
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '.', '.', "lagesonr.db"))
+DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 
 if not os.path.exists(DB_PATH):
     initialize_database(DB_PATH)
@@ -26,7 +27,7 @@ lagesonrdb = sqlite3.connect(DB_PATH)
 LANGS = [
     ('de_DE', 'Deutsch'),
     ('en_US', 'English'),
-    ('ar_AR', 'العربية'),
+    ('ar_SY', 'العربية'),
     ('eo_EO', 'Esperanto'),
 ]
 DEFAULT_LOCALE = 'en_US'
