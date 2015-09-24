@@ -143,9 +143,45 @@ def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
 
+# Numbers to be shown there:
+# All numbers that have been entered 3 or more times and where the last time of entry is not older than X minutes.
+# For the "last time of entry age" it would be great to collect stats how long numbers are displayed in average.
+# Until the stats are actually being collected, we should use 15 minutes as an "inactive" time setting.
+# There should also be a link "history" where those numbers are then listed with a note "last seen".
+@route('display')
+@view('views/display')
+def display():
+    with lagesonrdb as connection:
+        cursor = connection.cursor()
+
+        #todo: later, refactor in constants file if up and running
+        MAX_TIME_DIFF = 100000000 # milliseconds, needs adjustment
+        MIN_COUNT = 3
+        oldest_to_be_shown = time.time()-MAX_TIME_DIFF
+
+        select_query = 'SELECT number, time FROM numbers ORDER BY time'
+
+        result = cursor.execute(select_query).fetchall()
+
+    # filter numbers entered recently enough
+    numbers_young_enough = [number for number, time in result if time >= oldest_to_be_shown]
+
+    # filter numbers entered often enough
+    numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(number) >= MIN_COUNT]
+
+    # format numbers for later output
+    display_output = "\n".join(sorted(numbers_frequent_enough))
+
+    return {'numbers': display_output,
+            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown)),
+            'min_count': MIN_COUNT
+            }
+
+
 # findet templates im gleichen Verzeichnis
 TEMPLATE_PATH.append(MOD_PATH)
 app = default_app()
 application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          domain='messages',
                          locale_dir=os.path.join(MOD_PATH, 'locales'))
+

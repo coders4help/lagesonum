@@ -27,9 +27,9 @@
         Your number <b>{{result}}</b> was found!<br><br>
 
         % if len(timestamps) == 1:
-          it was seen on <b>{{timestamps[0]}}</b>
+          it was seen only once on <b>{{timestamps[0]}}</b>
         % else:
-          it was seen <b>{{len(timestamps)}}</b> times: {{", ".join(timestamps)}}
+          it was seen <b>{{len(timestamps)}}</b> times:\n {{",\n".join(timestamps)}}
         % end
       </div>
     % end
