@@ -25,10 +25,10 @@ lagesonrdb = sqlite3.connect(DB_PATH)
 
 # todo: populate list dynamically based on available/selected translations
 LANGS = [
-    ('de_DE', 'Deutsch'),
-    ('en_US', 'English'),
-    ('ar_SY', 'العربية'),
-    ('eo_EO', 'Esperanto'),
+    (u'de_DE', u'Deutsch'),
+    (u'en_US', u'English'),
+    (u'ar_SY', u'العربية'),
+    (u'eo_EO', u'Esperanto'),
 ]
 DEFAULT_LOCALE = 'en_US'
 
