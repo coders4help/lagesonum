@@ -1,0 +1,237 @@
+msgid ""
+        msgstr ""
+        "Project-Id-Version: lagesonum"
+        "Report-Msgid-Bugs-To:"
+        "POT-Creation-Date: 2015-09-21 12:26+0200"
+        "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE"
+        "Last-Translator:"
+        "Language-Team: LANGUAGE <LL@li.org>"
+        "MIME-Version: 1.0"
+        "Content-Type: text/plain; charset=UTF-8"
+        "Content-Transfer-Encoding: 8bit"
+        
+
+#: This text is being displayed as a result if the user entered a number that is formatted differently from the waiting numbers.
+msgid "errinvalinput"
+msgstr "المعطيات يجب ان تبدء بحرف ومن ثم أرقام ولاتوجد فواصل بينها "
+
+#: 404 for num
+msgid "errnotfound"
+msgstr "نحن متأسفين اذا لم تجد رقمك على الشاشة منذ ٢٠-٩-٢٠١٥"
+
+#: Waiting number
+msgid "txtnumber"
+msgstr "رقم الانتظار"
+
+#: Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at LAGeSo
+msgid "txtgreeting"
+msgstr ""
+
+#: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
+msgid "menulanguage"
+msgstr "العربية"
+
+#: Menu for number search page
+msgid "searchanumber_link"
+msgstr "رقمك الذي ظهر على الشاشة "
+
+#: Menu entry for entering numbers at LaGeSo. Call to action (help), not help in the sense of instructions
+msgid "helpus_link"
+msgstr "ساعدنا"
+
+#: Menu entry for the page explaining what this website is doing
+msgid "about_link"
+msgstr "حولنا"
+
+#: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
+msgid "search_pitch"
+msgstr ""
+ت
+ر
+ي
+د
+ 
+ا
+ن
+ 
+ت
+ع
+ر
+ف
+ 
+م
+ا
+ 
+إ
+ذ
+ا
+ 
+ر
+ق
+م
+ك
+ 
+ظ
+ه
+ر
+ 
+ع
+ل
+ى
+ 
+ا
+ل
+ش
+ا
+ش
+ة
+ 
+و
+ا
+ن
+ت
+ 
+ل
+م
+ 
+ت
+ش
+ا
+ه
+د
+ه
+ 
+.
+أ
+د
+خ
+ل
+ 
+ر
+ق
+م
+ك
+ 
+
+#: This error is displayed when a user wants to enter a number more than once.
+msgid "erruniquenumber"
+msgstr ""
+"اذا كنت تملك رقم شخص ما وتريد معرفة إذا رقمه ظهر على الشاشة ؟(شكرا"
+"" لمساعدتك )"
+
+#: Explanation when the website started and why numbers before this date might have been called but are not in the database.
+msgid "pleasenote"
+msgstr ""
+"في هذه الصفحة يمكنك معرفة الارقام التي ظهرت على الشاشة بداية من تا"
+"ريخ ١٥-٩-٢٠١٥"
+
+#: Header for the Explanation
+msgid "pleasenote_title"
+msgstr "الرجاء الأنتباه"
+
+#: Explanation about the authors and goals of this website
+msgid "txtabout"
+msgstr ""
+"هذه الصفحة أنشئت من قبل متطوعين يريدون المساعدة وهي صفحة خاصة للاش"
+"خاص الذين لم يسجلو انفسهم بعد في السوسيال وهي تساعدك بمعرفة ان رقم"
+"ك ظهر على الشاشة أم لا "
+
+#: Header for the explanation about the authors and goals of this website
+msgid "txtheadabout"
+msgstr "حولنا"
+
+#: dataprivacy
+msgid "dataprivacy"
+msgstr "حماية المعلومات "
+
+#: data priv explanation
+msgid "dataprivacytext"
+msgstr ""
+"حتى تستطيع ان تعمل هذه الصفحة يجب ان نأخذ معلوماتك الشخصية ونحفظها"
+" ونعمل عليها واخذ رقم ال اي بي  لجهازك و نوع المستعرض ولغة المستعر"
+"ض "
+
+#: coders
+msgid "codedby"
+msgstr "برمجيات هذه الصفحة مفتوحة المصدر"
+
+#: who built this site
+msgid "techimplementation"
+msgstr "منتجو الصفحة "
+
+#: dataprivacyheading
+msgid "dataprivacyheading"
+msgstr "المعلومات محمية حسب المادة ١٣ من قانون الحماية الماني "
+
+#: contact_link
+msgid "contact_link"
+msgstr ""
+
+#: submit_label
+msgid "submit_label"
+msgstr ""
+
+#: help_pitch
+msgid "help_pitch"
+msgstr ""
+
+#: Explanation
+msgid "about_par1"
+msgstr ""
+
+#: second part explanation
+msgid "about_par2"
+msgstr ""
+
+#: Success message when the queried number has been seen at LaGeSo
+msgid "querysuccess"
+msgstr ""
+
+#: is shown if the number was entered once
+msgid "foundonce"
+msgstr ""
+
+#: is shown if the number was entered multiple times
+msgid "foundmultiple"
+msgstr ""
+
+#: 
+msgid "morelikely"
+msgstr ""
+
+#: Example query how to search for a number
+msgid "inputexample"
+msgstr ""
+
+#: Description of the display at LAGesSo
+msgid "display_link"
+msgstr ""
+
+#: 
+msgid "alphabetorder"
+msgstr ""
+
+#: Numbers entered recently
+msgid "numberdisplaytxt"
+msgstr ""
+
+#: 
+msgid "webpagetitle"
+msgstr ""
+
+#: 
+msgid "nonumbersentered"
+msgstr ""
+
+#: 
+msgid "responsible_name"
+msgstr ""
+
+#: 
+msgid "responsible_address"
+msgstr ""
+
+#: 
+msgid "novalidnumbers"
+msgstr ""
+
