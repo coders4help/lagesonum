@@ -30,6 +30,8 @@ msgstr "Atendonumero"
 #: Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at LAGeSo
 msgid "txtgreeting"
 msgstr ""
+"Bonvenon al LAGeSoNUM, maloficiala atendonumeromontrado interreta "
+"por rifughintoj che LAGeSo."
 
 #: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
 msgid "menulanguage"
@@ -37,14 +39,14 @@ msgstr "Esperanto"
 
 #: Menu for number search page
 msgid "searchanumber_link"
-msgstr "ĈU VIA numero ESTIS AFIŜITA?"
+msgstr "Via numero"
 
 #: Menu entry for entering numbers at LaGeSo. Call to action (help), not help in the sense of instructions
 msgid "helpus_link"
 msgstr "Kunlaboru"
 
 #: Menu entry for the page explaining what this website is doing
-msgid "about_title"
+msgid "about_link"
 msgstr "Pri ni"
 
 #: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
@@ -176,4 +178,40 @@ msgstr ""
 #: Example query how to search for a number
 msgid "inputexample"
 msgstr "ekz. A123"
+
+#: Description of the display at LAGesSo
+msgid "display_link"
+msgstr "Montrotabulo"
+
+#: 
+msgid "alphabetorder"
+msgstr "La numeroj estas en alfabeta ordo."
+
+#: Numbers entered recently
+msgid "numberdisplaytxt"
+msgstr ""
+"Tiuj numeroj estis enigitaj ekde %(since)s de minimume %(min_count"
+")s diversaj personoj."
+
+#: 
+msgid "webpagetitle"
+msgstr "LAGeSoNUM"
+
+#: 
+msgid "nonumbersentered"
+msgstr ""
+"Neniuj numeroj estis enigitaj ekde %(since)s de minimume %(min_cou"
+"nt)s diversaj personoj.Ni bezonas pli da helpantoj"
+
+#: 
+msgid "responsible_name"
+msgstr ""
+
+#: 
+msgid "responsible_address"
+msgstr ""
+
+#: 
+msgid "novalidnumbers"
+msgstr "Neniuj validaj numeroj enigitaj."
 

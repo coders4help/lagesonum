@@ -6,6 +6,9 @@
 
 __author__ = 'f.zesch'
 
+from subprocess import call
+from os.path import isdir
+from os import makedirs
 import xlrd
 
 # PARAMETERS
@@ -50,7 +53,7 @@ def write_po(sheet, col_nr, i18n_code, path=""):
     """
 
     with open(path+i18n_code+".po", encoding="utf8", mode="w") as po:
-
+        print("Writing to: "+path+i18n_code+'.po')
         #write header
         po.write("""msgid ""
         msgstr ""
@@ -119,9 +122,21 @@ if __name__ == "__main__":
 
     # read columns where translations can be found
     lang_cols = get_lang_cols(i18n_sheet)
+    print("Found following languages: ", lang_cols.keys())
 
     # write .po files
     for loc in lang_cols:
-        write_po(i18n_sheet, lang_cols[loc], i18n_code=loc, path=loc+"/LC_MESSAGES/")
+        if not isdir(loc):
+        	os.makedirs(loc)
+	        os.makedirs(loc + "/LC_MESSAGES")
 
-    #todo: compile .po files to .mo files with msgfmt
+        write_po(i18n_sheet, lang_cols[loc], i18n_code=loc, path=loc + "/LC_MESSAGES/")
+
+        #compile .po files to .mo files with msgfmt
+        msgcommand = loc + "/LC_MESSAGES/" + "msgfmt " + loc + ".po messages.mo"
+
+        # on unix system, msgfmt is usually preinstalled. On Windows, it is not.
+        try:
+            call(msgcommand)
+        except FileNotFoundError as e:
+            print("No .mo written for "+ loc +". Do you have msgfmt installed?")

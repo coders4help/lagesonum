@@ -31,7 +31,8 @@ msgstr "Wartenummer"
 msgid "txtgreeting"
 msgstr ""
 "Willkommen auf LAGeSoNUM, der inoffiziellen Wartenummeranzeige für"
-" Flüchtlinge am LAGeSo."
+" Flüchtlinge am Landesamt für Gesundheit und Soziales (LAGeSo) in "
+"Berlin."
 
 #: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
 msgid "menulanguage"
@@ -46,7 +47,7 @@ msgid "helpus_link"
 msgstr "Mach mit!"
 
 #: Menu entry for the page explaining what this website is doing
-msgid "about_title"
+msgid "about_link"
 msgstr "Über uns"
 
 #: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
@@ -171,11 +172,47 @@ msgstr ""
 #: 
 msgid "morelikely"
 msgstr ""
-"Bitte beachte: Je mehr Personen sie sehen und eintragen, desto grö"
-"ßer ist die Sicherheit, dass die Nummer wirklich angezeigt wurde u"
-"nd sich keiner vertippt hat."
+"Bitte beachte: Je mehr Personen eine Nummer eintragen, desto größe"
+"r ist die Sicherheit, dass die Nummer wirklich angezeigt wurde und"
+" sich keiner vertippt hat."
 
 #: Example query how to search for a number
 msgid "inputexample"
 msgstr "z.B. A123"
+
+#: Description of the display at LAGesSo
+msgid "display_link"
+msgstr "Anzeigetafel"
+
+#: 
+msgid "alphabetorder"
+msgstr "Die Nummern sind alphabetisch sortiert."
+
+#: Numbers entered recently
+msgid "numberdisplaytxt"
+msgstr ""
+"Diese Nummern wurden seit %(since)s von mindestens %(min_count)s P"
+"ersonen eingegeben."
+
+#: 
+msgid "webpagetitle"
+msgstr "LAGeSoNUM"
+
+#: 
+msgid "nonumbersentered"
+msgstr ""
+"Seit %(since)s wurden keine Nummern von mindestens %(min_count)s P"
+"ersonen eingegeben. Wir brauchen mehr Helfer!"
+
+#: 
+msgid "responsible_name"
+msgstr ""
+
+#: 
+msgid "responsible_address"
+msgstr ""
+
+#: 
+msgid "novalidnumbers"
+msgstr "Es wurden keine gültigen Nummern eingegeben."
 
