@@ -7,14 +7,14 @@ msgid ""
 #: This text is being displayed as a result if the user entered a number that is formatted differently from the waiting numbers.
 msgid "errinvalinput"
 msgstr ""
-"Maltaŭga enigo. Bv. tajpi literon sekvitan de nombroj, sen intersp"
-"acoj."
+"Maltaŭga enigo. Bv. tajpi literon sekvitan de nombroj, sen i"
+"nterspacoj."
 
 #: 404 for num
 msgid "errnotfound"
 msgstr ""
-"Ni bedaŭras, tiu numeron ne estis sur la tabulo ekde la 14a de sep"
-"tembro 2015"
+"Ni bedaŭras, tiu numeron ne estis sur la tabulo ekde la 14a "
+"de septembro 2015"
 
 #: Waiting number
 msgid "txtnumber"
@@ -23,8 +23,8 @@ msgstr "Atendonumero"
 #: Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at LAGeSo
 msgid "txtgreeting"
 msgstr ""
-"Bonvenon al LAGeSoNUM, maloficiala atendonumeromontrado interreta "
-"por rifughintoj che LAGeSo."
+"Bonvenon al LAGeSoNUM, maloficiala atendonumeromontrado inte"
+"rreta por rifughintoj che LAGeSo."
 
 #: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
 msgid "menulanguage"
@@ -45,20 +45,20 @@ msgstr "Pri ni"
 #: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
 msgid "search_pitch"
 msgstr ""
-"Ĉu via numero estis afiŝita ĉe LAGeSo? Entajpu ĝin ĉi tie por eltr"
-"ovi!"
+"Ĉu via numero estis afiŝita ĉe LAGeSo? Entajpu ĝin ĉi tie po"
+"r eltrovi!"
 
 #: This error is displayed when a user wants to enter a number more than once.
 msgid "erruniquenumber"
 msgstr ""
-"Via jam entajpis tiun numeron. Bv. elekti alian de la tabulo. Dank"
-"egon pro via helpo!"
+"Via jam entajpis tiun numeron. Bv. elekti alian de la tabulo"
+". Dankegon pro via helpo!"
 
 #: Explanation when the website started and why numbers before this date might have been called but are not in the database.
 msgid "pleasenote"
 msgstr ""
-"Tiu retejo estis lanĉita je la 22a de septembro 2015. Antaŭaj nume"
-"roj ne estas en la datumbazo."
+"Tiu retejo estis lanĉita je la 22a de septembro 2015. Antaŭa"
+"j numeroj ne estas en la datumbazo."
 
 #: Header for the Explanation
 msgid "pleasenote_title"
@@ -67,19 +67,20 @@ msgstr "Bv. noti:"
 #: Explanation about the authors and goals of this website
 msgid "txtabout"
 msgstr ""
-"Tiu retejo estis kreita far volontuloj. Ĝia celo estas, ke azilpet"
-"antoj, kiuj ne troviĝas sur la tereno de LAGeSo povas kontrol, ĉu "
-"siaj atendonumeroj jam estis afiŝitaj sur la tabulo. Ekzistas mobi"
-"laj registroteamoj, kiuj venas al la tranoktejoj, sed la procedo e"
-"stas tre malrapida kaj ne travidebla por homoj kun atendonumeroj. "
-"Homoj devas atendi ĝis dekkvin tagojn la alvenon de la teamoj. Tio"
-" igis ilin malfidi la sistemon kaj la senton, ke ili maltrafis ion"
-". Bedaŭrinde, ankaŭ okazis, ke homoj de la oficialaj amastranoktej"
-"oj estis resenditaj al LAGeSo la sekvan matenon, ĉu ili havis aten"
-"donumeron aŭ ne. Ni esperas, ke tiu ĉi retejo helpas al homoj pli "
-"bone kompreni la tutan procedon de la atendonumeroj. Homoj kun ate"
-"ndonumeroj, bv. sendi al ni vian opinion, kiuj informoj aŭ funkcio"
-"j mankas, kaj ni klopodos provizi ĝin."
+"Tiu retejo estis kreita far volontuloj. Ĝia celo estas, ke a"
+"zilpetantoj, kiuj ne troviĝas sur la tereno de LAGeSo povas "
+"kontrol, ĉu siaj atendonumeroj jam estis afiŝitaj sur la tab"
+"ulo. Ekzistas mobilaj registroteamoj, kiuj venas al la trano"
+"ktejoj, sed la procedo estas tre malrapida kaj ne travidebla"
+" por homoj kun atendonumeroj. Homoj devas atendi ĝis dekkvin"
+" tagojn la alvenon de la teamoj. Tio igis ilin malfidi la si"
+"stemon kaj la senton, ke ili maltrafis ion. Bedaŭrinde, anka"
+"ŭ okazis, ke homoj de la oficialaj amastranoktejoj estis res"
+"enditaj al LAGeSo la sekvan matenon, ĉu ili havis atendonume"
+"ron aŭ ne. Ni esperas, ke tiu ĉi retejo helpas al homoj pli "
+"bone kompreni la tutan procedon de la atendonumeroj. Homoj k"
+"un atendonumeroj, bv. sendi al ni vian opinion, kiuj informo"
+"j aŭ funkcioj mankas, kaj ni klopodos provizi ĝin."
 
 #: Header for the explanation about the authors and goals of this website
 msgid "txtheadabout"
@@ -92,18 +93,18 @@ msgstr ""
 #: data priv explanation
 msgid "dataprivacytext"
 msgstr ""
-"Por provizi tiun ĉi retejon, ni uzas personrilatajn datumojn, ia. "
-"ip-adreso, retumilo kaj lingvopreferojn."
+"Por provizi tiun ĉi retejon, ni uzas personrilatajn datumojn"
+", ia. ip-adreso, retumilo kaj lingvopreferojn."
 
 #: coders
 msgid "codedby"
 msgstr ""
-"<a href="http://www.academis.eu" target="_blank">Kristian Rother</"
-"a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix"
-" Zesch</a> subtenitaj de coders4help kaj <a href="www.refugeehacka"
-"thon.de">#refugeehackathon</a>. Programkodo kaj kompleta listo de "
-"aŭtoroj je <a href="https://github.com/fzesch/lagesonum/">github</"
-"a>."
+"<a href="http://www.academis.eu" target="_blank">Kristian Ro"
+"ther</a> &amp; <a href="http://www.felix-zesch.de" target="_"
+"blank">Felix Zesch</a> subtenitaj de coders4help kaj <a href"
+"="www.refugeehackathon.de">#refugeehackathon</a>. Programkod"
+"o kaj kompleta listo de aŭtoroj je <a href="https://github.c"
+"om/fzesch/lagesonum/">github</a>."
 
 #: who built this site
 msgid "techimplementation"
@@ -124,49 +125,49 @@ msgstr "Sendi"
 #: help_pitch
 msgid "help_pitch"
 msgstr ""
-"Ĉu vi estas surloke ĉe LAGeSo? Bv. helpi al ni ĝisdatigi tiun ĉi r"
-"etejon, enigante ĉiujn numerojn, kiujn vi vidas sur la numerotabul"
-"o. NE enigu vian propran atendonumeron"
+"Ĉu vi estas surloke ĉe LAGeSo? Bv. helpi al ni ĝisdatigi tiu"
+"n ĉi retejon, enigante ĉiujn numerojn, kiujn vi vidas sur la"
+" numerotabulo. NE enigu vian propran atendonumeron"
 
 #: Explanation
 msgid "about_par1"
 msgstr ""
-"Tiu ĉi retejo estis kreita de volontuloj. Ĝia celo estas, ke azilp"
-"etantoj, kiuj ne troviĝas sur la LAGeSo-tereno povu vidi, ĉu siaj "
-"atendonumeroj estis afiŝitaj."
+"Tiu ĉi retejo estis kreita de volontuloj. Ĝia celo estas, ke"
+" azilpetantoj, kiuj ne troviĝas sur la LAGeSo-tereno povu vi"
+"di, ĉu siaj atendonumeroj estis afiŝitaj."
 
 #: second part explanation
 msgid "about_par2"
 msgstr ""
-"Ni esperas, ke tiu ĉi retejo helpas igi la tutan atendonumeroproce"
-"don pli travidebla. Atendantoj kun atendonumeroj, bv. sendi al ni "
-"vian opinion, kiuj informoj aŭ funkcioj mankas al vi. Ni klopodos "
-"provizi ilin!"
+"Ni esperas, ke tiu ĉi retejo helpas igi la tutan atendonumer"
+"oprocedon pli travidebla. Atendantoj kun atendonumeroj, bv. "
+"sendi al ni vian opinion, kiuj informoj aŭ funkcioj mankas a"
+"l vi. Ni klopodos provizi ilin!"
 
 #: Success message when the queried number has been seen at LaGeSo
 msgid "querysuccess"
 msgstr ""
-"Via atendonumero %(number)s estis videbla sur la montrotabulo ĉe L"
-"AGeSo"
+"Via atendonumero %(number)s estis videbla sur la montrotabul"
+"o ĉe LAGeSo"
 
 #: is shown if the number was entered once
 msgid "foundonce"
 msgstr ""
-"Unu homo vidis kaj enigis vian atendonumeron al nia retejo je %(da"
-"te)s."
+"Unu homo vidis kaj enigis vian atendonumeron al nia retejo j"
+"e %(date)s."
 
 #: is shown if the number was entered multiple times
 msgid "foundmultiple"
 msgstr ""
-"%(amount)s homoj vidis vian numeron sur la montrotabulo de LAGeSo "
-"kaj entajpis la numeron en nian retejon."
+"%(amount)s homoj vidis vian numeron sur la montrotabulo de L"
+"AGeSo kaj entajpis la numeron en nian retejon."
 
 #: 
 msgid "morelikely"
 msgstr ""
-"Bv. noti: Ju pli da homoj enigis vian numeron, des pli fidinde kre"
-"deblas, ke via numero vere estis sur la montrotabulo kaj ne enigit"
-"a malbonintence au mistajpe."
+"Bv. noti: Ju pli da homoj enigis vian numeron, des pli fidin"
+"de kredeblas, ke via numero vere estis sur la montrotabulo k"
+"aj ne enigita malbonintence au mistajpe."
 
 #: Example query how to search for a number
 msgid "inputexample"
@@ -183,8 +184,8 @@ msgstr "La numeroj estas en alfabeta ordo."
 #: Numbers entered recently
 msgid "numberdisplaytxt"
 msgstr ""
-"Tiuj numeroj estis enigitaj ekde %(since)s de minimume %(min_count"
-")s diversaj personoj."
+"Tiuj numeroj estis enigitaj ekde %(since)s de minimume %(min"
+"_count)s diversaj personoj."
 
 #: 
 msgid "webpagetitle"
@@ -193,8 +194,8 @@ msgstr "LAGeSoNUM"
 #: 
 msgid "nonumbersentered"
 msgstr ""
-"Neniuj numeroj estis enigitaj ekde %(since)s de minimume %(min_cou"
-"nt)s diversaj personoj.Ni bezonas pli da helpantoj"
+"Neniuj numeroj estis enigitaj ekde %(since)s de minimume %(m"
+"in_count)s diversaj personoj.Ni bezonas pli da helpantoj"
 
 #: 
 msgid "responsible_name"

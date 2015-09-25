@@ -39,84 +39,20 @@ msgstr "حولنا"
 #: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
 msgid "search_pitch"
 msgstr ""
-ت
-ر
-ي
-د
- 
-ا
-ن
- 
-ت
-ع
-ر
-ف
- 
-م
-ا
- 
-إ
-ذ
-ا
- 
-ر
-ق
-م
-ك
- 
-ظ
-ه
-ر
- 
-ع
-ل
-ى
- 
-ا
-ل
-ش
-ا
-ش
-ة
- 
-و
-ا
-ن
-ت
- 
-ل
-م
- 
-ت
-ش
-ا
-ه
-د
-ه
- 
-.
-أ
-د
-خ
-ل
- 
-ر
-ق
-م
-ك
- 
+"تريد ان تعرف ما إذا رقمك ظهر على الشاشة وانت لم تشاهده .أدخل"
+" رقمك "
 
 #: This error is displayed when a user wants to enter a number more than once.
 msgid "erruniquenumber"
 msgstr ""
-"اذا كنت تملك رقم شخص ما وتريد معرفة إذا رقمه ظهر على الشاشة ؟(شكرا"
-"" لمساعدتك )"
+"اذا كنت تملك رقم شخص ما وتريد معرفة إذا رقمه ظهر على الشاشة "
+"؟(شكرا" لمساعدتك )"
 
 #: Explanation when the website started and why numbers before this date might have been called but are not in the database.
 msgid "pleasenote"
 msgstr ""
-"في هذه الصفحة يمكنك معرفة الارقام التي ظهرت على الشاشة بداية من تا"
-"ريخ ١٥-٩-٢٠١٥"
+"في هذه الصفحة يمكنك معرفة الارقام التي ظهرت على الشاشة بداية"
+" من تاريخ ١٥-٩-٢٠١٥"
 
 #: Header for the Explanation
 msgid "pleasenote_title"
@@ -125,9 +61,9 @@ msgstr "الرجاء الأنتباه"
 #: Explanation about the authors and goals of this website
 msgid "txtabout"
 msgstr ""
-"هذه الصفحة أنشئت من قبل متطوعين يريدون المساعدة وهي صفحة خاصة للاش"
-"خاص الذين لم يسجلو انفسهم بعد في السوسيال وهي تساعدك بمعرفة ان رقم"
-"ك ظهر على الشاشة أم لا "
+"هذه الصفحة أنشئت من قبل متطوعين يريدون المساعدة وهي صفحة خاص"
+"ة للاشخاص الذين لم يسجلو انفسهم بعد في السوسيال وهي تساعدك ب"
+"معرفة ان رقمك ظهر على الشاشة أم لا "
 
 #: Header for the explanation about the authors and goals of this website
 msgid "txtheadabout"
@@ -140,9 +76,9 @@ msgstr "حماية المعلومات "
 #: data priv explanation
 msgid "dataprivacytext"
 msgstr ""
-"حتى تستطيع ان تعمل هذه الصفحة يجب ان نأخذ معلوماتك الشخصية ونحفظها"
-" ونعمل عليها واخذ رقم ال اي بي  لجهازك و نوع المستعرض ولغة المستعر"
-"ض "
+"حتى تستطيع ان تعمل هذه الصفحة يجب ان نأخذ معلوماتك الشخصية و"
+"نحفظها ونعمل عليها واخذ رقم ال اي بي  لجهازك و نوع المستعرض "
+"ولغة المستعرض "
 
 #: coders
 msgid "codedby"

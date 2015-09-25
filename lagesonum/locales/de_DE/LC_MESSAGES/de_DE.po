@@ -7,14 +7,14 @@ msgid ""
 #: This text is being displayed as a result if the user entered a number that is formatted differently from the waiting numbers.
 msgid "errinvalinput"
 msgstr ""
-"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen ohne "
-"Leerzeichen eingeben."
+"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen"
+" ohne Leerzeichen eingeben."
 
 #: 404 for num
 msgid "errnotfound"
 msgstr ""
-"Es tut uns leid, aber diese Nummer wurde seit dem 24.9.15 noch nic"
-"ht aufgerufen."
+"Es tut uns leid, aber diese Nummer wurde seit dem 24.9.15 no"
+"ch nicht aufgerufen."
 
 #: Waiting number
 msgid "txtnumber"
@@ -23,9 +23,9 @@ msgstr "Wartenummer"
 #: Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at LAGeSo
 msgid "txtgreeting"
 msgstr ""
-"Willkommen auf LAGeSoNUM, der inoffiziellen Wartenummeranzeige für"
-" Flüchtlinge am Landesamt für Gesundheit und Soziales (LAGeSo) in "
-"Berlin."
+"Willkommen auf LAGeSoNUM, der inoffiziellen Wartenummeranzei"
+"ge für Flüchtlinge am Landesamt für Gesundheit und Soziales "
+"(LAGeSo) in Berlin."
 
 #: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
 msgid "menulanguage"
@@ -46,20 +46,20 @@ msgstr "Über uns"
 #: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
 msgid "search_pitch"
 msgstr ""
-"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib s"
-"ie hier ein, um es herauszufinden."
+"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde?"
+" Gib sie hier ein, um es herauszufinden."
 
 #: This error is displayed when a user wants to enter a number more than once.
 msgid "erruniquenumber"
 msgstr ""
-"Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere "
-"von der Anzeigetafel. Ganz lieben Dank für die Hilfe!"
+"Diese Nummer hast du bereits eingetragen. Bitte wähle eine a"
+"ndere von der Anzeigetafel. Ganz lieben Dank für die Hilfe!"
 
 #: Explanation when the website started and why numbers before this date might have been called but are not in the database.
 msgid "pleasenote"
 msgstr ""
-"Diese Website ist am 22.9.15 an den Start gegangen. Nur Nummern, d"
-"ie seitdem aufgerufen wurden, werden angezeigt."
+"Diese Website ist am 22.9.15 an den Start gegangen. Nur Numm"
+"ern, die seitdem aufgerufen wurden, werden angezeigt."
 
 #: Header for the Explanation
 msgid "pleasenote_title"
@@ -68,10 +68,10 @@ msgstr "Bitte beachten:"
 #: Explanation about the authors and goals of this website
 msgid "txtabout"
 msgstr ""
-"Diese Internetseite wurde von Freiwilligen erstellt. Mit ihr solle"
-"n Menschen, die sich um Asyl bewerben und gerade nicht auf dem LAG"
-"eSO-Gelände sind, prüfen können, ob ihre Wartenummer aufgerufen wu"
-"rde."
+"Diese Internetseite wurde von Freiwilligen erstellt. Mit ihr"
+" sollen Menschen, die sich um Asyl bewerben und gerade nicht"
+" auf dem LAGeSO-Gelände sind, prüfen können, ob ihre Wartenu"
+"mmer aufgerufen wurde."
 
 #: Header for the explanation about the authors and goals of this website
 msgid "txtheadabout"
@@ -84,19 +84,19 @@ msgstr "Datenschutzerklärung"
 #: data priv explanation
 msgid "dataprivacytext"
 msgstr ""
-"Um das Angebot dieser Seite zur Verfügung zu stellen, werden nutze"
-"rbezogene Daten gespeichert und verarbeitet, darunter IP, Browseri"
-"nformationen und Sprachpräferenzen."
+"Um das Angebot dieser Seite zur Verfügung zu stellen, werden"
+" nutzerbezogene Daten gespeichert und verarbeitet, darunter "
+"IP, Browserinformationen und Sprachpräferenzen."
 
 #: coders
 msgid "codedby"
 msgstr ""
-"<a href="http://www.academis.eu" target="_blank">Kristian Rother</"
-"a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix"
-" Zesch </a>unterstützt von coders4help und <a href="http://www.ref"
-"ugeehackathon.de">#refugeehackathon</a>. Quelltext und Liste aller"
-" Autoren <a href="https://github.com/fzesch/lagesonum">auf Github<"
-"/a> verfügbar."
+"<a href="http://www.academis.eu" target="_blank">Kristian Ro"
+"ther</a> &amp; <a href="http://www.felix-zesch.de" target="_"
+"blank">Felix Zesch </a>unterstützt von coders4help und <a hr"
+"ef="http://www.refugeehackathon.de">#refugeehackathon</a>. Q"
+"uelltext und Liste aller Autoren <a href="https://github.com"
+"/fzesch/lagesonum">auf Github</a> verfügbar."
 
 #: who built this site
 msgid "techimplementation"
@@ -117,57 +117,59 @@ msgstr "Abschicken"
 #: help_pitch
 msgid "help_pitch"
 msgstr ""
-"Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu erhalt"
-"en, indem du alle Nummern, die du auf der Anzeigetafel siehst eing"
-"ibst (NICHT deine eigene Wartenummer):"
+"Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu "
+"erhalten, indem du alle Nummern, die du auf der Anzeigetafel"
+" siehst eingibst (NICHT deine eigene Wartenummer):"
 
 #: Explanation
 msgid "about_par1"
 msgstr ""
-"Diese Website wurde von Freiwilligen erstellt, damit geflüchtete M"
-"enschen den Status ihrer Wartenummer abrufen können, ohne dass sie"
-" in der Schlange am LaGeSo in Berlin stehen müssen. Es gibt mobile"
-" Registrierungsteams, aber der Prozess ist sehr langsam, unorganis"
-"iert und intransparent für die Menschen in den Notunterkünften. Ma"
-"nchmal müssen die Menschen dort bis zu 15 Tage warten, bis ein mob"
-"iles Team dort ankommt. Dadurch misstrauen Menschen dem System und"
-" übernachten in immer kälter werdenden Nächten teils mit Kindern v"
-"or dem LaGeSo um einen frühen Platz in der Schlange zu ergattern. "
-"Leider ist es auch vorgekommen, dass Notunterkünfte die Menschen z"
+"Diese Website wurde von Freiwilligen erstellt, damit geflüch"
+"tete Menschen den Status ihrer Wartenummer abrufen können, o"
+"hne dass sie in der Schlange am LaGeSo in Berlin stehen müss"
+"en. Es gibt mobile Registrierungsteams, aber der Prozess ist"
+" sehr langsam, unorganisiert und intransparent für die Mensc"
+"hen in den Notunterkünften. Manchmal müssen die Menschen dor"
+"t bis zu 15 Tage warten, bis ein mobiles Team dort ankommt. "
+"Dadurch misstrauen Menschen dem System und übernachten in im"
+"mer kälter werdenden Nächten teils mit Kindern vor dem LaGeS"
+"o um einen frühen Platz in der Schlange zu ergattern. Leider"
+" ist es auch vorgekommen, dass Notunterkünfte die Menschen z"
 "urück in die Schlangen am LaGeSo geschickt haben."
 
 #: second part explanation
 msgid "about_par2"
 msgstr ""
-"Wir hoffen, dass diese Website dabei hilft, den Warteprozess trans"
-"parenter zu gestalten. Liebe Menschen mit Wartenummern, bitte schi"
-"ckt uns Feedback, welche Informationen ihr hier vermisst und wir v"
-"ersuchen unser bestes, um diese Information zu integrieren."
+"Wir hoffen, dass diese Website dabei hilft, den Warteprozess"
+" transparenter zu gestalten. Liebe Menschen mit Wartenummern"
+", bitte schickt uns Feedback, welche Informationen ihr hier "
+"vermisst und wir versuchen unser bestes, um diese Informatio"
+"n zu integrieren."
 
 #: Success message when the queried number has been seen at LaGeSo
 msgid "querysuccess"
 msgstr ""
-"Deine Wartenummer %(number)s wurde auf dem Display am LaGeSo angez"
-"eigt."
+"Deine Wartenummer %(number)s wurde auf dem Display am LaGeSo"
+" angezeigt."
 
 #: is shown if the number was entered once
 msgid "foundonce"
 msgstr ""
-"Eine Person hat sie auf dem Display gesehen und  am %(date)s auf d"
-"ieser Website eingetragen."
+"Eine Person hat sie auf dem Display gesehen und  am %(date)s"
+" auf dieser Website eingetragen."
 
 #: is shown if the number was entered multiple times
 msgid "foundmultiple"
 msgstr ""
-"%(amount)s Personen haben deine Wartenummer auf dem Display am LaG"
-"eSo gesehen und auf dieser Website eingetragen."
+"%(amount)s Personen haben deine Wartenummer auf dem Display "
+"am LaGeSo gesehen und auf dieser Website eingetragen."
 
 #: 
 msgid "morelikely"
 msgstr ""
-"Bitte beachte: Je mehr Personen eine Nummer eintragen, desto größe"
-"r ist die Sicherheit, dass die Nummer wirklich angezeigt wurde und"
-" sich keiner vertippt hat."
+"Bitte beachte: Je mehr Personen eine Nummer eintragen, desto"
+" größer ist die Sicherheit, dass die Nummer wirklich angezei"
+"gt wurde und sich keiner vertippt hat."
 
 #: Example query how to search for a number
 msgid "inputexample"
@@ -184,8 +186,8 @@ msgstr "Die Nummern sind alphabetisch sortiert."
 #: Numbers entered recently
 msgid "numberdisplaytxt"
 msgstr ""
-"Diese Nummern wurden seit %(since)s von mindestens %(min_count)s P"
-"ersonen eingegeben."
+"Diese Nummern wurden seit %(since)s von mindestens %(min_cou"
+"nt)s Personen eingegeben."
 
 #: 
 msgid "webpagetitle"
@@ -194,8 +196,8 @@ msgstr "LAGeSoNUM"
 #: 
 msgid "nonumbersentered"
 msgstr ""
-"Seit %(since)s wurden keine Nummern von mindestens %(min_count)s P"
-"ersonen eingegeben. Wir brauchen mehr Helfer!"
+"Seit %(since)s wurden keine Nummern von mindestens %(min_cou"
+"nt)s Personen eingegeben. Wir brauchen mehr Helfer!"
 
 #: 
 msgid "responsible_name"
