@@ -59,6 +59,7 @@
         <ul class="nav navbar-nav">
           <li {{!'class="active"' if get("active") == "helpus" else ""}}><a href="{{i18n_path('/enter')}}">{{_('MACH MIT!')}}</a></li>
           <li {{!'class="active"' if get("active") == "query" else ""}}><a href="{{i18n_path('/query')}}">{{_('DEINE WARTENUMMER')}}</a></li>
+          <li {{!'class="active"' if get("active") == "display" else ""}}><a href="{{i18n_path('/display')}}">DISPLAY</a></li>
           <li {{!'class="active"' if get("active") == "about" else ""}}><a href="{{i18n_path('/about')}}">{{_(u'\xdcBER UNS')}}</a></li>
           <li {{!'class="active"' if get("active") == "impressum" else ""}}><a href="{{i18n_path('/impressum')}}">{{_('KONTAKT/IMPRESSUM')}}</a></li>
         </ul>

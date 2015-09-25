@@ -3,11 +3,13 @@
 <div class="container">
       <div class="starter-template">
 
-<p>Live display</p>
+<h2>Live display</h2>
 
 % if numbers is not None:
-<p>Numbers entered since {{since}} more than {{min_count}} times.</p>
+<p>These numbers have been entered since {{since}} by at least {{min_count}} different helpers.</p>
    {{numbers}}
+
+<p><br>Alphabet order</p>
 
 % else:
 <p>No numbers entered since {{since}} more than {{min_count}} times.</p>

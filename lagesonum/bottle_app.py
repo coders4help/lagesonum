@@ -1,5 +1,6 @@
 # coding: utf-8
 
+from dateutil import parser
 import sqlite3
 import os
 import time
@@ -164,18 +165,17 @@ def display():
         result = cursor.execute(select_query).fetchall()
 
     # filter numbers entered recently enough
-    #numbers_young_enough = [number for number, time in result if time >= oldest_to_be_shown]
+    numbers_young_enough = [number for number, nrtime in result
+                            if parser.parse(nrtime).timestamp() >= float(oldest_to_be_shown)]
 
     # filter numbers entered often enough
-    # numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(number) >= MIN_COUNT]
-
-    numbers_frequent_enough = [number for number, time in result]
+    numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]
 
     # format numbers for later output
-    display_output = "\n".join(sorted(numbers_frequent_enough))
+    display_output = "\n".join(sorted(set(numbers_frequent_enough)))
 
     return {'numbers': display_output,
-            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown)),
+            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown))[:19],
             'min_count': MIN_COUNT
             }
 
