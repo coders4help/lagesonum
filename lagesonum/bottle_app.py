@@ -1,4 +1,4 @@
-# coding: utf-8
+﻿# coding: utf-8
 
 from dateutil import parser
 import sqlite3
@@ -25,12 +25,8 @@ if not os.path.exists(DB_PATH):
 lagesonrdb = sqlite3.connect(DB_PATH)
 
 # todo: populate list dynamically based on available/selected translations
-LANGS = [
-    (u'de_DE', u'Deutsch'),
-    (u'en_US', u'English'),
-    (u'ar_SY', u'العربية'),
-    (u'eo_EO', u'Esperanto'),
-]
+LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'العربية'),    (u'eo_EO', u'Esperanto')]
+#LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'mn'),    (u'eo_EO', u'Esperanto')]
 DEFAULT_LOCALE = 'en_US'
 
 # set as global variable available in all templates (to be able to call e.g. request.locale)
@@ -187,4 +183,3 @@ app = default_app()
 application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          domain='messages',
                          locale_dir=os.path.join(MOD_PATH, 'locales'))
-

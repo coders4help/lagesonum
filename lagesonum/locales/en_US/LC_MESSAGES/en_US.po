@@ -79,8 +79,10 @@ msgstr ""
 "that they are missing something. Unfortunately, it has also "
 "happened that people from the official shelters were sent ba"
 "ck to LaGeSo the next morning, whether they had a waiting nu"
-"mber or not. We hope this website will aid in making the who"
-"le waiting number process more transparent.People with wait"
+"mber or not.
+We hope this website will aid in making the who"
+"le waiting number process more transparent.
+People with wait"
 "ing numbers, please send us feedback, what information you a"
 "re missing and we will do our best to make it available to y"
 "ou!"
