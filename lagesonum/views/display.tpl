@@ -3,19 +3,19 @@
 <div class="container">
       <div class="starter-template">
 
-<h2>Live display</h2>
+<h2>{{_('display_link')}}</h2>
 
 % if numbers is not None:
-<p>These numbers have been entered since {{since}} by at least {{min_count}} different helpers.</p>
+<p>{{_('numberdisplaytxt')}}</p>
    {{numbers}}
 
-<p><br>Alphabet order</p>
+<p><br>{{_('alphabetorder')}}</p>
 
 % else:
-<p>No numbers entered since {{since}} more than {{min_count}} times.</p>
+<p>{{_('nonumbersentered')}}</p>
 
-<h3>{{_('Bitte beachten:')}}</h3>
-<p>{{_(u'Diese Website ist am 22.9.15 an den Start gegangen. Nur Nummern, die seitdem aufgerufen wurden, werden angezeigt.')}}</p>
+<h3>{{_('pleasenote_title')}}</h3>
+<p>{{_(u'pleasenote')}}</p>
 
 </div></div>
 

@@ -39,7 +39,7 @@
           margin-right: 5px;
         }
     </style>
-    <title>LaGeSoNum - showing numbers at LaGeSO in Berlin</title>
+    <title>{{_('webpagetitle')}}</title>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -52,16 +52,16 @@
           <span class="icon-bar"></span>
         </button>
         <div class="navbar-brand">
-          <img alt="LaGeSoNum" src="/static/logo.png" height="30">
+          <img alt="LAGeSoNUM" src="/static/logo.png" height="30">
         </div>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li {{!'class="active"' if get("active") == "helpus" else ""}}><a href="{{i18n_path('/enter')}}">{{_('MACH MIT!')}}</a></li>
-          <li {{!'class="active"' if get("active") == "query" else ""}}><a href="{{i18n_path('/query')}}">{{_('DEINE WARTENUMMER')}}</a></li>
-          <li {{!'class="active"' if get("active") == "display" else ""}}><a href="{{i18n_path('/display')}}">DISPLAY</a></li>
-          <li {{!'class="active"' if get("active") == "about" else ""}}><a href="{{i18n_path('/about')}}">{{_(u'\xdcBER UNS')}}</a></li>
-          <li {{!'class="active"' if get("active") == "impressum" else ""}}><a href="{{i18n_path('/impressum')}}">{{_('KONTAKT/IMPRESSUM')}}</a></li>
+          <li {{!'class="active"' if get("active") == "helpus" else ""}}><a href="{{i18n_path('/enter')}}">{{_('helpus_link')}}</a></li>
+          <li {{!'class="active"' if get("active") == "query" else ""}}><a href="{{i18n_path('/query')}}">{{_('searchanumber_link')}}</a></li>
+          <li {{!'class="active"' if get("active") == "display" else ""}}><a href="{{i18n_path('/display')}}">{{_(display_link)}}DISPLAY</a></li>
+          <li {{!'class="active"' if get("active") == "about" else ""}}><a href="{{i18n_path('/about')}}">{{_('about_link')}}</a></li>
+          <li {{!'class="active"' if get("active") == "impressum" else ""}}><a href="{{i18n_path('/impressum')}}">{{_('contact_link')}}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">

@@ -79,12 +79,12 @@ def do_enter():
                     cursor.execute(insert_query, values)
                     result_num.append(num)
                 except sqlite3.IntegrityError:
-                    result_num.append(_(u'Diese Nummer hast du bereits eingetragen. Bitte w\xe4hle eine andere von der Anzeigetafel. Ganz lieben Dank f\xfcr die Hilfe!') + ": {}".format(num))
+                    result_num.append(_(u'erruniquenumber') + ": {}".format(num))
             else:
-                result_num.append("INVALID INPUT: {}".format(num))
+                result_num.append(_('errinvalinput') + ": {}".format(num))
 
         if not len(numbers):
-            result_num.append("NO VALID NUMBERS ENTERED")
+            result_num.append(_('novalidnumbers'))
 
     return {'entered': result_num, 'timestamp': timestamp}
 

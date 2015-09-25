@@ -87,4 +87,4 @@ def initialize_database(path):
 
 if __name__ == '__main__':
 
-    initialize_database('lagesonr.db')
+    initialize_database('../lagesonr.db')
