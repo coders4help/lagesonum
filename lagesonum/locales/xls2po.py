@@ -58,14 +58,18 @@ def write_po(sheet, col_nr, i18n_code, path=""):
         po.write("""msgid ""
         msgstr ""
         "Project-Id-Version: lagesonum"
-        "Report-Msgid-Bugs-To:"
-        "POT-Creation-Date: 2015-09-21 12:26+0200"
-        "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE"
-        "Last-Translator:"
-        "Language-Team: LANGUAGE <LL@li.org>"
-        "MIME-Version: 1.0"
-        "Content-Type: text/plain; charset=UTF-8"
-        "Content-Transfer-Encoding: 8bit"
+"Report-Msgid-Bugs-To:"
+"POT-Creation-Date: 2015-09-21 12:26+0200"
+"PO-Revision-Date: 2015-09-25 21:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+"Language: "\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: LAGeSoNUM-.po-generator\n"
+
         """)
 
         po.write("\n\n")
