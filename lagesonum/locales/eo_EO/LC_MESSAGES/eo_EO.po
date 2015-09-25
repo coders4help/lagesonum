@@ -1,26 +1,7 @@
 msgid ""
         msgstr ""
         "Project-Id-Version: lagesonum"
-"Report-Msgid-Bugs-To:"
-"POT-Creation-Date: 2015-09-21 12:26+0200"
-"PO-Revision-Date: 2015-09-25 21:46+0200
-"
-"Last-Translator: 
-"
-"Language-Team: 
-"
-"MIME-Version: 1.0
-"
-"Content-Type: text/plain; charset=UTF-8
-"
-"Content-Transfer-Encoding: 8bit"
-"Language: "
-"
-"Plural-Forms: nplurals=2; plural=(n != 1);
-"
-"X-Generator: LAGeSoNUM-.po-generator
-"
-
+"Content-Type: text/plain; charset=UTF-8"
         
 
 #: This text is being displayed as a result if the user entered a number that is formatted differently from the waiting numbers.
