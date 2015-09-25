@@ -5,7 +5,7 @@
 
 <h2>{{_(contact_link)}}</h2>
 Gemäß § 28 BDSG widersprechen wir jeder kommerziellen Verwendung und Weitergabe unserer Daten.
-
+<br /><br />
 Anbieter § 6 TDG / § 10 Absatz 3 MDStV:
 <p>{{_('responsible_name')}}<br/>
 {{_('responsible_address')}}</p>
