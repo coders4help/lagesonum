@@ -164,3 +164,7 @@ msgstr ""
 msgid "novalidnumbers"
 msgstr ""
 
+#: 
+msgid "supportedby"
+msgstr ""
+

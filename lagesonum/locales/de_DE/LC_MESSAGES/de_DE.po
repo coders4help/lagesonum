@@ -91,12 +91,12 @@ msgstr ""
 #: coders
 msgid "codedby"
 msgstr ""
-"<a href="http://www.academis.eu" target="_blank">Kristian Ro"
-"ther</a> &amp; <a href="http://www.felix-zesch.de" target="_"
-"blank">Felix Zesch </a>unterstützt von coders4help und <a hr"
-"ef="http://www.refugeehackathon.de">#refugeehackathon</a>. Q"
-"uelltext und Liste aller Autoren <a href="https://github.com"
-"/fzesch/lagesonum">auf Github</a> verfügbar."
+"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristia"
+"n Rother</a> &amp; <a href=\"http://www.felix-zesch.de\" tar"
+"get=\"_blank\">Felix Zesch</a> unterstützt von coders4help u"
+"nd <a href=\"http://www.refugeehackathon.de\">#refugeehackat"
+"hon</a>. Quelltext und Liste aller Autoren <a href=\"https:/"
+"/github.com/fzesch/lagesonum\">auf Github</a> verfügbar."
 
 #: who built this site
 msgid "techimplementation"
@@ -210,4 +210,8 @@ msgstr ""
 #: 
 msgid "novalidnumbers"
 msgstr "Es wurden keine gültigen Nummern eingegeben."
+
+#: 
+msgid "supportedby"
+msgstr "unterstützt von coders4help und"
 

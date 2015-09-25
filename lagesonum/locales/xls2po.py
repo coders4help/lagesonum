@@ -126,7 +126,7 @@ if __name__ == "__main__":
         write_po(i18n_sheet, lang_cols[loc], i18n_code=loc, path=loc + "/LC_MESSAGES/")
 
         #compile .po files to .mo files with msgfmt
-        msgcommand = loc + "/LC_MESSAGES/" + "msgfmt " + loc + ".po messages.mo"
+        msgcommand = loc + "/LC_MESSAGES/" + "msgfmt " + loc + ".po -o messages.mo"
 
         # on unix system, msgfmt is usually preinstalled. On Windows, it is not.
         try:
