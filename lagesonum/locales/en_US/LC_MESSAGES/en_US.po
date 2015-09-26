@@ -1,230 +1,181 @@
+#
 msgid ""
-        msgstr ""
-        "Project-Id-Version: lagesonum"
-"Content-Type: text/plain; charset=UTF-8"
-        
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"POT-Creation-Date: 2007-10-18 14:00+0100\n"
+"PO-Revision-Date: 2007-10-18 14:00+0100\n"
+"Last-Translator: you <you@example.com>\n"
+"Language-Team: English <yourteam@example.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: This text is being displayed as a result if the user entered a number that is formatted differently from the waiting numbers.
 msgid "errinvalinput"
 msgstr ""
-"Invalid input. Please enter a letter followed by numbers wit"
-"hout spaces."
+"Invalid input. Please enter a letter followed by numbers without spaces."
 
-#: 404 for num
 msgid "errnotfound"
-msgstr ""
-"Sorry, this number hasn't been on the board since September "
-"24, 2015."
+msgstr "Sorry, this number hasn't been on the board since September 28, 2015."
 
-#: Waiting number
 msgid "txtnumber"
 msgstr "Waiting number"
 
-#: Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at LAGeSo
 msgid "txtgreeting"
 msgstr ""
-"Welcome to LAGeSoNUM, the unofficial waiting number display "
-"for refugees at the department for health and social affairs"
-" (LAGeSo) in Berlin."
+"Welcome to LAGeSoNUM, the unofficial waiting number display for refugees at "
+"the department for health and social affairs (LAGeSo) in Berlin."
 
-#: The menu item to switch the site to the language you want to read in. Please enter the name for the language in local tongue here.
 msgid "menulanguage"
 msgstr "English"
 
-#: Menu for number search page
 msgid "searchanumber_link"
 msgstr "Your waiting number"
 
-#: Menu entry for entering numbers at LaGeSo. Call to action (help), not help in the sense of instructions
 msgid "helpus_link"
 msgstr "Join in!"
 
-#: Menu entry for the page explaining what this website is doing
 msgid "about_link"
 msgstr "About us"
 
-#: This text explains to enter the number in the textfield in order to find out if and when it has been called at LaGeSo.
 msgid "search_pitch"
 msgstr ""
-"You want to know, if your number has been called at LAGeSo? "
-"Enter it here to find out!"
+"You want to know, if your number has been called at LAGeSo? Enter it here to"
+" find out!"
 
-#: This error is displayed when a user wants to enter a number more than once.
 msgid "erruniquenumber"
 msgstr ""
-"You have already submitted this number. Please choose anothe"
-"r one from the board. Thanks a lot for helping!"
+"You have already submitted this number. Please choose another one from the "
+"board. Thanks a lot for helping!"
 
-#: Explanation when the website started and why numbers before this date might have been called but are not in the database.
 msgid "pleasenote"
 msgstr ""
-"This website started on September 22, 2015. Numbers before t"
-"his date are not in the database."
+"This website started on September 28, 2015. Numbers before this date are not"
+" in the database."
 
-#: Header for the Explanation
 msgid "pleasenote_title"
 msgstr "Please note:"
 
-#: Explanation about the authors and goals of this website
 msgid "txtabout"
 msgstr ""
-"This website was created by volunteers. Its purpose is for p"
-"eople applying for asylum that are currently not at LaGeSo t"
-"o be able to check if their waiting number was already been "
-"called. There are mobile registration teams coming to the sh"
-"elters, but the process is very slow and not transparent eno"
-"ugh for the people with waiting numbers. Some people have to"
-" wait up to 15 days until teams arrive. This leads to people"
-" distrusting the system and also gives everyone the feeling "
-"that they are missing something. Unfortunately, it has also "
-"happened that people from the official shelters were sent ba"
-"ck to LaGeSo the next morning, whether they had a waiting nu"
-"mber or not.
-We hope this website will aid in making the who"
-"le waiting number process more transparent.
-People with wait"
-"ing numbers, please send us feedback, what information you a"
-"re missing and we will do our best to make it available to y"
-"ou!"
+"This website was created by volunteers. Its purpose is for people applying for asylum that are currently not at LaGeSo to be able to check if their waiting number was already been called. There are mobile registration teams coming to the shelters, but the process is very slow and not transparent enough for the people with waiting numbers. Some people have to wait up to 15 days until teams arrive. This leads to people distrusting the system and also gives everyone the feeling that they are missing something. Unfortunately, it has also happened that people from the official shelters were sent back to LaGeSo the next morning, whether they had a waiting number or not.\n"
+"We hope this website will aid in making the whole waiting number process more transparent.\n"
+"People with waiting numbers, please send us feedback, what information you are missing and we will do our best to make it available to you!"
 
-#: Header for the explanation about the authors and goals of this website
 msgid "txtheadabout"
 msgstr "About this website"
 
-#: dataprivacy
 msgid "dataprivacy"
 msgstr "Declaration about data privacy"
 
-#: data priv explanation
 msgid "dataprivacytext"
 msgstr ""
-"For providing this service, personal infomation about the us"
-"er is stored and processed, among them IP, browser details a"
-"nd language preferences."
+"For providing this service, personal infomation about the user is stored and"
+" processed, among them IP, browser details and language preferences."
 
-#: coders
 msgid "codedby"
 msgstr ""
-"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristia"
-"n Rother</a> &amp; <a href=\"http://www.felix-zesch.de\" tar"
-"get=\"_blank\">Felix Zesch</a> supported by coders4help and "
-"<a href=\"http://www.refugeehackathon.de\">#refugeehackathon"
-"</a>. Source code and the list of all authors <a href=\"http"
-"s://github.com/fzesch/lagesonum\">available on Github</a>."
+"<a href=\\\"http://www.academis.eu\\\" target=\\\"_blank\\\">Kristian "
+"Rother</a> &amp; <a href=\\\"http://www.felix-zesch.de\\\" "
+"target=\\\"_blank\\\">Felix Zesch</a> supported by coders4help and <a "
+"href=\\\"http://www.refugeehackathon.de\\\">#refugeehackathon</a>. Source "
+"code and the list of all authors <a "
+"href=\\\"https://github.com/fzesch/lagesonum\\\">available on Github</a>."
 
-#: who built this site
 msgid "techimplementation"
 msgstr "Implementation"
 
-#: dataprivacyheading
 msgid "dataprivacyheading"
 msgstr "Data privacy declaration according to §13 Telemediengesetz"
 
-#: contact_link
 msgid "contact_link"
 msgstr "Contact"
 
-#: submit_label
 msgid "submit_label"
 msgstr "Submit"
 
-#: help_pitch
 msgid "help_pitch"
 msgstr ""
-"Are you at LaGeSo? Please help us to keep this site up to da"
-"te by entering all numbers you can see displayed at the numb"
-"er display. (NOT your own waiting number)."
+"Are you at LaGeSo? Please help us to keep this site up to date by entering "
+"all numbers you can see displayed at the number display. (NOT your own "
+"waiting number)."
 
-#: Explanation
 msgid "about_par1"
 msgstr ""
-"This website was created by volunteers. Its purpose is for p"
-"eople applying for asylum that are currently not at LaGeSo t"
-"o be able to check if their waiting number has already been "
-"called. There are mobile registration teams coming to the sh"
-"elters, but the process is very slow and not transparent eno"
-"ugh for the people with waiting numbers. Some people have to"
-" wait up to 15 days until teams arrive. This leads to people"
-" distrusting the system and also gives everyone the feeling "
-"that they are missing something. Unfortunately, it has also "
-"happened that people from the official shelters were sent ba"
-"ck to LaGeSo the next morning, whether they had a waiting nu"
-"mber or not."
+"This website was created by volunteers. Its purpose is for people applying "
+"for asylum that are currently not at LaGeSo to be able to check if their "
+"waiting number has already been called. The registration process for people "
+"in shelters is intransparent and constantly changing without people being "
+"properly informed. There have been some mobile registration teams, there "
+"have been shuttle services to LaGeSo and in all cases there hast been a lot "
+"of idling and waiting and not being informed. Having to wait for weeks leads"
+" to people distrusting the system and also gives everyone the feeling that "
+"they are missing something. That's why they are walking back to LaGeSo and "
+"spending their nights homeless, which is a bad situation giving the falling "
+"temperatures and crimes."
 
-#: second part explanation
 msgid "about_par2"
 msgstr ""
-"We hope this website will aid in making the entire waiting n"
-"umber process more transparent. People with waiting numbers,"
-" please send us feedback, what information you are missing a"
-"nd we will do our best to make it available to you!"
+"We hope this website will aid in making the entire waiting number process "
+"more transparent. People with waiting numbers, please send us feedback, what"
+" information you are missing and we will do our best to make it available to"
+" you! <BR/>You can read more about this problem in this <a "
+"href=\\\"http://www.taz.de/Wartezeiten-am-Berliner-Lageso/!5228958/\\\">taz "
+"article</a>"
 
-#: Success message when the queried number has been seen at LaGeSo
 msgid "querysuccess"
-msgstr ""
-"Your waiting number %(number)s was seen at the display at La"
-"GeSo!"
+msgstr "Your waiting number %(number)s was seen at the display at LaGeSo!"
 
-#: is shown if the number was entered once
 msgid "foundonce"
-msgstr ""
-"One person saw it and submitted it to this website on %(date"
-")s."
+msgstr "One person saw it and submitted it to this website on %(date)s."
 
-#: is shown if the number was entered multiple times
 msgid "foundmultiple"
 msgstr ""
-"%(amount)s people have seen your number at the display at La"
-"GeSo and entered it to this website."
+"%(amount)s people have seen your number at the display at LaGeSo and entered"
+" it to this website."
 
-#: 
 msgid "morelikely"
 msgstr ""
-"Please note: The more people have entered your number, the m"
-"ore likely it was really shown and not accidentally entered "
-"due to mistyping."
+"Please note: The more people have entered your number, the more likely it "
+"was really shown and not accidentally entered due to mistyping."
 
-#: Example query how to search for a number
 msgid "inputexample"
 msgstr "e.g. A123"
 
-#: Description of the display at LAGesSo
 msgid "display_link"
 msgstr "Display"
 
-#: 
 msgid "alphabetorder"
-msgstr "The numbers are sorted alphabetically."
+msgstr ""
+"The numbers here are sorted alphabetically. The order may be different from "
+"the order at the display."
 
-#: Numbers entered recently
 msgid "numberdisplaytxt"
 msgstr ""
-"These numbers have been entered since %(since)s by at least "
-"%(min_count)s different persons."
+"These numbers have been entered since %(since)s by at least %(min_count)s "
+"different persons."
 
-#: 
 msgid "webpagetitle"
-msgstr "LAGeSoNUM"
+msgstr "LAGeSoNUM - Refugees Welcome!"
 
-#: 
 msgid "nonumbersentered"
 msgstr ""
-"No numbers have been entered since %(since)s by at least %(m"
-"in_count)s different persons. We need more volunteers"
+"No numbers have been entered since %(since)s by at least %(min_count)s "
+"different persons. We need more volunteers"
 
-#: 
 msgid "responsible_name"
 msgstr "Daniela Grebe"
 
-#: 
 msgid "responsible_address"
 msgstr ""
 
-#: 
 msgid "novalidnumbers"
 msgstr "No valid numbers have been entered."
 
-#: 
 msgid "supportedby"
 msgstr "supported by coders4help and "
 
+msgid "entered"
+msgstr ""
+"Thanks a lot! You entered the following waiting number successfully into the"
+" database:"

@@ -10,6 +10,7 @@ from subprocess import call
 from os.path import isdir
 from os import makedirs
 import xlrd
+import polib
 
 # PARAMETERS
 
@@ -124,13 +125,33 @@ if __name__ == "__main__":
         	os.makedirs(loc)
 	        os.makedirs(loc + "/LC_MESSAGES")
 
-        write_po(i18n_sheet, lang_cols[loc], i18n_code=loc, path=loc + "/LC_MESSAGES/")
+        po = polib.POFile()
+        po.metadata = {
+                'Project-Id-Version': '1.0',
+                'Report-Msgid-Bugs-To': 'you@example.com',
+                'POT-Creation-Date': '2007-10-18 14:00+0100',
+                'PO-Revision-Date': '2007-10-18 14:00+0100',
+                'Last-Translator': 'you <you@example.com>',
+                'Language-Team': 'English <yourteam@example.com>',
+                'MIME-Version': '1.0',
+                'Content-Type': 'text/plain; charset=utf-8',
+                'Content-Transfer-Encoding': '8bit',
+        }
 
-        #compile .po files to .mo files with msgfmt
-        msgcommand = loc + "/LC_MESSAGES/" + "msgfmt " + loc + ".po -o messages.mo"
+        col_nr = lang_cols[loc]
 
-        # on unix system, msgfmt is usually preinstalled. On Windows, it is not.
-        try:
-            call(msgcommand)
-        except FileNotFoundError as e:
-            print("No .mo written for "+ loc +". Do you have msgfmt installed?")
+        for row in range(1,i18n_sheet.nrows):
+
+#po.write("#: " + str(sheet.cell(row, DESC_COL).value)+EOL_STR)
+
+
+
+            entry = polib.POEntry(
+                msgid= i18n_sheet.cell(row, KEY_COL).value,
+                msgstr= i18n_sheet.cell(row, col_nr).value,
+                #occurrences=[('welcome.py', '12'), ('anotherfile.py', '34')]
+            )
+            po.append(entry)
+
+        po.save(loc + "/LC_MESSAGES/" + loc + ".po")
+        po.save_as_mofile(loc + "/LC_MESSAGES/messages.mo")

@@ -59,7 +59,7 @@
         <ul class="nav navbar-nav">
           <li {{!'class="active"' if get("active") == "helpus" else ""}}><a href="{{i18n_path('/enter')}}">{{_('helpus_link')}}</a></li>
           <li {{!'class="active"' if get("active") == "query" else ""}}><a href="{{i18n_path('/query')}}">{{_('searchanumber_link')}}</a></li>
-          <li {{!'class="active"' if get("active") == "display" else ""}}><a href="{{i18n_path('/display')}}">{{_(display_link)}}DISPLAY</a></li>
+          <li {{!'class="active"' if get("active") == "display" else ""}}><a href="{{i18n_path('/display')}}">{{_('display_link')}}</a></li>
           <li {{!'class="active"' if get("active") == "about" else ""}}><a href="{{i18n_path('/about')}}">{{_('about_link')}}</a></li>
           <li {{!'class="active"' if get("active") == "impressum" else ""}}><a href="{{i18n_path('/impressum')}}">{{_('contact_link')}}</a></li>
         </ul>

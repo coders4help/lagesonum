@@ -25,7 +25,7 @@ if not os.path.exists(DB_PATH):
 lagesonrdb = sqlite3.connect(DB_PATH)
 
 # todo: populate list dynamically based on available/selected translations
-LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'العربية'),    (u'eo_EO', u'Esperanto')]
+LANGS = [    ('de_DE', u'Deutsch'),    ('en_US', u'English'),    ('ar_SY', u'العربية'),    ('eo_EO', u'Esperanto')]
 #LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'mn'),    (u'eo_EO', u'Esperanto')]
 DEFAULT_LOCALE = 'en_US'
 
@@ -162,8 +162,12 @@ def display():
         result = cursor.execute(select_query).fetchall()
 
     # filter numbers entered recently enough
-    numbers_young_enough = [number for number, nrtime in result
+    try:
+
+        numbers_young_enough = [number for number, nrtime in result
                             if parser.parse(nrtime).timestamp() >= float(oldest_to_be_shown)]
+    except:
+        numbers_young_enough = [number for number, nrtime in result]
 
     # filter numbers entered often enough
     numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]

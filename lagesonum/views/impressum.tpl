@@ -3,7 +3,7 @@
 <div class="container">
       <div class="starter-template">
 
-<h2>{{_(contact_link)}}</h2>
+<h2>{{_('contact_link')}}</h2>
 Gemäß § 28 BDSG widersprechen wir jeder kommerziellen Verwendung und Weitergabe unserer Daten.
 
 Anbieter § 6 TDG / § 10 Absatz 3 MDStV:
@@ -12,7 +12,7 @@ Anbieter § 6 TDG / § 10 Absatz 3 MDStV:
 
 <a href="mailto:kontakt@lagesonum.de" target="_blank">kontakt@lagesonum.de</a>
 <h2>{{_('techimplementation')}}</h2>
-{{_(codedby)}}
+{{_('codedby')}}
 
 <h2>{{_('dataprivacyheading')}}</h2>
 <p><strong>{{_(u'dataprivacy')}}</strong></p><p><strong>Geltungsbereich</strong></p><p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter auf dieser Website (im folgenden “Angebot”) auf.<br />
