@@ -49,8 +49,6 @@ def index():
 @route('/enter')
 @view('views/start_page')
 def enter():
-    """: Helfer steht am LaGeSo und gibt Nummern ein [_____] """
-    print("TEST", _('helpus_link'))
     return {'entered': []}
 
 

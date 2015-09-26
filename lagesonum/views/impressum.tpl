@@ -12,7 +12,11 @@ Anbieter § 6 TDG / § 10 Absatz 3 MDStV:
 
 <a href="mailto:kontakt@lagesonum.de" target="_blank">kontakt@lagesonum.de</a>
 <h2>{{_('techimplementation')}}</h2>
-{{_('codedby')}}
+<a href="http://www.academis.eu" target="_blank">Kristian Rother</a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix Zesch</a> {{_(<a href="http://www.academis.eu" target="_blank">Kristian Rother</a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix Zesch</a>
+
+{{_(supportedbycoders)}} coders4help + <a href="http://www.refugeehackathon.de">#refugeehackathon</a>.
+
+{{_(ongithub) % '<a href="https://github.com/fzesch/lagesonum">Github</a>'}}
 
 <h2>{{_('dataprivacyheading')}}</h2>
 <p><strong>{{_(u'dataprivacy')}}</strong></p><p><strong>Geltungsbereich</strong></p><p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter auf dieser Website (im folgenden “Angebot”) auf.<br />
