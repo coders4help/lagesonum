@@ -24,15 +24,15 @@
       <div class="alert alert-warning" role="alert">{{_('errnotfound')}}</div>
     % else:
       <div class="alert alert-success" role="alert">
-        {{_(querysuccess)}}<br><br>
+        {{_('querysuccess')}}<br><br>
 
         % if len(timestamps) == 1:
-           {{_(foundonce)}}<br><br>
+           {{_('foundonce')}}<br><br>
         % else:
-          %{{_(foundmultiple)}}
+          %{{_('foundmultiple')}}
         % end
 
-        {{_(morelikely)}}
+        {{_('morelikely')}}
       </div>
     % end
   %end
@@ -40,8 +40,8 @@
 
 
 
-<h3>{{_('pleaseote_title')}}</h3>
-<p>{{_(u'pleasenote_title')}}</p>
+<h3>{{_('pleasenote_title')}}</h3>
+<p>{{_(u'pleasenote')}}</p>
 
 </div></div>
 
