@@ -147,8 +147,8 @@ if __name__ == "__main__":
 
 
             entry = polib.POEntry(
-                msgid= i18n_sheet.cell(row, KEY_COL).value,
-                msgstr= i18n_sheet.cell(row, col_nr).value,
+                msgid= str(i18n_sheet.cell(row, KEY_COL).value),
+                msgstr= str(i18n_sheet.cell(row, col_nr).value),
                 #occurrences=[('welcome.py', '12'), ('anotherfile.py', '34')]
             )
             po.append(entry)
