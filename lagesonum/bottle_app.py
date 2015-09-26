@@ -166,7 +166,7 @@ def display():
 
         numbers_young_enough = [number for number, nrtime in result
                             if parser.parse(nrtime).timestamp() >= float(oldest_to_be_shown)]
-    except:
+    except ValueError as e:
         numbers_young_enough = [number for number, nrtime in result]
 
     # filter numbers entered often enough

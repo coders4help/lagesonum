@@ -8,7 +8,7 @@
 
 <form action="{{i18n_path('/enter')}}" method="post">
   <div class="form-group">
-    <textarea name="numbers" rows="10" class="form-control" placeholder={{_('inputexample')}}></textarea>
+    <textarea name="numbers" rows="10" class="form-control" placeholder={{_('inputexample')}} + ' A123 B456'></textarea>
   </div>
   <button class="btn btn-primary">{{_('submit_label')}}</button>
 </form>
