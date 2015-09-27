@@ -76,21 +76,18 @@ msgid "txtheadabout"
 msgstr "Pri tiu ĉi retejo"
 
 msgid "dataprivacy"
-msgstr ""
+msgstr "Deklaro pri datumprotekto"
 
 msgid "dataprivacytext"
 msgstr ""
 "Por provizi tiun ĉi retejon, ni uzas personrilatajn datumojn, ia. ip-adreso,"
 " retumilo kaj lingvopreferojn."
 
-msgid "codedby"
-msgstr ""
-"<a href=\"http://www.academis.eu\" target=\"_blank\">Kristian Rother</a> "
-"&amp; <a href=\"http://www.felix-zesch.de\" target=\"_blank\">Felix "
-"Zesch</a> subtenitaj de coders4help kaj <a "
-"href=\"www.refugeehackathon.de\">#refugeehackathon</a>. Programkodo kaj "
-"kompleta listo de aŭtoroj je <a "
-"href=\"https://github.com/fzesch/lagesonum/\">github</a>."
+msgid "ongithub"
+msgstr "Programkodo kaj kompleta listo de aŭtoroj estas disponeblaj je %s."
+
+msgid "supportedbycoders"
+msgstr "Kun subteno de"
 
 msgid "techimplementation"
 msgstr "Teknika realigo"
@@ -121,6 +118,13 @@ msgstr ""
 "Ni esperas, ke tiu ĉi retejo helpas igi la tutan atendonumeroprocedon pli "
 "travidebla. Atendantoj kun atendonumeroj, bv. sendi al ni vian opinion, kiuj"
 " informoj aŭ funkcioj mankas al vi. Ni klopodos provizi ilin!"
+
+msgid "about_par3"
+msgstr ""
+"Vi povas legi pli pri tiu problemaro en germanlingva gazetartikolo de taz."
+
+msgid "tazlink"
+msgstr "al la artikolo"
 
 msgid "querysuccess"
 msgstr ""
@@ -164,10 +168,10 @@ msgstr ""
 "diversaj personoj.Ni bezonas pli da helpantoj"
 
 msgid "responsible_name"
-msgstr ""
+msgstr "Daniela Grebe"
 
 msgid "responsible_address"
-msgstr ""
+msgstr "c/o Zesch, Bornemannstr. 11, 13357 Berlin"
 
 msgid "novalidnumbers"
 msgstr "Neniuj validaj numeroj enigitaj."
@@ -177,3 +181,21 @@ msgstr "subtenitaj de coders4help kaj"
 
 msgid "entered"
 msgstr ""
+"Elkoran dankon! Vi sukcese enigis la sekvan atendonumeron en la datumbazon:"
+
+msgid "numberorigin_head"
+msgstr "De kie vi scias, kiam mia atendonumero estis montrita?"
+
+msgid "numberorigin_xplain"
+msgstr ""
+"La atendonumeroj estas enigitaj de homoj en la vico antau la montrotabulo au"
+" de libervolaj helpantoj. Ni bonvenigas kunlaboron de oficialuloj, bv. "
+"skribi al ni."
+
+msgid "numbermissed_head"
+msgstr "Mia atendonumero estis montrita, sed mi maltrafis ghin. Kion mi faru?"
+
+msgid "numbermissed_xplain"
+msgstr ""
+"Bv. skribi al ni per la kontaktformularo. Ni provos peri inter vi kaj "
+"LAGeSo."

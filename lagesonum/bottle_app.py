@@ -24,9 +24,16 @@ if not os.path.exists(DB_PATH):
 
 lagesonrdb = sqlite3.connect(DB_PATH)
 
-# todo: populate list dynamically based on available/selected translations
-LANGS = [    ('de_DE', u'Deutsch'),    ('en_US', u'English'),    ('ar_SY', u'العربية'),    ('eo_EO', u'Esperanto')]
-#LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'mn'),    (u'eo_EO', u'Esperanto')]
+# locales in alphabetical order
+LANGS = [    ('ar_SY', u'العربية'),
+             ('de_DE', u'Deutsch'),
+             ('en_US', u'English'),
+             ('eo_EO', u'Esperanto'),
+             ('fa_IR', u'فارسی'),
+             ('prs_AF', u'دری'),
+             ('tr_TR', u'Türkçe'),
+             ]
+
 DEFAULT_LOCALE = 'en_US'
 
 # set as global variable available in all templates (to be able to call e.g. request.locale)

@@ -6,6 +6,7 @@
 
 __author__ = 'f.zesch'
 
+import os
 from subprocess import call
 from os.path import isdir
 from os import makedirs
@@ -107,8 +108,7 @@ def get_lang_cols(i18n_sheet):
 if __name__ == "__main__":
 
     # languages for which .po-files will be created
-#    from lagesonum.bottle_app import LANGS
-    LANGS = [    (u'de_DE', u'Deutsch'),    (u'en_US', u'English'),    (u'ar_SY', u'???????'),    (u'eo_EO', u'Esperanto')]
+    from lagesonum.bottle_app import LANGS
     langs =[l for l,_ in LANGS]
 
     # open excel sheet
