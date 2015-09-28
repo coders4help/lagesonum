@@ -2,10 +2,10 @@
 
 # test cases for validation function: success, failure, sanity
 
-from input_number import parse_numbers, is_valid_number
-from unittest import TestCase
+from lagesonum.input_number import parse_numbers, is_valid_number
+from unittest import TestCase, main
 
-class TestInput(TestCase):
+class InputTests(TestCase):
     """Test case for checking whether input in form differing from well formatted line by line input is accepted."""
 
     def test_input_two_different_on_one_line(self):
@@ -57,3 +57,7 @@ class TestInput(TestCase):
         input_num = "A1234\nB234"
         result = is_valid_number(input_num)
         self.assertEqual(True, result)
+
+
+if __name__ == '__main__':
+    main()
