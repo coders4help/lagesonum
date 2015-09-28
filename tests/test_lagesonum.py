@@ -1,13 +1,11 @@
 # coding: utf-8
 
-from unittest import TestCase
 from lagesonum.bottle_app import application, DB_PATH
 from lagesonum.dbhelper import initialize_database
+from unittest import TestCase, main
 from webtest import TestApp
-import os
 from bottle import debug
-from bottle_app import application, DB_PATH
-from dbhelper import initialize_database
+import os
 
 debug(True)
 
@@ -24,7 +22,7 @@ class LagesonumTests(TestCase):
         response = self.app.get('/en_US/about')
         self.assertEqual(response.status, '200 OK')
         self.assertTrue(
-            "This website was created by volunteers" in response.body)
+            "This website was created by volunteers" in str(response.body))
 
     def test_impressum(self):
         response = self.app.get('/impressum')
@@ -42,26 +40,26 @@ class LagesonumTests(TestCase):
     def test_startpage(self):
         response = self.app.get('/en_US/')
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("Please help by typing in all numbers" in str(response.body))
+        self.assertTrue("You want to know, if your number has been called at LAGeSo?" in str(response.body))
 
     def test_querypage(self):
         response = self.app.get('/en_US/query')
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("Search Your Number" in str(response.body))
+        self.assertTrue("You want to know, if your number has been called at LAGeSo?" in str(response.body))
         
     def test_insert(self):
-        response = self.app.post('/en_US/', {'numbers': 'A123'})
+        response = self.app.post('/en_US/enter', {'numbers': 'A123'})
         self.assertEqual(response.status, '200 OK')
         self.assertTrue("entered" in str(response.body))
         self.assertTrue("A123" in str(response.body))
         
     def test_insert_wrong(self):
-        response = self.app.post('/en_US/', {'numbers': '123'})
+        response = self.app.post('/en_US/enter', {'numbers': '123'})
         self.assertEqual(response.status, '200 OK')
-        self.assertTrue("INVALID INPUT" in str(response.body))
+        self.assertTrue("No valid numbers have been entered" in str(response.body))
 
     def test_insert_two(self):
-        response = self.app.post('/en_US/', {'numbers': 'A123\nB456'})
+        response = self.app.post('/en_US/enter', {'numbers': 'A123\nB456'})
         self.assertEqual(response.status, '200 OK')
         self.assertTrue("A123" in str(response.body))
         self.assertTrue("B456" in str(response.body))
@@ -69,3 +67,5 @@ class LagesonumTests(TestCase):
         #assert self.app.get('/admin').status == '200 OK'        # fetch a page successfully
         #app.reset()                                        # drop the cookie
 
+if __name__ == '__main__':
+    main()
