@@ -1,0 +1,172 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"POT-Creation-Date: 2007-10-18 14:00+0100\n"
+"PO-Revision-Date: 2007-10-18 14:00+0100\n"
+"Last-Translator: you <you@example.com>\n"
+"Language-Team: English <yourteam@example.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "errinvalinput"
+msgstr "bu mesaj kullanici yanlis numara girdigi icin "
+
+msgid "errnotfound"
+msgstr ""
+
+msgid "txtnumber"
+msgstr ""
+
+msgid "txtgreeting"
+msgstr ""
+"LAGeSoNUM'a hoşgeldiniz. Berlin'deki Mülteciler için Resmi olmayan Sağlık ve"
+" Sosyal meseleler departmanı bekleme numarası gösterimi (ekranı)"
+
+msgid "menulanguage"
+msgstr "Türkçe"
+
+msgid "searchanumber_link"
+msgstr ""
+
+msgid "helpus_link"
+msgstr ""
+
+msgid "about_link"
+msgstr ""
+
+msgid "search_pitch"
+msgstr ""
+
+msgid "erruniquenumber"
+msgstr ""
+"Henüz Bu rakami girdiniz. Ekran panelinden farklı bir numara seçin lütfen. "
+"Yardım için çok teşekkürler!"
+
+msgid "pleasenote"
+msgstr ""
+"Bu site  09/28/15 kuruldu. Sadece  o zamandan itibaren ekran panelinde "
+"cikmis olan  bekleme numaralar gösterilir."
+
+msgid "pleasenote_title"
+msgstr ""
+
+msgid "txtabout"
+msgstr ""
+
+msgid "txtheadabout"
+msgstr ""
+
+msgid "dataprivacy"
+msgstr ""
+
+msgid "dataprivacytext"
+msgstr ""
+
+msgid "ongithub"
+msgstr ""
+
+msgid "supportedbycoders"
+msgstr ""
+
+msgid "techimplementation"
+msgstr ""
+
+msgid "dataprivacyheading"
+msgstr ""
+
+msgid "contact_link"
+msgstr ""
+
+msgid "submit_label"
+msgstr ""
+
+msgid "help_pitch"
+msgstr ""
+"Sen LaGeSo nun önündemi duruyorsun? Gördüğünüz tüm sayıları bu sayfayı "
+"yetişmek için yardım edin lütfen: (kendi bekleme numaran harıc)"
+
+msgid "about_par1"
+msgstr ""
+"Bu web sitesi gönüllüler tarafından oluşturulmuştur. Amacı şu anda "
+"iltica(sığınma) için LaGeSo'ya başvurupta bekleme numaraları halihazırda "
+"gelen insanlara yardımcı olmaktır. Barınaktaki insanlar için başvuru süreci "
+"çok açık değil ve sürekli bilgilendirme olmaksızın değiştiriliyor. Bazı "
+"gezici başvuru ekipleri var, bazı LaGeSo'ya gidip gelen servisler var "
+"bunlara rağmen çok fazla boş yapılan, bekleyen ve bildirilmeyen iş var. "
+"Haftalarca bekletilmek insanları sisteme karşı güvensizliğe yöneltiyor ve "
+"herkese birşeyleri kaybetmişlik hissi veriyor. Bu yüzden bu insanlar "
+"LaGeSo'ya geri yürüyorlar ve gecelerini evsiz olarak geçiriyorlar bu kötü "
+"durum aradaki sıcaklığın düşmesine ve suçların oluşmasına neden oluyor."
+
+msgid "about_par2"
+msgstr ""
+"Biz bu web Sitesi bekleme süreci daha şeffaf hale getirmek için yardımcı olacağını umuyoruz.\n"
+"Sevgili Bekleme Numara sahib olan insanlar, bize Görüşleriniz gönderin, burada eksik hangi enformasyon  ariyorsunuz? Biz  bu bilgileri birleştirmek için elimizden geleni yapacağız."
+
+msgid "about_par3"
+msgstr ""
+
+msgid "tazlink"
+msgstr ""
+
+msgid "querysuccess"
+msgstr "Sizin bekleme numarasi  %(number)s  LaGeSo Ekraninda gösterildi."
+
+msgid "foundonce"
+msgstr "Bir kişi Ekranda s% (tarih) onları gördü"
+
+msgid "foundmultiple"
+msgstr "ve bu sitede kayıtlı "
+
+msgid "morelikely"
+msgstr ""
+"Lutfen dikkat: ne kadar fazla insan numaranizi yazarsa, daha gercekci olur "
+"ve yanlislikla yazilmis olmaz"
+
+msgid "inputexample"
+msgstr ""
+
+msgid "display_link"
+msgstr ""
+
+msgid "alphabetorder"
+msgstr ""
+
+msgid "numberdisplaytxt"
+msgstr ""
+
+msgid "webpagetitle"
+msgstr ""
+
+msgid "nonumbersentered"
+msgstr ""
+
+msgid "responsible_name"
+msgstr ""
+
+msgid "responsible_address"
+msgstr ""
+
+msgid "novalidnumbers"
+msgstr "Girdiğiniz numara geçersiz"
+
+msgid "supportedby"
+msgstr "coders4help tarafından desteklenir"
+
+msgid "entered"
+msgstr ""
+
+msgid "numberorigin_head"
+msgstr "Teşekkür ederiz! Aşağıdaki bekleme numara başarıyla "
+
+msgid "numberorigin_xplain"
+msgstr "Veritaban kayid edildi:"
+
+msgid "numbermissed_head"
+msgstr ""
+
+msgid "numbermissed_xplain"
+msgstr ""

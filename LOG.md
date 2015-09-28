@@ -1,6 +1,8 @@
 # Lokal zum Laufen bringen
 
-- git clone git@github.com:fzesch/lagesonum.git
+*Anmerkung: Unter Linux muss jeweils pip3 und python3 verwendet werden, da das Projekt mit Python 3.4 läuft*
+
+- git clone https://github.com/fzesch/lagesonum.git
 - cd lagesonum
 - sudo pip install bottle              # recommended
 - sudo easy_install bottle             # alternative without pip

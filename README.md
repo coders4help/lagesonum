@@ -1,4 +1,4 @@
-**A website created with Python Bottle and SQLite for entering and showing numbers with a timestamp. Used at Lageso in Berlin for helping refugees in the German registration process**
+**A website created with Python Bottle and SQLite for entering and showing numbers with a timestamp. Used at LAGeSo in Berlin for helping refugees in the German registration process**
 
 # Problem
 
@@ -12,42 +12,41 @@ Die Internetseite soll von Flüchtlingen, die sich im LaGeSO registrieren wollen
 
 ## Bestehende Funktionen
 
-0. Seite: Übersicht und Auswahlseite
-1. Seite: Helfer steht am LaGeSo und gibt Nummern ein [_____] <diese werden mit timestamp in eine Tabelle geschrieben>
-2. Seite: Flüchtling fragt ab: Wurde meine Nummer gezogen? [_____] => Antwort: X mal am LaGeSo eingetragen von (Erste Eintragung) DD.MM.YY hh bis DD.MM.YY hh (LetzteEintragung)
+- Status der eigenen Nummer abfragen
+- Nummern von Anzeigetafel eintragen
+- Virtuelle Anzeigetafel mit eingegebenen Nummern
+
+Die Nummern werden mit einem Fingerabdruck versehen, um die Glaubwürdigkeit eines Eintrags anhand der Zahl verschiedener Eingeber zu messen.
 
 ## Mögliche Erweiterungen 
-Wir freuen uns über Beiträge, die unsere [Issues](https://github.com/fzesch/lagesonum/issues) behandeln oder lösen. Diese sind am dringendsten. 
+Wir freuen uns über Beiträge (Pull Requests), die unsere [Issues](https://github.com/fzesch/lagesonum/issues) behandeln oder lösen. Diese sind am dringendsten.
 
 Darüber hinaus gibt es größere Erweiterungen, die sinnvoll sind:
  
- - Email-Benachrichtigung wenn Nummer aufgerufen wird
- - Nutzerkonten mit Passwortverwaltung (oder Login über facebook)
+- Email-Benachrichtigung wenn Nummer aufgerufen wird
+- Nutzerkonten mit Passwortverwaltung (oder Login über facebook)
+- Validierte Eingabe vom LAGeSo (Verantwortliche können uns gerne kontaktieren, s.u.)
+- SSL-Verschlüsselung der Internetseite
+
+
+## Smartphone-Apps
+
+Die Umsetzung als Android-App mit Push-Mitteilung geplant für [Refugeehackathon](http://www.refugeehackathon.de).
 
 # Umsetzung
 
+## Anforderungen
 Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">Anforderungen sind in einem Google-Dokument detailliert</a>.
 
+## Technik
 Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bottlepy.org/docs/dev/index.html">Bottle</a> und SQLite.
 
+## Deployment
 Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](https://github.com/fzesch/lagesonum/blob/master/LOG.md).
 
 ## i18n - Übersetzung und Internationalisierung
-Umsetzung mit gettext und bottle_i18n
 
-- Die Übersetzungen werden in einer Tabelle erstellt (Google-Docs)
-    - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto Urdu	Dari	Portugiesisch	Albanisch	Bosnisch	Serbisch
-- Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
-- Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
-Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesch/lagesonum/issues/7)
-
-## Unit Tests
-
-Funktionieren bisher mindestens unter Python2:
-
-    python2 tests/
-
-Siehe auch [Issue #13](https://github.com/fzesch/lagesonum/issues/13)
+Umsetzung mit gettext und bottle_i18n. Für Deployment siehe extra Dokument im Ordner locales. Es wurde ein extra Skript geschrieben, das eine Excel-Tabelle mit Übersetzungen in .po+.mo übersetzt.
 
 # Kontakt
 

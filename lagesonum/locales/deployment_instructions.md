@@ -1,19 +1,15 @@
-If not yet installed, install [translate-toolkit](http://translate-toolkit.readthedocs.org/en/stable-1.13.0/):
-    *sudo apt-get install translate-toolkit*
+# Instructions of deployment for i18n-files
 
-This program provides [csv2po](http://translate-toolkit.readthedocs.org/en/latest/commands/csv2po.html) which we will need later on.
-[msgfmt](http://gnuwin32.sourceforge.net/packages/gettext.htm) should already be installed on your (unix) system.
-
+## Process
 0. Perform *git pull* to synchronize your local repository
 1. Get the translation table to be released from Daniela.
-2. Erase all columns not having complete translation or ID, so esp. the description.
-3. Create pairwise .csv files for one source language (e.g. Deutsch) and each target language (Arab, English, Esperanto usw.). Each of these csv files has [three columns](http://translate-toolkit.readthedocs.org/en/latest/commands/csv2po.html): id, source, target language. The files are to be named according to their target language
-4. Create a further .csv where the source language is the target language and choose English as source language.
-5. For input.csv in csv_files: *csv2po input.csv output.po* where output.po follows the convention de_DE.po
-6. For input.po in po_files: *msgfmt input.po -o messages.mo*  (don't change the name of messages.mo).
-7. Place messages.mo in the respective *folder lagesonum/locales/$i18n-code/LC_MESSAGES* . The corresponding .po file should also be placed in this folder.
-8. Commit and push/create pull request to have the translations enter the repository for final deployment by Chris (message him on slack!)
+2. Verify that languages you want to include are correctly stated in bottle_app.py
+3. Verify that column headers of languages you want to add contain correct locale in Excel sheet.
+4. Run xls2po.py (requires the library polib)
+5. Test translations locally by clicking randomly on pages and languages. If everything is alright, continue; else: contact Daniela.
+6. If you added new languages, add them to the local git repository
+7. Commit and push/create pull request to have the translations enter the repository for final deployment by Felix (message him!)
 
-This deployment method is only temporary and definitely needs improvement, see [issue #7](https://github.com/fzesch/lagesonum/issues/7)
+## Future changes
 
-Also, with designated translators for each language, direct .po-deployment would be possible in the future.
+A change to a more common deployment system for .po/.mo is highly appreciated. We consider transifex, but had no time to set it up, yet. If you want to help, please contact Felix.

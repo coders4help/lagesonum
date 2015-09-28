@@ -87,7 +87,7 @@ def do_enter():
         if not len(numbers):
             result_num.append(_('novalidnumbers'))
 
-    return {'entered': result_num, 'timestamp': timestamp}
+    return {'entered': result_num, 'timestamp': timestamp[:16]}
 
 
 @route('/query')
@@ -116,7 +116,7 @@ def do_query():
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            timestamps = [row[0][:19] for row in result] # cut off microseconds
+            timestamps = [row[0][:16] for row in result] # cut off microseconds and seconds as requested in issue 31
     else:
         invalid_input = user_input
 
@@ -181,7 +181,7 @@ def display():
     display_output = "\n".join(sorted(set(numbers_frequent_enough)))
 
     return {'numbers': display_output,
-            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown))[:19],
+            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown))[:16],
             'min_count': MIN_COUNT
             }
 
