@@ -84,7 +84,7 @@ msgstr ""
 " retumilo kaj lingvopreferojn."
 
 msgid "ongithub"
-msgstr "Programkodo kaj kompleta listo de aŭtoroj estas disponeblaj je %s."
+msgstr "Programkodo kaj kompleta listo de aŭtoroj estas disponeblaj je"
 
 msgid "supportedbycoders"
 msgstr "Kun subteno de"

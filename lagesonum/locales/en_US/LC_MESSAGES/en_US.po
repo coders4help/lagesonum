@@ -74,7 +74,7 @@ msgstr ""
 " processed, among them IP, browser details and language preferences."
 
 msgid "ongithub"
-msgstr "Source code and the list of all authors are available on %s."
+msgstr "Source code and the list of all authors are available on "
 
 msgid "supportedbycoders"
 msgstr "Supported by"

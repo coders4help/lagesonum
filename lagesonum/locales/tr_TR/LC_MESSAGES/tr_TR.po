@@ -12,13 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "errinvalinput"
-msgstr "bu mesaj kullanici yanlis numara girdigi icin "
+msgstr ""
+"Geçersiz Giriş. Lütfen numaralara göre aralarında boşluk bırakmadan harf "
+"giriniz."
 
 msgid "errnotfound"
-msgstr ""
+msgstr "Üzgünüz, bu numara 28 eylül 2015'den beri panoda bulunmamaktadır."
 
 msgid "txtnumber"
-msgstr ""
+msgstr "Sıra Numarası"
 
 msgid "txtgreeting"
 msgstr ""
@@ -29,16 +31,18 @@ msgid "menulanguage"
 msgstr "Türkçe"
 
 msgid "searchanumber_link"
-msgstr ""
+msgstr "Senin numaran"
 
 msgid "helpus_link"
-msgstr ""
+msgstr "Sende katıl!"
 
 msgid "about_link"
-msgstr ""
+msgstr "Hakkımızda"
 
 msgid "search_pitch"
 msgstr ""
+"Eğer numaranın LaGeSo'da çağrılmış olup olmadığını bilmek istiyorsan "
+"öğrenmek için numarayı buraya gir."
 
 msgid "erruniquenumber"
 msgstr ""
@@ -47,11 +51,11 @@ msgstr ""
 
 msgid "pleasenote"
 msgstr ""
-"Bu site  09/28/15 kuruldu. Sadece  o zamandan itibaren ekran panelinde "
-"cikmis olan  bekleme numaralar gösterilir."
+"Bu web sitesi 28 Eylül 2015 'te başladı. Bu tarihten önceki değerler "
+"veritabanında bulunmamaktadır."
 
 msgid "pleasenote_title"
-msgstr ""
+msgstr "unutmayın:"
 
 msgid "txtabout"
 msgstr ""
@@ -64,24 +68,27 @@ msgstr ""
 
 msgid "dataprivacytext"
 msgstr ""
+"Bu hizmeti sağlamak için, IP adresileri ile kullanıcı hakkındaki tarayıcı "
+"ayrıntıları ve dil tercihlerinin de bulunduğu kişisel bilgiler, işlenmiş ve "
+"saklanmıştır."
 
 msgid "ongithub"
 msgstr ""
 
 msgid "supportedbycoders"
-msgstr ""
+msgstr "Desteğiyle"
 
 msgid "techimplementation"
-msgstr ""
+msgstr "Teknik gerçekleşme"
 
 msgid "dataprivacyheading"
 msgstr ""
 
 msgid "contact_link"
-msgstr ""
+msgstr "İletişim"
 
 msgid "submit_label"
-msgstr ""
+msgstr "Gönder"
 
 msgid "help_pitch"
 msgstr ""
@@ -116,10 +123,12 @@ msgid "querysuccess"
 msgstr "Sizin bekleme numarasi  %(number)s  LaGeSo Ekraninda gösterildi."
 
 msgid "foundonce"
-msgstr "Bir kişi Ekranda s% (tarih) onları gördü"
+msgstr "Bir kişi Ekranda %(date)s onları gördü ve bu sitede kayıtlı "
 
 msgid "foundmultiple"
-msgstr "ve bu sitede kayıtlı "
+msgstr ""
+"%(number)s insanlar LaGeSo  ekraninda numaranızı görmüş ve bu web sitesine "
+"yazmış"
 
 msgid "morelikely"
 msgstr ""
@@ -127,28 +136,33 @@ msgstr ""
 "ve yanlislikla yazilmis olmaz"
 
 msgid "inputexample"
-msgstr ""
+msgstr " Bir numara aramak için nasıl sorgulayabilirim? Örnek  A123"
 
 msgid "display_link"
-msgstr ""
+msgstr "Ekran"
 
 msgid "alphabetorder"
 msgstr ""
+"Sayılar alfabetik olarak sıralanmıştır. Bu sıralama ekranda farklı olabilir."
 
 msgid "numberdisplaytxt"
 msgstr ""
+"Bu sayılar %(since)s beri en azindan %(min_count)s Farklı insanlardan buraya"
+" yazıldı"
 
 msgid "webpagetitle"
-msgstr ""
+msgstr "LAGeSoNUM - Mülteciler hoş geldiniz!"
 
 msgid "nonumbersentered"
 msgstr ""
+"%(since)s itibaren hiçbir rakam yazilmadi bu siteye. Daha cok yardimci "
+"lazim."
 
 msgid "responsible_name"
-msgstr ""
+msgstr "Daniela Grebe"
 
 msgid "responsible_address"
-msgstr ""
+msgstr "c/o Zesch, Bornemannstr. 11, 13357 Berlin"
 
 msgid "novalidnumbers"
 msgstr "Girdiğiniz numara geçersiz"
@@ -157,16 +171,21 @@ msgid "supportedby"
 msgstr "coders4help tarafından desteklenir"
 
 msgid "entered"
-msgstr ""
-
-msgid "numberorigin_head"
 msgstr "Teşekkür ederiz! Aşağıdaki bekleme numara başarıyla "
 
+msgid "numberorigin_head"
+msgstr "Benim numaram ne yaman ekranda görüntelediğını nerden biliyorsunuz?"
+
 msgid "numberorigin_xplain"
-msgstr "Veritaban kayid edildi:"
+msgstr ""
+"Bekleme Numaralari LaGeSo nun önünde bekleyen insanlardan yoksa gönüllü "
+"işcilerden  bu siteye yazilmistir. Resmi tarafla beraber çalismak için "
+"hazırız. Bu durumda lütfen bize bir email yazınız."
 
 msgid "numbermissed_head"
-msgstr ""
+msgstr "Benim siram geldi, ama ben kaçirdim. Ne yapabilirim acaba?"
 
 msgid "numbermissed_xplain"
 msgstr ""
+"Iletişim formu aracılığı ile bize yazınız. Sizı ve LaGeSo arasında aracılık "
+"ederiz."

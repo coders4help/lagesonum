@@ -29,7 +29,7 @@
         % if len(timestamps) == 1:
            {{_('foundonce') % ({'date': timestamps})}} <br><br>
         % else:
-          %{{_('foundmultiple') % ({'date': timestamps})}}
+           {{_('foundmultiple') % ({'amount': len(timestamps), 'date': timestamps})}}
         % end
 
         {{_('morelikely')}}

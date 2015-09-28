@@ -78,7 +78,7 @@ msgstr ""
 "Sprachpräferenzen."
 
 msgid "ongithub"
-msgstr "Quelltext und Liste aller Autoren sind verfügbar bei %s."
+msgstr "Quelltext und Liste aller Autoren sind verfügbar bei "
 
 msgid "supportedbycoders"
 msgstr "Mit Unterstützung von"

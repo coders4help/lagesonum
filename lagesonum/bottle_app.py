@@ -12,8 +12,8 @@ debug(True)
 from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
 
-from .input_number import is_valid_number, parse_numbers, get_fingerprint
-from .dbhelper import initialize_database
+from input_number import is_valid_number, parse_numbers, get_fingerprint
+from dbhelper import initialize_database
 
 # store database outside of repository so it is not overwritten by git pull
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -87,7 +87,7 @@ def do_enter():
         if not len(numbers):
             result_num.append(_('novalidnumbers'))
 
-    return {'entered': result_num, 'timestamp': timestamp[:16]}
+    return {'entered': result_num, 'timestamp': str(timestamp)[:16]}
 
 
 @route('/query')
