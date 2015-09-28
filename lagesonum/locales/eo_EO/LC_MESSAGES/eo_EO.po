@@ -165,7 +165,7 @@ msgstr "LAGeSoNUM"
 msgid "nonumbersentered"
 msgstr ""
 "Neniuj numeroj estis enigitaj ekde %(since)s de minimume %(min_count)s "
-"diversaj personoj.Ni bezonas pli da helpantoj"
+"diversaj personoj.Ni bezonas pli da helpantoj, kiuj enigas nombrojn."
 
 msgid "responsible_name"
 msgstr "Daniela Grebe"

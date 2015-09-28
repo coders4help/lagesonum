@@ -108,10 +108,10 @@ msgstr ""
 "  عداد المفقودين.  ونحن سوف نبذل  قصاري جهدنا  لجعلها متاحة. "
 
 msgid "about_par3"
-msgstr ""
+msgstr "أنقر هنا لقراءة المزيد من الاخبار عن اللاجئين "
 
 msgid "tazlink"
-msgstr ""
+msgstr "أنقر للمزيد  (صفحة مهتمة باللاجئين)"
 
 msgid "querysuccess"
 msgstr "واعتبر رقمك الإنتظار على الشاشة في LAGeSo"
@@ -139,16 +139,15 @@ msgstr ""
 
 msgid "numberdisplaytxt"
 msgstr ""
-"وقد دخلت هذه الأرقام منذ %(since)s من على الاقل %(min_counts)s أشخاص "
-"مختلفين."
+"وقد دخلت هذه الأرقام منذ %(since)s من على الاقل %(min_count)s أشخاص مختلفين."
 
 msgid "webpagetitle"
 msgstr "LAGeSoNUM نرحب للاجئين"
 
 msgid "nonumbersentered"
 msgstr ""
-"تم إدخال أية أرقام منذ    %(since)s على الاقل %('min_count')s   اشخاص "
-"مختلفين. نحن  بحاجاة مزيد من المتطوعين!"
+"تم إدخال أية أرقام منذ    %(since)s على الاقل %(min_coun)s   اشخاص مختلفين. "
+"نحن  بحاجاة مزيد من المتطوعين!"
 
 msgid "responsible_name"
 msgstr "دانيلا جريبي"

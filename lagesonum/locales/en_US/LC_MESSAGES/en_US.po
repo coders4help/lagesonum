@@ -164,7 +164,7 @@ msgstr "LAGeSoNUM - Refugees Welcome!"
 msgid "nonumbersentered"
 msgstr ""
 "No numbers have been entered since %('since')s by at least %('min_count')s "
-"different persons. We need more volunteers"
+"different persons. We need more volunteers, who enter numbers."
 
 msgid "responsible_name"
 msgstr "Daniela Grebe"

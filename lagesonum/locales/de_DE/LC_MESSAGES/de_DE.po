@@ -169,7 +169,7 @@ msgstr "LAGeSoNUM - Refugees Welcome!"
 msgid "nonumbersentered"
 msgstr ""
 "Seit %(since)s wurden keine Nummern von mindestens %(min_count)s Personen "
-"eingegeben. Wir brauchen mehr Helfer!"
+"eingegeben. Wir brauchen mehr Helfer, die Nummern eingeben!"
 
 msgid "responsible_name"
 msgstr "Daniela Grebe"
