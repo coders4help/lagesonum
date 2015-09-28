@@ -46,19 +46,7 @@ Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](https://gi
 
 ## i18n - Übersetzung und Internationalisierung
 
-- Die Übersetzungen werden in einer Tabelle erstellt (Google-Docs)
-    - Sprachen: Deutsch	English	Russian	French	Kurdisch	Arabisch	Türkisch	Farsi	Dari	Tigrinya	Italienisch	Esperanto Urdu	Dari	Portugiesisch	Albanisch	Bosnisch	Serbisch
-- Mit dem Translate-Toolkit-csv2po machen wir .po-Dateien
-- Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
-Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesch/lagesonum/issues/7)
-
-## Unit Tests
-
-Funktionieren bisher mindestens unter Python2:
-
-    python2 tests/
-
-Siehe auch [Issue #13](https://github.com/fzesch/lagesonum/issues/13)
+Es gibt eine gesondertes Dokument für i18n-Deployment im locales-Ordner.
 
 # Kontakt
 
