@@ -41,13 +41,20 @@ Umsetzung mit gettext und bottle_i18n
 - Aus den .po-Dateien werden .mo-Dateien erzeugt, die bottle_i18n dann verwenden kann
 Deployment muss besser skalieren können, s. [Issue #7](https://github.com/fzesch/lagesonum/issues/7)
 
+## Konfiguration
+
+Die Umgebungsvariable `$PYHTONPATH` muß auf das Hauptverzeichnis des Projekts gesetzt sein (welches die Ordner `lagesonum` und `tests` enthält).
+
+Die Paketabhängigkeiten befinden sich in der Datei `requirements.txt`. Installation mit 
+
+    pip install -r requirements.txt
+
 ## Unit Tests
 
-Funktionieren bisher mindestens unter Python2:
+Funktionieren mit Python `unittest`:
 
-    python2 tests/
+    python tests/
 
-Siehe auch [Issue #13](https://github.com/fzesch/lagesonum/issues/13)
 
 # Kontakt
 
