@@ -28,10 +28,10 @@ lagesonrdb = sqlite3.connect(DB_PATH)
 LANGS = [    ('ar_SY', u'العربية'),
              ('de_DE', u'Deutsch'),
              ('en_US', u'English'),
-             ('eo_EO', u'Esperanto'),
-             ('fa_IR', u'فارسی'),
-             ('prs_AF', u'دری'),
-             ('tr_TR', u'Türkçe'),
+             ('eo_EO', u'Esperanto')
+#             ('fa_IR', u'فارسی'),
+#             ('prs_AF', u'دری'),
+#             ('tr_TR', u'Türkçe'),
              ]
 
 DEFAULT_LOCALE = 'en_US'
