@@ -4,7 +4,7 @@
 
 from bottle import run, debug
 
-from lagesonum.bottle_app import application
+from bottle_app import application
 
 #debug(True)
-run(application, host='78.46.177.127', port=80, reloader=True)
+run(application, host='172.31.1.100', port=80, reloader=True)

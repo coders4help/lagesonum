@@ -1,5 +1,6 @@
 ﻿# coding: utf-8
 
+
 from dateutil import parser
 import sqlite3
 import os
@@ -35,6 +36,8 @@ LANGS = [    ('ar_SY', u'العربية'),
              ]
 
 DEFAULT_LOCALE = 'en_US'
+
+# set up logging
 
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
@@ -158,7 +161,7 @@ def display():
         cursor = connection.cursor()
 
         #todo: later, refactor in constants file if up and running
-        MAX_TIME_DIFF = 100000000 # milliseconds, needs adjustment
+        MAX_TIME_DIFF = 4.32*10000000 # 5 days in milliseconds
         MIN_COUNT = 3
         oldest_to_be_shown = time.time()-MAX_TIME_DIFF
 

@@ -114,7 +114,7 @@ msgid "tazlink"
 msgstr "أنقر للمزيد  (صفحة مهتمة باللاجئين)"
 
 msgid "querysuccess"
-msgstr "واعتبر رقمك الإنتظار على الشاشة في LAGeSo"
+msgstr " لقد ظهر رقمك مسبقا على شاشة الانتظار "
 
 msgid "foundonce"
 msgstr "شخص واحد رأى ذلك وقدم لهذا الموقع على %(date)s"
@@ -146,8 +146,8 @@ msgstr "LAGeSoNUM نرحب للاجئين"
 
 msgid "nonumbersentered"
 msgstr ""
-"تم إدخال أية أرقام منذ    %(since)s على الاقل %(min_coun)s   اشخاص مختلفين. "
-"نحن  بحاجاة مزيد من المتطوعين!"
+"تم إدخال أية أرقام منذ    %(since)s على الاقل %(min_count)s   اشخاص مختلفين."
+" نحن  بحاجاة مزيد من المتطوعين!"
 
 msgid "responsible_name"
 msgstr "دانيلا جريبي"
