@@ -148,6 +148,10 @@ def impressum():
 def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
+@route('/favicon.ico', no_i18n=True)
+def send_static():
+    return static_file("favicon.png", root=os.path.join(MOD_PATH, 'static'))
+
 
 # Numbers to be shown there:
 # All numbers that have been entered 3 or more times and where the last time of entry is not older than X minutes.
