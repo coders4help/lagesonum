@@ -18,3 +18,4 @@ six==1.9.0
 waitress==0.8.10
 WebOb==1.4.1
 WebTest==2.0.18
+Babel==2.1.1

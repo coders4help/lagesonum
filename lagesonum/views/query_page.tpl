@@ -29,9 +29,9 @@
         {{_('querysuccess') % ({'number': result})}}<br><br>
 
         % if len(timestamps) == 1:
-           {{_('foundonce') % ({'date': timestamps})}} <br><br>
+           {{_('foundonce') % ({'date': locale_datetime(timestamps[0])})}} <br><br>
         % else:
-           {{_('foundmultiple') % ({'amount': len(timestamps), 'date': timestamps})}}
+           {{_('foundmultiple') % ({'amount': len(timestamps), 'date': ', '.join([locale_datetime(t) for t in timestamps])})}}
         % end
 
         {{_('morelikely')}}

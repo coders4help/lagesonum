@@ -6,6 +6,8 @@ import sqlite3
 import os
 import time
 import datetime
+from babel.dates import format_datetime
+from babel.core import Locale, UnknownLocaleError
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug
 debug(True)
@@ -23,7 +25,7 @@ DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 if not os.path.exists(DB_PATH):
     initialize_database(DB_PATH)
 
-lagesonrdb = sqlite3.connect(DB_PATH)
+lagesonrdb = sqlite3.connect(DB_PATH, detect_types=sqlite3.PARSE_DECLTYPES)
 
 # locales in alphabetical order
 LANGS = [    ('ar_SY', u'العربية'),
@@ -39,8 +41,16 @@ DEFAULT_LOCALE = 'en_US'
 
 # set up logging
 
+def get_valid_locale(l):
+    try:
+        Locale.parse(l)
+        return l
+    except UnknownLocaleError:
+        return DEFAULT_LOCALE
+
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
+BaseTemplate.defaults['locale_datetime'] = lambda d: format_datetime(d, format="short", locale=get_valid_locale(request.locale))
 
 # landing page is page for querying numbers
 @route('/')
@@ -119,7 +129,7 @@ def do_query():
             values = (number,)
 
             result = cursor.execute(select_query, values).fetchall()
-            timestamps = [row[0][:16] for row in result] # cut off microseconds and seconds as requested in issue 31
+            timestamps = [row[0] for row in result] # cut off microseconds and seconds as requested in issue 31
     else:
         invalid_input = user_input
 
