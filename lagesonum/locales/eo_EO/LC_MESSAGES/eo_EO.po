@@ -199,3 +199,9 @@ msgid "numbermissed_xplain"
 msgstr ""
 "Bv. skribi al ni per la kontaktformularo. Ni provos peri inter vi kaj "
 "LAGeSo."
+
+msgid "pressrelease_heading"
+msgstr "Gazetaraj komunikoj"
+
+msgid "pm_start"
+msgstr "okaze de la enretigo de lagesonum.de je la 29a de septembro 2015"

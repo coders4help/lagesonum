@@ -25,7 +25,7 @@ DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 if not os.path.exists(DB_PATH):
     initialize_database(DB_PATH)
 
-lagesonrdb = sqlite3.connect(DB_PATH, detect_types=sqlite3.PARSE_DECLTYPES)
+lagesonrdb = sqlite3.connect(DB_PATH)#, detect_types=sqlite3.PARSE_DECLTYPES)
 
 # locales in alphabetical order
 LANGS = [    ('ar_SY', u'العربية'),
@@ -39,8 +39,6 @@ LANGS = [    ('ar_SY', u'العربية'),
 
 DEFAULT_LOCALE = 'en_US'
 
-# set up logging
-
 def get_valid_locale(l):
     try:
         Locale.parse(l)
@@ -52,10 +50,11 @@ def get_valid_locale(l):
 BaseTemplate.defaults['request'] = request
 BaseTemplate.defaults['locale_datetime'] = lambda d: format_datetime(d, format="short", locale=get_valid_locale(request.locale))
 
-# landing page is page for querying numbers
+
 @route('/')
 @view('views/query_page')
 def index():
+    """landing page is page for querying numbers"""
 
     context = {
         'result': 'NewNumber',
@@ -75,6 +74,7 @@ def enter():
 @route('/enter', method='POST')
 @view('views/start_page')
 def do_enter():
+    """Enter numbers into database"""
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = datetime.datetime.now()
 
@@ -112,6 +112,7 @@ def query():
 @route('/query', method='POST')
 @view('views/query_page')
 def do_query():
+    """Search for numbers in database"""
     user_input = request.forms.get('number', '')
     numbers = parse_numbers(user_input)
 
@@ -145,12 +146,14 @@ def do_query():
 @route('/about')
 @view('views/about')
 def about():
+    """Return page with information about this project"""
     pass
 
 
 @route('/impressum')
 @view('views/impressum')
 def impressum():
+    """Return page with contact information"""
     pass
 
 
@@ -179,9 +182,10 @@ def display():
         MIN_COUNT = 3
         oldest_to_be_shown = time.time()-MAX_TIME_DIFF
 
-        select_query = 'SELECT number, time FROM numbers ORDER BY time'
+        select_query = 'SELECT number, time FROM numbers'
 
         result = cursor.execute(select_query).fetchall()
+
 
     # filter numbers entered recently enough
     try:
@@ -201,6 +205,13 @@ def display():
             'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown))[:16],
             'min_count': MIN_COUNT
             }
+
+
+
+@route('/pm-start')
+@view('static/pm-start.html')
+def enter():
+    return {'entered': []}
 
 
 # findet templates im gleichen Verzeichnis

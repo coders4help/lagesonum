@@ -206,3 +206,9 @@ msgid "numbermissed_xplain"
 msgstr ""
 "Bitte schreib uns über das Kontaktformular. Wir werden zwischen dir und dem "
 "LaGeSo vermitteln."
+
+msgid "pressrelease_heading"
+msgstr "Pressemitteilungen"
+
+msgid "pm_start"
+msgstr "zum Start von www.lagesonum.de am 29.9.2015"

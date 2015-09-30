@@ -179,3 +179,9 @@ msgstr "رقمي الانتظار تم عرضه و لكن فاتني ذلك!  م
 msgid "numbermissed_xplain"
 msgstr ""
 "يرجى الكتابة لنا عبر نموذج الاتصال.  سنقوم التوسط  بينك و بين  الادارة."
+
+msgid "pressrelease_heading"
+msgstr ""
+
+msgid "pm_start"
+msgstr ""

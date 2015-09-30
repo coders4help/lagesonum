@@ -199,3 +199,9 @@ msgid "numbermissed_xplain"
 msgstr ""
 "Please drop us a line via the contact form. We will mediate between you and "
 "the LaGeSo!"
+
+msgid "pressrelease_heading"
+msgstr "Press releases"
+
+msgid "pm_start"
+msgstr "for the start of lagesonum.de on Sep 29, 2015"
