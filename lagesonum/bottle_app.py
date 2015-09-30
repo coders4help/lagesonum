@@ -188,12 +188,7 @@ def display():
 
 
     # filter numbers entered recently enough
-    try:
-
-        numbers_young_enough = [number for number, nrtime in result
-                            if parser.parse(nrtime).timestamp() >= float(oldest_to_be_shown)]
-    except ValueError as e:
-        numbers_young_enough = [number for number, nrtime in result]
+    numbers_young_enough = [number for number, nrtime in result if nrtime.timestamp() >= float(oldest_to_be_shown)]
 
     # filter numbers entered often enough
     numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]
