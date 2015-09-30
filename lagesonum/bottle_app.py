@@ -25,7 +25,7 @@ DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 if not os.path.exists(DB_PATH):
     initialize_database(DB_PATH)
 
-lagesonrdb = sqlite3.connect(DB_PATH)#, detect_types=sqlite3.PARSE_DECLTYPES)
+lagesonrdb = sqlite3.connect(DB_PATH, detect_types=sqlite3.PARSE_DECLTYPES)
 
 # locales in alphabetical order
 LANGS = [    ('ar_SY', u'العربية'),
