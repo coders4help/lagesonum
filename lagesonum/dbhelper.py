@@ -84,7 +84,6 @@ def initialize_database(path):
 
     db.close()
 
-
 if __name__ == '__main__':
 
     initialize_database('../lagesonr.db')
