@@ -2,8 +2,6 @@
 
 import os
 import datetime
-import threading
-import locale
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
 
@@ -16,14 +14,11 @@ from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from models import BaseModel, Number, Place
-from contextlib import contextmanager
 
 debug(True)
 # store database outside of repository so it is not overwritten by git pull
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
-
-LOCALE_LOCK = threading.Lock()
 
 model = BaseModel(database=DB_PATH)
 
@@ -60,16 +55,6 @@ def _connect_db():
 @hook('after_request')
 def _close_db():
     model.disconnect()
-
-
-@contextmanager
-def setlocale(name):
-    with LOCALE_LOCK:
-        saved = locale.setlocale(locale.LC_ALL)
-        try:
-            yield locale.setlocale(locale.LC_ALL, name)
-        finally:
-            locale.setlocale(locale.LC_ALL, saved)
 
 
 @route('/')
@@ -207,8 +192,7 @@ def display():
     # format numbers for later output
     display_output = "\n".join(sorted(set([n.number for n in numbers if n.count >= min_count])))
 
-    with setlocale(get_valid_locale(request.locale)):
-        since = oldest_to_be_shown.strftime("%x %X")
+    since = format_datetime(oldest_to_be_shown, 'short', locale=request.locale)
     return {'numbers': display_output,
             'since': since,
             'min_count': min_count
