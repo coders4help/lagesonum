@@ -1,4 +1,4 @@
-Diese Seite befindet sich noch im Testbetrieb. Es können unerwartete Störungen auftreten. Wir bitten um Entschuldigung.
+Diese Seite befindet sich noch im Testbetrieb. Es kÃ¶nnen unerwartete StÃ¶rungen auftreten. Wir bitten um Entschuldigung.
 This website is still being tested. Unexpected errors may occur. We apologize for any inconvenience.
 
 </body></html>
