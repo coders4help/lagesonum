@@ -1,31 +1,26 @@
 ﻿# coding: utf-8
 
-
-from dateutil import parser
-import sqlite3
 import os
-import time
 import datetime
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
 
-from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug
-debug(True)
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug, hook
+from peewee import IntegrityError, DoesNotExist, fn
+
 
 from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
-from dbhelper import initialize_database
+from models import BaseModel, Number, Place
 
+debug(True)
 # store database outside of repository so it is not overwritten by git pull
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 
-if not os.path.exists(DB_PATH):
-    initialize_database(DB_PATH)
-
-lagesonrdb = sqlite3.connect(DB_PATH, detect_types=sqlite3.PARSE_DECLTYPES)
+model = BaseModel(database=DB_PATH)
 
 # locales in alphabetical order
 LANGS = [    ('ar_SY', u'العربية'),
@@ -39,6 +34,7 @@ LANGS = [    ('ar_SY', u'العربية'),
 
 DEFAULT_LOCALE = 'en_US'
 
+
 def get_valid_locale(l):
     try:
         Locale.parse(l)
@@ -49,6 +45,16 @@ def get_valid_locale(l):
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
 BaseTemplate.defaults['locale_datetime'] = lambda d: format_datetime(d, format="short", locale=get_valid_locale(request.locale))
+
+
+@hook('before_request')
+def _connect_db():
+    model.connect()
+
+
+@hook('after_request')
+def _close_db():
+    model.disconnect()
 
 
 @route('/')
@@ -82,26 +88,28 @@ def do_enter():
 
     result_num = []
 
-    with lagesonrdb as connection:
-        cursor = connection.cursor()
-        insert_query = 'INSERT INTO numbers (number, fingerprint, place, time) VALUES (?, ?, ?, ?)'
+    # TODO make place variable, depending on current request
+    q = Place.select().where(Place.place == 'LAGESO')
+    lageso = q.get() if q.count() == 1 else None
 
+    if not numbers:
+        result_num.append(_('novalidnumbers'))
+    else:
         for num in numbers:
-
             if is_valid_number(num):
-                values = (num.upper(), usr_hash, 'LAGESO', timestamp)
                 try:
-                    cursor.execute(insert_query, values)
-                    result_num.append(num)
-                except sqlite3.IntegrityError:
-                    result_num.append(_(u'erruniquenumber') + ": {}".format(num))
-            else:
-                result_num.append(_('errinvalinput') + ": {}".format(num))
+                    n = Number.create(number=num.upper(), time=timestamp, place=lageso, fingerprint=usr_hash)
+                    result_num.append(n.number)
+                except IntegrityError:
+                    try:
+                        n = Number.get(Number.number == num.upper())
+                        # FIXME Why ain't there any value placeholder in translation string?
+                        result_num.append(_(u'erruniquenumber') + ': {}'.format(n.number))
+                    except DoesNotExist:
+                        result_num.append(u'Something weired happend with {}'.format(num))
 
-        if not len(numbers):
-            result_num.append(_('novalidnumbers'))
-
-    return {'entered': result_num, 'timestamp': str(timestamp)[:16]}
+    # FIXME result_num is horrible, as it contains success and failures, indistinguishable
+    return {'entered': result_num, 'timestamp': timestamp.strftime('%x %X')}
 
 
 @route('/query')
@@ -118,20 +126,14 @@ def do_query():
     numbers = parse_numbers(user_input)
 
     number = None
-    rowcount = 0
     timestamps = []
     invalid_input = None
 
     if numbers:
+        # FIXME WTF? Allow and parse a list and than pick one & silently drop the others?
         number = numbers[0]
-        with lagesonrdb as connection:
-            cursor = connection.cursor()
-
-            select_query = 'SELECT time FROM numbers WHERE number LIKE ? ORDER BY time'
-            values = (number,)
-
-            result = cursor.execute(select_query, values).fetchall()
-            timestamps = [row[0] for row in result] # cut off microseconds and seconds as requested in issue 31
+        qry = Number.select(Number.time).where(Number.number ** number).order_by(Number.time)
+        timestamps = [n.time for n in qry]
     else:
         invalid_input = user_input
 
@@ -162,6 +164,7 @@ def impressum():
 def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
+
 @route('/favicon.ico', no_i18n=True)
 def send_static():
     return static_file("favicon.png", root=os.path.join(MOD_PATH, 'static'))
@@ -175,33 +178,25 @@ def send_static():
 @route('/display')
 @view('views/display')
 def display():
-    with lagesonrdb as connection:
-        cursor = connection.cursor()
+    # TODO move time delta and count to soem other location, e.g. configuration
+    max_days = 5
+    min_count = 3
 
-        #todo: later, refactor in constants file if up and running
-        MAX_TIME_DIFF = 4.32*10000000 # 5 days in milliseconds
-        MIN_COUNT = 3
-        oldest_to_be_shown = time.time()-MAX_TIME_DIFF
-
-        select_query = 'SELECT number, time FROM numbers'
-
-        result = cursor.execute(select_query).fetchall()
-
-
-    # filter numbers entered recently enough
-    numbers_young_enough = [number for number, nrtime in result if nrtime.timestamp() >= float(oldest_to_be_shown)]
+    oldest_to_be_shown = datetime.datetime.now() - datetime.timedelta(days=max_days)
+    # TODO optimize query even more, so we don't need to iterate manually?!
+    # TODO make Place variable and part of WHERE
+    numbers = Number.select(Number.number).join(Place).switch(Number).annotate(Place).\
+        where(Number.time >= oldest_to_be_shown).order_by(Number.number, Number.time)
 
     # filter numbers entered often enough
-    numbers_frequent_enough = [str(n).upper() for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]
-
     # format numbers for later output
-    display_output = "\n".join(sorted(set(numbers_frequent_enough)))
+    display_output = "\n".join(sorted(set([n.number for n in numbers if n.count >= min_count])))
 
+    since = format_datetime(oldest_to_be_shown, 'short', locale=request.locale)
     return {'numbers': display_output,
-            'since': str(datetime.datetime.fromtimestamp(oldest_to_be_shown))[:16],
-            'min_count': MIN_COUNT
+            'since': since,
+            'min_count': min_count
             }
-
 
 
 @route('/pm-start')
