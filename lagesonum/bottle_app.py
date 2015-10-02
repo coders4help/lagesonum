@@ -87,8 +87,9 @@ def do_enter():
         insert_query = 'INSERT INTO numbers (number, fingerprint, place, time) VALUES (?, ?, ?, ?)'
 
         for num in numbers:
+
             if is_valid_number(num):
-                values = (num.capitalize(), usr_hash, 'LAGESO', timestamp)
+                values = (num.upper(), usr_hash, 'LAGESO', timestamp)
                 try:
                     cursor.execute(insert_query, values)
                     result_num.append(num)
@@ -191,7 +192,7 @@ def display():
     numbers_young_enough = [number for number, nrtime in result if nrtime.timestamp() >= float(oldest_to_be_shown)]
 
     # filter numbers entered often enough
-    numbers_frequent_enough = [n for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]
+    numbers_frequent_enough = [str(n).upper() for n in numbers_young_enough if numbers_young_enough.count(n) >= MIN_COUNT]
 
     # format numbers for later output
     display_output = "\n".join(sorted(set(numbers_frequent_enough)))
