@@ -44,6 +44,8 @@
 <h3>{{_('pleasenote_title')}}</h3>
 <p>{{_(u'pleasenote')}}</p>
 
+% end
+
 </div></div>
 
 % include('views/footer.tpl')
