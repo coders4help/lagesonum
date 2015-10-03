@@ -8,7 +8,9 @@
 % if len(numbers) > 0:
 <p>{{_('numberdisplaytxt')  % ({'min_count': min_count, 'since': since})}}</p>
 
-<p>{{numbers}}</p>
+% for dic in numbers:
+      {{dic['num']}}:      {{dic['count']}},
+% end
 
 <p><br>{{_('alphabetorder')}}</p>
 

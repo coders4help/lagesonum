@@ -8,12 +8,12 @@ from babel.core import Locale, UnknownLocaleError
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug, hook
 from peewee import IntegrityError, DoesNotExist, fn
 
-
 from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from models import BaseModel, Number, Place
+from configuration import LANGS, MIN_COUNT, MAX_DAYS, DEFAULT_LOCALE, DISPLAY_SIZE
 
 debug(True)
 # store database outside of repository so it is not overwritten by git pull
@@ -21,18 +21,6 @@ MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
 
 model = BaseModel(database=DB_PATH)
-
-# locales in alphabetical order
-LANGS = [    ('ar_SY', u'العربية'),
-             ('de_DE', u'Deutsch'),
-             ('en_US', u'English'),
-             ('eo_EO', u'Esperanto')
-#             ('fa_IR', u'فارسی'),
-#             ('prs_AF', u'دری'),
-#             ('tr_TR', u'Türkçe'),
-             ]
-
-DEFAULT_LOCALE = 'en_US'
 
 
 def get_valid_locale(l):
@@ -178,11 +166,8 @@ def send_static():
 @route('/display')
 @view('views/display')
 def display():
-    # TODO move time delta and count to soem other location, e.g. configuration
-    max_days = 5
-    min_count = 3
 
-    oldest_to_be_shown = datetime.datetime.now() - datetime.timedelta(days=max_days)
+    oldest_to_be_shown = datetime.datetime.now() - datetime.timedelta(days=MAX_DAYS)
     # TODO optimize query even more, so we don't need to iterate manually?!
     # TODO make Place variable and part of WHERE
     numbers = Number.select(Number.number).join(Place).switch(Number).annotate(Place).\
@@ -190,12 +175,13 @@ def display():
 
     # filter numbers entered often enough
     # format numbers for later output
-    display_output = "\n".join(sorted(set([n.number for n in numbers if n.count >= min_count])))
+    display_output = sorted([{'num': n.number, 'count': int(n.count)}
+                             for n in numbers if int(n.count) >= MIN_COUNT][:DISPLAY_SIZE], key=lambda n: n['num'])
 
     since = format_datetime(oldest_to_be_shown, 'short', locale=request.locale)
     return {'numbers': display_output,
             'since': since,
-            'min_count': min_count
+            'min_count': MIN_COUNT
             }
 
 
