@@ -56,19 +56,14 @@ def _check_locale():
         accepted = []
         for language in accept_language.split(','):
             if language.split(';')[0] == language:
-                accepted.append(language.strip().replace('-', '_').lower())
+                accepted.append(language.strip())
             else:
-                accepted.append(language.split(";")[0].strip().replace('-', '_').lower())
+                accepted.append(language.split(";")[0].strip())
         # fine tuning order of locale_q_pair according to q-value necessary?!
 
-        langs = set([l[0].lower() for l in LANGS])
-        for lang in accepted:
-            if lang in langs:
-                i = lang.find('_')
-                if i > -1:
-                    lang = lang[0:i+1] + lang[i+1:].upper()
-                request.environ['LOCALE'] = lang
-                return
+        lang = Locale.negotiate(accepted, [l[0] for l in LANGS])
+        if lang:
+            request.environ['LOCALE'] = str(lang)
 
 
 @route('/')
