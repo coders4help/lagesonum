@@ -45,6 +45,32 @@ def _close_db():
     model.disconnect()
 
 
+@hook('before_request')
+def _check_locale():
+    """ Determine locale from request if non set """
+    if not request.environ.get('LOCALE'):
+        accept_language = request.get_header('Accept-Language')
+        if not accept_language:
+            return
+
+        accepted = []
+        for language in accept_language.split(','):
+            if language.split(';')[0] == language:
+                accepted.append(language.strip().replace('-', '_').lower())
+            else:
+                accepted.append(language.split(";")[0].strip().replace('-', '_').lower())
+        # fine tuning order of locale_q_pair according to q-value necessary?!
+
+        langs = set([l[0].lower() for l in LANGS])
+        for lang in accepted:
+            if lang in langs:
+                i = lang.find('_')
+                if i > -1:
+                    lang = lang[0:i+1] + lang[i+1:].upper()
+                request.environ['LOCALE'] = lang
+                return
+
+
 @route('/')
 @view('views/query_page')
 def index():
