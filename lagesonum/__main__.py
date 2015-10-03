@@ -7,4 +7,4 @@ from bottle import run, debug
 from bottle_app import application
 
 #debug(True)
-run(application, host='172.31.1.100', port=80, reloader=True)
+run(application, host='127.0.0.1', port=8080, reloader=True)
