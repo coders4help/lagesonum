@@ -167,11 +167,12 @@ def send_static():
 @view('views/display')
 def display():
 
-    oldest_to_be_shown = datetime.datetime.now() - datetime.timedelta(days=MAX_DAYS)
-    # TODO optimize query even more, so we don't need to iterate manually?!
+    oldest_to_be_shown = datetime.datetime.combine(datetime.date.today() - datetime.timedelta(days=MAX_DAYS),
+                                                   datetime.datetime.min.time())
+    # TODO optimize query, so we don't need to iterate manually, e.g. by selecing only count > min_count!
     # TODO make Place variable and part of WHERE
-    numbers = Number.select(Number.number).join(Place).switch(Number).annotate(Place).\
-        where(Number.time >= oldest_to_be_shown).order_by(Number.number, Number.time)
+    numbers = Number.select(Number.number, Number.time, fn.Count(Number.number).alias('count')).\
+        where(Number.time >= oldest_to_be_shown).group_by(Number.number).order_by(Number.time.desc(), Number.number)
 
     # filter numbers entered often enough
     # format numbers for later output
