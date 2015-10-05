@@ -9,7 +9,7 @@
 <form action="{{i18n_path('/query')}}" method="post" class="form-inline" style="margin-bottom:20px;">
   <div class="form-group">
     <label for="numberfield">{{_('txtnumber')}}</label>
-    <input type="text" name="number" class="form-control" placeholder="{{_('inputexample')}}" id="numberfield">
+    <input type="text" name="number" class="form-control" placeholder="{{_('queryexample')}}" id="numberfield">
   </div>
   <button class="btn btn-primary">{{_('submit_label')}}</button>
 </form>
