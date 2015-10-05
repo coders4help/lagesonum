@@ -200,7 +200,7 @@ def display():
     display_output = sorted([{'num': n.number, 'count': int(n.count)}
                              for n in numbers if int(n.count) >= MIN_COUNT][:DISPLAY_SIZE], key=lambda n: n['num'])
 
-    since = format_datetime(oldest_to_be_shown, 'short', locale=request.locale)
+    since = format_datetime(oldest_to_be_shown, 'short', locale=get_valid_locale(request.locale))
     return {'numbers': display_output,
             'since': since,
             'min_count': MIN_COUNT
