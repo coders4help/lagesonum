@@ -36,7 +36,7 @@ msgid "helpus_link"
 msgstr "Join in!"
 
 msgid "about_link"
-msgstr "About us"
+msgstr "About LAGeSoNUM"
 
 msgid "search_pitch"
 msgstr ""
@@ -143,7 +143,7 @@ msgstr ""
 "was really shown and not accidentally entered due to mistyping."
 
 msgid "inputexample"
-msgstr "e.g. A123"
+msgstr "e.g. A123 BC34 AX99"
 
 msgid "display_link"
 msgstr "Display"
@@ -155,11 +155,11 @@ msgstr ""
 
 msgid "numberdisplaytxt"
 msgstr ""
-"These numbers have been entered since %(since)s by at least %(min_count)s "
-"different persons."
+"These numbers have been entered latest since %(since)s by at least "
+"%(min_count)s different persons."
 
 msgid "webpagetitle"
-msgstr "LAGeSoNUM - Refugees Welcome!"
+msgstr "LAGeSoNUM - Online number display for refugee registration in Berlin"
 
 msgid "nonumbersentered"
 msgstr ""
@@ -205,3 +205,17 @@ msgstr "Press releases"
 
 msgid "pm_start"
 msgstr "for the start of lagesonum.de on Sep 29, 2015"
+
+msgid "meta_description"
+msgstr ""
+"LAGeSoNUM is a page helping refugees to access their number assigned by the "
+"LAGeSo online"
+
+msgid "refugees_welcome"
+msgstr "Refugees welcome"
+
+msgid "queryexample"
+msgstr "e.g. A123"
+
+msgid "help entering numbers"
+msgstr "Please help by entering numbers you see on the display."

@@ -45,6 +45,27 @@ def _close_db():
     model.disconnect()
 
 
+@hook('before_request')
+def _check_locale():
+    """ Determine locale from request if non set """
+    if not request.environ.get('LOCALE'):
+        accept_language = request.get_header('Accept-Language')
+        if not accept_language:
+            return
+
+        accepted = []
+        for language in accept_language.split(','):
+            if language.split(';')[0] == language:
+                accepted.append(language.strip())
+            else:
+                accepted.append(language.split(";")[0].strip())
+        # fine tuning order of locale_q_pair according to q-value necessary?!
+
+        lang = Locale.negotiate(accepted, [l[0] for l in LANGS])
+        if lang:
+            request.environ['LOCALE'] = str(lang)
+
+
 @route('/')
 @view('views/query_page')
 def index():
@@ -167,11 +188,12 @@ def send_static():
 @view('views/display')
 def display():
 
-    oldest_to_be_shown = datetime.datetime.now() - datetime.timedelta(days=MAX_DAYS)
-    # TODO optimize query even more, so we don't need to iterate manually?!
+    oldest_to_be_shown = datetime.datetime.combine(datetime.date.today() - datetime.timedelta(days=MAX_DAYS),
+                                                   datetime.datetime.min.time())
+    # TODO optimize query, so we don't need to iterate manually, e.g. by selecing only count > min_count!
     # TODO make Place variable and part of WHERE
-    numbers = Number.select(Number.number).join(Place).switch(Number).annotate(Place).\
-        where(Number.time >= oldest_to_be_shown).order_by(Number.number, Number.time)
+    numbers = Number.select(Number.number, Number.time, fn.Count(Number.number).alias('count')).\
+        where(Number.time >= oldest_to_be_shown).group_by(Number.number).order_by(Number.time.desc(), Number.number)
 
     # filter numbers entered often enough
     # format numbers for later output
