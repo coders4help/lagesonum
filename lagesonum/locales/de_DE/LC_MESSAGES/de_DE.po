@@ -39,7 +39,7 @@ msgid "helpus_link"
 msgstr "Mach mit!"
 
 msgid "about_link"
-msgstr "Über uns"
+msgstr "Über LAGeSoNUM"
 
 msgid "search_pitch"
 msgstr ""
@@ -148,7 +148,7 @@ msgstr ""
 "vertippt hat."
 
 msgid "inputexample"
-msgstr "z.B. A123"
+msgstr "z.B. A123  BC34 AX99"
 
 msgid "display_link"
 msgstr "Anzeigetafel"
@@ -164,7 +164,8 @@ msgstr ""
 "verschiedenen Personen eingegeben."
 
 msgid "webpagetitle"
-msgstr "LAGeSoNUM - Refugees Welcome!"
+msgstr ""
+"LAGeSoNUM - Online-Anzeigetafel für die Flüchtlingsregistrierung in Berlin"
 
 msgid "nonumbersentered"
 msgstr ""
@@ -212,3 +213,18 @@ msgstr "Pressemitteilungen"
 
 msgid "pm_start"
 msgstr "zum Start von www.lagesonum.de am 29.9.2015"
+
+msgid "meta_description"
+msgstr ""
+"LAGeSoNUM ist eine Online-Anzeigetafel für die Flüchtlingsregistrierung in "
+"Berlin"
+
+msgid "refugees_welcome"
+msgstr "Refugees welcome"
+
+msgid "queryexample"
+msgstr "z.B. A123"
+
+msgid "help entering numbers"
+msgstr ""
+"Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."

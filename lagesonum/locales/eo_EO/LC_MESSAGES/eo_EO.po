@@ -38,7 +38,7 @@ msgid "helpus_link"
 msgstr "Kunlaboru"
 
 msgid "about_link"
-msgstr "Pri ni"
+msgstr "Pri LAGeSoNUM"
 
 msgid "search_pitch"
 msgstr ""
@@ -146,7 +146,7 @@ msgstr ""
 "mistajpe."
 
 msgid "inputexample"
-msgstr "ekz. A123"
+msgstr "ekz. A123 BC34 AX99"
 
 msgid "display_link"
 msgstr "Montrotabulo"
@@ -156,11 +156,12 @@ msgstr "La numeroj estas en alfabeta ordo."
 
 msgid "numberdisplaytxt"
 msgstr ""
-"Tiuj numeroj estis enigitaj ekde %(since)s de minimume %(min_count)s "
-"diversaj personoj."
+"Tiuj numeroj estis enigitaj kiel lastaj ekde %(since)s de minimume "
+"%(min_count)s diversaj personoj."
 
 msgid "webpagetitle"
-msgstr "LAGeSoNUM"
+msgstr ""
+"LAGeSoNUM - reta montrotabulo por la registrado de rifughintoj en Berlin"
 
 msgid "nonumbersentered"
 msgstr ""
@@ -205,3 +206,16 @@ msgstr "Gazetaraj komunikoj"
 
 msgid "pm_start"
 msgstr "okaze de la enretigo de lagesonum.de je la 29a de septembro 2015"
+
+msgid "meta_description"
+msgstr ""
+"LAGeSoNUM estas reta montrotabulo por la registrado de rifughintoj en Berlin"
+
+msgid "refugees_welcome"
+msgstr "Al rifughintoj bonvenon!"
+
+msgid "queryexample"
+msgstr "ekz. A123"
+
+msgid "help entering numbers"
+msgstr "Bv. helpi enigante la numerojn, kiuj estas sur la montrotabulo."
