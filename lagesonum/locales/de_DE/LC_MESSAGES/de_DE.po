@@ -161,7 +161,7 @@ msgstr ""
 msgid "numberdisplaytxt"
 msgstr ""
 "Diese Nummern wurden als letzte seit %(since)s von mindestens %(min_count)s "
-"verschiedenen Personen eingegeben."
+"verschiedenen - oder authorisierten - Personen eingegeben."
 
 msgid "webpagetitle"
 msgstr ""

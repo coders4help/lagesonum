@@ -156,7 +156,7 @@ msgstr ""
 msgid "numberdisplaytxt"
 msgstr ""
 "These numbers have been entered latest since %(since)s by at least "
-"%(min_count)s different persons."
+"%(min_count)s different - or authorized - persons."
 
 msgid "webpagetitle"
 msgstr "LAGeSoNUM - Online number display for refugee registration in Berlin"
