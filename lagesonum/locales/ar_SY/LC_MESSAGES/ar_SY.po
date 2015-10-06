@@ -1,15 +1,18 @@
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0\n"
+"Project-Id-Version: lagesonum-1\n"
 "Report-Msgid-Bugs-To: you@example.com\n"
 "POT-Creation-Date: 2007-10-18 14:00+0100\n"
-"PO-Revision-Date: 2007-10-18 14:00+0100\n"
-"Last-Translator: you <you@example.com>\n"
-"Language-Team: English <yourteam@example.com>\n"
+"PO-Revision-Date: 2015-10-05 11:55+0000\n"
+"Last-Translator: Christoph\n"
+"Language-Team: Arabic (Syria) (http://www.transifex.com/coders4help/lagesonum-1/language/ar_SY/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SY\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "errinvalinput"
 msgstr "المعطيات يجب ان تبدء بحرف ومن ثم أرقام ولاتوجد فواصل بينها "
@@ -54,10 +57,7 @@ msgid "pleasenote_title"
 msgstr "الرجاء الأنتباه"
 
 msgid "txtabout"
-msgstr ""
-"هذه الصفحة أنشئت من قبل متطوعين يريدون المساعدة وهي صفحة خاصة للاشخاص الذين "
-"لم يسجلو انفسهم بعد في السوسيال وهي تساعدك بمعرفة ان رقمك ظهر على الشاشة أم "
-"لا "
+msgstr "هذه الصفحة أنشئت من قبل متطوعين يريدون المساعدة وهي صفحة خاصة للاشخاص الذين لم يسجلو انفسهم بعد في السوسيال وهي تساعدك بمعرفة ان رقمك ظهر على الشاشة أم لا "
 
 msgid "txtheadabout"
 msgstr "حول هذه الصفحة"
@@ -66,9 +66,7 @@ msgid "dataprivacy"
 msgstr "إعلان عن خصوصية البيانات"
 
 msgid "dataprivacytext"
-msgstr ""
-"حتى تستطيع ان تعمل هذه الصفحة يجب ان نأخذ معلوماتك الشخصية ونحفظها ونعمل "
-"عليها واخذ رقم ال اي بي  لجهازك و نوع المستعرض ولغة المستعرض "
+msgstr "حتى تستطيع ان تعمل هذه الصفحة يجب ان نأخذ معلوماتك الشخصية ونحفظها ونعمل عليها واخذ رقم ال اي بي  لجهازك و نوع المستعرض ولغة المستعرض "
 
 msgid "ongithub"
 msgstr "برمجيات هذه الصفحة مفتوحة المصدر"
@@ -191,8 +189,7 @@ msgid "numbermissed_head"
 msgstr "رقم انتظاري  تم عرضه و لكن فاتني ذلك !  ماذا أفعل؟"
 
 msgid "numbermissed_xplain"
-msgstr ""
-"يرجى الكتابة لنا عبر نموذج الاتصال.  سنقوم التوسط  بينك و بين  الادارة."
+msgstr "يرجى الكتابة لنا عبر نموذج الاتصال.  سنقوم التوسط  بينك و بين  الادارة."
 
 msgid "pressrelease_heading"
 msgstr "بيانات صحفية"
