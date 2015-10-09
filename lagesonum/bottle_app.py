@@ -209,8 +209,8 @@ def display():
 
 @route('/pm-start')
 @view('static/pm-start.html')
-def enter():
-    return {'entered': []}
+def press_release():
+    pass
 
 
 # findet templates im gleichen Verzeichnis
