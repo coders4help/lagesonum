@@ -32,14 +32,12 @@ class BaseModel(Model):
 class User(BaseModel):
     id = PrimaryKeyField()
     username = CharField(unique=True, max_length=10)
-    password = CharField(max_length=20)
+    password = CharField(max_length=256)
     is_admin = BooleanField(default=False)
 
     @classmethod
     def create_table(cls, fail_silently=False):
         super().create_table(fail_silently)
-        # if not User.select(User.username == 'admin').exists():
-        #     User.create(username='admin', password='nimda')
 
 
 class Place(BaseModel):

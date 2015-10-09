@@ -5,14 +5,16 @@ import datetime
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
 
-from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug, hook
+from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug, hook, \
+    auth_basic, redirect
 from peewee import IntegrityError, DoesNotExist, fn
+from passlib.hash import sha256_crypt
 
 from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
-from models import BaseModel, Number, Place
+from models import BaseModel, Number, Place, User
 from configuration import LANGS, MIN_COUNT, MAX_DAYS, DEFAULT_LOCALE, DISPLAY_SIZE
 
 debug(True)
@@ -104,10 +106,16 @@ def do_enter():
     if not numbers:
         result_num.append(_('novalidnumbers'))
     else:
+        authed_user = None
+        try:
+            authed_user = User.get(User.username == request.auth[0])
+        except User.DoesNotExist:
+            pass
+
         for num in numbers:
             if is_valid_number(num):
                 try:
-                    n = Number.create(number=num.upper(), time=timestamp, place=lageso, fingerprint=usr_hash)
+                    n = Number.create(number=num.upper(), time=timestamp, place=lageso, fingerprint=usr_hash, user=authed_user)
                     result_num.append(n.number)
                 except IntegrityError:
                     try:
@@ -192,13 +200,23 @@ def display():
                                                    datetime.datetime.min.time())
     # TODO optimize query, so we don't need to iterate manually, e.g. by selecing only count > min_count!
     # TODO make Place variable and part of WHERE
+
+    verified_numbers = Number.select(Number.number, Number.time, User.username).join(User).\
+        where(Number.time >= oldest_to_be_shown).order_by(Number.time.desc(), Number.number)
     numbers = Number.select(Number.number, Number.time, fn.Count(Number.number).alias('count')).\
-        where(Number.time >= oldest_to_be_shown).group_by(Number.number).order_by(Number.time.desc(), Number.number)
+        where(Number.time >= oldest_to_be_shown, Number.user == None).group_by(Number.number).order_by(Number.time.desc(), Number.number)
 
     # filter numbers entered often enough
     # format numbers for later output
-    display_output = sorted([{'num': n.number, 'count': int(n.count)}
-                             for n in numbers if int(n.count) >= MIN_COUNT][:DISPLAY_SIZE], key=lambda n: n['num'])
+    verified_output = set([n.number for n in verified_numbers][:DISPLAY_SIZE])
+    unverified_output = [{'num': n.number, 'count': int(n.count)}
+                         for n in numbers if int(n.count) >= MIN_COUNT][:DISPLAY_SIZE]
+    for n in unverified_output:
+        if n['num'] in verified_output:
+            verified_output.remove(n['num'])
+
+    display_output = sorted([{'num': n, 'count': 1} for n in verified_output] + unverified_output,
+                            key=lambda n: n['num'])
 
     since = format_datetime(oldest_to_be_shown, 'short', locale=get_valid_locale(request.locale))
     return {'numbers': display_output,
@@ -211,6 +229,34 @@ def display():
 @view('static/pm-start.html')
 def press_release():
     pass
+
+
+def check_username(username, password):
+    user = None
+    try:
+        user = User.get(username=username)
+        sha256_crypt.verify(password, user.password)
+    except User.DoesNotExist:
+        # print(u'No, not you: {}'.format(username))
+        user = None
+    except ValueError:
+        # print(u'Wrong password')
+        user = None
+    return user
+
+
+@route('/authenticated')
+@auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
+@view('views/start_page')
+def authenticated():
+    return enter()
+
+
+@route('/authenticated', method='POST')
+@auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
+@view('views/start_page')
+def do_authenticated():
+    return do_enter()
 
 
 # findet templates im gleichen Verzeichnis
