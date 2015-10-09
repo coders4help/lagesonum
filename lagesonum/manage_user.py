@@ -121,10 +121,10 @@ class UserManager:
         self.model.disconnect()
 
     def commit(self):
-        self.model.database.commit()
+        self.model.commit()
 
     def rollback(self):
-        self.model.database.rollback()
+        self.model.rollback()
 
     def run(self, arguments):
         self.connect()

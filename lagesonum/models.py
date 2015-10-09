@@ -3,30 +3,42 @@
 from datetime import datetime
 from peewee import *
 
-database = SqliteDatabase(None)
-
 
 class BaseModel(Model):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if 'database' in kwargs:
-            database.init(database=kwargs['database'])
+            self._meta.database.init(database=kwargs['database'])
             self.connect()
             User.create_table(fail_silently=True)
             Place.create_table(fail_silently=True)
             Number.create_table(fail_silently=True)
 
     def connect(self):
-        if database.is_closed():
-            database.connect()
+        if self._meta.database.is_closed():
+            self._meta.database.connect()
 
     def disconnect(self):
-        if not database.is_closed():
-            database.close()
+        if not self._meta.database.is_closed():
+            self._meta.database.close()
+
+    def commit(self):
+        self._meta.database.commit()
+
+    def rollback(self):
+        self._meta.database.rollback()
+
+    @property
+    def autocommit(self):
+        return self._meta.database.autocommit
+
+    @autocommit.setter
+    def autocommit(self, autocommit):
+        self._meta.database.autocommit = autocommit
 
     class Meta:
-        database = database
+        database = SqliteDatabase(None)
 
 
 class User(BaseModel):
