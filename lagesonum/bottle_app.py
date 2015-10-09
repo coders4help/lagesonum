@@ -85,7 +85,7 @@ def index():
 @route('/enter')
 @view('views/start_page')
 def enter():
-    return {'path': request.fullpath, 'entered': []}
+    return {'entered': []}
 
 
 @route('/enter', method='POST')
@@ -126,7 +126,7 @@ def do_enter():
                         result_num.append(u'Something weired happend with {}'.format(num))
 
     # FIXME result_num is horrible, as it contains success and failures, indistinguishable
-    return {'path': request.fullpath, 'entered': result_num, 'timestamp': timestamp.strftime('%x %X')}
+    return {'entered': result_num, 'timestamp': timestamp.strftime('%x %X')}
 
 
 @route('/query')
