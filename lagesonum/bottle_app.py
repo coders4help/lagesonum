@@ -2,8 +2,10 @@
 
 import os
 import datetime
+import random
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
+from beaker.middleware import SessionMiddleware
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, debug, hook, \
     auth_basic, redirect
@@ -108,8 +110,9 @@ def do_enter():
     else:
         authed_user = None
         try:
+            s = request.environ.get('beaker.session')
             username, ignore = request.auth or (None, None)
-            authed_user = User.get(User.username == username)
+            authed_user = User.get(User.username == (s.get('user', username) if s else None))
         except User.DoesNotExist:
             pass
 
@@ -234,15 +237,27 @@ def press_release():
 
 def check_username(username, password):
     user = None
-    try:
-        user = User.get(username=username)
-        sha256_crypt.verify(password, user.password)
-    except User.DoesNotExist:
-        # print(u'No, not you: {}'.format(username))
-        user = None
-    except ValueError:
-        # print(u'Wrong password')
-        user = None
+    s = request.environ.get('beaker.session')
+    if s:
+        user = s.get('user', None)
+    if not user or user != username:
+        try:
+            user = User.get(username=username)
+            sha256_crypt.verify(password, user.password)
+        except User.DoesNotExist:
+            # print(u'No, not you: {}'.format(username))
+            user = None
+        except ValueError:
+            # print(u'Wrong password')
+            user = None
+        finally:
+            if user:
+                s['user'] = user.username
+            else:
+                del(s['user'])
+            s.save()
+            s.persist()
+
     return user
 
 
@@ -266,3 +281,12 @@ app = default_app()
 application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          domain='messages',
                          locale_dir=os.path.join(MOD_PATH, 'locales'))
+session_opts = {
+    'session.key': 'lagesonum_sess',
+    'session.type': 'cookie',
+    'session.encrypt_key': '{:x}'.format(random.randrange(16**128)),
+    'session.validate_key': '{:x}'.format(random.randrange(16**32)),
+    'session.cookie_expires': 1800,
+    'session.httponly': True,
+}
+application = SessionMiddleware(application, session_opts)
