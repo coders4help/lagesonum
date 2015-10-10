@@ -85,6 +85,10 @@ def enter():
 @route('/enter', method='POST')
 @view('views/start_page')
 def do_enter():
+    return enter_save()
+
+
+def enter_save():
     """Enter numbers into database"""
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = datetime.datetime.now()
@@ -255,16 +259,16 @@ def check_username(username, password):
 
 @route('/authenticated')
 @auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
-@view('views/start_page', entered=[])
+@view('views/start_page_authed', entered=[])
 def authenticated():
     pass
 
 
 @route('/authenticated', method='POST')
 @auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
-@view('views/start_page')
+@view('views/start_page_authed')
 def do_authenticated():
-    return do_enter()
+    return enter_save()
 
 
 @route('/version', no_i18n=True)
