@@ -9,13 +9,12 @@ from babel.core import Locale, UnknownLocaleError
 from beaker.middleware import SessionMiddleware
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, hook, auth_basic, \
-    template
+    response
 from peewee import IntegrityError, DoesNotExist, fn
 from passlib.hash import sha256_crypt
 
 from bottle_utils.i18n import I18NPlugin
 from bottle_utils.i18n import lazy_gettext as _
-import sys
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from models import BaseModel, Number, Place, User
@@ -278,10 +277,11 @@ def do_authenticated():
 
 @route('/version', no_i18n=True)
 def show_version():
-    git_status = subprocess.Popen(['git', 'show', '--summary', '--no-abbrev'], stdout=subprocess.PIPE,
+    git_status = subprocess.Popen(['git', 'show', '--summary', '--no-abbrev', '--pretty=medium'], stdout=subprocess.PIPE,
                                   universal_newlines=True)
     (version, err) = git_status.communicate(timeout=5)
-    return u'{}'.format(version.split(' ')[0] or version)
+    response.content_type = 'text/plain'
+    return u'{}'.format(version)
 
 
 # findet templates im gleichen Verzeichnis
