@@ -19,7 +19,6 @@ from input_number import is_valid_number, parse_numbers, get_fingerprint
 from models import BaseModel, Number, Place, User
 from configuration import LANGS, MIN_COUNT, MAX_DAYS, DEFAULT_LOCALE, DISPLAY_SIZE
 
-debug(True)
 # store database outside of repository so it is not overwritten by git pull
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '../', '../', "lagesonr.db"))
