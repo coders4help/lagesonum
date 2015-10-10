@@ -9,11 +9,11 @@ from babel.core import Locale, UnknownLocaleError
 from beaker.middleware import SessionMiddleware
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, hook, auth_basic, \
-    response
+    response, redirect
 from peewee import IntegrityError, DoesNotExist, fn
 from passlib.hash import sha256_crypt
 
-from bottle_utils.i18n import I18NPlugin
+from bottle_utils.i18n import I18NPlugin, i18n_path
 from bottle_utils.i18n import lazy_gettext as _
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
@@ -71,23 +71,15 @@ def _check_locale():
 
 
 @route('/')
-@view('views/query_page')
 def index():
     """landing page is page for querying numbers"""
-
-    context = {
-        'result': 'NewNumber',
-        'invalid_input': '',
-        'timestamps': ''
-    }
-
-    return context
+    redirect(i18n_path('/query'))
 
 
 @route('/enter')
-@view('views/start_page')
+@view('views/start_page', entered=[])
 def enter():
-    return {'entered': []}
+    pass
 
 
 @route('/enter', method='POST')
@@ -134,9 +126,9 @@ def do_enter():
 
 
 @route('/query')
-@view('views/query_page')
+@view('views/query_page', result=None)
 def query():
-    return {'result': None}
+    pass
 
 
 @route('/query', method='POST')
@@ -263,9 +255,9 @@ def check_username(username, password):
 
 @route('/authenticated')
 @auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
-@view('views/start_page')
+@view('views/start_page', entered=[])
 def authenticated():
-    return enter()
+    pass
 
 
 @route('/authenticated', method='POST')
