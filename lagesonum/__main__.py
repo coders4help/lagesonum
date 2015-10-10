@@ -6,5 +6,5 @@ from bottle import run, debug
 
 from bottle_app import application
 
-#debug(True)
+debug(False)
 run(application, host='127.0.0.1', port=8080, reloader=True)
