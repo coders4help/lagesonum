@@ -108,7 +108,8 @@ def do_enter():
     else:
         authed_user = None
         try:
-            authed_user = User.get(User.username == request.auth[0])
+            username, ignore = request.auth or (None, None)
+            authed_user = User.get(User.username == username)
         except User.DoesNotExist:
             pass
 
