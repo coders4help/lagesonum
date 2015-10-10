@@ -117,7 +117,9 @@ msgid "alphabetorder"
 msgstr "Die Nummern sind alphabetisch sortiert. Diese Sortierung kann sich von der auf dem Display unterscheiden."
 
 msgid "numberdisplaytxt"
-msgstr "Diese Nummern wurden als letzte seit %(since)s von mindestens %(min_count)s verschiedenen Personen eingegeben."
+msgstr ""
+"Diese Nummern wurden als letzte seit %(since)s von mindestens %(min_count)s "
+"verschiedenen - oder authorisierten - Personen eingegeben."
 
 msgid "webpagetitle"
 msgstr ""

@@ -1,4 +1,4 @@
-% include('views/header.tpl')
+% include('views/header.tpl', active='display')
 
 <div class="container">
       <div class="starter-template">
