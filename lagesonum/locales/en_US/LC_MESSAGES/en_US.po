@@ -181,7 +181,7 @@ msgstr "supported by coders4help and "
 msgid "entered"
 msgstr ""
 "Thanks a lot! You entered the following waiting number successfully into the"
-" database:"
+" database"
 
 msgid "numberorigin_head"
 msgstr "How do you know when my waiting number was displayed?"

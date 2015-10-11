@@ -37,6 +37,7 @@ def get_valid_locale(l):
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
 BaseTemplate.defaults['locale_datetime'] = lambda d: format_datetime(d, format="short", locale=get_valid_locale(request.locale))
+BaseTemplate.defaults['locale_translate'] = lambda s: [s.translate(l[2]) for l in LANGS if l[0] == get_valid_locale(request.locale)][0]
 
 
 @hook('before_request')
@@ -77,7 +78,7 @@ def index():
 
 
 @route('/enter')
-@view('views/start_page', entered=[])
+@view('views/start_page', entered=[], nonunique=[], failed=[])
 def enter():
     pass
 
@@ -96,6 +97,8 @@ def enter_save():
     usr_hash = get_fingerprint(request)
 
     result_num = []
+    result_nonuniq = []
+    result_failed = []
 
     # TODO make place variable, depending on current request
     q = Place.select().where(Place.place == 'LAGESO')
@@ -105,9 +108,9 @@ def enter_save():
         result_num.append(_('novalidnumbers'))
     else:
         authed_user = None
+        s = request.environ.get('beaker.session')
+        username, ignore = request.auth or (None, None)
         try:
-            s = request.environ.get('beaker.session')
-            username, ignore = request.auth or (None, None)
             authed_user = User.get(User.username == (s.get('user', username) if s else None))
         except User.DoesNotExist:
             pass
@@ -116,17 +119,21 @@ def enter_save():
             if is_valid_number(num):
                 try:
                     n = Number.create(number=num.upper(), time=timestamp, place=lageso, fingerprint=usr_hash, user=authed_user)
-                    result_num.append(n.number)
                 except IntegrityError:
                     try:
                         n = Number.get(Number.number == num.upper())
-                        # FIXME Why ain't there any value placeholder in translation string?
-                        result_num.append(_(u'erruniquenumber') + ': {}'.format(n.number))
                     except DoesNotExist:
-                        result_num.append(u'Something weired happend with {}'.format(num))
+                        result_failed.append(num)
+                    else:
+                        result_nonuniq.append(n.number)
+                else:
+                    result_num.append(n.number)
+            else:
+                result_failed.append(num)
 
     # FIXME result_num is horrible, as it contains success and failures, indistinguishable
-    return {'entered': result_num, 'timestamp': timestamp.strftime('%x %X')}
+    return {'entered': result_num, 'nonunique': result_nonuniq, 'failed': result_failed,
+            'timestamp': timestamp}
 
 
 @route('/query')
@@ -259,7 +266,7 @@ def check_username(username, password):
 
 @route('/authenticated')
 @auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
-@view('views/start_page_authed', entered=[])
+@view('views/start_page_authed', entered=[], nonunique=[], failed=[])
 def authenticated():
     pass
 
