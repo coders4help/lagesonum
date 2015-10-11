@@ -187,7 +187,7 @@ msgstr "unterstützt von coders4help und"
 msgid "entered"
 msgstr ""
 "Herzlichen Dank! Du hast die folgende Wartenummer erfolgreich in die "
-"Datenbank eingetragen:"
+"Datenbank eingetragen"
 
 msgid "numberorigin_head"
 msgstr "Woher wisst ihr, wann meine Wartenummer angezeigt wurde?"

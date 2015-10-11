@@ -39,6 +39,10 @@
           display: inline-block;
           margin-right: 5px;
         }
+
+        .para {
+          padding: 1em 0;
+        }
     </style>
     <title>{{_('webpagetitle')}}</title>
 </head>
@@ -70,7 +74,7 @@
               <img src="/static/languages.png" alt="pick a language" width="20" height="20" class="navbar-lang-icon"> {{current_lang[1]}}<span class="caret"/>
             </a>
             <ul class="dropdown-menu">
-              % for (code, label) in languages:
+              % for (code, label, trans_table) in languages:
                 <li>
                   <a href="{{i18n_path(request.path, code)}}">
                     {{label}}

@@ -182,7 +182,7 @@ msgstr "subtenitaj de coders4help kaj"
 
 msgid "entered"
 msgstr ""
-"Elkoran dankon! Vi sukcese enigis la sekvan atendonumeron en la datumbazon:"
+"Elkoran dankon! Vi sukcese enigis la sekvan atendonumeron en la datumbazon"
 
 msgid "numberorigin_head"
 msgstr "De kie vi scias, kiam mia atendonumero estis montrita?"
