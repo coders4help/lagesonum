@@ -273,7 +273,7 @@ def do_authenticated():
 
 @route('/version', no_i18n=True)
 def show_version():
-    git_status = subprocess.Popen(['git', 'show', '--summary', '--no-abbrev', '--pretty=medium'], stdout=subprocess.PIPE,
+    git_status = subprocess.Popen(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], stdout=subprocess.PIPE,
                                   universal_newlines=True)
     (version, err) = git_status.communicate(timeout=5)
     response.content_type = 'text/plain'
