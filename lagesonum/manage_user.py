@@ -6,8 +6,10 @@ import warnings
 from optparse import Option, OptionParser
 from sys import stdout, stderr
 from warnings import warn
-from peewee import IntegrityError
+from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 from models import BaseModel, User
+from getpass import getpass
 from passlib.hash import sha256_crypt
 
 _options = [
@@ -16,6 +18,8 @@ _options = [
     Option('-a', '--add', help=u'Add user', action='store_true'),
     Option('-r', '--remove', help=u'Remove user', action='store_true'),
 ]
+
+um = None
 
 
 def print_user(user, file=stdout):
@@ -39,8 +43,8 @@ def check_add_arguments(arguments):
         username = input(u'Username: ')
 
     if not password:
-        password = input(u'Password: ')
-        password2 = input(u'Password (repeat): ')
+        password = getpass(u'Password: ')
+        password2 = getpass(u'Password (repeat): ')
         if password != password2:
             print(file=stderr)
             print(u'Passwords didn\'t match', file=stderr)
@@ -53,7 +57,7 @@ def check_add_arguments(arguments):
 
 
 def list_users_matching(matches):
-    for user in User.select():
+    for user in um.session.query(User).all():
         if not user:
             continue
         if not matches or 'all' == matches or user.username in matches:
@@ -70,7 +74,9 @@ def add_user(arguments):
     if username and password:
         password_hash = sha256_crypt.encrypt(password)
         try:
-            u = User.create(username=username, password=password_hash, is_admin=is_admin)
+            u = User(username=username, password=password_hash, is_admin=is_admin)
+            um.session.add(u)
+            um.session.flush()
             print(u'Created user {} as {}admin'.format(u.username, u'non' if not u.is_admin else ''))
         except IntegrityError as e:
             warn(u'User seems to already exist: {}'.format(e))
@@ -79,12 +85,15 @@ def add_user(arguments):
 
 
 def remove_user(usernames):
-    users = User.delete()
+    users_query = um.session.query(User)
 
+    unames = []
     if 'all' == usernames:
         pass
+    elif isinstance(usernames, list):
+        unames = usernames
     elif len(usernames) > 0:
-        users = users.where(User.username << usernames)
+        unames = [usernames]
     else:
         prompt = u'Username to delete (empty line to continue): '
         unames = []
@@ -92,12 +101,24 @@ def remove_user(usernames):
         while uname:
             unames.append(uname)
             uname = input(prompt).strip()
-        if len(unames) > 0:
-            users = users.where(User.username << unames)
+
+        if not unames:
+            warn(u'No usernames for deletion given')
+            return
+
+    if unames:
+        users_query = users_query.filter(User.username.in_(unames))
 
     try:
-        result = users.execute()
-        print(u'Deleted {} users'.format(result), file=stderr)
+        users = users_query.all()
+        print(u'Delete users: {}'.format([u.username for u in users or []]), file=stderr)
+        for user in users:
+            um.session.delete(user)
+        um.session.flush()
+        count_query = um.session.query(func.count(User.username))
+        if unames: count_query = count_query.filter(User.username.in_(unames))
+        if count_query.one()[0] < len(users):
+            print(u'Deleted {} users'.format(len(users) - count_query.one()[0]))
     except Exception as e:
         warn(u'Error deleting users: {}'.format(e))
 
@@ -114,17 +135,18 @@ class UserManager:
             setattr(self, option, local_opts[option])
 
     def connect(self):
-        self.model.autocommit = False
-        self.model.connect()
+        self.session = self.model.create_session()
 
     def disconnect(self):
-        self.model.disconnect()
+        self.commit()
+        self.model.remove_session()
+        self.session = None
 
     def commit(self):
-        self.model.commit()
+        self.session.commit()
 
     def rollback(self):
-        self.model.rollback()
+        self.session.rollback()
 
     def run(self, arguments):
         self.connect()

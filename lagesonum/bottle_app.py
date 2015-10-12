@@ -2,7 +2,6 @@
 
 import os
 import datetime
-import random
 import subprocess
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
@@ -10,11 +9,12 @@ from beaker.middleware import SessionMiddleware
 
 from bottle import default_app, route, view, static_file, TEMPLATE_PATH, request, BaseTemplate, hook, auth_basic, \
     response, redirect
-from peewee import IntegrityError, DoesNotExist, fn
 from passlib.hash import sha256_crypt
 
 from bottle_utils.i18n import I18NPlugin, i18n_path
 from bottle_utils.i18n import lazy_gettext as _
+from sqlalchemy import func, exists
+from sqlalchemy.exc import IntegrityError
 
 from input_number import is_valid_number, parse_numbers, get_fingerprint
 from models import BaseModel, Number, Place, User
@@ -37,16 +37,19 @@ def get_valid_locale(l):
 # set as global variable available in all templates (to be able to call e.g. request.locale)
 BaseTemplate.defaults['request'] = request
 BaseTemplate.defaults['locale_datetime'] = lambda d: format_datetime(d, format="short", locale=get_valid_locale(request.locale))
+BaseTemplate.defaults['locale_translate'] = lambda s: [s.translate(l[2]) for l in LANGS if l[0] == get_valid_locale(request.locale)][0]
 
 
 @hook('before_request')
-def _connect_db():
-    model.connect()
+def open_session():
+    request['orm'] = model.create_session()
 
 
 @hook('after_request')
-def _close_db():
-    model.disconnect()
+def close_session():
+    request['orm'].commit()
+    request['orm'].close()
+    model.remove_session()
 
 
 @hook('before_request')
@@ -77,7 +80,7 @@ def index():
 
 
 @route('/enter')
-@view('views/start_page', entered=[])
+@view('views/start_page', entered=[], nonunique=[], failed=[])
 def enter():
     pass
 
@@ -90,43 +93,52 @@ def do_enter():
 
 def enter_save():
     """Enter numbers into database"""
+    db = request['orm']
     numbers = set(parse_numbers(request.forms.get('numbers', '')))
     timestamp = datetime.datetime.now()
 
     usr_hash = get_fingerprint(request)
 
     result_num = []
+    result_nonuniq = []
+    result_failed = []
 
     # TODO make place variable, depending on current request
-    q = Place.select().where(Place.place == 'LAGESO')
-    lageso = q.get() if q.count() == 1 else None
+    q = db.query(Place).filter_by(name='LAGESO')
+    lageso = q.one() if q.count() == 1 else None
 
     if not numbers:
         result_num.append(_('novalidnumbers'))
     else:
         authed_user = None
+        s = request.environ.get('beaker.session')
+        username, ignore = request.auth or (None, None)
         try:
-            s = request.environ.get('beaker.session')
-            username, ignore = request.auth or (None, None)
-            authed_user = User.get(User.username == (s.get('user', username) if s else None))
-        except User.DoesNotExist:
+            authed_user = db.query(User).filter_by(username=(s.get('user', username))).one() if s else None
+        except Exception as e:
             pass
 
         for num in numbers:
             if is_valid_number(num):
+                n = Number(number=num.upper(), timestamp=timestamp, place=lageso, fingerprint=usr_hash, user=authed_user)
+                db.add(n)
                 try:
-                    n = Number.create(number=num.upper(), time=timestamp, place=lageso, fingerprint=usr_hash, user=authed_user)
-                    result_num.append(n.number)
+                    db.flush()
                 except IntegrityError:
-                    try:
-                        n = Number.get(Number.number == num.upper())
-                        # FIXME Why ain't there any value placeholder in translation string?
-                        result_num.append(_(u'erruniquenumber') + ': {}'.format(n.number))
-                    except DoesNotExist:
-                        result_num.append(u'Something weired happend with {}'.format(num))
+                    db.rollback()
+                    n = db.query(Number).filter_by(number=num.upper())
+                    if (n.count() > 0):
+                        result_nonuniq.append(n.first().number)
+                    else:
+                        result_failed.append(num)
+                else:
+                    result_num.append(n.number)
+            else:
+                result_failed.append(num)
 
     # FIXME result_num is horrible, as it contains success and failures, indistinguishable
-    return {'entered': result_num, 'timestamp': timestamp.strftime('%x %X')}
+    return {'entered': result_num, 'nonunique': result_nonuniq, 'failed': result_failed,
+            'timestamp': timestamp}
 
 
 @route('/query')
@@ -149,8 +161,8 @@ def do_query():
     if numbers:
         # FIXME WTF? Allow and parse a list and than pick one & silently drop the others?
         number = numbers[0]
-        qry = Number.select(Number.time).where(Number.number ** number).order_by(Number.time)
-        timestamps = [n.time for n in qry]
+        q = request['orm'].query(Number).filter_by(number=number).order_by(Number.timestamp)
+        timestamps = [n.timestamp for n in q.all()]
     else:
         invalid_input = user_input
 
@@ -201,10 +213,11 @@ def display():
     # TODO optimize query, so we don't need to iterate manually, e.g. by selecing only count > min_count!
     # TODO make Place variable and part of WHERE
 
-    verified_numbers = Number.select(Number.number, Number.time, User.username).join(User).\
-        where(Number.time >= oldest_to_be_shown).order_by(Number.time.desc(), Number.number)
-    numbers = Number.select(Number.number, Number.time, fn.Count(Number.number).alias('count')).\
-        where(Number.time >= oldest_to_be_shown, Number.user == None).group_by(Number.number).order_by(Number.time.desc(), Number.number)
+    verified_numbers = request['orm'].query(Number.number, Number.timestamp, User.username).join(User).\
+        filter(Number.timestamp >= oldest_to_be_shown).order_by(Number.timestamp.desc(), Number.number).all()
+    numbers = request['orm'].query(Number.number, Number.timestamp, func.count(Number.number).label('count')).\
+        filter(Number.timestamp >= oldest_to_be_shown).filter_by(user=None).group_by(Number.number).\
+        order_by(Number.timestamp.desc(), Number.number).all()
 
     # filter numbers entered often enough
     # format numbers for later output
@@ -259,7 +272,7 @@ def check_username(username, password):
 
 @route('/authenticated')
 @auth_basic(check_username, realm='Authenticated access', text='Please authenticate to enter')
-@view('views/start_page_authed', entered=[])
+@view('views/start_page_authed', entered=[], nonunique=[], failed=[])
 def authenticated():
     pass
 
@@ -273,7 +286,7 @@ def do_authenticated():
 
 @route('/version', no_i18n=True)
 def show_version():
-    git_status = subprocess.Popen(['git', 'show', '--summary', '--no-abbrev', '--pretty=medium'], stdout=subprocess.PIPE,
+    git_status = subprocess.Popen(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], stdout=subprocess.PIPE,
                                   universal_newlines=True)
     (version, err) = git_status.communicate(timeout=5)
     response.content_type = 'text/plain'
@@ -288,9 +301,9 @@ application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          locale_dir=os.path.join(MOD_PATH, 'locales'))
 session_opts = {
     'session.key': 'lagesonum_sess',
-    'session.type': 'cookie',
-    'session.encrypt_key': '{:x}'.format(random.randrange(16**128)),
-    'session.validate_key': '{:x}'.format(random.randrange(16**32)),
+    'session.type': 'ext:database',
+    'session.url': 'sqlite:///' + DB_PATH,
+    'session.table_name': 'session_storage',
     'session.cookie_expires': 1800,
     'session.httponly': True,
 }
