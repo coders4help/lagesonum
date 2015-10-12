@@ -49,6 +49,7 @@ def open_session():
 def close_session():
     request['orm'].commit()
     request['orm'].close()
+    model.remove_session()
 
 
 @hook('before_request')
@@ -122,7 +123,7 @@ def enter_save():
                 n = Number(number=num.upper(), timestamp=timestamp, place=lageso, fingerprint=usr_hash, user=authed_user)
                 db.add(n)
                 try:
-                    db.commit()
+                    db.flush()
                 except IntegrityError:
                     db.rollback()
                     n = db.query(Number).filter_by(number=num.upper())
@@ -160,8 +161,8 @@ def do_query():
     if numbers:
         # FIXME WTF? Allow and parse a list and than pick one & silently drop the others?
         number = numbers[0]
-        qry = Number.select(Number.time).where(Number.number ** number).order_by(Number.time)
-        timestamps = [n.time for n in qry]
+        q = request['orm'].query(Number).filter_by(number=number).order_by(Number.timestamp)
+        timestamps = [n.timestamp for n in q.all()]
     else:
         invalid_input = user_input
 

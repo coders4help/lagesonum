@@ -2,24 +2,28 @@
 
 from datetime import datetime
 
-from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime, ForeignKey, Index, UniqueConstraint
-from sqlalchemy.orm import relationship, backref, sessionmaker
+from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime, ForeignKey, UniqueConstraint
+from sqlalchemy.orm import relationship, sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-Session = sessionmaker(autocommit=False)
+session_factory = sessionmaker(autocommit=False)
+Session = scoped_session(session_factory)
 
 
 class BaseModel():
 
     def __init__(self, database, **kwargs):
         super().__init__()
-        self.engine = create_engine('sqlite:///{}'.format(database), echo=True)
+        self.engine = create_engine('sqlite:///{}'.format(database), echo=False)
         Base.metadata.create_all(self.engine)
-        Session.configure(bind=self.engine)
+        session_factory.configure(bind=self.engine)
 
     def create_session(self):
         return Session()
+
+    def remove_session(self):
+        Session.remove()
 
 
 class User(Base, BaseModel):
