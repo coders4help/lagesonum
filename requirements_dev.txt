@@ -1,4 +1,5 @@
 -r requirements.txt
 bottle-werkzeug==0.1
 coverage==4.0
+sqlalchemy-sql-shell==0.0.0
 Werkzeug==0.10.4
