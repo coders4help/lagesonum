@@ -17,7 +17,7 @@
 
 % if entered:
 <div class="para">
-{{_('entered')}} [{{locale_datetime(timestamp).translate(locale_translate)}}]:
+{{_('entered')}} [{{locale_translate(locale_datetime(timestamp))}}]:
 <ul>
 % for number in entered:
     <li><b>{{number}}</b></li>
