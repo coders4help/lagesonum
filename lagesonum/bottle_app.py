@@ -2,7 +2,6 @@
 
 import os
 import datetime
-import random
 import subprocess
 from babel.dates import format_datetime
 from babel.core import Locale, UnknownLocaleError
@@ -295,9 +294,9 @@ application = I18NPlugin(app, langs=LANGS, default_locale=DEFAULT_LOCALE,
                          locale_dir=os.path.join(MOD_PATH, 'locales'))
 session_opts = {
     'session.key': 'lagesonum_sess',
-    'session.type': 'cookie',
-    'session.encrypt_key': '{:x}'.format(random.randrange(16**128)),
-    'session.validate_key': '{:x}'.format(random.randrange(16**32)),
+    'session.type': 'ext:database',
+    'session.url': 'sqlite:///' + DB_PATH,
+    'session.table_name': 'session_storage',
     'session.cookie_expires': 1800,
     'session.httponly': True,
 }
