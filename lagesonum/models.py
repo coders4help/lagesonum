@@ -1,5 +1,7 @@
 # coding: utf-8
 
+import os
+
 from datetime import datetime
 
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime, ForeignKey, UniqueConstraint
@@ -15,7 +17,7 @@ class BaseModel():
 
     def __init__(self, database, **kwargs):
         super().__init__()
-        self.engine = create_engine('sqlite:///{}'.format(database), echo=False)
+        self.engine = create_engine('sqlite:///{}'.format(database), echo=bool(os.environ.get('DEBUG', False)))
         Base.metadata.create_all(self.engine)
         session_factory.configure(bind=self.engine)
 
