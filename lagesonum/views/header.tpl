@@ -8,9 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{_('meta_description') if _('meta_description') != 'meta_description' else "LAGeSoNUM is a page helping refugees to access their number assigned by the LAGeSo online"}}" />
 
+    <meta property="og:title" content="{{_('webpagetitle')}}">
+    <meta property="og:image" content="http://lagesonum.de/anzeigetafel.jpg">
+    <meta property="og:description" content="{{_('meta_description') if _('meta_description') != 'meta_description' else "LAGeSoNUM is a page helping refugees to access their number assigned by the LAGeSo online"}}">
+
+    <meta name="twitter:card" content="{{_('meta_description') if _('meta_description') != 'meta_description' else "LAGeSoNUM is a page helping refugees to access their number assigned by the LAGeSo online"}}" />
+    <meta name="twitter:site" content="@lagesonum" />
+    <meta name="twitter:title" content="{{_('webpagetitle')}}" />
+    <meta name="twitter:description" content="{{_('meta_description') if _('meta_description') != 'meta_description' else "LAGeSoNUM is a page helping refugees to access their number assigned by the LAGeSo online"}}" />
+    <meta name="twitter:image" content="http://lagesonum.de/anzeigetafel.jpg" />
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
 
     <style type="text/css">
         .center-block {
