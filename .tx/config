@@ -2,7 +2,7 @@
 host = https://www.transifex.com
 
 [lagesonum-1.messages]
-file_filter = lagesonum/locales/<lang>/LC_MESSAGES/<lang>.po
-source_file = lagesonum/locales/en_US/LC_MESSAGES/en_US.po
+file_filter = website/locale/<lang>/LC_MESSAGES/<lang>.po
+source_file = website/locale/en_US/LC_MESSAGES/en_US.po
 source_lang = en_US
 type = PO

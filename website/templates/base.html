@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles i18n %}
+<html class="no-js" {% block html_attributes %}{% endblock %}>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{% trans 'meta_description' %}" />
+
+    <meta property="og:title" content="{% trans 'webpagetitle' %}">
+    <meta property="og:image" content="http://lagesonum.de/static/img/anzeigetafel.jpg">
+    <meta property="og:description" content="{% trans 'meta_description' %}">
+
+    <meta name="twitter:card" content="{% trans 'meta_description' %}" />
+    <meta name="twitter:site" content="@lagesonum" />
+    <meta name="twitter:title" content="{% trans 'webpagetitle' %}" />
+    <meta name="twitter:description" content="{% trans 'meta_description' %}" />
+    <meta name="twitter:image" content="http://lagesonum.de/static/img/anzeigetafel.jpg" />
+
+    <title>{% block webpagetitle %}{% trans 'webpagetitle' %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% if not debug %}//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css{% else %}{% static 'css/bootstrap.css' %}{% endif %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+</head>
+<body>
+{% include 'partials/navbar.html' %}
+
+<div class="container" role="main">
+    {% block content %}
+        Page content
+    {% endblock %}
+</div>
+
+{% include 'partials/footer.html' %}
+
+<script src="{% if not debug %}//code.jquery.com/jquery-1.11.3.min.js{% else %}{% static 'js/jquery.js' %}{% endif %}"></script>
+<script src="{% if not debug %}//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js{% else %}{% static 'js/bootstrap.js'%}{% endif %}" crossorigin="anonymous"></script>
+
+{% block additional_js %}<!-- Additional, view specific, JavaScript resources -->{% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block webpagetitle %}Login{% endblock %}
+
+{% block content %}
+    {% spaceless %}
+        <div class="container">
+            <div class="starter-template">
+                <form action="" method="post" id="login-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="{% trans 'Log in' %}" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}

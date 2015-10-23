@@ -1,0 +1,37 @@
+{% load l10n %}
+{% spaceless %}
+    {% if entered %}
+        <div class="para alert alert-success" role="status">
+            {{ _('entered') }} [{{ timestamp|date:'SHORT_DATE_FORMAT' }}]:
+            <ul>
+                {% for number in entered %}
+                <li><b>{{ number }}</b></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if nonunique %}
+        <div class="para alert alert-warning" role="status">
+            {{ _('erruniquenumber') }}:
+            <ul>
+                {% for number in nonunique %}
+                <li><b>{{ number }}</b></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if failed %}
+        <div class="para alert alert-danger" role="alert">
+            {% if failed.numbers_text %}
+            Die folgenden Nummern sind offenbar ungültig und konnten nicht gespeichert werden:
+            <ul>
+                {% for error in failed.numbers_text %}
+                <li><b>{{ error.params.number }}</b> ({{ error }})</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endspaceless %}

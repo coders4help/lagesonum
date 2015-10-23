@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles i18n %}
+
+{% block content %}
+    {% spaceless %}
+        <div class="container">
+            <div class="starter-template">
+                <p>{% trans 'search_pitch' %}</p>
+                <form action="{% url 'query' %}" method="post" class="form-inline" style="margin-bottom:20px;" id="query-form" role="form">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-primary">{% trans 'submit_label' %}</button>
+                </form>
+
+                <h3>{% trans 'numberorigin_head' %}</h3>
+                <p>{% trans 'numberorigin_xplain' %}</p>
+                <a href="{% url 'enter' %}">{% trans 'help entering numbers' %}</a>
+
+                <div id="result">
+                {% if result %}
+                    {% include 'partials/query_result.html' %}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block additional_js %}
+<script src="{% static 'js/query.js' %}"></script>
+{% endblock %}

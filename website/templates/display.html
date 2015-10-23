@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    {% spaceless %}
+        <div class="container">
+            <div class="starter-template">
+                <h2>{% trans 'display_link' %}</h2>
+
+                {% if numbers|length > 0 %}
+                    <!-- with min_count as min_count and since as since -->
+                    <p>{% blocktrans with since|date:'SHORT_DATE_FORMAT' as since %}numberdisplaytxt {{ since }} {{ min_count }}{% endblocktrans %}</p>
+
+                    <div class="row col-xs-12 col-md-8" style="float:initial;white-space:nowrap;">
+                        {% for n in numbers %}
+                        <div class="col-xs-4 col-md-2"><code>{{ n.number }} ({{ n.count }}x)</code></div>
+                        {% endfor %}
+                    </div>
+
+                    <p><br>{% trans 'alphabetorder' %}</p>
+                {% else %}
+                    <p>{% blocktrans with min_count as min_count and since as since %}nonumbersentered {{ since }} {{ min_count }}{% endblocktrans %}</p>
+
+                    <h3>{% trans 'pleasenote_title' %}</h3>
+                    <p>{% trans 'pleasenote' %}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}

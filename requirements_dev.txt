@@ -1,5 +1,3 @@
 -r requirements.txt
-bottle-werkzeug==0.1
-coverage==4.0
-sqlalchemy-sql-shell==0.0.0
-Werkzeug==0.10.4
+django-debug-toolbar==1.4
+sqlparse==0.1.16
