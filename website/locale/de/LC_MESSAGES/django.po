@@ -197,6 +197,10 @@ msgstr "Mach mit!"
 msgid "searchanumber_link"
 msgstr "Deine Wartenummer"
 
+#: templates/partials/navbar.html:24
+msgid "subscribe_link"
+msgstr "Benachrichtet werden"
+
 #: templates/partials/query_result.html:5
 msgid "errinvalinput"
 msgstr ""
@@ -257,6 +261,12 @@ msgstr ""
 msgid "help entering numbers"
 msgstr ""
 "Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."
+
+#: templates/subscribe.html:8
+msgid "subscribe_pitch"
+msgstr ""
+"Gib deine Wartenummer und entweder eine Emailadresse oder deine Handynummer ein. "
+"Wir kontaktiere dich wann deine Nummer dran ist!"
 
 #~ msgid "txtgreeting"
 #~ msgstr ""

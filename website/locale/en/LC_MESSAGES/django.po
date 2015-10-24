@@ -194,6 +194,10 @@ msgstr "Join in!"
 msgid "searchanumber_link"
 msgstr "Your waiting number"
 
+#: templates/partials/navbar.html:24
+msgid "subscribe_link"
+msgstr "Get notified"
+
 #: templates/partials/query_result.html:5
 msgid "errinvalinput"
 msgstr ""
@@ -229,7 +233,7 @@ msgstr ""
 #: templates/query.html:8
 msgid "search_pitch"
 msgstr ""
-"You want to know, if your number has been called at LAGeSo? Enter it here to "
+"You want to know if your number has been called at LAGeSo? Enter it here to "
 "find out!"
 
 #: templates/query.html:15
@@ -246,6 +250,10 @@ msgstr ""
 #: templates/query.html:17
 msgid "help entering numbers"
 msgstr "Please help by entering numbers you see on the display."
+
+#: templates/subscribe.html:8
+msgid "Please enter your number and either an email or a mobile-phone number. "
+"We will contact you on the day that your number will be called!"
 
 #~ msgid "Your waiting number %(number)s was seen at the display at LaGeSo!"
 #~ msgstr "Your wait num %(number)s was seen!"

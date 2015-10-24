@@ -32,14 +32,14 @@ urlpatterns = [
     url(r'^$', website.views.CustomRedirectView.as_view(permanent=False, pattern_name='query'), name='home'),
     url(r'^about$', django.views.generic.TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^imprint$', django.views.generic.TemplateView.as_view(template_name='imprint.html'), name='imprint'),
+    url(r'^subscribe/$', django.views.generic.TemplateView.as_view(template_name='subscribe.html'), name='subscribe'),
     url(r'^setlang/$', website.views.set_language, name='set_lang'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^subscribe/$', django.views.generic.TemplateView.as_view(template_name='subscribe.html'), name='subscribe'),
 ]
 
 urlpatterns += i18n_patterns(
     url(r'^$', website.views.CustomRedirectView.as_view(permanent=False, pattern_name='enter'), name='home'),
     url(r'^query$', website.views.QueryView.as_view(), name='query'),
     url(r'^display$', website.views.DisplayView.as_view(), name='display'),
-    url(r'^display$', website.views.SubscribeView.as_view(), name='subscribe'),
+    url(r'^subscribe$', website.views.SubscribeView.as_view(), name='subscribe'),
 )

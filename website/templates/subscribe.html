@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles i18n %}
+
+{% block content %}
+    {% spaceless %}
+        <div class="container">
+            <div class="starter-template">
+                <p>{% trans 'subscribe_pitch' %}</p>
+                <form action="{% url 'subscribe' %}" method="post" class="form-inline" style="margin-bottom:20px;" id="subscribe-form" role="form">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-primary">{% trans 'submit_label' %}</button>
+                </form>
+
+
+                <div id="result">
+                {% if result %}
+                    {% include 'partials/query_result.html' %}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block additional_js %}
+<script src="{% static 'js/query.js' %}"></script>
+{% endblock %}
