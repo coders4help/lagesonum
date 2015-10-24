@@ -9,7 +9,7 @@
 
 * Ensure you are running python3 `python --version`
 * if you don't have python3:
-    * on MacOSX: `brew install python3`
+    * on MacOSX: `brew install python3 && brew install gettext`
     * on Ubuntu: `sudo apt-get update && sudo apt-get install python3-pip`
     * on Windows: download from [python.org](https://www.python.org/downloads/windows)
 
@@ -26,6 +26,9 @@
 
 * Create the database and give a username, email address and password
     * `python3 manage.py syncdb`
+
+* Compile translation files
+	* `python3 manage.py compilemessages`
 
 * Run the development server
     * `python3 manage.py runserver`
