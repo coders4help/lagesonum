@@ -1,4 +1,4 @@
-**A website created with Python Bottle and SQLite for entering and showing numbers with a timestamp. Used at LAGeSo in Berlin for helping refugees in the German registration process**
+**A website created with Python Django and SQLite for entering and showing numbers with a timestamp. Used at LAGeSo in Berlin for helping refugees in the German registration process**
 [www.lagesonum.de](http://www.lagesonum.de)
 
 # Problem
@@ -40,7 +40,7 @@ Die Umsetzung als Android-App mit Push-Mitteilung geplant für [Refugeehackathon
 Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">Anforderungen sind in einem Google-Dokument detailliert</a>.
 
 ## Technik
-Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="http://bottlepy.org/docs/dev/index.html">Bottle</a> und SQLite.
+Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="https://docs.djangoproject.com/en/1.8/">Django</a> und SQLite.
 
 ## Deployment
 Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](INSTALL.md).
