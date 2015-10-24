@@ -23,11 +23,11 @@ Die Nummern werden mit einem Fingerabdruck versehen, um die Glaubwürdigkeit ein
 Wir freuen uns über Beiträge (Pull Requests), die unsere [Issues](https://github.com/fzesch/lagesonum/issues) behandeln oder lösen. Diese sind am dringendsten.
 
 Darüber hinaus gibt es größere Erweiterungen, die sinnvoll sind:
- 
-- Email-Benachrichtigung wenn Nummer aufgerufen wird
+
+- Email-Benachrichtigung wenn Nummer aufgerufen wird [#92](https://github.com/fzesch/lagesonum/issues/92) [#20](https://github.com/fzesch/lagesonum/issues/20)
 - Nutzerkonten mit Passwortverwaltung (oder Login über facebook)
-- Validierte Eingabe vom LAGeSo (Verantwortliche können uns gerne kontaktieren, s.u.)
-- SSL-Verschlüsselung der Internetseite
+- Validierte Eingabe vom LAGeSo (Verantwortliche können uns gerne kontaktieren, s.u.) [#67](https://github.com/fzesch/lagesonum/issues/67)
+- SSL-Verschlüsselung der Internetseite [#89](https://github.com/fzesch/lagesonum/issues/89)
 
 
 ## Smartphone-Apps
@@ -36,11 +36,12 @@ Die Umsetzung als Android-App mit Push-Mitteilung geplant für [Refugeehackathon
 
 # Umsetzung
 
-## Anforderungen
-Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">Anforderungen sind in einem Google-Dokument detailliert</a>.
+## Initiale Anforderungen
+Die <a href="https://docs.google.com/document/d/1g8qLax2ScIFKubpZzflVgdy8Kvilo0ga94eelDZ8U-M/edit#">initialen Anforderungen sind in einem Google-Dokument</a> zusammengefasst.
 
 ## Technik
 Die technische Umsetzung erfolgt mit dem Python-Webframework <a href="https://docs.djangoproject.com/en/1.8/">Django</a> und SQLite.
+Tbd mehr Details.
 
 ## Deployment
 Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](INSTALL.md).
