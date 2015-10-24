@@ -2,8 +2,15 @@
 
 ## Using Docker
 
-* docker build -t lagesonum .
-* docker run
+* Creates a Ubuntu 14.04 image with pip and all dependencies from requirements_dev.txt installed.
+* The container uses start.sh to run lagesonum.
+* To build the image use
+    * `docker build -t lagesonum .`
+* To run the container with current changes use the following command
+    * *`docker run -ti -v $(pwd):/tmp/lagesonum -p 0.0.0.0:8000:8000 lagesonum`
+* To ease the use you can define an alias like
+    * `alias lagesonum='docker run -ti -v $(pwd):/tmp/lagesonum -p 0.0.0.0:8000:8000 lagesonum'`
+    * `lagesonum`
 
 ## Without Docker
 
