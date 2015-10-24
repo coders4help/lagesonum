@@ -25,12 +25,18 @@
     * `pip3 install -r requirements_dev.txt`
 
 * Create the database and give a username, email address and password
-    * `python3 manage.py syncdb`
+    * `python3 manage.py migrate`
+    * `python3 manage.py createsuperuser`
 
 * Compile translation files
-	* `python3 manage.py compilemessages`
+	* `cd website`
+	* `python3 ../manage.py compilemessages`
 
 * Run the development server
     * `python3 manage.py runserver`
 
 * Check the website at http://localhost:8000
+
+* Add an example Place in the Django admin
+	* `http://localhost:8000/admin/website/place/add/`
+	* try Pattern `.*` to accept any string
