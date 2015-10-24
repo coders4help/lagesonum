@@ -66,7 +66,8 @@ class CustomRedirectView(RedirectView):
 
         return super().get_redirect_url(*args, **kwargs)
 
-
+"""
+Outdated feature - link removed from partials/navbar.htm. urls.py
 class EnterView(TemplateView, FormMixin):
     http_method_names = ['get', 'post']
     form_class = EnterForm
@@ -119,7 +120,7 @@ class EnterView(TemplateView, FormMixin):
     @property
     def locations(self):
         return Place.objects.values('id', 'name')
-
+"""
 
 class QueryView(TemplateView, FormMixin):
     http_method_names = ['get', 'post']
