@@ -156,5 +156,8 @@ class DisplayView(TemplateView):
         context['min_count'] = 3
         context['since'] = oldest_to_be_shown
         return context
+        
+class SubscribeView(TemplateView):
+    template_name = 'subscribe.html'
 
 
