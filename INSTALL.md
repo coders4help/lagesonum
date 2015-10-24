@@ -21,8 +21,11 @@
     * on Windows: download from [python.org](https://www.python.org/downloads/windows)
 
 * Create a virtual environment to keep your packages separate from the system
-    * `pyvenv-3.5 venv`
-    * `source venv/bin/activate`
+    * on Ubuntu or MacOSX:
+        * `pyvenv-3.5 ~/.virtualenvs/lagesonum`
+        * `source ~/.virtualenvs/bin/activate`
+    * on Windows:
+        * TBD
 
 * Set your environment variables
     * `export SECRET_KEY=ASDF`
