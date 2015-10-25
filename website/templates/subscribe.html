@@ -5,7 +5,7 @@
     {% spaceless %}
         <div class="container">
             <div class="starter-template">
-                <p>{% trans 'subscribe_pitch' %}</p>
+                <p>{% blocktrans %}Please enter your number and either an email or a mobile-phone number. We will contact you on the day that your number will be called!{% endblocktrans %}</p>
                 <form action="{% url 'subscribe' %}" method="post" class="form-inline" style="margin-bottom:20px;" id="subscribe-form" role="form">
                     {% csrf_token %}
                     {{ form.as_p }}

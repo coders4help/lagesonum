@@ -41,7 +41,7 @@ urlpatterns += i18n_patterns(
     url(r'^$', website.views.CustomRedirectView.as_view(permanent=False, pattern_name='enter'), name='home'),
     url(r'^query$', website.views.QueryView.as_view(), name='query'),
     url(r'^display$', website.views.DisplayView.as_view(), name='display'),
-    url(r'^subscribe$', website.views.SubscribeView.as_view(), name='subscribe'),
-    url(r'^subscribe/(?P<subscription_id>\w+)/(?P<confirmation_hash>\w+)', website.views.SubscribeView.as_view(),
+    url(r'^subscribe/(?P<subscription_id>\w+)/(?P<confirmation_hash>\w+)$', website.views.SubscribeView.as_view(),
         name='subscribe_confirmation'),
+    url(r'^subscribe$', website.views.SubscribeView.as_view(), name='subscribe'),
 )

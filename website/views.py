@@ -171,11 +171,14 @@ class SubscribeView(TemplateView, FormMixin):
         return context
 
     def get(self, request, *args, **kwargs):
-        # TODO check confirmation link, hash, id and whatelse
-        self.check_confirmation(request, *args, **kwargs)
-        # update database, incase of success, by removing confirmation hash and setting confirmed status
-        pass
-        
+        logger.debug(u'kwargs: %s', kwargs)
+        if 'subscription_id' in kwargs and 'confirmation_hash' in kwargs:
+            # TODO check confirmation link, hash, id and whatelse
+            self.check_confirmation(request, *args, **kwargs)
+            # update database, incase of success, by removing confirmation hash and setting confirmed status
+        else:
+            return super(SubscribeView, self).get(self, request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         
         form = self.get_form()
