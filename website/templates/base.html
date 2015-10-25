@@ -19,7 +19,6 @@
 
     <title>{% block webpagetitle %}{% trans 'webpagetitle' %}{% endblock %}</title>
 
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'css/main.css' %}" />
 </head>
 <body>
@@ -34,7 +33,6 @@
 {% include 'partials/footer.html' %}
 
 <script src="{% if not debug %}//code.jquery.com/jquery-1.11.3.min.js{% else %}{% static 'js/jquery.js' %}{% endif %}"></script>
-<script src="{% if not debug %}//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js{% else %}{% static 'js/bootstrap.js'%}{% endif %}" crossorigin="anonymous"></script>
 
 {% block additional_js %}<!-- Additional, view specific, JavaScript resources -->{% endblock %}
 </body>
