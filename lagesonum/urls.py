@@ -22,7 +22,7 @@ from django.contrib.auth import views as auth_views
 #from django.views.i18n import set_language
 
 import website.views
-import notification
+import notification.sms.views
 import django.conf.urls.i18n
 import django.views.generic
 
@@ -46,5 +46,5 @@ urlpatterns += i18n_patterns(
 )
 
 urlpatterns += [
-    url(r'^sms/post/$', notification.sms.SMSNotificationView.as_view(), name='sms_post'),
+    url(r'^sms/post/$', notification.sms.views.SMSNotificationView.as_view(), name='sms_post'),
 ]

@@ -63,6 +63,7 @@ class Subscription(models.Model):
     telegram = PhoneNumberField(blank=True)
     email_confirmed = models.DateField(null=True)
     phone_confirmed = models.DateField(null=True)
+    telegram_confirmed = models.DateField(null=True)
     cancelled = models.DateField(null=True, blank=True)
     last_notify = models.DateField(null=True, blank=True)
 
