@@ -13,7 +13,7 @@ class Command(BaseCommand):
         f = open(outfile, 'w')
 
         # TODO: Error handling
-        infile = settings.BASE_DIR + '/scss/main.scss'
+        infile = settings.BASE_DIR + '/website/scss/main.scss'
         f.write(sass.compile(filename=infile))
 
         f.close()
