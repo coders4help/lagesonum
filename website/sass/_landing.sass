@@ -1,40 +1,8 @@
-// Body
-.site-content
-  background-color: $background
+.query
   text-align: center
 
-.text-container
-  max-width: 550px
-  margin: auto
-  padding: 80px 0 35px
-
-.isFirst
-  .first-heading
-    display: block
-
-  .search
-    display: inline-block
-
-  .second-heading,
-  .resetSearch,
-  .response-container
-    display: none
-
-.isSecond
-  .first-heading,
-  .search,
-  .small-text
-    display: none
-
-  .resetSearch,
-    display: inline-block
-
-  .second-heading,
-  .response-container
-    display: block
-
-  .input-number
-    pointer-events: none
+.second-heading
+  display: none // Show it later
 
 .number-input-container
   padding-right: 80px
@@ -43,8 +11,6 @@
   position: relative
   width: 150px
   height: 72px
-  font-size: 48px
-  font-weight: 700
   color: $blue
   text-transform: uppercase
   text-align: center
@@ -58,11 +24,11 @@
   border: none
 
 .search
-  background: $green url("../images/search-icon.svg") no-repeat 50% 50%
+  background: $green url("../img/search-icon.svg") no-repeat 50% 50%
 
 .resetSearch
   display: none
-  background: $blue url("../images/delete-icon.svg") no-repeat 50% 50%
+  background: $blue url("../img/delete-icon.svg") no-repeat 50% 50%
   &:hover
     opacity: .95
 

@@ -1,5 +1,10 @@
-*
+// -------------------
+// GENERAL SETTINGS AND RESETS
+// -------------------
+html
   box-sizing: border-box
+*, *:before, *:after
+  box-sizing: inherit
 
 html,
 body
@@ -26,7 +31,9 @@ input:focus,
 h1
   font-weight: 400
   font-size: 40px
+  line-height: 46px
   text-align: center
+  margin: 30px 0 20px
 
 h2
   font-weight: 400
@@ -37,31 +44,26 @@ p
   font-size: 18px
   line-height: 21px
 
-.vertical-middle
-  +display(flex)
-  +align-items(center)
 
+// -------------------
+// GRID
+// -------------------
 .container
   max-width: 960px;
   margin: 0 auto;
   padding: 0 30px
 
-.heading
-  margin-bottom: 20px
-  line-height: 44px
-  font-size: 50px
-  font-weight: 800
+
+// -------------------
+// HELPERS
+// -------------------
+.vertical-middle
+  +display(flex)
+  +align-items(center)
+
 
 .left
   float: left
 
 .right
   float: right
-
-.site-section
-  // position: relative
-  width: 100%
-
-.small-text
-  font-size: 20px
-  padding: 0 40px
