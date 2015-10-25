@@ -49,6 +49,7 @@ DJANGO_APPS = (
 
 USER_APPS = (
     'website',
+    'notification',
 )
 
 THIRD_PARTY_APPS = (
@@ -138,3 +139,11 @@ APP_SETTINGS = {
         'SIZE': 180,
     }
 }
+
+# Phone numbers
+PHONENUMBER_DEFAULT_REGION = 'DE'
+
+# Twilio
+TWILIO_ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']
+TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
+DJANGO_TWILIO_FORGERY_PROTECTION = True

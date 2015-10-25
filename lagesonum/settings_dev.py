@@ -14,6 +14,9 @@ INSTALLED_APPS += (
     'debug_toolbar',
 )
 
+# SMS
+DJANGO_TWILIO_FORGERY_PROTECTION = False
+
 LOGGING = {
     'version': 1,
     'disable_existing_logger': False,

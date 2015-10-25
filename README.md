@@ -50,6 +50,10 @@ Es gibt eine [Anleitung, wie man das Projekt lokal zum Laufen bringt](INSTALL.md
 
 Es gibt eine gesondertes Dokument für i18n-Deployment im locales-Ordner.
 
+## Notifications
+
+Sign up for an account from Twilio, and add your credentials to the environment as TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN
+
 # Kontakt
 
 f.zesch@mailbox.org

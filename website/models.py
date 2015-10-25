@@ -5,6 +5,8 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 import re
 
 
@@ -57,12 +59,12 @@ class Subscription(models.Model):
 
     number = models.CharField(max_length=64)
     email = models.CharField(max_length=70, null=True, default=None)
-    phone = models.CharField(max_length=15, null=True, default=None)
-    telegram = models.CharField(max_length=50, null=True, default=None)
+    phone = PhoneNumberField(blank=True)
+    telegram = PhoneNumberField(blank=True)
     email_confirmed = models.DateField(null=True)
     phone_confirmed = models.DateField(null=True)
-    cancelled = models.DateField(null=True)
-    last_notify = models.DateField(null=True)
+    cancelled = models.DateField(null=True, blank=True)
+    last_notify = models.DateField(null=True, blank=True)
 
     def __str__(self):
         if self.email_confirmed:
