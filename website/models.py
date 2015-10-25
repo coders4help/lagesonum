@@ -49,3 +49,15 @@ class Number(models.Model):
     def __str__(self):
         return '{}@{} (Timestamp: {}; User: {})'.format(self.number, self.location if self.location_id else None,
                                                         self.timestamp, self.user if self.user_id else None)
+                                                
+class Subscription(models.Model):
+    description = u'A number connected with a contact information such as email or phone number'
+    
+    number = models.CharField(max_length=64)
+    email = models.CharField(max_length=70, null=True, default=None)
+    phone = models.CharField(max_length=15, null=True, default=None)
+    telegram = models.CharField(max_length=50, null=True, default=None)
+    email_confirmed = models.DateField(null=True)
+    phone_confirmed = models.DateField(null=True)
+    cancelled = models.DateField(null=True)
+    last_notify = models.DateField(null=True)

@@ -4,7 +4,7 @@ import logging
 
 from django.contrib import admin
 
-from .models import Place, Number
+from .models import Place, Number, Subscription
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +38,10 @@ class NumberAdmin(admin.ModelAdmin):
             return result
 
         return result.filter(user=request.user)
-
+        
+@admin.register(Subscription)
+class SubscriptionAdmin(admin.ModelAdmin):
+    list_display = (u'id', u'number', u'phone', u'email', u'telegram', u'last_notify')
+    search_fields = (u'number',)
 
 
