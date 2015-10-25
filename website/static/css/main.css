@@ -1,3 +1,244 @@
+/* -------------------------------------------------------------
+ *  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+ *  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+ *
+ *  List of CSS3 Sass Mixins File to be @imported and @included as you need
+ *
+ *  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+ *  ENDING css files
+ *
+ *  note: All CSS3 Properties are being supported by Safari 5
+ *  more info: http://www.findmebyip.com/litmus/#css3-properties
+ *
+ *-------------------------------------------------------------
+ */
+* {
+  box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #F1F5FF;
+  color: #1E51BD;
+  font-family: 'Source Sans Pro', sans-serif; }
+
+a,
+a:hover,
+a:visited,
+a:focus {
+  text-decoration: none;
+  outline: 0; }
+
+input,
+input:focus {
+  outline: 0;
+  border: none; }
+
+.heading {
+  margin-bottom: 20px;
+  line-height: 44px;
+  font-size: 50px;
+  font-weight: 800; }
+
+.right {
+  float: right; }
+
+.site-section {
+  width: 100%; }
+
+.site-section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
+.small-text {
+  font-size: 20px;
+  padding: 0 40px; }
+
+.header-logo,
+.header-menu,
+.header-menu-language,
+.menu-list-item,
+.heading,
+.number-input-container {
+  display: inline-block; }
+
+.site-header {
+  height: 130px;
+  border-bottom: 10px solid #1E51BD;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: white; }
+
+.header-logo {
+  height: 100%;
+  margin-top: 36px; }
+
+.header-nav {
+  line-height: 130px; }
+
+.menu-list {
+  margin: 0 60px 0 0;
+  text-align: center; }
+
+.menu-list-item:first-child {
+  margin-right: 30px; }
+
+@media screen and (max-width: 720px) {
+  .header-menu {
+    display: none; } }
+
+.footer {
+  display: none;
+  margin-bottom: 20px; }
+  @media screen and (max-width: 720px) {
+    .footer {
+      display: block;
+      font-size: 20px;
+      font-weight: 300; } }
+  .footer .menu-list {
+    margin: 0;
+    padding: 0; }
+
+.site-header {
+  height: 130px;
+  border-bottom: 10px solid #1E51BD;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: white; }
+
+.header-logo {
+  height: 100%;
+  margin-top: 36px; }
+
+.header-nav {
+  line-height: 130px; }
+
+.menu-list {
+  margin: 0 60px 0 0;
+  text-align: center; }
+
+.menu-list-item:first-child {
+  margin-right: 30px; }
+
+@media screen and (max-width: 720px) {
+  .header-menu {
+    display: none; } }
+
+.footer {
+  display: none;
+  margin-bottom: 20px; }
+  @media screen and (max-width: 720px) {
+    .footer {
+      display: block;
+      font-size: 20px;
+      font-weight: 300; } }
+  .footer .menu-list {
+    margin: 0;
+    padding: 0; }
+
+.site-content {
+  background-color: #F1F5FF;
+  text-align: center; }
+
+.text-container {
+  max-width: 550px;
+  margin: auto;
+  padding: 80px 0 35px; }
+
+.isFirst .first-heading {
+  display: block; }
+
+.isFirst .search {
+  display: inline-block; }
+
+.isFirst .second-heading,
+.isFirst .resetSearch,
+.isFirst .response-container {
+  display: none; }
+
+.isSecond .first-heading,
+.isSecond .search,
+.isSecond .small-text {
+  display: none; }
+
+.isSecond .resetSearch {
+  display: inline-block; }
+
+.isSecond .second-heading,
+.isSecond .response-container {
+  display: block; }
+
+.isSecond .input-number {
+  pointer-events: none; }
+
+.number-input-container {
+  padding-right: 80px; }
+
+.input-number {
+  position: relative;
+  width: 150px;
+  height: 72px;
+  font-size: 48px;
+  font-weight: 700;
+  color: #1E51BD;
+  text-transform: uppercase;
+  text-align: center; }
+  .input-number:invalid {
+    box-shadow: none; }
+
+.button-number {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border: none; }
+
+.search {
+  background: #7ED321 url("../images/search-icon.svg") no-repeat 50% 50%; }
+
+.resetSearch {
+  display: none;
+  background: #1E51BD url("../images/delete-icon.svg") no-repeat 50% 50%; }
+  .resetSearch:hover {
+    opacity: .95; }
+
+.response-container {
+  position: relative;
+  max-width: 500px;
+  margin: 20px auto 70px;
+  padding: 20px;
+  opacity: .75;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #1E51BD;
+  color: white;
+  font-weight: 300; }
+  .response-container:after {
+    -webkit-transform: rotate(45deg);
+    -khtml-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    background-color: #1E51BD;
+    content: " "; }
+
+body {
+  font-family: 'Source Sans Pro'; }
+
 .center-block {
   margin: 0 auto;
   max-width: 760px; }
@@ -8,12 +249,9 @@
 .alert-big strong {
   font-size: 42px; }
 
-body {
-  padding-top: 50px; }
-
 .starter-template {
   padding: 40px 15px;
-  /* text-align: center; */ }
+  /* text-align: center */ }
 
 .navbar-brand {
   padding: 10px 15px; }

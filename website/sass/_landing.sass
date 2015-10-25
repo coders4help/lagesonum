@@ -1,0 +1,91 @@
+// Body
+.site-content
+  background-color: $background
+  text-align: center
+
+.text-container
+  max-width: 550px
+  margin: auto
+  padding: 80px 0 35px
+
+.isFirst
+  .first-heading
+    display: block
+
+  .search
+    display: inline-block
+
+  .second-heading,
+  .resetSearch,
+  .response-container
+    display: none
+
+.isSecond
+  .first-heading,
+  .search,
+  .small-text
+    display: none
+
+  .resetSearch,
+    display: inline-block
+
+  .second-heading,
+  .response-container
+    display: block
+
+  .input-number
+    pointer-events: none
+
+.number-input-container
+  padding-right: 80px
+
+.input-number
+  position: relative
+  width: 150px
+  height: 72px
+  font-size: 48px
+  font-weight: 700
+  color: $blue
+  text-transform: uppercase
+  text-align: center
+  &:invalid
+    box-shadow: none
+
+.button-number
+  position: absolute
+  width: 72px
+  height: 72px
+  border: none
+
+.search
+  background: $green url("../images/search-icon.svg") no-repeat 50% 50%
+
+.resetSearch
+  display: none
+  background: $blue url("../images/delete-icon.svg") no-repeat 50% 50%
+  &:hover
+    opacity: .95
+
+
+.response-container
+  position: relative
+  max-width: 500px
+  margin: 20px auto 70px
+  padding: 20px
+  opacity: .75
+  border-radius: 5px
+  font-size: 20px
+  background-color: $blue
+  color: white
+  font-weight: 300
+  &:after
+    +transform(rotate(45deg))
+    +border-radius(5px)
+    position: absolute
+    top: -5px
+    left: calc(50% - 10px)
+    width: 20px
+    height: 20px
+    background-color: $blue
+    content: " "
+
