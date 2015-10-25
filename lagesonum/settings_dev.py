@@ -61,5 +61,9 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'notification': {
+            'level': 'INFO',
+            'propagate': True
+        }
     },
 }

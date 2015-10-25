@@ -71,6 +71,7 @@ DJANGO_MIDDLEWARE = (
 
 USER_MIDDLEWARE = (
     'website.middleware.SessionLocaleMiddleWare',
+    'notification.middleware.PlainExceptionsMiddleware',
 )
 
 MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE + USER_MIDDLEWARE
@@ -149,4 +150,3 @@ TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
 DJANGO_TWILIO_FORGERY_PROTECTION = True
 
 TWILIO_DEFAULT_SENDER = os.environ['TWILIO_DEFAULT_SENDER']
-
