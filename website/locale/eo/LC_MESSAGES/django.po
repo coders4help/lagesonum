@@ -9,6 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-25 12:27+0000\n"
+>>>>>>> 00e2b75ee2d1bf77a8ec02611534e9cebb90f70c
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,6 +178,10 @@ msgstr ""
 msgid "erruniquenumber"
 msgstr ""
 
+#: templates/partials/navbar.html:19
+msgid "searchanumber_link"
+msgstr ""
+
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
 msgstr ""
@@ -200,18 +205,16 @@ msgstr ""
 msgid "morelikely"
 msgstr ""
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
 
-#: templates/query.html:15
-msgid "numberorigin_head"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
 
-#: templates/query.html:16
-msgid "numberorigin_xplain"
-msgstr ""
-
-#: templates/query.html:17
-msgid "help entering numbers"
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
 msgstr ""

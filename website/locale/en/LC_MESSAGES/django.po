@@ -206,6 +206,10 @@ msgstr ""
 "You have already submitted this number. Please choose another one from the "
 "board. Thanks a lot for helping!"
 
+#: templates/partials/navbar.html:19
+msgid "searchanumber_link"
+msgstr "Your waiting number"
+
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
 msgstr "Sorry, this number hasn't been on the board since September 28, 2015."
@@ -233,26 +237,39 @@ msgstr ""
 "Please note: The more people have entered your number, the more likely it "
 "was really shown and not accidentally entered due to mistyping."
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
-"You want to know, if your number has been called at LAGeSo? Enter it here to "
-"find out!"
 
-#: templates/query.html:15
-msgid "numberorigin_head"
-msgstr "How do you know when my waiting number was displayed?"
-
-#: templates/query.html:16
-msgid "numberorigin_xplain"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
-"The waiting numbers are added by people waiting in the queue in front of the "
-"waiting number display board or volunteers. If officials want to help adding "
-"numbers please drop us a line!"
 
-#: templates/query.html:17
-msgid "help entering numbers"
-msgstr "Please help by entering numbers you see on the display."
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
+msgstr ""
+
+#~ msgid "helpus_link"
+#~ msgstr "Join in!"
+
+#~ msgid "search_pitch"
+#~ msgstr ""
+#~ "You want to know, if your number has been called at LAGeSo? Enter it here "
+#~ "to find out!"
+
+#~ msgid "numberorigin_head"
+#~ msgstr "How do you know when my waiting number was displayed?"
+
+#~ msgid "numberorigin_xplain"
+#~ msgstr ""
+#~ "The waiting numbers are added by people waiting in the queue in front of "
+#~ "the waiting number display board or volunteers. If officials want to help "
+#~ "adding numbers please drop us a line!"
+
+#~ msgid "help entering numbers"
+#~ msgstr "Please help by entering numbers you see on the display."
 
 #~ msgid "helpus_link"
 #~ msgstr "Join in!"

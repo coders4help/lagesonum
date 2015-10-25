@@ -208,6 +208,10 @@ msgstr ""
 "Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere von der "
 "Anzeigetafel. Ganz lieben Dank für die Hilfe!"
 
+#: templates/partials/navbar.html:19
+msgid "searchanumber_link"
+msgstr "Deine Wartenummer"
+
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
 msgstr ""
@@ -241,27 +245,41 @@ msgstr ""
 "Sicherheit, dass die Nummer wirklich angezeigt wurde und sich keiner "
 "vertippt hat."
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
-"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
-"ein, um es herauszufinden."
 
-#: templates/query.html:15
-msgid "numberorigin_head"
-msgstr "Woher wisst ihr, wann meine Wartenummer angezeigt wurde?"
-
-#: templates/query.html:16
-msgid "numberorigin_xplain"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
-"Die Wartenummern werden von Menschen in der Warteschlange vor dem "
-"Wartenummerdisplay eingegeben oder von freiwilligen Helferinnen und Helfern. "
-"Wir sind offen für Mitarbeit von offizieller Stelle, schreibt uns gerne an!"
 
-#: templates/query.html:17
-msgid "help entering numbers"
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
 msgstr ""
-"Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."
+
+#~ msgid "search_pitch"
+#~ msgstr ""
+#~ "Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
+#~ "ein, um es herauszufinden."
+
+#~ msgid "numberorigin_head"
+#~ msgstr "Woher wisst ihr, wann meine Wartenummer angezeigt wurde?"
+
+#~ msgid "numberorigin_xplain"
+#~ msgstr ""
+#~ "Die Wartenummern werden von Menschen in der Warteschlange vor dem "
+#~ "Wartenummerdisplay eingegeben oder von freiwilligen Helferinnen und "
+#~ "Helfern. Wir sind offen für Mitarbeit von offizieller Stelle, schreibt "
+#~ "uns gerne an!"
+
+#~ msgid "help entering numbers"
+#~ msgstr ""
+#~ "Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."
+
+#~ msgid "helpus_link"
+#~ msgstr "Mach mit!"
 
 #~ msgid "helpus_link"
 #~ msgstr "Mach mit!"
