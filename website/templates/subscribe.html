@@ -11,21 +11,6 @@
                     {{ form.as_p }}
                     <button class="btn btn-primary">{% trans 'submit_label' %}</button>
                 </form>
-
-
-                <div id="result">
-                    {% if form.non_field_errors %}
-                    HUHUHUHU!!!
-                    {% endif%}
-                {{ form.non_field_errors }}
-                    
-                {% for field in form %}
-                    <div class="fieldWrapper">
-                        {{ field.errors }}
-                    </div>
-                {% endfor %}
-                </div>
-                
             </div>
         </div>
     {% endspaceless %}

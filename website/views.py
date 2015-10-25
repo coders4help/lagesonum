@@ -206,7 +206,7 @@ class SubscribeView(TemplateView, FormMixin):
             pass
 
         # TODO tell the user what happened: success or fail
-        response = render(request, self.template_name)
+        response = render(request, self.template_name, {'form': form})
         return response
      
     def get_success_url(self):
