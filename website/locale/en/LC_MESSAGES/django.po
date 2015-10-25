@@ -252,7 +252,9 @@ msgid "help entering numbers"
 msgstr "Please help by entering numbers you see on the display."
 
 #: templates/subscribe.html:8
-msgid "Please enter your number and either an email or a mobile-phone number. "
+msgid "subscribe_pitch"
+msgstr ""
+"Please enter your number and either an email or a mobile-phone number. "
 "We will contact you on the day that your number will be called!"
 
 #~ msgid "Your waiting number %(number)s was seen at the display at LaGeSo!"
