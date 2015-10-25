@@ -8,7 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-25 14:52+0000\n"
+"POT-Creation-Date: 2015-10-25 12:27+0000\n"
+>>>>>>> 00e2b75ee2d1bf77a8ec02611534e9cebb90f70c
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +55,7 @@ msgstr ""
 msgid "numbers"
 msgstr ""
 
-#: templates/about.html:7 templates/partials/navbar.html:21
+#: templates/about.html:7 templates/partials/navbar.html:22
 msgid "about_link"
 msgstr ""
 
@@ -91,7 +92,7 @@ msgstr ""
 msgid "webpagetitle"
 msgstr ""
 
-#: templates/display.html:7 templates/partials/navbar.html:20
+#: templates/display.html:7 templates/partials/navbar.html:21
 msgid "display_link"
 msgstr ""
 
@@ -121,11 +122,11 @@ msgstr ""
 msgid "help_pitch"
 msgstr ""
 
-#: templates/enter.html:19
+#: templates/enter.html:19 templates/query.html:12
 msgid "submit_label"
 msgstr ""
 
-#: templates/imprint.html:7 templates/partials/navbar.html:22
+#: templates/imprint.html:7 templates/partials/navbar.html:23
 msgid "contact_link"
 msgstr ""
 

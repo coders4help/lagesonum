@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-25 14:52+0000\n"
+"POT-Creation-Date: 2015-10-25 12:27+0000\n"
 "PO-Revision-Date: 2007-10-18 14:00+0100\n"
 "Last-Translator: you <you@example.com>\n"
 "Language-Team: English <yourteam@example.com>\n"
@@ -50,7 +50,7 @@ msgstr "Wartenummer"
 msgid "numbers"
 msgstr "Wartenummer"
 
-#: templates/about.html:7 templates/partials/navbar.html:21
+#: templates/about.html:7 templates/partials/navbar.html:22
 msgid "about_link"
 msgstr "Über LAGeSoNUM"
 
@@ -107,7 +107,7 @@ msgid "webpagetitle"
 msgstr ""
 "LAGeSoNUM - Online-Anzeigetafel für die Flüchtlingsregistrierung in Berlin"
 
-#: templates/display.html:7 templates/partials/navbar.html:20
+#: templates/display.html:7 templates/partials/navbar.html:21
 msgid "display_link"
 msgstr "Anzeigetafel"
 
@@ -148,11 +148,11 @@ msgstr ""
 "du alle Nummern, die du auf der Anzeigetafel siehst eingibst (NICHT deine "
 "eigene Wartenummer):"
 
-#: templates/enter.html:19
+#: templates/enter.html:19 templates/query.html:12
 msgid "submit_label"
 msgstr "Abschicken"
 
-#: templates/imprint.html:7 templates/partials/navbar.html:22
+#: templates/imprint.html:7 templates/partials/navbar.html:23
 msgid "contact_link"
 msgstr "Kontakt"
 
@@ -280,6 +280,12 @@ msgstr ""
 
 #~ msgid "helpus_link"
 #~ msgstr "Mach mit!"
+
+#~ msgid "helpus_link"
+#~ msgstr "Mach mit!"
+
+#~ msgid "searchanumber_link"
+#~ msgstr "Deine Wartenummer"
 
 #~ msgid "txtgreeting"
 #~ msgstr ""

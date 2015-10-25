@@ -1,31 +1,39 @@
-nav
-  background-color: white
-  height: 120px
-  @media screen and (max-width: $break-small)
-    height: 100px
+$header-height-lg: 110px
+$header-height-sm: 80px
 
+nav
+  height: $header-height-lg
+  @media screen and (max-width: $break-small)
+    height: $header-height-sm
+
+  background-color: white
+  box-sizing: initial
   border-bottom: 10px solid $blue
-  font-size: 20px
-  font-weight: 300
+  font-size: 18px
   background-color: white
 
   .container
     height: 100%
-    +display(flex)
-    +flex-direction(row)
-    +align-items(center)
-    +justify-content(center)
 
-.header-nav
-  line-height: 140px
 
-.menu-list
-  margin: 0 60px 0 0
-  text-align: center
+.navbar
+  @extend .vertical-middle
+  height: 100%
 
-.menu-list-item:first-child
-  margin-right: 30px
 
-.header-menu
+.btns
+  list-style-type: none
+
+  li
+    margin: 0 30px 0 0
+    display: inline-block
+
+
+.logo-link
+  display: block
+  line-height: $header-height-lg
   @media screen and (max-width: $break-small)
-    display: none
+    line-height: $header-height-sm
+
+  .logo
+    vertical-align:middle;

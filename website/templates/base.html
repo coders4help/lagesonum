@@ -25,11 +25,9 @@
 <body>
 {% include 'partials/navbar.html' %}
 
-<div class="container" role="main">
-    {% block content %}
-        Page content
-    {% endblock %}
-</div>
+{% block content %}
+    Page content
+{% endblock %}
 
 <!-- {% include 'partials/footer.html' %} -->
 

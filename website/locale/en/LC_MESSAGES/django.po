@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-25 14:52+0000\n"
+"POT-Creation-Date: 2015-10-25 12:27+0000\n"
 "PO-Revision-Date: 2007-10-18 14:00+0100\n"
 "Last-Translator: you <you@example.com>\n"
 "Language-Team: English <yourteam@example.com>\n"
@@ -49,9 +49,9 @@ msgstr "Waiting number"
 msgid "numbers"
 msgstr "Waiting numbers"
 
-#: templates/about.html:7 templates/partials/navbar.html:21
+#: templates/about.html:7 templates/partials/navbar.html:22
 msgid "about_link"
-msgstr "About LAGeSoNUM"
+msgstr "About"
 
 #: templates/about.html:9
 msgid "about_par1"
@@ -105,7 +105,7 @@ msgstr ""
 msgid "webpagetitle"
 msgstr "LAGeSoNUM - Online number display for refugee registration in Berlin"
 
-#: templates/display.html:7 templates/partials/navbar.html:20
+#: templates/display.html:7 templates/partials/navbar.html:21
 msgid "display_link"
 msgstr "Display"
 
@@ -146,11 +146,11 @@ msgstr ""
 "all numbers you can see displayed at the number display. (NOT your own "
 "waiting number)."
 
-#: templates/enter.html:19
+#: templates/enter.html:19 templates/query.html:12
 msgid "submit_label"
 msgstr "Submit"
 
-#: templates/imprint.html:7 templates/partials/navbar.html:22
+#: templates/imprint.html:7 templates/partials/navbar.html:23
 msgid "contact_link"
 msgstr "Contact"
 
@@ -270,6 +270,12 @@ msgstr ""
 
 #~ msgid "help entering numbers"
 #~ msgstr "Please help by entering numbers you see on the display."
+
+#~ msgid "helpus_link"
+#~ msgstr "Join in!"
+
+#~ msgid "searchanumber_link"
+#~ msgstr "Your waiting number"
 
 #~ msgid "Your waiting number %(number)s was seen at the display at LaGeSo!"
 #~ msgstr "Your wait num %(number)s was seen!"
