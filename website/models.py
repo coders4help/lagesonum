@@ -53,11 +53,11 @@ class Number(models.Model):
 class Subscription(models.Model):
     description = u'A number connected with a contact information such as email or phone number'
     
-    number = models.ForeignKey('Number')
-    email = models.CharField(max_length=70)
-    phone = models.CharField(max_length=15)
-    telegram = models.CharField(max_length=50)
-    email_confirmed = models.DateField()
-    phone_confirmed = models.DateField()
-    cancelled = models.DateField()
-    last_notify = models.DateField()
+    number = models.CharField(max_length=64)
+    email = models.CharField(max_length=70, null=True, default=None)
+    phone = models.CharField(max_length=15, null=True, default=None)
+    telegram = models.CharField(max_length=50, null=True, default=None)
+    email_confirmed = models.DateField(null=True)
+    phone_confirmed = models.DateField(null=True)
+    cancelled = models.DateField(null=True)
+    last_notify = models.DateField(null=True)

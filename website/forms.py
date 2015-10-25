@@ -6,7 +6,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Number, Place
+from .models import Number, Place, Subscription
 
 logger = logging.getLogger(__name__)
 
@@ -70,3 +70,23 @@ class QueryForm(forms.ModelForm):
             ),
         }
         """
+        
+class SubscribeForm(forms.ModelForm):
+    error_css_class = 'error'
+    required_css_class = 'required'
+    
+    number = forms.CharField(widget=forms.TextInput(
+        attrs={'id': 'numberfield', 'required': True, 'label': _('txtnumber'),
+               'class': 'form-control',}
+    ))
+    
+    #TODO make this good
+    email = forms.CharField(required=False)
+    phone = forms.CharField(required=False)
+    telegram = forms.CharField(required=False)
+    
+    class Meta:
+        model = Subscription
+        fields = ['number', 'email', 'phone', 'telegram']
+
+    
