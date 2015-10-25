@@ -174,14 +174,14 @@ class SubscribeView(TemplateView, FormMixin):
         
         form = self.get_form()
         
-        #form doesn't have cleaned_data until it's been validated
+        # form doesn't have cleaned_data until it's been validated
         if not form.is_valid():
             logger.error(u'Errors: %s', form.errors.as_data())
             #TODO show error to user 
             raise ValidationError(form.errors)
         
         try:
-            #insert into database
+            # insert into database
             number = form.cleaned_data['number']
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
@@ -189,23 +189,24 @@ class SubscribeView(TemplateView, FormMixin):
             
             n = Subscription(number=number, email=email, phone=phone, telegram=telegram).save()
             
-            #send confirmation
+            # send confirmation
             if email:
-                #TODO make this in selected language
+                # FIXME make this in selected language
                 subject = 'Please confirm your subscripton!'
                 message = 'Click HERE to confirm subscription...'
+                # FIXME Have a configuration for this!!!
                 from_email = 'postelle@lasego.berlin.de'
-                
-                #send_mail(subject, message, sender, recipients)
+
+                # FIXME Error handling
                 sendmail = EmailMessage(subject=subject, body=message, from_email=from_email, to=[email])
-                sendmail.send();
+                sendmail.send()
                 
         except Exception as e:
-            #TODO show error to user
+            # TODO show error to user
             raise RuntimeError(e)
         pass
 
-        #TODO tell the user what happened: success or fail
+        # TODO tell the user what happened: success or fail
         response = render(request, self.template_name)
         return response
      
