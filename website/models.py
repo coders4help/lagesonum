@@ -61,3 +61,4 @@ class Subscription(models.Model):
     phone_confirmed = models.DateField(null=True, default=None, blank=True)
     cancelled = models.DateField(null=True, default=None, blank=True)
     last_notify = models.DateField(null=True, default=None, blank=True)
+    confirmation_hash = models.SlugField(null=True, default=None, blank=True)

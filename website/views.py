@@ -12,7 +12,7 @@ from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
-from django.utils.translation import LANGUAGE_SESSION_KEY, check_for_language
+from django.utils.translation import LANGUAGE_SESSION_KEY, check_for_language, ugettext_lazy as _
 
 from django.views.generic import TemplateView, RedirectView
 from django.views.generic.edit import FormMixin
@@ -169,6 +169,12 @@ class SubscribeView(TemplateView, FormMixin):
             kwargs['form'] = self.form_class()
         context = super().get_context_data(**kwargs)
         return context
+
+    def get(self, request, *args, **kwargs):
+        # TODO check confirmation link, hash, id and whatelse
+        self.check_confirmation(request, *args, **kwargs)
+        # update database, incase of success, by removing confirmation hash and setting confirmed status
+        pass
         
     def post(self, request, *args, **kwargs):
         
@@ -185,14 +191,15 @@ class SubscribeView(TemplateView, FormMixin):
                 email = form.cleaned_data['email']
                 phone = form.cleaned_data['phone']
                 telegram = form.cleaned_data['telegram']
-                
-                Subscription(number=number, email=email, phone=phone, telegram=telegram).save()
+
+                hash = "1234567890"  # FIXME
+                Subscription(number=number, email=email, phone=phone, telegram=telegram, confirmation_hash=hash).save()
                 
                 # send confirmation
                 if email:
                     # FIXME make this in selected language
-                    subject = 'Please confirm your subscripton!'
-                    message = 'Click HERE to confirm subscription...'
+                    subject = _('Please confirm your subscripton!')
+                    message = 'Click HERE to confirm subscription...'.format(hash=hash)
                     # FIXME Have a configuration for this!!!
                     from_email = 'postelle@lasego.berlin.de'
 
@@ -209,9 +216,7 @@ class SubscribeView(TemplateView, FormMixin):
         response = render(request, self.template_name, {'form': form})
         return response
      
-    def get_success_url(self):
-        result = super(SubscribeView, self).get_success_url()
-        logger.debug(u'Yeah, we are asked for SUCCESS Url :/: %s', result)
-        return result           
-
+    def check_confirmation(self, request, subscription_id, confirmation_hash):
+        logger.debug(u'Subscription ID: %s, Confirmation hash: %s', subscription_id, confirmation_hash)
+        Subscription.objects.get(subscription_id)
 
