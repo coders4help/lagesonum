@@ -81,6 +81,7 @@ class SubscribeForm(forms.ModelForm):
     ))
     
     #TODO make this good
+    #TODO make email an HTML5 email field
     email = forms.CharField(required=False)
     phone = forms.CharField(required=False)
     telegram = forms.CharField(required=False)

@@ -6,6 +6,7 @@ from django import http
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse, resolve
+from django.core.mail import EmailMessage
 from django.db import IntegrityError
 from django.db.models import Count
 from django.http import JsonResponse
@@ -180,12 +181,25 @@ class SubscribeView(TemplateView, FormMixin):
             raise ValidationError(form.errors)
         
         try:
+            #insert into database
             number = form.cleaned_data['number']
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             telegram = form.cleaned_data['telegram']
             
             n = Subscription(number=number, email=email, phone=phone, telegram=telegram).save()
+            
+            #send confirmation
+            if email:
+                #TODO make this in selected language
+                subject = 'Please confirm your subscripton!'
+                message = 'Click HERE to confirm subscription...'
+                from_email = 'postelle@lasego.berlin.de'
+                
+                #send_mail(subject, message, sender, recipients)
+                sendmail = EmailMessage(subject=subject, body=message, from_email=from_email, to=[email])
+                sendmail.send();
+                
         except Exception as e:
             #TODO show error to user
             raise RuntimeError(e)
@@ -194,7 +208,7 @@ class SubscribeView(TemplateView, FormMixin):
         #TODO tell the user what happened: success or fail
         response = render(request, self.template_name)
         return response
-        
+     
                 
 
 

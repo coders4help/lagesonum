@@ -14,6 +14,8 @@ INSTALLED_APPS += (
     'debug_toolbar',
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 LOGGING = {
     'version': 1,
     'disable_existing_logger': False,
@@ -60,3 +62,25 @@ LOGGING = {
         },
     },
 }
+
+# Internationalization
+# https://docs.djangoproject.com/en/1.8/topics/i18n/
+
+LANGUAGE_CODE = 'en'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+LOCALE_PATHS = ('/website/locale', )
+
+LANGUAGES = (
+    ('ar', u'العربية'),
+    ('de', u'Deutsch'),
+    ('en', u'English'),
+    ('eo', u'Esperanto'),
+)
