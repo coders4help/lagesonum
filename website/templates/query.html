@@ -3,29 +3,39 @@
 
 {% block content %}
     {% spaceless %}
-        <div class="container">
-            <div class="starter-template">
-                <p>{% trans 'search_pitch' %}</p>
-                <form action="{% url 'query' %}" method="post" class="form-inline" style="margin-bottom:20px;" id="query-form" role="form">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button class="btn btn-primary">{% trans 'submit_label' %}</button>
-                </form>
-
-                <h3>{% trans 'numberorigin_head' %}</h3>
-                <p>{% trans 'numberorigin_xplain' %}</p>
-                <!-- a href="{url 'enter'}">{% trans 'help entering numbers' %}</a -->
-
-                <div id="result">
-                {% if result %}
-                    {% include 'partials/query_result.html' %}
-                {% endif %}
+        <section class="site-section site-content isSecond">
+            <div class="site-section-inner">
+                <div class="text-container">
+                    <div class="heading first-heading">
+                    <strong>{% trans 'Welcome to ' %} LAGESO</strong>NUM</div>
+                    <div class="heading second-heading">{% trans 'Thank you!' %}</div>
+                    <div class="small-text">{% trans 'Please enter you waiting number here to find out about the status of your registration process.' %}</div>
                 </div>
+                <form class="number-input-container form-inline" action="{% url 'query' %}" method="post" style="margin-bottom:20px;" id="query-form" role="form">
+                    <!-- {% csrf_token %}
+                    {{ form }} -->
+                    <input class="input-number" maxlength="4" pattern="[a-z][0-9]{3}" placeholder="A123" type="text" />
+                    <input class="button-number search" type="submit" value="" />
+                    <button class="button-number resetSearch">
+                    </button>
+                </form>
+                
+                <div class="response-container">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, conserem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+
             </div>
-        </div>
+        </section>
+        <section class="site-section site-help">
+            <div class="site-section-inner">
+            </div>
+        </section>
+    <!--     {% if result %}
+            {% include 'partials/query_result.html' %}
+        {% endif %} -->
     {% endspaceless %}
 {% endblock %}
 
 {% block additional_js %}
 <script src="{% static 'js/query.js' %}"></script>
 {% endblock %}
+
+        

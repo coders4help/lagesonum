@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-17 21:53+0000\n"
+"POT-Creation-Date: 2015-10-25 14:52+0000\n"
 "PO-Revision-Date: 2007-10-18 14:00+0100\n"
 "Last-Translator: you <you@example.com>\n"
 "Language-Team: English <yourteam@example.com>\n"
@@ -12,31 +12,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:18
+#: forms.py:19 templates/enter.html:14
+msgid "inputexample"
+msgstr "e.g. A123 BC34 AX99"
+
+#: forms.py:40 templates/partials/query_result.html:5
+msgid "errinvalinput"
+msgstr ""
+"Invalid input. Please enter a letter followed by numbers without spaces."
+
+#: forms.py:56
 msgid "txtnumber"
 msgstr "Waiting number"
 
-#: forms.py:18
+#: forms.py:56
 msgid "queryexample"
 msgstr "e.g. A123"
 
-#: models.py:35 models.py:39
+#: models.py:15 models.py:19
 msgid "place"
 msgstr ""
 
-#: models.py:40
+#: models.py:16
+msgid "pattern"
+msgstr ""
+
+#: models.py:20
 msgid "places"
 msgstr ""
 
-#: models.py:50 models.py:57
+#: models.py:38 models.py:45
 msgid "number"
 msgstr "Waiting number"
 
-#: models.py:58
+#: models.py:46
 msgid "numbers"
 msgstr "Waiting numbers"
 
-#: templates/about.html:7 templates/partials/navbar.html:29
+#: templates/about.html:7 templates/partials/navbar.html:21
 msgid "about_link"
 msgstr "About LAGeSoNUM"
 
@@ -81,8 +94,8 @@ msgstr "Press releases"
 msgid "pm_start"
 msgstr "for the start of lagesonum.de on Sep 29, 2015"
 
-#: templates/base.html:8 templates/base.html.py:12 templates/base.html:14
-#: templates/base.html.py:17
+#: templates/base.html:8 templates/base.html.py:12 templates/base.html.py:14
+#: templates/base.html:17
 msgid "meta_description"
 msgstr ""
 "LAGeSoNUM is a page helping refugees to access their number assigned by the "
@@ -92,11 +105,11 @@ msgstr ""
 msgid "webpagetitle"
 msgstr "LAGeSoNUM - Online number display for refugee registration in Berlin"
 
-#: templates/display.html:7 templates/partials/navbar.html:28
+#: templates/display.html:7 templates/partials/navbar.html:20
 msgid "display_link"
 msgstr "Display"
 
-#: templates/display.html:10
+#: templates/display.html:11
 #, python-format
 msgid "numberdisplaytxt %(since)s %(min_count)s"
 msgstr ""
@@ -111,7 +124,6 @@ msgstr ""
 
 #: templates/display.html:21
 #, python-format
-#| msgid "nonumbersentered %(since)s %(min_count)s"
 msgid "nonumbersentered %(since)s %(min_count)s"
 msgstr ""
 "No numbers have been entered since %(since)s by at least %(min_count)s "
@@ -127,34 +139,18 @@ msgstr ""
 "This website started on September 28, 2015. Numbers before this date are not "
 "in the database."
 
-#: templates/enter.html:4
+#: templates/enter.html:8
 msgid "help_pitch"
 msgstr ""
 "Are you at LaGeSo? Please help us to keep this site up to date by entering "
 "all numbers you can see displayed at the number display. (NOT your own "
 "waiting number)."
 
-#: templates/enter.html:9
-msgid "inputexample"
-msgstr "e.g. A123 BC34 AX99"
-
-#: templates/enter.html:11 templates/query.html:12
+#: templates/enter.html:19
 msgid "submit_label"
 msgstr "Submit"
 
-#: templates/enter.html:17
-msgid "entered"
-msgstr ""
-"Thanks a lot! You entered the following waiting number successfully into the "
-"database"
-
-#: templates/enter.html:28
-msgid "erruniquenumber"
-msgstr ""
-"You have already submitted this number. Please choose another one from the "
-"board. Thanks a lot for helping!"
-
-#: templates/imprint.html:7 templates/partials/navbar.html:30
+#: templates/imprint.html:7 templates/partials/navbar.html:22
 msgid "contact_link"
 msgstr "Contact"
 
@@ -186,18 +182,33 @@ msgstr "Data privacy declaration according to §13 Telemediengesetz"
 msgid "dataprivacy"
 msgstr "Declaration about data privacy"
 
-#: templates/partials/navbar.html:26
-msgid "helpus_link"
-msgstr "Join in!"
+#: templates/logged_out.html:8
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
 
-#: templates/partials/navbar.html:27
+#: templates/logged_out.html:10
+msgid "Log in again"
+msgstr ""
+
+#: templates/login.html:13
+msgid "Log in"
+msgstr ""
+
+#: templates/partials/enter_result.html:5
+msgid "entered"
+msgstr ""
+"Thanks a lot! You entered the following waiting number successfully into the "
+"database"
+
+#: templates/partials/enter_result.html:16
+msgid "erruniquenumber"
+msgstr ""
+"You have already submitted this number. Please choose another one from the "
+"board. Thanks a lot for helping!"
+
+#: templates/partials/navbar.html:19
 msgid "searchanumber_link"
 msgstr "Your waiting number"
-
-#: templates/partials/query_result.html:5
-msgid "errinvalinput"
-msgstr ""
-"Invalid input. Please enter a letter followed by numbers without spaces."
 
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
@@ -226,26 +237,39 @@ msgstr ""
 "Please note: The more people have entered your number, the more likely it "
 "was really shown and not accidentally entered due to mistyping."
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
-"You want to know, if your number has been called at LAGeSo? Enter it here to "
-"find out!"
 
-#: templates/query.html:15
-msgid "numberorigin_head"
-msgstr "How do you know when my waiting number was displayed?"
-
-#: templates/query.html:16
-msgid "numberorigin_xplain"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
-"The waiting numbers are added by people waiting in the queue in front of the "
-"waiting number display board or volunteers. If officials want to help adding "
-"numbers please drop us a line!"
 
-#: templates/query.html:17
-msgid "help entering numbers"
-msgstr "Please help by entering numbers you see on the display."
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
+msgstr ""
+
+#~ msgid "helpus_link"
+#~ msgstr "Join in!"
+
+#~ msgid "search_pitch"
+#~ msgstr ""
+#~ "You want to know, if your number has been called at LAGeSo? Enter it here "
+#~ "to find out!"
+
+#~ msgid "numberorigin_head"
+#~ msgstr "How do you know when my waiting number was displayed?"
+
+#~ msgid "numberorigin_xplain"
+#~ msgstr ""
+#~ "The waiting numbers are added by people waiting in the queue in front of "
+#~ "the waiting number display board or volunteers. If officials want to help "
+#~ "adding numbers please drop us a line!"
+
+#~ msgid "help entering numbers"
+#~ msgstr "Please help by entering numbers you see on the display."
 
 #~ msgid "Your waiting number %(number)s was seen at the display at LaGeSo!"
 #~ msgstr "Your wait num %(number)s was seen!"

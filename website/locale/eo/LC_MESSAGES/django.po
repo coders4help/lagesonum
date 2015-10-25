@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-16 22:05+0000\n"
+"POT-Creation-Date: 2015-10-25 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:18
+#: forms.py:19 templates/enter.html:14
+msgid "inputexample"
+msgstr ""
+
+#: forms.py:40 templates/partials/query_result.html:5
+msgid "errinvalinput"
+msgstr ""
+
+#: forms.py:56
 msgid "txtnumber"
 msgstr ""
 
-#: forms.py:18
+#: forms.py:56
 msgid "queryexample"
 msgstr ""
 
-#: models.py:35 models.py:39
+#: models.py:15 models.py:19
 msgid "place"
 msgstr ""
 
-#: models.py:40
+#: models.py:16
+msgid "pattern"
+msgstr ""
+
+#: models.py:20
 msgid "places"
 msgstr ""
 
-#: models.py:50 models.py:57
+#: models.py:38 models.py:45
 msgid "number"
 msgstr ""
 
-#: models.py:58
+#: models.py:46
 msgid "numbers"
 msgstr ""
 
-#: templates/about.html:7 templates/partials/navbar.html:29
+#: templates/about.html:7 templates/partials/navbar.html:21
 msgid "about_link"
 msgstr ""
 
@@ -70,8 +82,8 @@ msgstr ""
 msgid "pm_start"
 msgstr ""
 
-#: templates/base.html:8 templates/base.html.py:12 templates/base.html:14
-#: templates/base.html.py:17
+#: templates/base.html:8 templates/base.html.py:12 templates/base.html.py:14
+#: templates/base.html:17
 msgid "meta_description"
 msgstr ""
 
@@ -79,51 +91,41 @@ msgstr ""
 msgid "webpagetitle"
 msgstr ""
 
-#: templates/display.html:7 templates/partials/navbar.html:28
+#: templates/display.html:7 templates/partials/navbar.html:20
 msgid "display_link"
 msgstr ""
 
-#: templates/display.html:10
-msgid "numberdisplaytxt"
+#: templates/display.html:11
+#, python-format
+msgid "numberdisplaytxt %(since)s %(min_count)s"
 msgstr ""
 
-#: templates/display.html:17
+#: templates/display.html:19
 msgid "alphabetorder"
 msgstr ""
 
-#: templates/display.html:22
-msgid "nonumbersentered"
+#: templates/display.html:21
+#, python-format
+msgid "nonumbersentered %(since)s %(min_count)s"
 msgstr ""
 
-#: templates/display.html:24 templates/partials/query_result.html:26
+#: templates/display.html:23 templates/partials/query_result.html:24
 msgid "pleasenote_title"
 msgstr ""
 
-#: templates/display.html:25 templates/partials/query_result.html:27
+#: templates/display.html:24 templates/partials/query_result.html:25
 msgid "pleasenote"
 msgstr ""
 
-#: templates/enter.html:4
+#: templates/enter.html:8
 msgid "help_pitch"
 msgstr ""
 
-#: templates/enter.html:9
-msgid "inputexample"
-msgstr ""
-
-#: templates/enter.html:11 templates/query.html:12
+#: templates/enter.html:19
 msgid "submit_label"
 msgstr ""
 
-#: templates/enter.html:17
-msgid "entered"
-msgstr ""
-
-#: templates/enter.html:28
-msgid "erruniquenumber"
-msgstr ""
-
-#: templates/imprint.html:7 templates/partials/navbar.html:30
+#: templates/imprint.html:7 templates/partials/navbar.html:22
 msgid "contact_link"
 msgstr ""
 
@@ -155,16 +157,28 @@ msgstr ""
 msgid "dataprivacy"
 msgstr ""
 
-#: templates/partials/navbar.html:26
-msgid "helpus_link"
+#: templates/logged_out.html:8
+msgid "Thanks for spending some quality time with the Web site today."
 msgstr ""
 
-#: templates/partials/navbar.html:27
+#: templates/logged_out.html:10
+msgid "Log in again"
+msgstr ""
+
+#: templates/login.html:13
+msgid "Log in"
+msgstr ""
+
+#: templates/partials/enter_result.html:5
+msgid "entered"
+msgstr ""
+
+#: templates/partials/enter_result.html:16
+msgid "erruniquenumber"
+msgstr ""
+
+#: templates/partials/navbar.html:19
 msgid "searchanumber_link"
-msgstr ""
-
-#: templates/partials/query_result.html:5
-msgid "errinvalinput"
 msgstr ""
 
 #: templates/partials/query_result.html:8
@@ -172,33 +186,34 @@ msgid "errnotfound"
 msgstr ""
 
 #: templates/partials/query_result.html:11
-msgid "querysuccess"
+#, python-format
+msgid "querysuccess %(number)s"
 msgstr ""
 
 #: templates/partials/query_result.html:14
-msgid "foundonce"
+#, python-format
+msgid "foundonce %(date)s"
 msgstr ""
 
 #: templates/partials/query_result.html:16
-msgid "foundmultiple"
+#, python-format
+msgid "foundmultiple %(amount)s"
 msgstr ""
 
 #: templates/partials/query_result.html:19
 msgid "morelikely"
 msgstr ""
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
 
-#: templates/query.html:15
-msgid "numberorigin_head"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
 
-#: templates/query.html:16
-msgid "numberorigin_xplain"
-msgstr ""
-
-#: templates/query.html:17
-msgid "help entering numbers"
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
 msgstr ""

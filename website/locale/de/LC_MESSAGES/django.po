@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-17 21:53+0000\n"
+"POT-Creation-Date: 2015-10-25 14:52+0000\n"
 "PO-Revision-Date: 2007-10-18 14:00+0100\n"
 "Last-Translator: you <you@example.com>\n"
 "Language-Team: English <yourteam@example.com>\n"
@@ -12,33 +12,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:18
+#: forms.py:19 templates/enter.html:14
+msgid "inputexample"
+msgstr "z.B. A123  BC34 AX99"
+
+#: forms.py:40 templates/partials/query_result.html:5
+msgid "errinvalinput"
+msgstr ""
+"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen ohne "
+"Leerzeichen eingeben."
+
+#: forms.py:56
 msgid "txtnumber"
 msgstr "Wartenummer"
 
-#: forms.py:18
+#: forms.py:56
 msgid "queryexample"
 msgstr "z.B. A123"
 
-#: models.py:35 models.py:39
+#: models.py:15 models.py:19
 msgid "place"
 msgstr ""
 
-#: models.py:40
+#: models.py:16
+msgid "pattern"
+msgstr ""
+
+#: models.py:20
 msgid "places"
 msgstr ""
 
-#: models.py:50 models.py:57
-#| msgid "txtnumber"
+#: models.py:38 models.py:45
 msgid "number"
 msgstr "Wartenummer"
 
-#: models.py:58
-#| msgid "txtnumber"
+#: models.py:46
 msgid "numbers"
 msgstr "Wartenummer"
 
-#: templates/about.html:7 templates/partials/navbar.html:29
+#: templates/about.html:7 templates/partials/navbar.html:21
 msgid "about_link"
 msgstr "Über LAGeSoNUM"
 
@@ -83,8 +95,8 @@ msgstr "Pressemitteilungen"
 msgid "pm_start"
 msgstr "zum Start von www.lagesonum.de am 29.9.2015"
 
-#: templates/base.html:8 templates/base.html.py:12 templates/base.html:14
-#: templates/base.html.py:17
+#: templates/base.html:8 templates/base.html.py:12 templates/base.html.py:14
+#: templates/base.html:17
 msgid "meta_description"
 msgstr ""
 "LAGeSoNUM ist eine Online-Anzeigetafel für die Flüchtlingsregistrierung in "
@@ -95,16 +107,16 @@ msgid "webpagetitle"
 msgstr ""
 "LAGeSoNUM - Online-Anzeigetafel für die Flüchtlingsregistrierung in Berlin"
 
-#: templates/display.html:7 templates/partials/navbar.html:28
+#: templates/display.html:7 templates/partials/navbar.html:20
 msgid "display_link"
 msgstr "Anzeigetafel"
 
-#: templates/display.html:10
+#: templates/display.html:11
 #, python-format
 msgid "numberdisplaytxt %(since)s %(min_count)s"
 msgstr ""
-"Diese Nummern wurden als letzte seit %(since)s von mindestens "
-"%(min_count)s verschiedenen - oder authorisierten - Personen eingegeben."
+"Diese Nummern wurden als letzte seit %(since)s von mindestens %(min_count)s "
+"verschiedenen - oder authorisierten - Personen eingegeben."
 
 #: templates/display.html:19
 msgid "alphabetorder"
@@ -114,7 +126,6 @@ msgstr ""
 
 #: templates/display.html:21
 #, python-format
-#| msgid "nonumbersentered %(since)s %(min_count)s"
 msgid "nonumbersentered %(since)s %(min_count)s"
 msgstr ""
 "Seit %(since)s wurden keine Nummern von mindestens %(min_count)s Personen "
@@ -130,34 +141,18 @@ msgstr ""
 "Diese Website ist am 28.9.15 an den Start gegangen. Nur Nummern, die seitdem "
 "aufgerufen wurden, werden angezeigt."
 
-#: templates/enter.html:4
+#: templates/enter.html:8
 msgid "help_pitch"
 msgstr ""
 "Du stehst am LaGeSo? Bitte hilf mit, diese Seite aktuell zu erhalten, indem "
 "du alle Nummern, die du auf der Anzeigetafel siehst eingibst (NICHT deine "
 "eigene Wartenummer):"
 
-#: templates/enter.html:9
-msgid "inputexample"
-msgstr "z.B. A123  BC34 AX99"
-
-#: templates/enter.html:11 templates/query.html:12
+#: templates/enter.html:19
 msgid "submit_label"
 msgstr "Abschicken"
 
-#: templates/enter.html:17
-msgid "entered"
-msgstr ""
-"Herzlichen Dank! Du hast die folgende Wartenummer erfolgreich in die "
-"Datenbank eingetragen"
-
-#: templates/enter.html:28
-msgid "erruniquenumber"
-msgstr ""
-"Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere von der "
-"Anzeigetafel. Ganz lieben Dank für die Hilfe!"
-
-#: templates/imprint.html:7 templates/partials/navbar.html:30
+#: templates/imprint.html:7 templates/partials/navbar.html:22
 msgid "contact_link"
 msgstr "Kontakt"
 
@@ -189,19 +184,33 @@ msgstr "Datenschutzerklärung gem. §13 Telemediengesetz"
 msgid "dataprivacy"
 msgstr "Datenschutzerklärung"
 
-#: templates/partials/navbar.html:26
-msgid "helpus_link"
-msgstr "Mach mit!"
+#: templates/logged_out.html:8
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
 
-#: templates/partials/navbar.html:27
+#: templates/logged_out.html:10
+msgid "Log in again"
+msgstr ""
+
+#: templates/login.html:13
+msgid "Log in"
+msgstr ""
+
+#: templates/partials/enter_result.html:5
+msgid "entered"
+msgstr ""
+"Herzlichen Dank! Du hast die folgende Wartenummer erfolgreich in die "
+"Datenbank eingetragen"
+
+#: templates/partials/enter_result.html:16
+msgid "erruniquenumber"
+msgstr ""
+"Diese Nummer hast du bereits eingetragen. Bitte wähle eine andere von der "
+"Anzeigetafel. Ganz lieben Dank für die Hilfe!"
+
+#: templates/partials/navbar.html:19
 msgid "searchanumber_link"
 msgstr "Deine Wartenummer"
-
-#: templates/partials/query_result.html:5
-msgid "errinvalinput"
-msgstr ""
-"Ungültige Eingabe. Bitte einen Buchstaben gefolgt von Zahlen ohne "
-"Leerzeichen eingeben."
 
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
@@ -236,27 +245,41 @@ msgstr ""
 "Sicherheit, dass die Nummer wirklich angezeigt wurde und sich keiner "
 "vertippt hat."
 
-#: templates/query.html:8
-msgid "search_pitch"
+#: templates/query.html:10
+msgid "Welcome to "
 msgstr ""
-"Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
-"ein, um es herauszufinden."
 
-#: templates/query.html:15
-msgid "numberorigin_head"
-msgstr "Woher wisst ihr, wann meine Wartenummer angezeigt wurde?"
-
-#: templates/query.html:16
-msgid "numberorigin_xplain"
+#: templates/query.html:11
+msgid "Thank you!"
 msgstr ""
-"Die Wartenummern werden von Menschen in der Warteschlange vor dem "
-"Wartenummerdisplay eingegeben oder von freiwilligen Helferinnen und Helfern. "
-"Wir sind offen für Mitarbeit von offizieller Stelle, schreibt uns gerne an!"
 
-#: templates/query.html:17
-msgid "help entering numbers"
+#: templates/query.html:12
+msgid ""
+"Please enter you waiting number here to find out about the status of your "
+"registration process."
 msgstr ""
-"Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."
+
+#~ msgid "search_pitch"
+#~ msgstr ""
+#~ "Willst du wissen, ob deine Nummer am LAGeSo angezeigt wurde? Gib sie hier "
+#~ "ein, um es herauszufinden."
+
+#~ msgid "numberorigin_head"
+#~ msgstr "Woher wisst ihr, wann meine Wartenummer angezeigt wurde?"
+
+#~ msgid "numberorigin_xplain"
+#~ msgstr ""
+#~ "Die Wartenummern werden von Menschen in der Warteschlange vor dem "
+#~ "Wartenummerdisplay eingegeben oder von freiwilligen Helferinnen und "
+#~ "Helfern. Wir sind offen für Mitarbeit von offizieller Stelle, schreibt "
+#~ "uns gerne an!"
+
+#~ msgid "help entering numbers"
+#~ msgstr ""
+#~ "Bitte hilf mit, indem du die Nummern eingibst, die auf dem Display stehen."
+
+#~ msgid "helpus_link"
+#~ msgstr "Mach mit!"
 
 #~ msgid "txtgreeting"
 #~ msgstr ""
