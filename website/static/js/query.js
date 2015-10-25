@@ -51,6 +51,12 @@ $('document').ready(function(){
         query_post();
     });
 
+    // Submit post on submit
+
+    $('#setlang-form').on('change', function(){
+        $('#setlang-form').submit();
+    });
+
     var nav = responsiveNav(".nav-collapse", { // Selector
         animate: true, // Boolean: Use CSS3 transitions, true or false
         transition: 284, // Integer: Speed of the transition, in milliseconds

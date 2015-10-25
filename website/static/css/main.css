@@ -98,8 +98,7 @@ nav {
 
 ul.nav-collapse {
   text-align: center;
-  margin: 0;
-  padding: 0; }
+  margin: 0 auto; }
   ul.nav-collapse li {
     transition: all 0.3s;
     cursor: pointer;
