@@ -1,6 +1,4 @@
 from django.views.generic import View
-from django.core.mail import EmailMessage
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 

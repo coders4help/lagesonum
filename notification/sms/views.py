@@ -12,12 +12,12 @@ from django_twilio.client import twilio_client
 
 from django.conf import settings
 
-from website.models import Subscription, Place
+from website.models import Subscription
 
 logger = logging.getLogger(__name__)
 
 
-class SMSNotificationView(View):
+class SMSView(View):
     http_method_names = ['post']
 
     @method_decorator(twilio_view)
@@ -26,13 +26,12 @@ class SMSNotificationView(View):
 
     def send(self, recipient_number, message):
         "sends a message to a number, uses the twilio client directly instead of twiml response"
-        logger.info('sending message "{}" to {} from {}'.format(
+        logger.info('sms "{}" to {} from {}'.format(
             message, recipient_number, settings.TWILIO_DEFAULT_SENDER)
         )
         twilio_client.sms.messages.create(body=message, to=recipient_number, from_=settings.TWILIO_DEFAULT_SENDER)
 
     def post(self, request):
-
         # parse twilio request
         twilio_request = decompose(request)
         message = twilio_request.body
@@ -41,7 +40,7 @@ class SMSNotificationView(View):
 
         r = twiml.Response()
 
-        # parse message body
+        # all sms views should respect stop
         if message.upper() is 'STOP':
             subscription = Subscription.objects.get(number=from_number)
             subscription.cancelled = datetime.now()
@@ -49,6 +48,39 @@ class SMSNotificationView(View):
             logger.info('unsubscribed', subscription)
 
             r.message('You have been unsubscribed')
+        return r
+
+
+class SMSConfirmationView(SMSView):
+    def post(self, request):
+        # parse twilio request
+        twilio_request = decompose(request)
+        message = twilio_request.body
+        from_number = twilio_request.from_
+        logger.info('sms from {}: {}'.format(from_number, message))
+
+        r = twiml.Response()
+
+        if message.upper().startswith('CONFIRM'):
+            # TODO check confirmation hash
+            subscription = Subscription.objects.get(number=from_number)
+            subscription.phone_confirmed = True
+            subscription.save()
+
+        else:
+            logger.info('sms: invalid command', message)
+        return r
+
+
+class SMSNotificationView(SMSView):
+    def post(self, request):
+        # parse twilio request
+        twilio_request = decompose(request)
+        message = twilio_request.body
+        from_number = twilio_request.from_
+        logger.info('sms from {}: {}'.format(from_number, message))
+
+        r = twiml.Response()
 
         if message.upper().startswith('CONFIRM'):
             # TODO check confirmation hash
