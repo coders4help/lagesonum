@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles i18n %}
-<html class="no-js" {% block html_attributes %}{% endblock %}>
+<html {% block html_attributes %}{% endblock %}>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta name="description" content="{% trans 'meta_description' %}" />
 
     <meta property="og:title" content="{% trans 'webpagetitle' %}">
@@ -19,6 +20,8 @@
 
     <title>{% block webpagetitle %}{% trans 'webpagetitle' %}{% endblock %}</title>
 
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+    <link rel="stylesheet" href="{% static 'css/responsive-nav.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700|Amiri:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -31,7 +34,13 @@
 
 {% include 'partials/footer.html' %}
 
+<!-- jQuery -->
 <script src="{% if not debug %}//code.jquery.com/jquery-1.11.3.min.js{% else %}{% static 'js/jquery.js' %}{% endif %}"></script>
+<!-- Responsive nav -->
+<script src="{% static 'js/responsive-nav.min.js' %}"></script>
+
+<!-- Own JS-->
+<script src="{% static 'js/query.js' %}"></script>
 
 {% block additional_js %}<!-- Additional, view specific, JavaScript resources -->{% endblock %}
 </body>
