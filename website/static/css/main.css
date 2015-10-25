@@ -117,7 +117,7 @@ ul.nav-collapse {
   .language-dropdown select {
     background: transparent;
     border: none;
-    font-size: 24px; }
+    font-size: 20px; }
 
 .logo-link {
   display: block;
@@ -218,9 +218,6 @@ ul.nav-collapse {
     height: 20px;
     background-color: #1E51BD;
     content: " "; }
-
-body {
-  font-family: 'Source Sans Pro'; }
 
 .center-block {
   margin: 0 auto;
