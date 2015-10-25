@@ -4,7 +4,7 @@
 {% url 'query' as query %}
 {% url 'display' as display %}
 {% url 'about' as about %}
-{% url 'imprint' as imprint %}
+{% url 'contact' as contact %}
 {% endspaceless %}
 <nav>
   <div class="container">
@@ -49,5 +49,5 @@
 <ul class="nav-collapse container">
   <li class="{% active request '/display$' %}"><a href="{{ display }}">{% trans 'display_link' %}</a></li>
   <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
-  <li class="{% active request '/imprint$' %}"><a href="{{ imprint }}">{% trans 'contact_link' %}</a></li>
+  <li class="{% active request '/contact$' %}"><a href="{{ contact }}">{% trans 'contact_link' %}</a></li>
 </ul>
