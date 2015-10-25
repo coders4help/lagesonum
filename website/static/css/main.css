@@ -20,7 +20,22 @@ a:focus {
 input,
 input:focus {
   outline: 0;
-  border: none; }
+  border: none;
+  font-size: 36px; }
+
+h1 {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center; }
+
+h2 {
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center; }
+
+p {
+  font-size: 18px;
+  line-height: 21px; }
 
 .vertical-middle, .navbar {
   display: -webkit-box;
@@ -65,8 +80,8 @@ input:focus {
   padding: 0 40px; }
 
 nav {
-  background-color: white;
   height: 110px;
+  background-color: white;
   box-sizing: initial;
   border-bottom: 10px solid #1E51BD;
   font-size: 18px;
@@ -94,10 +109,6 @@ nav {
       line-height: 80px; } }
   .logo-link .logo {
     vertical-align: middle; }
-
-@media screen and (max-width: 720px) {
-  .header-menu {
-    display: none; } }
 
 .site-content {
   background-color: #F1F5FF;
