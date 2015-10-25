@@ -50,3 +50,8 @@
 * Add an example Place in the Django admin
 	* `http://localhost:8000/admin/website/place/add/`
 	* try Pattern `.*` to accept any string
+
+## SMS Setup
+Sign up for an account from Twilio, and add your credentials to the environment as TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. You will need to purchase a phone number which is able to send and receive SMS, and set it in your environment as TWILIO_DEFAULT_SENDER in E164 format (eg, '+4912345678901')
+
+If you wish to test SMS notifications locally, you can use [ngrok](https://ngrok.com) to get an externally routable web address. Run `ngrok http 8000`, and make a note of the Forwarding URL. Set up the Twilio number Request URL to 'http://RANDOM_ID.ngrok.com/sms/post/'
