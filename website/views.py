@@ -157,44 +157,41 @@ class DisplayView(TemplateView):
         context['min_count'] = 3
         context['since'] = oldest_to_be_shown
         return context
-        
+
+
 class SubscribeView(TemplateView, FormMixin):
     http_method_names = ['get', 'post']
     form_class = SubscribeForm
     template_name = 'subscribe.html'
-    
+
     def get_context_data(self, **kwargs):
         if not 'form' in kwargs:
             kwargs['form'] = self.form_class()
         context = super().get_context_data(**kwargs)
         return context
-        
+
     def post(self, request, *args, **kwargs):
-        
+
         form = self.get_form()
-        
-        #form doesn't have cleaned_data until it's been validated
+
+        # form doesn't have cleaned_data until it's been validated
         if not form.is_valid():
             logger.error(u'Errors: %s', form.errors.as_data())
-            #TODO show error to user 
+            # TODO show error to user 
             raise ValidationError(form.errors)
-        
+
         try:
             number = form.cleaned_data['number']
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             telegram = form.cleaned_data['telegram']
-            
+
             n = Subscription(number=number, email=email, phone=phone, telegram=telegram).save()
         except Exception as e:
-            #TODO show error to user
+            # TODO show error to user
             raise RuntimeError(e)
         pass
 
-        #TODO tell the user what happened: success or fail
+        # TODO tell the user what happened: success or fail
         response = render(request, self.template_name)
-        return response
-        
-                
-
-
+        return response                
