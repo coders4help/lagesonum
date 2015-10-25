@@ -9,20 +9,19 @@
 <nav>
   <div class="container">
     <div class="navbar left">
-      <div class="header-logo">
+      <a class="logo-link" href="{{ query }}">
         <img class="logo" alt="LAGeSoNUM" src="{% static 'img/logo-blue.png' %}">
-      </div>
+      </a>
     </div>
+    <!-- HAMBURGER MENU -->
     <div class="navbar right">
-      <div class="menu">
-        <ul class="menu-list">
-          <li class="{% active request '/query$' %}"><a href="{{ query }}">{% trans 'searchanumber_link' %}</a></li>
-          <li class="{% active request '/display$' %}"><a href="{{ display }}">{% trans 'display_link' %}</a></li>
-          <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
-          <li class="{% active request '/imprint$' %}"><a href="{{ imprint }}">{% trans 'contact_link' %}</a></li>
-        </ul>
-      </div>
+      <ul class="btns">
+        <li class="{% active request '/display$' %}"><a href="{{ display }}">{% trans 'display_link' %}</a></li>
+        <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
+        <li class="{% active request '/imprint$' %}"><a href="{{ imprint }}">{% trans 'contact_link' %}</a></li>
+      </ul>
     </div>
+
 <!--       {% if i18n_is_set or True %}
       {% get_language_info for request.LANGUAGE_CODE as current %}
       {% get_available_languages as LANGUAGES %}
@@ -50,6 +49,6 @@
           {% endspaceless %}
         </li>
       </ul>
-      {% endif %} -->
-  </div>
+      {% endif %}
+ -->  </div>
 </nav>
