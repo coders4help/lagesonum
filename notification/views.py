@@ -2,33 +2,36 @@ from datetime import datetime
 
 from django.views.generic import View
 
+from website.models import Number, Subscription
+
 from notification.sms import SMSNotificationView
 # from notification.email import EmailNotificationView
 
 
-class NotificationView(View):
+class BaseNotificationView(View):
     "Generic notification view, to dispatch to separate"
 
-    def dispatch(self, request, subscription):
-        print('NotificationView', subscription)
-
-
-class ConfirmSubscriptionView(NotificationView):
-
-    def post(self, subscription):
+    def send(instance, **kwargs):
         pass
 
 
-class SendNotificationView(NotificationView):
+class ConfirmationView(BaseNotificationView):
 
-    def post(self, subscription):
+    def send(instance, **kwargs):
+        pass
 
-        if subscription.cancelled:
-            return False
 
-        # if subscription.email_confirmed:
-        #    EmailNotificationView.post(subscription.email)
-        if subscription.phone_confirmed:
-            SMSNotificationView.post('your number is updated')
+class NumberUpdatedView(BaseNotificationView):
 
-        subscription.last_notify = datetime.now()
+    def send(instance, **kwargs):
+        subscribers = Subscription.objects.filter(number=instance.number, cancelled__isnull=True)
+
+        for s in subscribers:
+            # if s.email_confirmed:
+            #    EmailNotificationView.send(instance.)
+            if s.phone_confirmed:
+                message = '{} updated'.format(instance.number)
+                SMSNotificationView.send(instance, s.phone.as_e164, message)
+
+            s.last_notify = datetime.now()
+            s.save()
