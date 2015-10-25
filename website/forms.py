@@ -70,7 +70,8 @@ class QueryForm(forms.ModelForm):
             ),
         }
         """
-        
+
+
 class SubscribeForm(forms.ModelForm):
     error_css_class = 'error'
     required_css_class = 'required'
@@ -80,13 +81,13 @@ class SubscribeForm(forms.ModelForm):
                'class': 'form-control',}
     ))
     
-    #TODO make this good
-    #TODO make email an HTML5 email field
+    # TODO make this good
+    # TODO make email an HTML5 email field
     email = forms.CharField(required=False)
     phone = forms.CharField(required=False)
     telegram = forms.CharField(required=False)
     
-    #validate that at least ONE of the contact fields is fulled
+    # validate that at least ONE of the contact fields is fulled
     def _post_clean(self):
         cleaned_data = super(SubscribeForm, self).clean()
         email = cleaned_data.get('email')
@@ -94,9 +95,10 @@ class SubscribeForm(forms.ModelForm):
         telegram = cleaned_data.get('telegram')
 
         if not email and not phone and not telegram:
-            #TODO enable translation
+            # TODO enable translation
             self.add_error(None, 
-                forms.ValidationError('You need to fill out at least one of the contact possibilities: email, phone or telegram!'))
+                forms.ValidationError('You need to fill out at least one of the contact possibilities: '
+                                      'email, phone or telegram!'))
     
     class Meta:
         model = Subscription
