@@ -1,17 +1,3 @@
-/* -------------------------------------------------------------
- *  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
- *  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
- *
- *  List of CSS3 Sass Mixins File to be @imported and @included as you need
- *
- *  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
- *  ENDING css files
- *
- *  note: All CSS3 Properties are being supported by Safari 5
- *  more info: http://www.findmebyip.com/litmus/#css3-properties
- *
- *-------------------------------------------------------------
- */
 * {
   box-sizing: border-box; }
 
@@ -22,7 +8,7 @@ body {
   margin: 0;
   background-color: #F1F5FF;
   color: #1E51BD;
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Source Sans Pro', 'Armir', sans-serif; }
 
 a,
 a:hover,
@@ -36,6 +22,11 @@ input:focus {
   outline: 0;
   border: none; }
 
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
 .heading {
   margin-bottom: 20px;
   line-height: 44px;
@@ -48,36 +39,60 @@ input:focus {
 .site-section {
   width: 100%; }
 
-.site-section-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px; }
-
 .small-text {
   font-size: 20px;
   padding: 0 40px; }
 
-.header-logo,
-.header-menu,
-.header-menu-language,
-.menu-list-item,
-.heading,
-.number-input-container {
-  display: inline-block; }
-
-.site-header {
-  height: 130px;
+nav {
+  background-color: white;
+  height: 120px;
   border-bottom: 10px solid #1E51BD;
   font-size: 20px;
   font-weight: 300;
   background-color: white; }
-
-.header-logo {
-  height: 100%;
-  margin-top: 36px; }
+  @media screen and (max-width: 720px) {
+    nav {
+      height: 100px; } }
+  nav .container {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center; }
 
 .header-nav {
-  line-height: 130px; }
+  line-height: 140px; }
 
 .menu-list {
   margin: 0 60px 0 0;
@@ -89,55 +104,6 @@ input:focus {
 @media screen and (max-width: 720px) {
   .header-menu {
     display: none; } }
-
-.footer {
-  display: none;
-  margin-bottom: 20px; }
-  @media screen and (max-width: 720px) {
-    .footer {
-      display: block;
-      font-size: 20px;
-      font-weight: 300; } }
-  .footer .menu-list {
-    margin: 0;
-    padding: 0; }
-
-.site-header {
-  height: 130px;
-  border-bottom: 10px solid #1E51BD;
-  font-size: 20px;
-  font-weight: 300;
-  background-color: white; }
-
-.header-logo {
-  height: 100%;
-  margin-top: 36px; }
-
-.header-nav {
-  line-height: 130px; }
-
-.menu-list {
-  margin: 0 60px 0 0;
-  text-align: center; }
-
-.menu-list-item:first-child {
-  margin-right: 30px; }
-
-@media screen and (max-width: 720px) {
-  .header-menu {
-    display: none; } }
-
-.footer {
-  display: none;
-  margin-bottom: 20px; }
-  @media screen and (max-width: 720px) {
-    .footer {
-      display: block;
-      font-size: 20px;
-      font-weight: 300; } }
-  .footer .menu-list {
-    margin: 0;
-    padding: 0; }
 
 .site-content {
   background-color: #F1F5FF;
@@ -217,16 +183,10 @@ input:focus {
   font-weight: 300; }
   .response-container:after {
     -webkit-transform: rotate(45deg);
-    -khtml-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     border-radius: 5px;
     position: absolute;
     top: -5px;

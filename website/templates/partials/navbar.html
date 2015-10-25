@@ -10,7 +10,7 @@
   <div class="container">
     <div class="navbar left">
       <div class="header-logo">
-        <img class="logo" alt="LAGeSoNUM" src="{% static 'img/logo.png' %}" height="30">
+        <img class="logo" alt="LAGeSoNUM" src="{% static 'img/logo-blue.png' %}">
       </div>
     </div>
     <div class="navbar right">
@@ -22,6 +22,7 @@
           <li class="{% active request '/imprint$' %}"><a href="{{ imprint }}">{% trans 'contact_link' %}</a></li>
         </ul>
       </div>
+    </div>
 <!--       {% if i18n_is_set or True %}
       {% get_language_info for request.LANGUAGE_CODE as current %}
       {% get_available_languages as LANGUAGES %}
@@ -49,7 +50,6 @@
           {% endspaceless %}
         </li>
       </ul>
-      {% endif %}
- -->    </div>
+      {% endif %} -->
   </div>
 </nav>

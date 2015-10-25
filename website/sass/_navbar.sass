@@ -1,17 +1,23 @@
-// Page header and footer
-.site-header
-  height: 130px
+nav
+  background-color: white
+  height: 120px
+  @media screen and (max-width: $break-small)
+    height: 100px
+
   border-bottom: 10px solid $blue
   font-size: 20px
   font-weight: 300
   background-color: white
 
-.header-logo
-  height: 100%
-  margin-top: 36px
+  .container
+    height: 100%
+    +display(flex)
+    +flex-direction(row)
+    +align-items(center)
+    +justify-content(center)
 
 .header-nav
-  line-height: 130px
+  line-height: 140px
 
 .menu-list
   margin: 0 60px 0 0
@@ -23,17 +29,3 @@
 .header-menu
   @media screen and (max-width: $break-small)
     display: none
-
-.footer
-  display: none
-  margin-bottom: 20px
-
-  @media screen and (max-width: $break-small)
-
-    display: block
-    font-size: 20px
-    font-weight: 300
-
-  .menu-list
-    margin: 0
-    padding: 0
