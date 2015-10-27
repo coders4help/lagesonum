@@ -1,0 +1,61 @@
+$header-height-lg: 110px
+$header-height-sm: 80px
+
+nav
+  width: 100%
+  height: $header-height-lg
+  @media screen and (max-width: $break-small)
+    height: $header-height-sm
+
+  background-color: white
+  border-bottom: 10px solid $blue
+  font-size: 18px
+  background-color: white
+
+  .container
+    height: 100%
+
+
+.navbar
+  @extend .vertical-middle
+  height: 100%
+
+
+ul.nav-collapse
+  text-align: center
+  margin: 0 auto
+  border-bottom: 3px solid $blue
+
+  li
+    transition: all 0.3s;
+    cursor: pointer
+    border-bottom: 1px solid $blue
+    &:last-child
+      border: 0
+    a
+      display: block
+      font-size: 24px
+      line-height: 60px
+      color: $blue
+
+
+.language-dropdown
+  margin: 0 30px 0 0
+
+  form, .dropdown-toggle
+    display: inline-block
+    vertical-align: middle
+
+  select
+    background: transparent
+    border: none
+    font-size: 20px
+
+.logo-link
+  display: block
+  line-height: $header-height-lg
+  @media screen and (max-width: $break-small)
+    line-height: $header-height-sm
+
+  .logo
+    vertical-align:middle;

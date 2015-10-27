@@ -4,56 +4,50 @@
 {% url 'query' as query %}
 {% url 'display' as display %}
 {% url 'about' as about %}
-{% url 'imprint' as imprint %}
+{% url 'contact' as contact %}
 {% endspaceless %}
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="navbar-brand">
-          <img alt="LAGeSoNUM" src="{% static 'img/logo.png' %}" height="30">
-        </div>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="{% active request '/query$' %}"><a href="{{ query }}">{% trans 'searchanumber_link' %}</a></li>
-          <li class="{% active request '/display$' %}"><a href="{{ display }}">{% trans 'display_link' %}</a></li>
-          <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
-          <li class="{% active request '/imprint$' %}"><a href="{{ imprint }}">{% trans 'contact_link' %}</a></li>
-        </ul>
-        {% if i18n_is_set or True %}
+<nav>
+  <div class="container">
+    <div class="navbar left">
+      <a class="logo-link" href="{{ query }}">
+        <img class="logo" alt="LAGeSoNUM" src="{% static 'img/logo-blue.png' %}">
+      </a>
+    </div>
+    <!-- HAMBURGER MENU -->
+    <div class="navbar right">
+      {% if i18n_is_set or True %}
         {% get_language_info for request.LANGUAGE_CODE as current %}
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-foo="{{ current.code }}" role="button" aria-haspopup="true" aria-expanded="false">
-              <img src="{% static 'img/languages.png' %}" alt="pick a language" width="20" height="20" class="navbar-lang-icon"> {{ current.name_local|capfirst }}<span class="caret"/>
-            </a>
-            {% spaceless %}
-            <ul class="dropdown-menu scrollable-dropdown-menu">
-                {% for language in languages %}
-                {% if language.code != current.code %}
-                <li>
-                  <form name="setLang{{ language.code|capfirst }}" action="{% url 'set_lang' %}" method="POST">
-                      {% csrf_token %}
-                      <input type="hidden" name="next" value="{% get_current_view request %}"/>
-                      <input type="hidden" name="lang" value="{{ language.code }}">
-                      <a href="#" class="dab-update-lang" onclick="document.setLang{{ language.code|capfirst }}.submit();return false;">{{language.name_local|capfirst}}</a>
-                  </form>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            {% endspaceless %}
-          </li>
-        </ul>
-        {% endif %}
-      </div><!--/.nav-collapse -->
+        <div class="language-dropdown">
+<!--           <a href="#" onClick="clickLanguageSelect();" class="dropdown-toggle" data-foo="{{ current.code }}">
+            <img src="{% static 'img/language_translate.png' %}" alt="pick a language" class="navbar-lang-icon" height="30">
+            <span class="caret"/>
+          </a>
+ -->          <form id="setlang-form" action="{% url 'set_lang' %}" method="POST">
+            {% csrf_token %}
+            <select name="lang">
+              <option class="active" value="{{ current.code }}" onclick="document.setLang{{ language.code|capfirst }}.submit();return false;">{{ current.name_local|capfirst }}</option>
+              {% for language in languages %}
+              {% if language.code != current.code %}
+                <option value="{{ language.code}}">{{language.name_local|capfirst}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+            <input type="hidden" name="next" value="{% get_current_view request %}"/>
+          </form>
+        </div>
+      {% endif %}
+
+      <a href="#" id="nav-trigger">
+        <img src="{% static 'img/hamburger.png' %}" alt="menu">
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<ul class="nav-collapse container">
+  <li class="{% active request '/display$' %}"><a href="{{ display }}">{% trans 'display_link' %}</a></li>
+  <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
+  <li class="{% active request '/contact$' %}"><a href="{{ contact }}">{% trans 'contact_link' %}</a></li>
+</ul>

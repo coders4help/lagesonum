@@ -3,29 +3,32 @@
 
 {% block content %}
     {% spaceless %}
-        <div class="container">
-            <div class="starter-template">
-                <p>{% trans 'search_pitch' %}</p>
-                <form action="{% url 'query' %}" method="post" class="form-inline" style="margin-bottom:20px;" id="query-form" role="form">
+        <section class="query">
+            <div class="container">
+                <div class="text-container">
+                    <h1 class="first-heading"> {% trans 'Welcome to ' %} LAGeSoNUM</h1>
+                    <h1 class="second-heading">{% trans 'Thank you!' %}</h1>
+                    <p>{% trans 'Please enter you waiting number here to find out about the status of your registration process.' %}</p>
+                </div>
+                <form class="number-input-container form-inline" action="{% url 'query' %}" method="post" style="margin-bottom:20px;" id="query-form" role="form">
                     {% csrf_token %}
-                    {{ form }}
-                    <button class="btn btn-primary">{% trans 'submit_label' %}</button>
+                    <input class="input-number" placeholder="A123" type="text" />
+                    <input class="button-number search" type="submit" value="" />
+                    <button class="button-number resetSearch">
+                    </button>
                 </form>
 
-                <h3>{% trans 'numberorigin_head' %}</h3>
-                <p>{% trans 'numberorigin_xplain' %}</p>
-                <!-- a href="{url 'enter'}">{% trans 'help entering numbers' %}</a -->
-
-                <div id="result">
-                {% if result %}
-                    {% include 'partials/query_result.html' %}
-                {% endif %}
-                </div>
+                <div class="response-container">Your number has not been seen at LaGeSo. Register your email or phone to be notified when it is reported.</div>
             </div>
-        </div>
+        </section>
+    <!--     {% if result %}
+            {% include 'partials/query_result.html' %}
+        {% endif %} -->
     {% endspaceless %}
 {% endblock %}
 
 {% block additional_js %}
 <script src="{% static 'js/query.js' %}"></script>
 {% endblock %}
+
+

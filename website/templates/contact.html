@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="container">
+        <div class="starter-template">
+
+  <h2>{% trans 'contact_link' %}</h2>
+  <p>Anbieter § 6 TDG / § 10 Absatz 3 MDStV:</p>
+  <p>{% trans 'responsible_name' %}<br/>
+  {% trans 'responsible_address' %}</p>
+
+  <a href="mailto:kontakt@lagesonum.de" target="_blank">kontakt@lagesonum.de</a>
+
+  <div class="contact-form">
+    <form action="contact">
+      <input class="" type="textarea" />
+      <input type="submit" />
+    </form>
+  </div>
+
+{% endblock %}

@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^auth/logout/$', auth_views.logout, name='logout', kwargs={'template_name': 'logged_out.html'}),
     url(r'^$', website.views.CustomRedirectView.as_view(permanent=False, pattern_name='query'), name='home'),
     url(r'^about$', django.views.generic.TemplateView.as_view(template_name='about.html'), name='about'),
-    url(r'^imprint$', django.views.generic.TemplateView.as_view(template_name='imprint.html'), name='imprint'),
+    url(r'^contact$', django.views.generic.TemplateView.as_view(template_name='contact.html'), name='contact'),
     url(r'^setlang/$', website.views.set_language, name='set_lang'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
