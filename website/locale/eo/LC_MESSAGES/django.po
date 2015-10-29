@@ -1,22 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lagesonum-1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-25 12:27+0000\n"
->>>>>>> 00e2b75ee2d1bf77a8ec02611534e9cebb90f70c
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2015-10-29 14:42+0000\n"
+"PO-Revision-Date: 2015-10-29 14:44+0000\n"
+"Last-Translator: Peter Palmreuther <pitpalme@yahoo.de>\n"
+"Language-Team: Esperanto (http://www.transifex.com/coders4help/lagesonum-1/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: forms.py:19 templates/enter.html:14
@@ -55,44 +50,76 @@ msgstr ""
 msgid "numbers"
 msgstr ""
 
-#: templates/about.html:7 templates/partials/navbar.html:22
+#: templates/about.html:6 templates/partials/navbar.html:51
 msgid "about_link"
 msgstr ""
 
-#: templates/about.html:9
+#: templates/about.html:8
 msgid "about_par1"
 msgstr ""
 
-#: templates/about.html:10
+#: templates/about.html:9
 msgid "about_par2"
 msgstr ""
 
-#: templates/about.html:11
+#: templates/about.html:10
 msgid "about_par3"
 msgstr ""
 
-#: templates/about.html:12
+#: templates/about.html:11
 msgid "tazlink"
 msgstr ""
 
-#: templates/about.html:14
+#: templates/about.html:13
 msgid "pressrelease_heading"
 msgstr ""
 
-#: templates/about.html:15
+#: templates/about.html:14
 msgid "pm_start"
 msgstr ""
 
-#: templates/base.html:8 templates/base.html.py:12 templates/base.html.py:14
-#: templates/base.html:17
+#: templates/about.html:27
+msgid "techimplementation"
+msgstr ""
+
+#: templates/about.html:30
+msgid "supportedbycoders"
+msgstr ""
+
+#: templates/about.html:32
+msgid "ongithub"
+msgstr ""
+
+#: templates/about.html:34
+msgid "dataprivacyheading"
+msgstr ""
+
+#: templates/about.html:37
+msgid "dataprivacy"
+msgstr ""
+
+#: templates/base.html:9 templates/base.html.py:13 templates/base.html:15
+#: templates/base.html.py:18
 msgid "meta_description"
 msgstr ""
 
-#: templates/base.html:10 templates/base.html.py:16 templates/base.html:20
+#: templates/base.html:11 templates/base.html.py:17 templates/base.html:21
 msgid "webpagetitle"
 msgstr ""
 
-#: templates/display.html:7 templates/partials/navbar.html:21
+#: templates/contact.html:7 templates/partials/navbar.html:52
+msgid "contact_link"
+msgstr ""
+
+#: templates/contact.html:9
+msgid "responsible_name"
+msgstr ""
+
+#: templates/contact.html:10
+msgid "responsible_address"
+msgstr ""
+
+#: templates/display.html:7 templates/partials/navbar.html:50
 msgid "display_link"
 msgstr ""
 
@@ -122,40 +149,8 @@ msgstr ""
 msgid "help_pitch"
 msgstr ""
 
-#: templates/enter.html:19 templates/query.html:12
+#: templates/enter.html:19
 msgid "submit_label"
-msgstr ""
-
-#: templates/imprint.html:7 templates/partials/navbar.html:23
-msgid "contact_link"
-msgstr ""
-
-#: templates/imprint.html:11
-msgid "responsible_name"
-msgstr ""
-
-#: templates/imprint.html:12
-msgid "responsible_address"
-msgstr ""
-
-#: templates/imprint.html:16
-msgid "techimplementation"
-msgstr ""
-
-#: templates/imprint.html:19
-msgid "supportedbycoders"
-msgstr ""
-
-#: templates/imprint.html:21
-msgid "ongithub"
-msgstr ""
-
-#: templates/imprint.html:23
-msgid "dataprivacyheading"
-msgstr ""
-
-#: templates/imprint.html:24
-msgid "dataprivacy"
 msgstr ""
 
 #: templates/logged_out.html:8
@@ -176,10 +171,6 @@ msgstr ""
 
 #: templates/partials/enter_result.html:16
 msgid "erruniquenumber"
-msgstr ""
-
-#: templates/partials/navbar.html:19
-msgid "searchanumber_link"
 msgstr ""
 
 #: templates/partials/query_result.html:8
@@ -205,15 +196,15 @@ msgstr ""
 msgid "morelikely"
 msgstr ""
 
-#: templates/query.html:10
+#: templates/query.html:9
 msgid "Welcome to "
 msgstr ""
 
-#: templates/query.html:11
+#: templates/query.html:10
 msgid "Thank you!"
 msgstr ""
 
-#: templates/query.html:12
+#: templates/query.html:11
 msgid ""
 "Please enter you waiting number here to find out about the status of your "
 "registration process."
