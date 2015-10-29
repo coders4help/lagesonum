@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', None)
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'lagesonum.de'
+    'lagesonum.de',
     '.lagesonum.de',
 ]
 
