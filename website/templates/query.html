@@ -8,7 +8,7 @@
                 <div class="text-container">
                     <h1 class="first-heading"> {% trans 'Welcome to ' %} LAGeSoNUM</h1>
                     <h1 class="second-heading">{% trans 'Thank you!' %}</h1>
-                    <p>{% trans 'Please enter you waiting number here to find out about the status of your registration process.' %}</p>
+                    <p>{% trans 'Please enter your waiting number here, to find out about the status of your registration process.' %}</p>
                 </div>
                 <form class="number-input-container form-inline" action="{% url 'query' %}" method="post" style="margin-bottom:20px;" id="query-form" role="form">
                     {% csrf_token %}

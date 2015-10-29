@@ -1,12 +1,13 @@
 # 
 # Translators:
+# Christoph, 2015
 # Peter Palmreuther <pitpalme@yahoo.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: lagesonum-1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-29 14:42+0000\n"
-"PO-Revision-Date: 2015-10-29 15:07+0000\n"
+"POT-Creation-Date: 2015-10-29 15:30+0000\n"
+"PO-Revision-Date: 2015-10-29 15:31+0000\n"
 "Last-Translator: Peter Palmreuther <pitpalme@yahoo.de>\n"
 "Language-Team: German (http://www.transifex.com/coders4help/lagesonum-1/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "Ort"
 
 #: models.py:16
 msgid "pattern"
-msgstr ""
+msgstr "Muster"
 
 #: models.py:20
 msgid "places"
@@ -156,15 +157,15 @@ msgstr "Abschicken"
 
 #: templates/logged_out.html:8
 msgid "Thanks for spending some quality time with the Web site today."
-msgstr ""
+msgstr "Danke, dass Du Dir heute Zeit für diese Webseite genommen hast."
 
 #: templates/logged_out.html:10
 msgid "Log in again"
-msgstr ""
+msgstr "Wieder einloggen"
 
 #: templates/login.html:13
 msgid "Log in"
-msgstr ""
+msgstr "Einloggen"
 
 #: templates/partials/enter_result.html:5
 msgid "entered"
@@ -203,10 +204,10 @@ msgstr "Willkommen auf "
 
 #: templates/query.html:10
 msgid "Thank you!"
-msgstr ""
+msgstr "Vielen Dank!"
 
 #: templates/query.html:11
 msgid ""
-"Please enter you waiting number here to find out about the status of your "
+"Please enter your waiting number here, to find out about the status of your "
 "registration process."
-msgstr ""
+msgstr "Bitte gib Deine Wartenummer ein um mehr über den Status Deiner Registrierung zu erfahren."
