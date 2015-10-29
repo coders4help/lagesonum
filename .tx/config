@@ -4,5 +4,5 @@ host = https://www.transifex.com
 [lagesonum-1.messages]
 file_filter = website/locale/<lang>/LC_MESSAGES/django.po
 source_file = website/locale/en/LC_MESSAGES/django.po
-source_lang = en_US
+source_lang = en
 type = PO
