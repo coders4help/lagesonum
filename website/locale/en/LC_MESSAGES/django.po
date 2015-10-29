@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-25 12:27+0000\n"
+"POT-Creation-Date: 2015-10-29 14:42+0000\n"
 "PO-Revision-Date: 2007-10-18 14:00+0100\n"
 "Last-Translator: you <you@example.com>\n"
 "Language-Team: English <yourteam@example.com>\n"
@@ -18,8 +18,7 @@ msgstr "e.g. A123 BC34 AX99"
 
 #: forms.py:40 templates/partials/query_result.html:5
 msgid "errinvalinput"
-msgstr ""
-"Invalid input. Please enter a letter followed by numbers without spaces."
+msgstr "Invalid input. Please enter a letter followed by numbers without spaces."
 
 #: forms.py:56
 msgid "txtnumber"
@@ -49,85 +48,92 @@ msgstr "Waiting number"
 msgid "numbers"
 msgstr "Waiting numbers"
 
-#: templates/about.html:7 templates/partials/navbar.html:22
+#: templates/about.html:6 templates/partials/navbar.html:51
 msgid "about_link"
 msgstr "About"
 
-#: templates/about.html:9
+#: templates/about.html:8
 msgid "about_par1"
-msgstr ""
-"This website was created by volunteers. Its purpose is for people applying "
-"for asylum that are currently not at LaGeSo to be able to check if their "
-"waiting number has already been called. The registration process for people "
-"in shelters is intransparent and constantly changing without people being "
-"properly informed. There have been some mobile registration teams, there "
-"have been shuttle services to LaGeSo and in all cases there hast been a lot "
-"of idling and waiting and not being informed. Having to wait for weeks leads "
-"to people distrusting the system and also gives everyone the feeling that "
-"they are missing something. That's why they are walking back to LaGeSo and "
-"spending their nights homeless, which is a bad situation giving the falling "
-"temperatures and crimes."
+msgstr "This website was created by volunteers. Its purpose is for people applying for asylum that are currently not at LaGeSo to be able to check if their waiting number has already been called. The registration process for people in shelters is intransparent and constantly changing without people being properly informed. There have been some mobile registration teams, there have been shuttle services to LaGeSo and in all cases there hast been a lot of idling and waiting and not being informed. Having to wait for weeks leads to people distrusting the system and also gives everyone the feeling that they are missing something. That's why they are walking back to LaGeSo and spending their nights homeless, which is a bad situation giving the falling temperatures and crimes."
+
+#: templates/about.html:9
+msgid "about_par2"
+msgstr "We hope this website will aid in making the entire waiting number process more transparent. People with waiting numbers, please send us feedback, what information you are missing and we will do our best to make it available to you!"
 
 #: templates/about.html:10
-msgid "about_par2"
-msgstr ""
-"We hope this website will aid in making the entire waiting number process "
-"more transparent. People with waiting numbers, please send us feedback, what "
-"information you are missing and we will do our best to make it available to "
-"you!"
+msgid "about_par3"
+msgstr "You can read more about this problem in German in an article from the newspaper taz."
 
 #: templates/about.html:11
-msgid "about_par3"
-msgstr ""
-"You can read more about this problem in German in an article from the "
-"newspaper taz."
-
-#: templates/about.html:12
 msgid "tazlink"
 msgstr "to the article"
 
-#: templates/about.html:14
+#: templates/about.html:13
 msgid "pressrelease_heading"
 msgstr "Press releases"
 
-#: templates/about.html:15
+#: templates/about.html:14
 msgid "pm_start"
 msgstr "for the start of lagesonum.de on Sep 29, 2015"
 
-#: templates/base.html:8 templates/base.html.py:12 templates/base.html.py:14
-#: templates/base.html:17
-msgid "meta_description"
-msgstr ""
-"LAGeSoNUM is a page helping refugees to access their number assigned by the "
-"LAGeSo online"
+#: templates/about.html:27
+msgid "techimplementation"
+msgstr "Implementation"
 
-#: templates/base.html:10 templates/base.html.py:16 templates/base.html:20
+#: templates/about.html:30
+msgid "supportedbycoders"
+msgstr "Supported by"
+
+#: templates/about.html:32
+msgid "ongithub"
+msgstr "Source code and the list of all authors are available on "
+
+#: templates/about.html:34
+msgid "dataprivacyheading"
+msgstr "Data privacy declaration according to §13 Telemediengesetz"
+
+#: templates/about.html:37
+msgid "dataprivacy"
+msgstr "Declaration about data privacy"
+
+#: templates/base.html:9 templates/base.html.py:13 templates/base.html:15
+#: templates/base.html.py:18
+msgid "meta_description"
+msgstr "LAGeSoNUM is a page helping refugees to access their number assigned by the LAGeSo online"
+
+#: templates/base.html:11 templates/base.html.py:17 templates/base.html:21
 msgid "webpagetitle"
 msgstr "LAGeSoNUM - Online number display for refugee registration in Berlin"
 
-#: templates/display.html:7 templates/partials/navbar.html:21
+#: templates/contact.html:7 templates/partials/navbar.html:52
+msgid "contact_link"
+msgstr "Contact"
+
+#: templates/contact.html:9
+msgid "responsible_name"
+msgstr "Daniela Grebe"
+
+#: templates/contact.html:10
+msgid "responsible_address"
+msgstr "c/o Zesch, Bornemannstr. 11, 13357 Berlin"
+
+#: templates/display.html:7 templates/partials/navbar.html:50
 msgid "display_link"
 msgstr "Display"
 
 #: templates/display.html:11
 #, python-format
 msgid "numberdisplaytxt %(since)s %(min_count)s"
-msgstr ""
-"These numbers have been entered latest since %(since)s by at least "
-"%(min_count)s different - or authorized - persons."
+msgstr "These numbers have been entered latest since %(since)s by at least %(min_count)s different - or authorized - persons."
 
 #: templates/display.html:19
 msgid "alphabetorder"
-msgstr ""
-"The numbers here are sorted alphabetically. The order may be different from "
-"the order at the display."
+msgstr "The numbers here are sorted alphabetically. The order may be different from the order at the display."
 
 #: templates/display.html:21
 #, python-format
 msgid "nonumbersentered %(since)s %(min_count)s"
-msgstr ""
-"No numbers have been entered since %(since)s by at least %(min_count)s "
-"different persons. We need more volunteers, who enter numbers."
+msgstr "No numbers have been entered since %(since)s by at least %(min_count)s different persons. We need more volunteers, who enter numbers."
 
 #: templates/display.html:23 templates/partials/query_result.html:24
 msgid "pleasenote_title"
@@ -135,52 +141,15 @@ msgstr "Please note:"
 
 #: templates/display.html:24 templates/partials/query_result.html:25
 msgid "pleasenote"
-msgstr ""
-"This website started on September 28, 2015. Numbers before this date are not "
-"in the database."
+msgstr "This website started on September 28, 2015. Numbers before this date are not in the database."
 
 #: templates/enter.html:8
 msgid "help_pitch"
-msgstr ""
-"Are you at LaGeSo? Please help us to keep this site up to date by entering "
-"all numbers you can see displayed at the number display. (NOT your own "
-"waiting number)."
+msgstr "Are you at LaGeSo? Please help us to keep this site up to date by entering all numbers you can see displayed at the number display. (NOT your own waiting number)."
 
-#: templates/enter.html:19 templates/query.html:12
+#: templates/enter.html:19
 msgid "submit_label"
 msgstr "Submit"
-
-#: templates/imprint.html:7 templates/partials/navbar.html:23
-msgid "contact_link"
-msgstr "Contact"
-
-#: templates/imprint.html:11
-msgid "responsible_name"
-msgstr "Daniela Grebe"
-
-#: templates/imprint.html:12
-msgid "responsible_address"
-msgstr "c/o Zesch, Bornemannstr. 11, 13357 Berlin"
-
-#: templates/imprint.html:16
-msgid "techimplementation"
-msgstr "Implementation"
-
-#: templates/imprint.html:19
-msgid "supportedbycoders"
-msgstr "Supported by"
-
-#: templates/imprint.html:21
-msgid "ongithub"
-msgstr "Source code and the list of all authors are available on "
-
-#: templates/imprint.html:23
-msgid "dataprivacyheading"
-msgstr "Data privacy declaration according to §13 Telemediengesetz"
-
-#: templates/imprint.html:24
-msgid "dataprivacy"
-msgstr "Declaration about data privacy"
 
 #: templates/logged_out.html:8
 msgid "Thanks for spending some quality time with the Web site today."
@@ -196,19 +165,11 @@ msgstr ""
 
 #: templates/partials/enter_result.html:5
 msgid "entered"
-msgstr ""
-"Thanks a lot! You entered the following waiting number successfully into the "
-"database"
+msgstr "Thanks a lot! You entered the following waiting number successfully into the database"
 
 #: templates/partials/enter_result.html:16
 msgid "erruniquenumber"
-msgstr ""
-"You have already submitted this number. Please choose another one from the "
-"board. Thanks a lot for helping!"
-
-#: templates/partials/navbar.html:19
-msgid "searchanumber_link"
-msgstr "Your waiting number"
+msgstr "You have already submitted this number. Please choose another one from the board. Thanks a lot for helping!"
 
 #: templates/partials/query_result.html:8
 msgid "errnotfound"
@@ -227,55 +188,20 @@ msgstr "One person saw it and submitted it to this website on %(date)s."
 #: templates/partials/query_result.html:16
 #, python-format
 msgid "foundmultiple %(amount)s"
-msgstr ""
-"%(amount)s people have seen your number at the display at LaGeSo and entered "
-"it to this website."
+msgstr "%(amount)s people have seen your number at the display at LaGeSo and entered it to this website."
 
 #: templates/partials/query_result.html:19
 msgid "morelikely"
-msgstr ""
-"Please note: The more people have entered your number, the more likely it "
-"was really shown and not accidentally entered due to mistyping."
+msgstr "Please note: The more people have entered your number, the more likely it was really shown and not accidentally entered due to mistyping."
 
-#: templates/query.html:10
+#: templates/query.html:9
 msgid "Welcome to "
 msgstr ""
 
-#: templates/query.html:11
+#: templates/query.html:10
 msgid "Thank you!"
 msgstr ""
 
-#: templates/query.html:12
-msgid ""
-"Please enter you waiting number here to find out about the status of your "
-"registration process."
+#: templates/query.html:11
+msgid "Please enter you waiting number here to find out about the status of your registration process."
 msgstr ""
-
-#~ msgid "helpus_link"
-#~ msgstr "Join in!"
-
-#~ msgid "search_pitch"
-#~ msgstr ""
-#~ "You want to know, if your number has been called at LAGeSo? Enter it here "
-#~ "to find out!"
-
-#~ msgid "numberorigin_head"
-#~ msgstr "How do you know when my waiting number was displayed?"
-
-#~ msgid "numberorigin_xplain"
-#~ msgstr ""
-#~ "The waiting numbers are added by people waiting in the queue in front of "
-#~ "the waiting number display board or volunteers. If officials want to help "
-#~ "adding numbers please drop us a line!"
-
-#~ msgid "help entering numbers"
-#~ msgstr "Please help by entering numbers you see on the display."
-
-#~ msgid "helpus_link"
-#~ msgstr "Join in!"
-
-#~ msgid "searchanumber_link"
-#~ msgstr "Your waiting number"
-
-#~ msgid "Your waiting number %(number)s was seen at the display at LaGeSo!"
-#~ msgstr "Your wait num %(number)s was seen!"
