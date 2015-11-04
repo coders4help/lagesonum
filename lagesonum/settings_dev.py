@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.conf.urls import url, include
 
 from .settings import *
 
@@ -11,6 +12,7 @@ INTERNAL_IPS = [
 SECRET_KEY = 'ThisIsOnlyADevelopmentAndNotSoSecretKey'
 
 INSTALLED_APPS += (
+    'django.contrib.admindocs',
     'debug_toolbar',
 )
 

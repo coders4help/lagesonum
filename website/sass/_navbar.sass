@@ -10,7 +10,6 @@ nav
   background-color: white
   border-bottom: 10px solid $blue
   font-size: 18px
-  background-color: white
 
   .container
     height: 100%
@@ -20,6 +19,10 @@ nav
   @extend .vertical-middle
   height: 100%
 
+  .left
+    @media screen and (max-width: $break-small)
+      max-width: 60px
+
 
 ul.nav-collapse
   text-align: center
@@ -27,7 +30,7 @@ ul.nav-collapse
   border-bottom: 3px solid $blue
 
   li
-    transition: all 0.3s;
+    transition: all 0.3s
     cursor: pointer
     border-bottom: 1px solid $blue
     &:last-child
@@ -58,4 +61,6 @@ ul.nav-collapse
     line-height: $header-height-sm
 
   .logo
-    vertical-align:middle;
+    vertical-align: middle
+    @media screen and (max-width: $break-small)
+      max-width: 60px

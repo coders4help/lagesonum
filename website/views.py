@@ -1,24 +1,21 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import datetime
+import re
 
 from django import http
 from django.conf import settings
 from django.core.urlresolvers import reverse, resolve
-from django.db import IntegrityError
-from django.db.models import Count
-from django.http import JsonResponse
+from django.db.models import Count, Max
 from django.shortcuts import render
-from django.template import RequestContext, loader
 from django.utils.translation import LANGUAGE_SESSION_KEY, check_for_language
 
 from django.views.generic import TemplateView, RedirectView
 from django.views.generic.edit import FormMixin
 
-from datetime import datetime, timedelta, date
-
-from .forms import EnterForm, QueryForm
-from .models import Number, Place
+from .forms import QueryForm
+from .models import Number, Place, Holiday
 
 logger = logging.getLogger(__name__)
 
@@ -73,39 +70,28 @@ class QueryView(TemplateView, FormMixin):
     template_name = 'query.html'
 
     def get_context_data(self, **kwargs):
-        if not 'form' in kwargs:
+        if 'form' not in kwargs:
             kwargs['form'] = self.form_class()
         context = super().get_context_data(**kwargs)
+
+        # TODO make variable if multiple locations are served
+        context['location'] = Place.objects.get(name='LAGeSo').id
+
         return context
 
     def post(self, request, *args, **kwargs):
-        logger.debug(u'Ajax request: {}'.format(request.is_ajax()))
+        response_data = {'result': None, 'notfound': True}
 
-        response_data = {'result': None, 'timestamps': [], 'invalid': True}
-
+        location = None
         form = self.get_form()
         if form.is_valid():
-            numbers = []
-            try:
-                numbers = Number.objects.filter(number=form.cleaned_data.get('number'))
-            except:
-                pass
-
-            response_data.update({
-                'result': numbers[0].number if numbers else form.cleaned_data.get('number'),
-                'timestamps': [n.timestamp for n in numbers] if numbers else [],
-                'invalid': False,
-            })
+            location = form.cleaned_data.get('location')
+            number=form.cleaned_data.get('number')
+            response_data.update(self.query_number(location, number))
 
         response = None
+        response_data.update({'location': location.id if location else 0})
 
-        # If this is an ajax request, try to send partial response
-        if request.is_ajax():
-                response = JsonResponse({'result': loader.render_to_string(
-                    '/'.join(['partials', self.template_name.replace('.html', '_result.html')]),
-                    context_instance=RequestContext(request), dictionary=response_data)})
-
-        # Classical "full request", render complete template
         if not response:
             response_data.update({'form': form})
             response = render(request, self.template_name, dictionary=response_data)
@@ -123,6 +109,68 @@ class QueryView(TemplateView, FormMixin):
     def get_success_url(self):
         return reverse('query', args=self.args, kwargs=self.kwargs)
 
+    def query_number(self, location, number):
+        result = {'result': number, 'notfound': True}
+
+        try:
+            n = Number.objects.filter(location=location, number=number).get()
+        except Number.DoesNotExist:
+            if re.match(u'(?ai)[A-Z]\d{3}|[A-C][A-Z]\d{2}', number):
+                # "normal" not found
+                result.update({'notfound': True})
+            elif re.match(u'[D-Z][A-Z]\d{2}', number):
+                # "special" not found: newer numbers
+                result.update({'notfound': True, 'new_process': True})
+        else:
+            result.update({'notfound': False})
+            if not n.appointment:
+                n.appointment = self.get_next_appointment(location, n.incomplete)
+                n.save(force_update=True)
+
+            result.update({
+                'result': n.number,
+                'appointment': n.appointment,
+                'incomplete': n.incomplete,
+                'missed': not n.incomplete,
+            })
+        return result
+
+    def get_next_appointment(self, location, incomplete):
+        query = Number.objects.filter(location=location, incomplete=incomplete, appointment__gt=datetime.date.min)
+        maxdate = query.aggregate(maxdate=Max('appointment')).get('maxdate')
+        if not maxdate:
+            # FIXME Make this 'DAY_ONE' location related
+            return location.release_date
+            # settings.APP_SETTINGS.get('APPOINTMENTS').get('DAY_ONE')
+
+        count_query = Number.objects.filter(location=location, incomplete=incomplete, appointment=maxdate)\
+            .values('appointment').annotate(count=Count('appointment')).order_by('appointment')
+
+        query_result = count_query.get()
+        count = query_result.get('count', 0)
+        # FIXME Make this 'PER_DAY' location related
+        # max_per_day_settings = settings.APP_SETTINGS.get('APPOINTMENTS').get('PER_DAY')
+        # if count < max_per_day_settings.get('INCOMPLETE' if incomplete else 'MISSED'):
+        per_day = location.per_day_incomplete if incomplete else location.per_day_missed
+        if count < per_day:
+            return maxdate
+        else:
+            return self.get_next_working_day(location, maxdate)
+
+    @staticmethod
+    def get_next_working_day(location, maxdate):
+        for i in range(1, 7):
+            next_day = maxdate + datetime.timedelta(i)
+            # FIXME Add list of holidays (etc.) to calculation
+            if 1 <= next_day.isoweekday() <= 5:
+                try:
+                    Holiday.objects.get(location=location, date=next_day)
+                    continue
+                except Holiday.DoesNotExist:
+                    return next_day
+
+        return None
+
 
 class DisplayView(TemplateView):
     template_name = 'display.html'
@@ -130,7 +178,10 @@ class DisplayView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        oldest_to_be_shown = datetime.combine(date.today() - timedelta(days=settings.APP_SETTINGS['DISPLAY']['MAX_DAYS']), datetime.min.time())
+        oldest_to_be_shown = datetime.datetime.combine(datetime.date.today() -
+                                                       datetime.timedelta(
+                                                           days=settings.APP_SETTINGS['DISPLAY']['MAX_DAYS']),
+                                                           datetime.datetime.min.time())
 
         verified_numbers = Number.objects.filter(timestamp__gte=oldest_to_be_shown, user__isnull=False)\
             .order_by('-timestamp')\
@@ -156,5 +207,3 @@ class DisplayView(TemplateView):
         context['min_count'] = 3
         context['since'] = oldest_to_be_shown
         return context
-
-

@@ -23,7 +23,7 @@ a:focus
   outline: 0
 
 input,
-input:focus,
+input:focus
   outline: 0
   border: none
   font-size: 36px
@@ -34,6 +34,9 @@ h1
   line-height: 46px
   text-align: center
   margin: 30px 0 20px
+  @media screen and (max-width: $break-small)
+    font-size: 32px
+    margin: 20px 0 15px
 
 h2
   font-weight: 400
@@ -49,8 +52,8 @@ p
 // GRID
 // -------------------
 .container
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 960px
+  margin: 0 auto
   padding: 0 30px
 
 

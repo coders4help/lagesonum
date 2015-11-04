@@ -12,8 +12,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+import datetime
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -134,8 +136,16 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../htdocs/static/')
 
 APP_SETTINGS = {
-    'DISPLAY': {
-        'MAX_DAYS': 60,
-        'SIZE': 180,
-    }
+    # 'DISPLAY': {
+    #     'MAX_DAYS': 60,
+    #     'SIZE': 180,
+    # },
+    'APPOINTMENTS': {
+        # TODO Fetch from environment variables?
+        'DAY_ONE': datetime.date(2015, 11, 4),
+        'PER_DAY': {
+            'INCOMPLETE': 300,
+            'MISSED': 100,
+        },
+    },
 }

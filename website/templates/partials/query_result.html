@@ -1,28 +1,43 @@
 {% load i18n %}
 {% spaceless %}
 {% if result %}
-  {% if invalid_input %}
-    <div class="alert alert-warning" role="alert" id="failure" style="display: none;">{% trans 'errinvalinput' %}</div>
-  {% else %}
-    {% if timestamps|length_is:0 %}
-      <div class="alert alert-warning" role="alert">{% trans 'errnotfound' %}</div>
-    {% else %}
-      <div class="alert alert-success" role="alert">
-        {% blocktrans with result as number %}querysuccess {{ number }}{% endblocktrans %}<br><br>
-
-        {% if timestamps|length_is:1 %}
-           {% blocktrans with timestamps.0|date:'d.m.Y' as date %}foundonce {{ date }}{% endblocktrans %} <br><br>
+    <div>
+    {% if notfound %}
+        {% if new_process %}
+            {% blocktrans trimmed %}
+                You have entered a number that was given after October 14th.
+                Please follow the instructions given at your pre-registration at Turmstraße:
+                Please stay at your appointed accomodation to continue your registration process.
+                You will be picked up to be taken to registration within few days.
+                You will learn about your appointment at your accommodation.
+            {% endblocktrans %}
         {% else %}
-           {% blocktrans with timestamps|length as amount and timestamps.0 as date %}foundmultiple {{ amount }}{% endblocktrans %}
+            {% blocktrans trimmed %}
+                Sorry, your number cannot be found in lagesonum.
+                Please visit LAGeSo, House A (queue "Wartemarken") to get an appointment
+            {% endblocktrans %}
         {% endif %}
-
-        {% trans 'morelikely' %}
-      </div>
+    {% elif incomplete %}
+        {% blocktrans trimmed with appointment=appointment|date%}
+            Thank you.
+            In case you have not yet finalized your first registration,
+            please visit LAGeSo, House A (queue "Wartemarken"), on {{ appointment }}
+            (there is no need to appear at LAGeSo campus before working hours).
+            During this first registration you will get a new appointment for the pick-up of your documents.
+        {% endblocktrans %}
+    {% elif missed %}
+        {% blocktrans trimmed with appointment=appointment|date %}
+            Thank you.
+            Your documents are ready.
+            Please visit LAGeSo, House J, on {{ appointment }} to pick them up.
+        {% endblocktrans %}
+    {% elif appointment %}
+        {% blocktrans trimmed %}
+            Thank you.
+            Your documents are ready and you have an appointment.
+            Please visit LAGeSo, House J at the specified appointment date.
+        {% endblocktrans %}
     {% endif %}
-  {% endif %}
-
-<h3>{% trans 'pleasenote_title' %}</h3>
-<p>{% trans 'pleasenote' %}</p>
-
+    </div>
 {% endif %}
 {% endspaceless %}

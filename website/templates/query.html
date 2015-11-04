@@ -12,18 +12,27 @@
                 </div>
                 <form class="number-input-container form-inline" action="{% url 'query' %}" method="post" style="margin-bottom:20px;" id="query-form" role="form">
                     {% csrf_token %}
-                    <input class="input-number" placeholder="A123" type="text" />
+                    <input class="input-number" name="number" placeholder="A123" type="text" value="{{ form.number.value|default_if_none:"" }}" accesskey="s"/>
+                    <input class="hidden" name="location" type="hidden" value="{{ location|default_if_none:"0" }}" />
                     <input class="button-number search" type="submit" value="" />
                     <button class="button-number resetSearch">
                     </button>
                 </form>
+            {% if form.errors or result %}
+                <div class="response-container">
+                {% if form.errors %}
+                    {% if form.errors.number %}
+                        {{ form.errors.number.as_ul }}
+                    {% endif %}
+                {% elif result %}
+                    {% include 'partials/query_result.html' %}
+                {% endif %}
+                </div>
+            {% endif %}
 
-                <div class="response-container">Your number has not been seen at LaGeSo. Register your email or phone to be notified when it is reported.</div>
+                    <!--Your number has not been seen at LaGeSo. Register your email or phone to be notified when it is reported.-->
             </div>
         </section>
-    <!--     {% if result %}
-            {% include 'partials/query_result.html' %}
-        {% endif %} -->
     {% endspaceless %}
 {% endblock %}
 

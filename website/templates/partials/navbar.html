@@ -6,6 +6,7 @@
 {% url 'about' as about %}
 {% url 'contact' as contact %}
 {% endspaceless %}
+{% spaceless %}
 <nav>
   <div class="container">
     <div class="navbar left">
@@ -20,11 +21,7 @@
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
         <div class="language-dropdown">
-<!--           <a href="#" onClick="clickLanguageSelect();" class="dropdown-toggle" data-foo="{{ current.code }}">
-            <img src="{% static 'img/language_translate.png' %}" alt="pick a language" class="navbar-lang-icon" height="30">
-            <span class="caret"/>
-          </a>
- -->          <form id="setlang-form" action="{% url 'set_lang' %}" method="POST">
+          <form id="setlang-form" action="{% url 'set_lang' %}" method="POST">
             {% csrf_token %}
             <select name="lang">
               <option class="active" value="{{ current.code }}" onclick="document.setLang{{ language.code|capfirst }}.submit();return false;">{{ current.name_local|capfirst }}</option>
@@ -51,3 +48,4 @@
   <li class="{% active request '/about$' %}"><a href="{{ about }}">{% trans 'about_link' %}</a></li>
   <li class="{% active request '/contact$' %}"><a href="{{ contact }}">{% trans 'contact_link' %}</a></li>
 </ul>
+{% endspaceless %}

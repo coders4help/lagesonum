@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import re
 
 from django import forms
 from django.core.exceptions import ValidationError
@@ -52,6 +53,7 @@ class QueryForm(forms.ModelForm):
     error_css_class = 'error'
     required_css_class = 'required'
 
+    location = forms.ModelChoiceField(queryset=Place.objects, widget=forms.HiddenInput())
     number = forms.CharField(widget=forms.TextInput(
         attrs={'id': 'numberfield', 'required': True, 'label': _('txtnumber'), 'placeholder': _('queryexample'),
                'class': 'form-control', 'role': 'search'}
@@ -60,13 +62,15 @@ class QueryForm(forms.ModelForm):
     class Meta:
         model = Number
         fields = ['number']
-        """
-        widgets = {
-            'number': forms.TextInput(
-                attrs={'id': 'numberfield', 'required': True,
-                       'label': _('txtnumber'), 'placeholder': _('queryexample'),
-                       'class': 'form-control',
-                       }
-            ),
-        }
-        """
+
+    def _post_clean(self):
+        number = self.cleaned_data.get('number', None)
+        location = self.cleaned_data.get('location', None)
+
+        if location and number:
+            validation = location.validation
+            if validation and re.search(validation, number):
+                return
+
+        err_msg = location.validation_msg if location else _('Invalid number format')
+        self.add_error('number', ValidationError(_(err_msg), params={'number': number}))

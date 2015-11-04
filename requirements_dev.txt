@@ -1,5 +1,6 @@
 -r requirements.txt
 django-debug-toolbar==1.4
+docutils==0.12
 sqlparse==0.1.16
 transifex-client==0.11.1b0
 libsass

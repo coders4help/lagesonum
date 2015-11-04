@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import date, timedelta
 
 from django.db import models
 from django.conf import settings
@@ -14,6 +15,10 @@ class Place(models.Model):
 
     name = models.CharField(max_length=20, unique=True, verbose_name=_('place'))
     validation = models.CharField(max_length=256, verbose_name=_('pattern'))
+    validation_msg = models.CharField(max_length=256, verbose_name=_('pattern message'))
+    release_date = models.DateField(default=date.today() + timedelta(days=1), verbose_name=_('release date'))
+    per_day_incomplete = models.PositiveIntegerField(verbose_name=_('incomplete cases per day'))
+    per_day_missed = models.PositiveIntegerField(verbose_name=_('missed appointments per day'))
 
     class Meta:
         verbose_name = _('place')
@@ -35,17 +40,33 @@ class Number(models.Model):
 
     description = u'A number shown at a place and entered into dataset'
 
-    number = models.CharField(max_length=30, verbose_name=_('number'))
+    number = models.CharField(max_length=30, unique=True, verbose_name=_('number'))
     timestamp = models.DateTimeField(default=now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='+', on_delete=models.SET_NULL)
     location = models.ForeignKey('Place', on_delete=models.PROTECT)
-    fingerprint = models.CharField(max_length=32)
+
+    appointment = models.DateField(null=True, blank=True, db_index=True, verbose_name=_('appointment'))
+    incomplete = models.BooleanField(default=False, db_index=True, verbose_name=_('incomplete registration'))
 
     class Meta:
         verbose_name = _('number')
         verbose_name_plural = _('numbers')
-        unique_together = (('number', 'fingerprint'),)
 
     def __str__(self):
-        return '{}@{} (Timestamp: {}; User: {})'.format(self.number, self.location if self.location_id else None,
-                                                        self.timestamp, self.user if self.user_id else None)
+        return '{}@{} (Timestamp: {}; Incomplete: {}; Appointment: {})'\
+            .format(self.number, self.location, self.timestamp, self.incomplete, self.appointment)
+
+
+class Holiday(models.Model):
+
+    description = u'Weekdays not work is done'
+
+    location = models.ForeignKey('Place', on_delete=models.CASCADE)
+    date = models.DateField(null=False, blank=False, db_index=True, verbose_name=_('dayoff'))
+
+    class Meta:
+        verbose_name = _('holiday')
+        verbose_name_plural = _('holidays')
+
+    def __str__(self):
+        return '{}@{}'.format(self.date, self.location)

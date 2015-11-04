@@ -26,6 +26,7 @@ import django.conf.urls.i18n
 import django.views.generic
 
 urlpatterns = [
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^auth/login/$', auth_views.login, name='login', kwargs={'template_name': 'login.html'}),
     url(r'^auth/logout/$', auth_views.logout, name='logout', kwargs={'template_name': 'logged_out.html'}),
