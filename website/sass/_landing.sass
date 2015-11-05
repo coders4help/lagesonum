@@ -1,11 +1,21 @@
 .query
+  min-height: calc(100% - 185px)
   text-align: center
+  @media screen and (max-width: $break-small)
+    min-height: calc(100% - 155px)
 
 .second-heading
   display: none // Show it later
+  font-size: 40px
+  font-weight: 300
 
 .number-input-container
   padding-right: 80px
+
+.description
+  max-width: 460px
+  margin: 0 auto 33px
+  font-weight: 300
 
 .input-number
   position: relative
@@ -14,8 +24,11 @@
   color: $blue
   text-transform: uppercase
   text-align: center
+  font-weight: 600
   &:invalid
     box-shadow: none
+  @include placeholder
+    font-weight: 200
 
 .button-number
   position: absolute
@@ -28,13 +41,14 @@
 
 .resetSearch
   display: none
-  background: $blue url("../img/delete-icon.svg") no-repeat 50% 50%
+  background: $orange url("../img/delete-icon.svg") no-repeat 50% 50%
   &:hover
     opacity: .95
 
 
 .response-container
   position: relative
+  display: none
   max-width: 500px
   margin: 20px auto 70px
   padding: 20px
