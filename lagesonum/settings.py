@@ -122,8 +122,7 @@ USE_TZ = True
 LANGUAGES = (
     ('ar', u'العربية'),
     ('de', u'Deutsch'),
-    ('en', u'English'),
-    ('eo', u'Esperanto'),
+    ('en', u'English')
 )
 
 

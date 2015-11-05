@@ -13,7 +13,6 @@
         <img class="logo" alt="LAGeSoNUM" src="{% static 'img/logo-blue.png' %}">
       </a>
     </div>
-    <!-- HAMBURGER MENU -->
     <div class="navbar right">
       {% if i18n_is_set or True %}
         {% get_language_info for request.LANGUAGE_CODE as current %}
@@ -32,7 +31,7 @@
             </select>
             <input type="hidden" name="next" value="{% get_current_view request %}"/>
           </form>
-        </div>
+        </div><!-- TODO: Add class .arabic-text to body when changing to Arabic | Use language selection on About and Contact pages -->
       {% endif %}
     </div>
   </div>
