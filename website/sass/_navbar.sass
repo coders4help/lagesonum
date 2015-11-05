@@ -39,17 +39,41 @@ ul.nav-collapse
       color: $blue
 
 
-.language-dropdown
-  margin: 0 30px 0 0
+.language-select
+  width: 97px
+  height: 50px
+  padding-right: 20px
+  color: $blue
+  font-size: 20px
+  font-weight: 300
+  font-family: inherit
+  border: none
+  outline: none
+  text-indent: 1px
+  text-overflow: ""
+  text-align: center
+  background-color: $lightBlue
+  @include appearance(none)
+  &::-moz-focus-inner,
+  &:focus
+    outline: none
+    border: 0
 
-  form, .dropdown-toggle
-    display: inline-block
-    vertical-align: middle
+#setlang-form
+  position: relative
 
-  select
-    background: transparent
-    border: none
-    font-size: 20px
+#setlang-form:after
+  position: absolute
+  top: 48%
+  right: 10px
+  border: solid transparent
+  content: " "
+  height: 0
+  width: 0
+  pointer-events: none
+  border-color: transparent
+  border-top-color: $blue
+  border-width: 5px
 
 .logo-link
   display: block
@@ -58,4 +82,4 @@ ul.nav-collapse
     line-height: $header-height-sm
 
   .logo
-    vertical-align:middle;
+    vertical-align:middle

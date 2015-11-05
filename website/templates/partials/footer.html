@@ -1,4 +1,17 @@
-<div class="container">
-  <p class="alert alert-info">Diese Seite befindet sich noch im Testbetrieb. Es können unerwartete Störungen auftreten. Wir bitten um Entschuldigung.
-This website is still being tested. Unexpected errors may occur. We apologize for any inconvenience.</p>
+{% spaceless %}
+{% load staticfiles i18n tags %}
+{% url 'about' as about %}
+{% url 'contact' as contact %}
+{% endspaceless %}
+<div class="footer">
+	<div class="container">
+	  	<ul class="menu-list">
+	  		<li class="menu-list-item">
+	  			<a href="{{ about }}">{% trans 'About' %}</a>
+	  		</li>
+	  		<li class="menu-list-item">
+	  			<a href="{{ contact }}">{% trans 'Contact' %}</a>
+	  		</li>
+	  	</ul>
+	</div>
 </div>
