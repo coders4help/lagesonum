@@ -205,3 +205,35 @@ msgstr ""
 #: templates/query.html:11
 msgid "Please enter your waiting number here, to find out about the status of your registration process."
 msgstr ""
+
+#: templates/about.html:8
+msgid "about_p1"
+msgstr "This website was created by volunteers. Its purpose is for people applying for asylum that are currently not at LaGeSo to be able to check if their waiting number has already been called. The registration process for people in shelters is intransparent and constantly changing without people being properly informed. There have been some mobile registration teams, there have been shuttle services to LaGeSo and in all cases there hast been a lot of idling and waiting and not being informed. Having to wait for weeks leads to people distrusting the system and also gives everyone the feeling that they are missing something. That's why they are walking back to LaGeSo and spending their nights homeless, which is a bad situation giving the falling temperatures and crimes."
+
+#: templates/about.html:9
+msgid "about_p2"
+msgstr "We hope this website will aid in making the entire waiting number process more transparent. People with waiting numbers, please send us feedback, what information you are missing and we will do our best to make it available to you!"
+
+#: templates/about.html:10
+msgid "about_p3"
+msgstr "You can read more about this problem in German in an article from the newspaper taz."
+
+#: templates/about.html:14
+msgid "about_p4"
+msgstr "Kristian Rother & Felix Zesch. Supported by coders4help and #refugeehackathon. Source code and the list of all authors are available on Github."
+
+#: templates/about.html:19
+msgid "about_p5"
+msgstr "This privacy statement explains users about the nature, scope and purpose of collection and use of personal data by the responsible provider on this Web site (hereinafter 'Offer') on. The legal basis of data protection can be found in the Federal Data Protection Act (Act) and the Telemedia Act ( TMG). According to § 28 BDSG we contradict every commercial use and passing on of our data. Provider § 6 TDG / § 10 paragraph 3 MDStV"
+
+#: templates/about.html:20
+msgid "about_p6"
+msgstr "The provider (or his internet provider) collects data on each access to the offer (so-called server log files). To access data include: name of the downloaded Web page, file, date and time of access, amount of data transferred, notification of successful retrieval, browser type plus version, the operating system of the user, referrer URL (previously visited page), IP address and the requesting provider. The provider uses the log data only for statistical evaluations for the purpose of operation, security and the optimization of the offer. The provider reserves the right, however, the log data to check later if there is reasonable suspicion of unlawful use due to concrete indications."
+
+#: templates/about.html:21
+msgid "about_p7"
+msgstr "Personal information is information that will help a person is identifiable, ie information that can be traced back to a person. This includes the name, the e-mail address or phone number. But data on preferences, hobbies, memberships or which websites were viewed by someone among personal data. Personal data will only be collected from the seller, used and passed on, if permitted by law or consent the user in the data collection."
+
+#: templates/about.html:22
+msgid "about_p8"
+msgstr "The user has the right to obtain information free of charge about the personal data stored about him. In addition, the user has the right to correct inaccurate data, blocking and deletion of their personal data, insofar as the there is no legal obligation to retain. Notice patterns of lawyer Thomas Schwenke - I LAW IT"

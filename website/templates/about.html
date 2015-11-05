@@ -1,65 +1,36 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-  <div class="container">
-
-    <h1>{% trans 'about_link' %}</h1>
-
-    <p>{% trans 'about_par1' %}</p>
-    <p>{% trans 'about_par2' %}</p>
-    <p>{% trans 'about_par3' %}</p>
-    <p><a href="http://www.taz.de/Wartezeiten-am-Berliner-Lageso/!5228958/">{% trans 'tazlink' %}</a></p>
-
-    <h1>{% trans 'pressrelease_heading' %}</h1>
-    <a href="pm-start" target="_blank">{% trans 'pm_start' %}</a>
-
-    <div align="center">
-    <a class="twitter-timeline" href="https://twitter.com/lagesonum" data-widget-id="648776089519702016">Tweets von @lagesonum </a>
-    <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],
-      p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id))
-      {js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);}}
-      (document,"script","twitter-wjs");
-    </script>
+<section class="about">
+    <div class="container">
+        <div class="content">
+            <h1>{% trans 'About' %}</h1>
+            <p>{% trans 'about_p1' %}</p>
+            <p>{% trans 'about_p2' %}</p>
+            <p>{% trans 'about_p3' %}</p>
+        </div>
+        <div class="content">
+            <h2>{% trans 'Implementation' %}</h2>
+            <p>{% trans 'about_p4' %}</p>
+        </div>
+        <div class="content">
+            <h2>{% trans 'Privacy Notice' %}</h2>
+            <p><strong>{% trans 'Declaration According to §13 German Telemedia Act' %}</strong></p>
+            <p>{% trans 'about_p5' %}</p>
+            <p><strong>{% trans 'Access data / server log files' %}</strong><br>{% trans 'about_p6' %}</p>
+            <p><strong>{% trans 'Handling of personal data' %}</strong><br>{% trans 'about_p7' %}</p>
+            <p><strong>{% trans 'Revocation, changes, corrections and updates' %}</strong><br>{% trans 'about_p8' %}</p>
+        </div>
+        <div class="content">
+            <h2>{% trans 'Press Releases' %}</h2>
+            <p>{% trans '29 Sept, 2015 - On the start of LAGeSoNUM.de' %}</p>
+        </div>
+        <div class="content">
+            <h2>{% trans 'Follow Us On Twitter' %}</h2>
+            <a href="https://twitter.com/lagesonum" class="twitter-follow-button" data-show-count="false">Follow @lagesonum</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            </script>
+        </div>
     </div>
-
-    <h1>{% trans 'techimplementation' %}</h1>
-    <a href="http://www.academis.eu" target="_blank">Kristian Rother</a> &amp; <a href="http://www.felix-zesch.de" target="_blank">Felix Zesch</a>.
-
-    {% trans 'supportedbycoders' %} coders4help + <a href="http://www.refugeehackathon.de">#refugeehackathon</a>.
-
-    <p>{% trans 'ongithub' %} <a href="https://github.com/volunteer-planner/lagesonum/">Github</a>.</p>
-
-    <h1>{% trans 'dataprivacyheading' %}</h1>
-
-    <!--TODO: Structure this stuff -->
-    <p><strong>{% trans 'dataprivacy' %}</strong></p>
-
-    <p><strong>Geltungsbereich</strong></p>
-    <p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter auf dieser Website (im folgenden “Angebot”) auf.<br />
-    <br />
-    Die rechtlichen Grundlagen des Datenschutzes finden sich im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG).</p>
-
-    <p><strong>Zugriffsdaten/ Server-Logfiles</strong></p>
-    <p><span class="sd-muster-content">Der Anbieter (beziehungsweise sein Webspace-Provider) erhebt Daten über jeden Zugriff auf das Angebot (so genannte Serverlogfiles). Zu den Zugriffsdaten gehören:<br />
-    <br />
-    Name der abgerufenen Webseite, Datei, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Meldung über erfolgreichen Abruf, Browsertyp nebst Version, das Betriebssystem des Nutzers, Referrer URL (die zuvor besuchte Seite), IP-Adresse und der anfragende Provider.<br />
-    <br />
-    Der Anbieter verwendet die Protokolldaten nur für statistische Auswertungen zum Zweck des Betriebs, der Sicherheit und der Optimierung des Angebotes. Der Anbieterbehält sich jedoch vor, die Protokolldaten nachträglich zu überprüfen, wenn aufgrund konkreter Anhaltspunkte der berechtigte Verdacht einer rechtswidrigen Nutzung besteht.</span></p>
-
-    <p><strong>Umgang mit personenbezogenen Daten</strong></p>
-    <p><span class="sd-muster-content">Personenbezogene Daten sind Informationen, mit deren Hilfe eine Person bestimmbar ist, also Angaben, die zurück zu einer Person verfolgt werden können. Dazu gehören der Name, die Emailadresse oder die Telefonnummer. Aber auch Daten über Vorlieben, Hobbies, Mitgliedschaften oder welche Webseiten von jemandem angesehen wurden zählen zu personenbezogenen Daten.<br />
-    <br />
-    Personenbezogene Daten werden von dem Anbieter nur dann erhoben, genutzt und weiter gegeben, wenn dies gesetzlich erlaubt ist oder die Nutzer in die Datenerhebung einwilligen.</span></p>
-
-    <p><strong>Widerruf, Änderungen, Berichtigungen und Aktualisierungen</strong></p>
-    <p>Der Nutzer hat das Recht, auf Antrag unentgeltlich Auskunft zu erhalten über die personenbezogenen Daten, die über ihn gespeichert wurden. Zusätzlich hat der Nutzer das Recht auf Berichtigung unrichtiger Daten, Sperrung und Löschung seiner personenbezogenen Daten, soweit dem keine gesetzliche Aufbewahrungspflicht entgegensteht.<br />
-    </p>
-    <p>Gemäß § 28 BDSG widersprechen wir jeder kommerziellen Verwendung und Weitergabe unserer Daten.</p>
-    <p><a href="http://rechtsanwalt-schwenke.de/smmr-buch/datenschutz-muster-generator-fuer-webseiten-blogs-und-social-media/"><strong>Datenschutz-Muster von Rechtsanwalt Thomas Schwenke - I LAW it</strong></a></p>
-  </div>
-
-
-
+</section>
 {% endblock %}

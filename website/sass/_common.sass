@@ -13,8 +13,14 @@ body
   margin: 0
   background-color: $background
   color: $blue
-  font-family: 'Source Sans Pro', 'Armir', sans-serif
+  
 
+body
+  font-family: 'Source Sans Pro', 'Armir', sans-serif
+  &.arabic-text *
+    font-family: 'Armir', 'Source Sans Pro', sans-serif
+  &.arabic-text .about *
+    text-align: right
 a,
 a:hover,
 a:visited,
@@ -39,8 +45,8 @@ h1
     margin-bottom: 10px
 
 h2
-  font-weight: 400
-  font-size: 24px
+  font-weight: 700
+  font-size: 26px
   text-align: center
 
 p
