@@ -1,0 +1,40 @@
+.contact
+  p
+    line-height: 34px
+    font-weight: 300
+  
+  .content:last-child
+    padding-bottom: 60px
+
+.contact-textarea
+  display: block
+  width: 100%
+  height: 130px
+  max-width: 620px
+  margin: auto
+  padding: 20px
+  border: 0
+  resize: none
+  overflow: hidden
+  font-size: 20px
+  font-weight: 300
+  color: $blue
+  font-family: $fontNormal
+  @include placeholder
+    font-size: 20px
+    font-weight: 300
+    color: $blue
+    font-family: $fontNormal
+    // TODO: Define font and alignment change on arabic
+
+.contact-submit
+  width: 100%
+  height: 60px
+  max-width: 620px
+  font-size: 20px
+  border: 0px none
+  background-color: $green
+  color: white
+  &:active
+    padding: 0
+  

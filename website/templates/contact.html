@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+<section class="contact">
   <div class="container">
-        <div class="starter-template">
-
-  <h2>{% trans 'contact_link' %}</h2>
-  <p>Anbieter § 6 TDG / § 10 Absatz 3 MDStV:</p>
-  <p>{% trans 'responsible_name' %}<br/>
-  {% trans 'responsible_address' %}</p>
-
-  <a href="mailto:kontakt@lagesonum.de" target="_blank">kontakt@lagesonum.de</a>
-
-  <div class="contact-form">
-    <form action="contact">
-      <input class="" type="textarea" />
-      <input type="submit" />
-    </form>
+    <div class="content">
+      <h1>{% trans 'Contact' %}</h1>
+      <p><strong>Daniela Grebe</strong><br/>c/o Zesch, Bornemannstr. 11,<br/>13357 Berlin<br/><a href="mailto:kontakt@lagesonum.de">kontakt@lagesonum.de</a></p>
+    </div>
+    <div class="content contact-form">
+      <form action="contact">
+        <textarea class="contact-textarea" type="textarea" placeholder="{% trans 'Your message...' %}"></textarea>
+        <button class="contact-submit" type="submit">{% trans 'Send' %}</button><!-- TODO: Send form -->
+      </form>
+    </div>
   </div>
-
+</section>
 {% endblock %}

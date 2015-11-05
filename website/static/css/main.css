@@ -13,9 +13,9 @@ body {
   color: #1E51BD; }
 
 body {
-  font-family: 'Source Sans Pro', 'Armir', sans-serif; }
+  font-family: "Source Sans Pro", "Armir", sans-serif; }
   body.arabic-text * {
-    font-family: 'Armir', 'Source Sans Pro', sans-serif; }
+    font-family: "Armir", "Source Sans Pro", sans-serif; }
   body.arabic-text .about * {
     text-align: right; }
 
@@ -49,7 +49,7 @@ h2 {
   text-align: center; }
 
 p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 21px; }
 
 .container {
@@ -277,3 +277,56 @@ section {
 
 #twitter-widget-0 {
   text-align: left; }
+
+.contact p {
+  line-height: 34px;
+  font-weight: 300; }
+
+.contact .content:last-child {
+  padding-bottom: 60px; }
+
+.contact-textarea {
+  display: block;
+  width: 100%;
+  height: 130px;
+  max-width: 620px;
+  margin: auto;
+  padding: 20px;
+  border: 0;
+  resize: none;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 300;
+  color: #1E51BD;
+  font-family: "Source Sans Pro", "Armir", sans-serif; }
+  .contact-textarea::-webkit-input-placeholder {
+    font-size: 20px;
+    font-weight: 300;
+    color: #1E51BD;
+    font-family: "Source Sans Pro", "Armir", sans-serif; }
+  .contact-textarea::-moz-placeholder {
+    font-size: 20px;
+    font-weight: 300;
+    color: #1E51BD;
+    font-family: "Source Sans Pro", "Armir", sans-serif; }
+  .contact-textarea:-moz-placeholder {
+    font-size: 20px;
+    font-weight: 300;
+    color: #1E51BD;
+    font-family: "Source Sans Pro", "Armir", sans-serif; }
+  .contact-textarea:-ms-input-placeholder {
+    font-size: 20px;
+    font-weight: 300;
+    color: #1E51BD;
+    font-family: "Source Sans Pro", "Armir", sans-serif; }
+
+.contact-submit {
+  width: 100%;
+  height: 60px;
+  max-width: 620px;
+  font-size: 20px;
+  border: 0px none;
+  background-color: #7ED321;
+  color: white; }
+  .contact-submit:active {
+    padding: 0; }
